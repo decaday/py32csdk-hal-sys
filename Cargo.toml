@@ -13,7 +13,7 @@ exclude = [
     "PY32F0_Drivers/CMSIS/DSP_Lib", "PY32F0_Drivers/Examples",
     "PY32F0_Drivers/PY32F0xx_LL_Driver", "PY32F0_Drivers/PY32F002B_LL_Driver"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 
 [dependencies]
 
@@ -21,17 +21,19 @@ exclude = [
 [build-dependencies]
 # https://github.com/rust-lang/rust-bindgen/pull/2369
 # bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
-bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
-# bindgen = "0.69"
+# bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
+bindgen = { version = "0.69", features = ["experimental"], optional = true}
 cc = { version = "1.0", optional = true}
+
 
 
 [patch.crates-io]
 # not work
 cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
-# cmacro = { path = "../cmacro-rs" }
+
 # bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
-bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
+# bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
+
 
 
 [features]
