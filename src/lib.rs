@@ -8,11 +8,5 @@
 #![allow(clippy::transmute_int_to_bool)]
 #![feature(offset_of)]
 
-#[cfg(not(feature = "regenerate-bindings"))]
-include!(concat!(
-env!("CARGO_MANIFEST_DIR"),
-"/src/bindings/bindings.rs"
-));
 
-#[cfg(feature = "regenerate-bindings")]
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));

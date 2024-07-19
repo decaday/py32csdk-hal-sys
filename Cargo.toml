@@ -1,6 +1,6 @@
 [package]
 name = "py32csdk-hal-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license-file = "LICENSE"
 description = "PY32 HAL bindings"
@@ -21,22 +21,21 @@ exclude = [
 [build-dependencies]
 # https://github.com/rust-lang/rust-bindgen/pull/2369
 # bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
-# bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"]}
-bindgen = "0.69"
+bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
+# bindgen = "0.69"
+cc = { version = "1.0", optional = true}
 
-cc = "1.0"
-glob = "0.3"
 
-# not work
 [patch.crates-io]
+# not work
 cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
 # cmacro = { path = "../cmacro-rs" }
 # bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
-bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"]}
+bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
 
 
 [features]
-default = ["recompile","py32_0-A"]
-recompile = ["regenerate-bindings"]
-regenerate-bindings = []
+default = ["py32_0-A"]
+recompile = ["regenerate-bindings", "cc"]
+regenerate-bindings = ["bindgen"]
 py32_0-A = []

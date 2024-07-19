@@ -6,7 +6,6 @@ This is a crate that generates bindings using the C SDK for PY32F0. Currently, i
 
 **TODO:**
 
-- Precompilation
 - Macro functions
 
 

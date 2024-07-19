@@ -1,27 +1,49 @@
 use std::env;
 use std::path::PathBuf;
+use std::fs;
+
+#[cfg(feature = "recompile")]
 use cc::Build;
+
+#[cfg(feature = "regenerate-bindings")]
 use bindgen;
 
 fn main() {
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let mut out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
     #[cfg(feature = "recompile")]
-    compile(out_path);
+    compile(&mut out_path);
 
     #[cfg(feature = "regenerate-bindings")]
-    generate_bindings();
+    generate_bindings(&mut out_path);
 
     #[cfg(not(feature = "recompile"))]
-    compile();
+    copy_lib_file(&mut out_path);
 
     #[cfg(not(feature = "regenerate-bindings"))]
-    generate_bindings();
+    copy_bindings_file(&mut out_path);
 
 
 }
 
-fn compile(out_path: PathBuf){
+#[cfg(not(feature = "recompile"))]
+fn copy_lib_file(out_path: &mut PathBuf){
+    let source = PathBuf::from("src/prebuild/py32f030/libpy32csdk_hal.a");
+    let destination = out_path.join("libpy32csdk_hal.a");
+
+    fs::copy(source, destination).unwrap();
+}
+
+#[cfg(not(feature = "regenerate-bindings"))]
+fn copy_bindings_file(out_path: &mut PathBuf){
+    let source = PathBuf::from("src/prebuild/py32f030/bindings.rs");
+    let destination = out_path.join("bindings.rs");
+
+    fs::copy(source, destination).unwrap();
+}
+
+#[cfg(feature = "recompile")]
+fn compile(out_path: &mut PathBuf){
     // Configure cross compilation
     let target = env::var("TARGET").unwrap();
     if !target.starts_with("thumbv6m-none-eabi") {
@@ -78,7 +100,8 @@ fn compile(out_path: PathBuf){
     println!("cargo:rustc-link-search={}", out_path.display());
 }
 
-fn generate_bindings(){
+#[cfg(feature = "regenerate-bindings")]
+fn generate_bindings(out_path: &mut PathBuf){
 
     // binding
     let bindings = bindgen::Builder::default()
@@ -94,7 +117,6 @@ fn generate_bindings(){
         .generate()
         .expect("Unable to generate bindings");
 
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
     bindings
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
