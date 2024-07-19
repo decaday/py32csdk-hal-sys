@@ -2,16 +2,33 @@
 name = "py32csdk-hal-sys"
 version = "0.1.0"
 edition = "2021"
-
+license-file = "LICENSE"
+description = "PY32 HAL bindings"
+readme = "README.md"
+homepage = "https://github.com/decaday/py32csdk-hal-sys"
+repository = "https://github.com/decaday/py32csdk-hal-sys"
+keywords = ["embedded-hal", "no-std", "py32", "mcu"]
+categories = ["no-std"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 
 
 [build-dependencies]
+# https://github.com/rust-lang/rust-bindgen/pull/2369
+# bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
+# bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"]}
 bindgen = "0.69"
+
 cc = "1.0"
 glob = "0.3"
+
+# not work
+[patch.crates-io]
+cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
+# cmacro = { path = "../cmacro-rs" }
+# bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
+bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"]}
 
 
 [features]

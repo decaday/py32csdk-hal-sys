@@ -6,6 +6,7 @@
 #![allow(clippy::redundant_static_lifetimes)]
 #![allow(clippy::missing_safety_doc)]
 #![allow(clippy::transmute_int_to_bool)]
+#![feature(offset_of)]
 
 #[cfg(not(feature = "regenerate-bindings"))]
 include!(concat!(
