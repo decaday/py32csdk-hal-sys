@@ -7,7 +7,7 @@ fn main() {
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
     #[cfg(feature = "recompile")]
-    compile();
+    compile(out_path);
 
     #[cfg(feature = "regenerate-bindings")]
     generate_bindings();
@@ -21,7 +21,7 @@ fn main() {
 
 }
 
-fn compile(){
+fn compile(out_path: PathBuf){
     // Configure cross compilation
     let target = env::var("TARGET").unwrap();
     if !target.starts_with("thumbv6m-none-eabi") {
@@ -48,6 +48,7 @@ fn compile(){
         .flag("-fdata-sections")
         .flag("-fno-common")
         .flag("-fmessage-length=0")
+        .flag("-w")
         //.flag(debug_flags)
         .files(vec![
             "PY32F0_Drivers/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.c",
@@ -72,6 +73,9 @@ fn compile(){
     }
 
     build.compile("py32csdk_hal");
+
+    println!("cargo:rustc-link-lib=static=py32csdk_hal");
+    println!("cargo:rustc-link-search={}", out_path.display());
 }
 
 fn generate_bindings(){
