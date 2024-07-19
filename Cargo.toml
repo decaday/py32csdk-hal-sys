@@ -15,6 +15,7 @@ glob = "0.3"
 
 
 [features]
-default = ["recompile"]
+default = ["recompile","py32_0-A"]
 recompile = ["regenerate-bindings"]
 regenerate-bindings = []
+py32_0-A = []
