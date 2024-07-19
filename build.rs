@@ -4,11 +4,21 @@ use cc::Build;
 use bindgen;
 
 fn main() {
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+
     #[cfg(feature = "recompile")]
     compile();
 
     #[cfg(feature = "regenerate-bindings")]
     generate_bindings();
+
+    #[cfg(not(feature = "recompile"))]
+    compile();
+
+    #[cfg(not(feature = "regenerate-bindings"))]
+    generate_bindings();
+
+
 }
 
 fn compile(){
@@ -71,9 +81,12 @@ fn generate_bindings(){
         .header("csrc/inc/wrapper.h")
         .clang_arg("--target=arm-none-eabi")
         .clang_arg("-Icsrc/inc")
+        .clang_arg("-Icsrc/binding_inc")
         .clang_arg("-IPY32F0_Drivers/CMSIS/Include")
         .clang_arg("-IPY32F0_Drivers/CMSIS/Device/PY32F0xx/Include")
         .clang_arg("-IPY32F0_Drivers/PY32F0xx_HAL_Driver/Inc")
+        .clang_arg("-DPY32F030x6")
+        .use_core()
         .generate()
         .expect("Unable to generate bindings");
 
