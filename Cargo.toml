@@ -9,6 +9,10 @@ homepage = "https://github.com/decaday/py32csdk-hal-sys"
 repository = "https://github.com/decaday/py32csdk-hal-sys"
 keywords = ["embedded-hal", "no-std", "py32", "mcu"]
 categories = ["no-std"]
+exclude = [
+    "PY32F0_Drivers/CMSIS/DSP_Lib", "PY32F0_Drivers/Examples",
+    "PY32F0_Drivers/PY32F0xx_LL_Driver", "PY32F0_Drivers/PY32F002B_LL_Driver"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
