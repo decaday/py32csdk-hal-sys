@@ -1,4 +1,5 @@
 use std::env;
+use std::fmt::Pointer;
 use std::path::PathBuf;
 use std::fs;
 
@@ -11,39 +12,51 @@ use bindgen;
 fn main() {
     let mut out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
+    #[cfg(feature = "py32f030")]
+    let mcu_series = "py32f030";
+
+    #[cfg(all(feature = "py32f030", feature = "py32xxx6"))]
+    let mcu_name = "PY32F030x6";
+    #[cfg(all(feature = "py32f030", feature = "py32xxx8"))]
+    let mcu_name = "PY32F030x8";
+
+
+
     #[cfg(feature = "recompile")]
-    compile(&mut out_path);
+    compile(&mut out_path, mcu_name);
 
     #[cfg(feature = "regenerate-bindings")]
-    generate_bindings(&mut out_path);
+    generate_bindings(&mut out_path, mcu_name, mcu_series);
 
     #[cfg(not(feature = "recompile"))]
-    copy_lib_file(&mut out_path);
+    copy_lib_file(&mut out_path, mcu_series);
 
     #[cfg(not(feature = "regenerate-bindings"))]
-    copy_bindings_file(&mut out_path);
+    copy_bindings_file(&mut out_path, mcu_series);
 
 
 }
 
 #[cfg(not(feature = "recompile"))]
-fn copy_lib_file(out_path: &mut PathBuf){
-    let source = PathBuf::from("src/prebuild/py32f030/libpy32csdk_hal.a");
+fn copy_lib_file(out_path: &mut PathBuf, mcu_series: &str){
+    let sourse_path = format!("src/prebuild/{mcu_series}/libpy32csdk_hal.a");
+    let source = PathBuf::from(sourse_path);
     let destination = out_path.join("libpy32csdk_hal.a");
 
     fs::copy(source, destination).unwrap();
 }
 
 #[cfg(not(feature = "regenerate-bindings"))]
-fn copy_bindings_file(out_path: &mut PathBuf){
-    let source = PathBuf::from("src/prebuild/py32f030/bindings.rs");
+fn copy_bindings_file(out_path: &mut PathBuf, mcu_series: &str){
+    let sourse_path = format!("src/prebuild/{mcu_series}/bindings.rs");
+    let source = PathBuf::from(sourse_path);
     let destination = out_path.join("bindings.rs");
 
     fs::copy(source, destination).unwrap();
 }
 
 #[cfg(feature = "recompile")]
-fn compile(out_path: &mut PathBuf){
+fn compile(out_path: &mut PathBuf, mcu_name: &str){
     // Configure cross compilation
     let target = env::var("TARGET").unwrap();
     if !target.starts_with("thumbv6m-none-eabi") {
@@ -74,14 +87,14 @@ fn compile(out_path: &mut PathBuf){
         //.flag(debug_flags)
         .files(vec![
             "PY32F0_Drivers/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.c",
-            "csrc/src/extra_functions.c",
+            "csrc/src/py32f030_wrapper.c",
         ])
         .include("csrc/inc")
         .include("PY32F0_Drivers/CMSIS/Include")
         .include("PY32F0_Drivers/CMSIS/Device/PY32F0xx/Include")
         .include("PY32F0_Drivers/PY32F0xx_HAL_Driver/Inc")
         .define("DEBUG", None)
-        .define("PY32F030x6", None);
+        .define(mcu_name, None);
 
     if let Some(debug_flag_str) = debug_flag {
         build.flag(debug_flag_str);
@@ -101,7 +114,7 @@ fn compile(out_path: &mut PathBuf){
 }
 
 #[cfg(feature = "regenerate-bindings")]
-fn generate_bindings(out_path: &mut PathBuf){
+fn generate_bindings(out_path: &mut PathBuf, mcu_name: &str, mcu_series: &str){
 
     // binding
     let bindings = bindgen::Builder::default()
@@ -112,7 +125,8 @@ fn generate_bindings(out_path: &mut PathBuf){
         .clang_arg("-IPY32F0_Drivers/CMSIS/Include")
         .clang_arg("-IPY32F0_Drivers/CMSIS/Device/PY32F0xx/Include")
         .clang_arg("-IPY32F0_Drivers/PY32F0xx_HAL_Driver/Inc")
-        .clang_arg("-DPY32F030x6")
+        .clang_arg(format!("-D{mcu_name}"))
+        .clang_arg(format!("-D{mcu_series}"))
         .use_core()
         .generate()
         .expect("Unable to generate bindings");

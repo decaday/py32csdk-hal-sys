@@ -1,6 +1,6 @@
 [package]
 name = "py32csdk-hal-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license-file = "LICENSE"
 description = "PY32 HAL bindings"
@@ -37,7 +37,9 @@ cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
 
 
 [features]
-default = ["py32_0-A"]
+default = ["py32f030", "py32xxx6", "recompile"]
 recompile = ["regenerate-bindings", "cc"]
 regenerate-bindings = ["bindgen"]
-py32_0-A = []
+py32f030 = []
+py32xxx6 = []
+py32xxx8 = []
