@@ -80,10 +80,18 @@ where
         }
     }
 }
+pub const HSI_VALUE: u32 = 8000000u32 as u32;
+pub const HSE_VALUE: u32 = 24000000u32 as u32;
+pub const HSE_STARTUP_TIMEOUT: u32 = 200u8 as u32;
+pub const LSI_VALUE: u32 = 32768u16 as u32;
+pub const LSE_VALUE: u32 = 32768u16 as u32;
+pub const LSE_STARTUP_TIMEOUT: u32 = 5000u16 as u32;
+pub const VDD_VALUE: u32 = 3300u16 as u32;
 pub const PRIORITY_HIGHEST: u32 = 0;
 pub const PRIORITY_HIGH: u32 = 1;
 pub const PRIORITY_LOW: u32 = 2;
 pub const PRIORITY_LOWEST: u32 = 3;
+pub const TICK_INT_PRIORITY: u32 = 3u8 as u32;
 pub const USE_RTOS: u32 = 0;
 pub const PREFETCH_ENABLE: u32 = 0;
 pub const __PY32F0_DEVICE_VERSION_MAIN: u32 = 1;
@@ -96,11 +104,202 @@ pub const __MPU_PRESENT: u32 = 0;
 pub const __VTOR_PRESENT: u32 = 1;
 pub const __NVIC_PRIO_BITS: u32 = 2;
 pub const __Vendor_SysTickConfig: u32 = 0;
+#[doc = "< 2 Non Maskable Interrupt"]
+pub const IRQn_Type_NonMaskableInt_IRQn: IRQn_Type = -14;
+#[doc = "< 3 Cortex-M Hard Fault Interrupt"]
+pub const IRQn_Type_HardFault_IRQn: IRQn_Type = -13;
+#[doc = "< 11 Cortex-M SV Call Interrupt"]
+pub const IRQn_Type_SVC_IRQn: IRQn_Type = -5;
+#[doc = "< 14 Cortex-M Pend SV Interrupt"]
+pub const IRQn_Type_PendSV_IRQn: IRQn_Type = -2;
+#[doc = "< 15 Cortex-M System Tick Interrupt"]
+pub const IRQn_Type_SysTick_IRQn: IRQn_Type = -1;
+#[doc = "< Window WatchDog Interrupt"]
+pub const IRQn_Type_WWDG_IRQn: IRQn_Type = 0;
+#[doc = "< PVD through EXTI Line detection Interrupt(EXTI line 16)"]
+pub const IRQn_Type_PVD_IRQn: IRQn_Type = 1;
+#[doc = "< RTC interrupt through the EXTI line 19"]
+pub const IRQn_Type_RTC_IRQn: IRQn_Type = 2;
+#[doc = "< FLASH global Interrupt"]
+pub const IRQn_Type_FLASH_IRQn: IRQn_Type = 3;
+#[doc = "< RCC global Interrupt"]
+pub const IRQn_Type_RCC_IRQn: IRQn_Type = 4;
+#[doc = "< EXTI 0 and 1 Interrupts"]
+pub const IRQn_Type_EXTI0_1_IRQn: IRQn_Type = 5;
+#[doc = "< EXTI Line 2 and 3 Interrupts"]
+pub const IRQn_Type_EXTI2_3_IRQn: IRQn_Type = 6;
+#[doc = "< EXTI Line 4 to 15 Interrupts"]
+pub const IRQn_Type_EXTI4_15_IRQn: IRQn_Type = 7;
+#[doc = "< DMA1 Channel 1 Interrupt"]
+pub const IRQn_Type_DMA1_Channel1_IRQn: IRQn_Type = 9;
+#[doc = "< DMA1 Channel 2 and Channel 3 Interrupts"]
+pub const IRQn_Type_DMA1_Channel2_3_IRQn: IRQn_Type = 10;
+#[doc = "< ADC&COMP Interrupts"]
+pub const IRQn_Type_ADC_COMP_IRQn: IRQn_Type = 12;
+#[doc = "< TIM1 Break, Update, Trigger and Commutation Interrupts"]
+pub const IRQn_Type_TIM1_BRK_UP_TRG_COM_IRQn: IRQn_Type = 13;
+#[doc = "< TIM1 Capture Compare Interrupt"]
+pub const IRQn_Type_TIM1_CC_IRQn: IRQn_Type = 14;
+#[doc = "< TIM3 global Interrupt"]
+pub const IRQn_Type_TIM3_IRQn: IRQn_Type = 16;
+#[doc = "< LPTIM1 global Interrupts"]
+pub const IRQn_Type_LPTIM1_IRQn: IRQn_Type = 17;
+#[doc = "< TIM14 global Interrupt"]
+pub const IRQn_Type_TIM14_IRQn: IRQn_Type = 19;
+#[doc = "< TIM16 global Interrupt"]
+pub const IRQn_Type_TIM16_IRQn: IRQn_Type = 21;
+#[doc = "< TIM17 global Interrupt"]
+pub const IRQn_Type_TIM17_IRQn: IRQn_Type = 22;
+#[doc = "< I2C1 Interrupt  (combined with EXTI 23)"]
+pub const IRQn_Type_I2C1_IRQn: IRQn_Type = 23;
+#[doc = "< SPI1 Interrupt"]
+pub const IRQn_Type_SPI1_IRQn: IRQn_Type = 25;
+#[doc = "< SPI2 Interrupt"]
+pub const IRQn_Type_SPI2_IRQn: IRQn_Type = 26;
+#[doc = "< USART1 Interrupt"]
+pub const IRQn_Type_USART1_IRQn: IRQn_Type = 27;
+#[doc = "< USART2 Interrupt"]
+pub const IRQn_Type_USART2_IRQn: IRQn_Type = 28;
+#[doc = "< LED global Interrupt"]
+pub const IRQn_Type_LED_IRQn: IRQn_Type = 30;
+pub type IRQn_Type = ::core::ffi::c_int;
+pub type int_least64_t = i64;
+pub type uint_least64_t = u64;
+pub type int_fast64_t = i64;
+pub type uint_fast64_t = u64;
+pub type int_least32_t = i32;
+pub type uint_least32_t = u32;
+pub type int_fast32_t = i32;
+pub type uint_fast32_t = u32;
+pub type int_least16_t = i16;
+pub type uint_least16_t = u16;
+pub type int_fast16_t = i16;
+pub type uint_fast16_t = u16;
+pub type int_least8_t = i8;
+pub type uint_least8_t = u8;
+pub type int_fast8_t = i8;
+pub type uint_fast8_t = u8;
+pub type intmax_t = ::core::ffi::c_longlong;
+pub type uintmax_t = ::core::ffi::c_ulonglong;
 pub const __CM0PLUS_CMSIS_VERSION_MAIN: u32 = 4;
 pub const __CM0PLUS_CMSIS_VERSION_SUB: u32 = 30;
 pub const __CM0PLUS_CMSIS_VERSION: u32 = 262174;
 pub const __CORTEX_M: u32 = 0;
 pub const __FPU_USED: u32 = 0;
+#[doc = "\\brief  Union type to access the Application Program Status Register (APSR)."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union APSR_Type {
+    #[doc = "< Structure used for bit  access"]
+    pub b: APSR_Type__bindgen_ty_1,
+    #[doc = "< Type      used for word access"]
+    pub w: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct APSR_Type__bindgen_ty_1 {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+const _: () = {
+    ["Size of APSR_Type__bindgen_ty_1"][::core::mem::size_of::<APSR_Type__bindgen_ty_1>() - 4usize];
+    ["Alignment of APSR_Type__bindgen_ty_1"]
+        [::core::mem::align_of::<APSR_Type__bindgen_ty_1>() - 4usize];
+};
+impl APSR_Type__bindgen_ty_1 {
+    #[inline]
+    pub fn _reserved0(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 28u8) as u32) }
+    }
+    #[inline]
+    pub fn set__reserved0(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 28u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn V(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(28usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_V(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(28usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn C(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(29usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_C(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(29usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn Z(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(30usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_Z(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(30usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn N(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_N(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(31usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        _reserved0: u32,
+        V: u32,
+        C: u32,
+        Z: u32,
+        N: u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 28u8, {
+            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
+            _reserved0 as u64
+        });
+        __bindgen_bitfield_unit.set(28usize, 1u8, {
+            let V: u32 = unsafe { ::core::mem::transmute(V) };
+            V as u64
+        });
+        __bindgen_bitfield_unit.set(29usize, 1u8, {
+            let C: u32 = unsafe { ::core::mem::transmute(C) };
+            C as u64
+        });
+        __bindgen_bitfield_unit.set(30usize, 1u8, {
+            let Z: u32 = unsafe { ::core::mem::transmute(Z) };
+            Z as u64
+        });
+        __bindgen_bitfield_unit.set(31usize, 1u8, {
+            let N: u32 = unsafe { ::core::mem::transmute(N) };
+            N as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+const _: () = {
+    ["Size of APSR_Type"][::core::mem::size_of::<APSR_Type>() - 4usize];
+    ["Alignment of APSR_Type"][::core::mem::align_of::<APSR_Type>() - 4usize];
+    ["Offset of field: APSR_Type::b"][::core::mem::offset_of!(APSR_Type, b) - 0usize];
+    ["Offset of field: APSR_Type::w"][::core::mem::offset_of!(APSR_Type, w) - 0usize];
+};
 pub const APSR_N_Pos: u32 = 31;
 pub const APSR_N_Msk: u32 = 2147483648;
 pub const APSR_Z_Pos: u32 = 30;
@@ -109,8 +308,234 @@ pub const APSR_C_Pos: u32 = 29;
 pub const APSR_C_Msk: u32 = 536870912;
 pub const APSR_V_Pos: u32 = 28;
 pub const APSR_V_Msk: u32 = 268435456;
+#[doc = "\\brief  Union type to access the Interrupt Program Status Register (IPSR)."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union IPSR_Type {
+    #[doc = "< Structure used for bit  access"]
+    pub b: IPSR_Type__bindgen_ty_1,
+    #[doc = "< Type      used for word access"]
+    pub w: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct IPSR_Type__bindgen_ty_1 {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+const _: () = {
+    ["Size of IPSR_Type__bindgen_ty_1"][::core::mem::size_of::<IPSR_Type__bindgen_ty_1>() - 4usize];
+    ["Alignment of IPSR_Type__bindgen_ty_1"]
+        [::core::mem::align_of::<IPSR_Type__bindgen_ty_1>() - 4usize];
+};
+impl IPSR_Type__bindgen_ty_1 {
+    #[inline]
+    pub fn ISR(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 9u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ISR(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 9u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn _reserved0(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(9usize, 23u8) as u32) }
+    }
+    #[inline]
+    pub fn set__reserved0(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(9usize, 23u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(ISR: u32, _reserved0: u32) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 9u8, {
+            let ISR: u32 = unsafe { ::core::mem::transmute(ISR) };
+            ISR as u64
+        });
+        __bindgen_bitfield_unit.set(9usize, 23u8, {
+            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
+            _reserved0 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+const _: () = {
+    ["Size of IPSR_Type"][::core::mem::size_of::<IPSR_Type>() - 4usize];
+    ["Alignment of IPSR_Type"][::core::mem::align_of::<IPSR_Type>() - 4usize];
+    ["Offset of field: IPSR_Type::b"][::core::mem::offset_of!(IPSR_Type, b) - 0usize];
+    ["Offset of field: IPSR_Type::w"][::core::mem::offset_of!(IPSR_Type, w) - 0usize];
+};
 pub const IPSR_ISR_Pos: u32 = 0;
 pub const IPSR_ISR_Msk: u32 = 511;
+#[doc = "\\brief  Union type to access the Special-Purpose Program Status Registers (xPSR)."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union xPSR_Type {
+    #[doc = "< Structure used for bit  access"]
+    pub b: xPSR_Type__bindgen_ty_1,
+    #[doc = "< Type      used for word access"]
+    pub w: u32,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct xPSR_Type__bindgen_ty_1 {
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+const _: () = {
+    ["Size of xPSR_Type__bindgen_ty_1"][::core::mem::size_of::<xPSR_Type__bindgen_ty_1>() - 4usize];
+    ["Alignment of xPSR_Type__bindgen_ty_1"]
+        [::core::mem::align_of::<xPSR_Type__bindgen_ty_1>() - 4usize];
+};
+impl xPSR_Type__bindgen_ty_1 {
+    #[inline]
+    pub fn ISR(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 9u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ISR(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 9u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn _reserved0(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(9usize, 15u8) as u32) }
+    }
+    #[inline]
+    pub fn set__reserved0(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(9usize, 15u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn T(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(24usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_T(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(24usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn _reserved1(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(25usize, 3u8) as u32) }
+    }
+    #[inline]
+    pub fn set__reserved1(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(25usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn V(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(28usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_V(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(28usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn C(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(29usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_C(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(29usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn Z(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(30usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_Z(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(30usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn N(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_N(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(31usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        ISR: u32,
+        _reserved0: u32,
+        T: u32,
+        _reserved1: u32,
+        V: u32,
+        C: u32,
+        Z: u32,
+        N: u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 9u8, {
+            let ISR: u32 = unsafe { ::core::mem::transmute(ISR) };
+            ISR as u64
+        });
+        __bindgen_bitfield_unit.set(9usize, 15u8, {
+            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
+            _reserved0 as u64
+        });
+        __bindgen_bitfield_unit.set(24usize, 1u8, {
+            let T: u32 = unsafe { ::core::mem::transmute(T) };
+            T as u64
+        });
+        __bindgen_bitfield_unit.set(25usize, 3u8, {
+            let _reserved1: u32 = unsafe { ::core::mem::transmute(_reserved1) };
+            _reserved1 as u64
+        });
+        __bindgen_bitfield_unit.set(28usize, 1u8, {
+            let V: u32 = unsafe { ::core::mem::transmute(V) };
+            V as u64
+        });
+        __bindgen_bitfield_unit.set(29usize, 1u8, {
+            let C: u32 = unsafe { ::core::mem::transmute(C) };
+            C as u64
+        });
+        __bindgen_bitfield_unit.set(30usize, 1u8, {
+            let Z: u32 = unsafe { ::core::mem::transmute(Z) };
+            Z as u64
+        });
+        __bindgen_bitfield_unit.set(31usize, 1u8, {
+            let N: u32 = unsafe { ::core::mem::transmute(N) };
+            N as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+const _: () = {
+    ["Size of xPSR_Type"][::core::mem::size_of::<xPSR_Type>() - 4usize];
+    ["Alignment of xPSR_Type"][::core::mem::align_of::<xPSR_Type>() - 4usize];
+    ["Offset of field: xPSR_Type::b"][::core::mem::offset_of!(xPSR_Type, b) - 0usize];
+    ["Offset of field: xPSR_Type::w"][::core::mem::offset_of!(xPSR_Type, w) - 0usize];
+};
 pub const xPSR_N_Pos: u32 = 31;
 pub const xPSR_N_Msk: u32 = 2147483648;
 pub const xPSR_Z_Pos: u32 = 30;
@@ -123,10 +548,168 @@ pub const xPSR_T_Pos: u32 = 24;
 pub const xPSR_T_Msk: u32 = 16777216;
 pub const xPSR_ISR_Pos: u32 = 0;
 pub const xPSR_ISR_Msk: u32 = 511;
+#[doc = "\\brief  Union type to access the Control Registers (CONTROL)."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CONTROL_Type {
+    #[doc = "< Structure used for bit  access"]
+    pub b: CONTROL_Type__bindgen_ty_1,
+    #[doc = "< Type      used for word access"]
+    pub w: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct CONTROL_Type__bindgen_ty_1 {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+const _: () = {
+    ["Size of CONTROL_Type__bindgen_ty_1"]
+        [::core::mem::size_of::<CONTROL_Type__bindgen_ty_1>() - 4usize];
+    ["Alignment of CONTROL_Type__bindgen_ty_1"]
+        [::core::mem::align_of::<CONTROL_Type__bindgen_ty_1>() - 4usize];
+};
+impl CONTROL_Type__bindgen_ty_1 {
+    #[inline]
+    pub fn nPRIV(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_nPRIV(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn SPSEL(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_SPSEL(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn _reserved1(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 30u8) as u32) }
+    }
+    #[inline]
+    pub fn set__reserved1(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(2usize, 30u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        nPRIV: u32,
+        SPSEL: u32,
+        _reserved1: u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let nPRIV: u32 = unsafe { ::core::mem::transmute(nPRIV) };
+            nPRIV as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let SPSEL: u32 = unsafe { ::core::mem::transmute(SPSEL) };
+            SPSEL as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 30u8, {
+            let _reserved1: u32 = unsafe { ::core::mem::transmute(_reserved1) };
+            _reserved1 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+const _: () = {
+    ["Size of CONTROL_Type"][::core::mem::size_of::<CONTROL_Type>() - 4usize];
+    ["Alignment of CONTROL_Type"][::core::mem::align_of::<CONTROL_Type>() - 4usize];
+    ["Offset of field: CONTROL_Type::b"][::core::mem::offset_of!(CONTROL_Type, b) - 0usize];
+    ["Offset of field: CONTROL_Type::w"][::core::mem::offset_of!(CONTROL_Type, w) - 0usize];
+};
 pub const CONTROL_SPSEL_Pos: u32 = 1;
 pub const CONTROL_SPSEL_Msk: u32 = 2;
 pub const CONTROL_nPRIV_Pos: u32 = 0;
 pub const CONTROL_nPRIV_Msk: u32 = 1;
+#[doc = "\\brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct NVIC_Type {
+    #[doc = "< Offset: 0x000 (R/W)  Interrupt Set Enable Register"]
+    pub ISER: [u32; 1usize],
+    pub RESERVED0: [u32; 31usize],
+    #[doc = "< Offset: 0x080 (R/W)  Interrupt Clear Enable Register"]
+    pub ICER: [u32; 1usize],
+    pub RSERVED1: [u32; 31usize],
+    #[doc = "< Offset: 0x100 (R/W)  Interrupt Set Pending Register"]
+    pub ISPR: [u32; 1usize],
+    pub RESERVED2: [u32; 31usize],
+    #[doc = "< Offset: 0x180 (R/W)  Interrupt Clear Pending Register"]
+    pub ICPR: [u32; 1usize],
+    pub RESERVED3: [u32; 31usize],
+    pub RESERVED4: [u32; 64usize],
+    #[doc = "< Offset: 0x300 (R/W)  Interrupt Priority Register"]
+    pub IP: [u32; 8usize],
+}
+const _: () = {
+    ["Size of NVIC_Type"][::core::mem::size_of::<NVIC_Type>() - 800usize];
+    ["Alignment of NVIC_Type"][::core::mem::align_of::<NVIC_Type>() - 4usize];
+    ["Offset of field: NVIC_Type::ISER"][::core::mem::offset_of!(NVIC_Type, ISER) - 0usize];
+    ["Offset of field: NVIC_Type::RESERVED0"]
+        [::core::mem::offset_of!(NVIC_Type, RESERVED0) - 4usize];
+    ["Offset of field: NVIC_Type::ICER"][::core::mem::offset_of!(NVIC_Type, ICER) - 128usize];
+    ["Offset of field: NVIC_Type::RSERVED1"]
+        [::core::mem::offset_of!(NVIC_Type, RSERVED1) - 132usize];
+    ["Offset of field: NVIC_Type::ISPR"][::core::mem::offset_of!(NVIC_Type, ISPR) - 256usize];
+    ["Offset of field: NVIC_Type::RESERVED2"]
+        [::core::mem::offset_of!(NVIC_Type, RESERVED2) - 260usize];
+    ["Offset of field: NVIC_Type::ICPR"][::core::mem::offset_of!(NVIC_Type, ICPR) - 384usize];
+    ["Offset of field: NVIC_Type::RESERVED3"]
+        [::core::mem::offset_of!(NVIC_Type, RESERVED3) - 388usize];
+    ["Offset of field: NVIC_Type::RESERVED4"]
+        [::core::mem::offset_of!(NVIC_Type, RESERVED4) - 512usize];
+    ["Offset of field: NVIC_Type::IP"][::core::mem::offset_of!(NVIC_Type, IP) - 768usize];
+};
+#[doc = "\\brief  Structure type to access the System Control Block (SCB)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SCB_Type {
+    #[doc = "< Offset: 0x000 (R/ )  CPUID Base Register"]
+    pub CPUID: u32,
+    #[doc = "< Offset: 0x004 (R/W)  Interrupt Control and State Register"]
+    pub ICSR: u32,
+    #[doc = "< Offset: 0x008 (R/W)  Vector Table Offset Register"]
+    pub VTOR: u32,
+    #[doc = "< Offset: 0x00C (R/W)  Application Interrupt and Reset Control Register"]
+    pub AIRCR: u32,
+    #[doc = "< Offset: 0x010 (R/W)  System Control Register"]
+    pub SCR: u32,
+    #[doc = "< Offset: 0x014 (R/W)  Configuration Control Register"]
+    pub CCR: u32,
+    pub RESERVED1: u32,
+    #[doc = "< Offset: 0x01C (R/W)  System Handlers Priority Registers. [0] is RESERVED"]
+    pub SHP: [u32; 2usize],
+    #[doc = "< Offset: 0x024 (R/W)  System Handler Control and State Register"]
+    pub SHCSR: u32,
+}
+const _: () = {
+    ["Size of SCB_Type"][::core::mem::size_of::<SCB_Type>() - 40usize];
+    ["Alignment of SCB_Type"][::core::mem::align_of::<SCB_Type>() - 4usize];
+    ["Offset of field: SCB_Type::CPUID"][::core::mem::offset_of!(SCB_Type, CPUID) - 0usize];
+    ["Offset of field: SCB_Type::ICSR"][::core::mem::offset_of!(SCB_Type, ICSR) - 4usize];
+    ["Offset of field: SCB_Type::VTOR"][::core::mem::offset_of!(SCB_Type, VTOR) - 8usize];
+    ["Offset of field: SCB_Type::AIRCR"][::core::mem::offset_of!(SCB_Type, AIRCR) - 12usize];
+    ["Offset of field: SCB_Type::SCR"][::core::mem::offset_of!(SCB_Type, SCR) - 16usize];
+    ["Offset of field: SCB_Type::CCR"][::core::mem::offset_of!(SCB_Type, CCR) - 20usize];
+    ["Offset of field: SCB_Type::RESERVED1"]
+        [::core::mem::offset_of!(SCB_Type, RESERVED1) - 24usize];
+    ["Offset of field: SCB_Type::SHP"][::core::mem::offset_of!(SCB_Type, SHP) - 28usize];
+    ["Offset of field: SCB_Type::SHCSR"][::core::mem::offset_of!(SCB_Type, SHCSR) - 36usize];
+};
 pub const SCB_CPUID_IMPLEMENTER_Pos: u32 = 24;
 pub const SCB_CPUID_IMPLEMENTER_Msk: u32 = 4278190080;
 pub const SCB_CPUID_VARIANT_Pos: u32 = 20;
@@ -179,6 +762,28 @@ pub const SCB_CCR_UNALIGN_TRP_Pos: u32 = 3;
 pub const SCB_CCR_UNALIGN_TRP_Msk: u32 = 8;
 pub const SCB_SHCSR_SVCALLPENDED_Pos: u32 = 15;
 pub const SCB_SHCSR_SVCALLPENDED_Msk: u32 = 32768;
+#[doc = "\\brief  Structure type to access the System Timer (SysTick)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SysTick_Type {
+    #[doc = "< Offset: 0x000 (R/W)  SysTick Control and Status Register"]
+    pub CTRL: u32,
+    #[doc = "< Offset: 0x004 (R/W)  SysTick Reload Value Register"]
+    pub LOAD: u32,
+    #[doc = "< Offset: 0x008 (R/W)  SysTick Current Value Register"]
+    pub VAL: u32,
+    #[doc = "< Offset: 0x00C (R/ )  SysTick Calibration Register"]
+    pub CALIB: u32,
+}
+const _: () = {
+    ["Size of SysTick_Type"][::core::mem::size_of::<SysTick_Type>() - 16usize];
+    ["Alignment of SysTick_Type"][::core::mem::align_of::<SysTick_Type>() - 4usize];
+    ["Offset of field: SysTick_Type::CTRL"][::core::mem::offset_of!(SysTick_Type, CTRL) - 0usize];
+    ["Offset of field: SysTick_Type::LOAD"][::core::mem::offset_of!(SysTick_Type, LOAD) - 4usize];
+    ["Offset of field: SysTick_Type::VAL"][::core::mem::offset_of!(SysTick_Type, VAL) - 8usize];
+    ["Offset of field: SysTick_Type::CALIB"]
+        [::core::mem::offset_of!(SysTick_Type, CALIB) - 12usize];
+};
 pub const SysTick_CTRL_COUNTFLAG_Pos: u32 = 16;
 pub const SysTick_CTRL_COUNTFLAG_Msk: u32 = 65536;
 pub const SysTick_CTRL_CLKSOURCE_Pos: u32 = 2;
@@ -201,6 +806,870 @@ pub const SCS_BASE: u32 = 3758153728;
 pub const SysTick_BASE: u32 = 3758153744;
 pub const NVIC_BASE: u32 = 3758153984;
 pub const SCB_BASE: u32 = 3758157056;
+pub const SCB: *mut SCB_Type = 3758157056u32 as *mut SCB_Type;
+pub const SysTick: *mut SysTick_Type = 3758153744u32 as *mut SysTick_Type;
+pub const NVIC: *mut NVIC_Type = 3758153984u32 as *mut NVIC_Type;
+extern "C" {
+    #[doc = "< System Clock Frequency (Core Clock)"]
+    pub static mut SystemCoreClock: u32;
+}
+extern "C" {
+    #[doc = "< AHB prescalers table values"]
+    pub static AHBPrescTable: [u32; 16usize];
+}
+extern "C" {
+    #[doc = "< APB prescalers table values"]
+    pub static APBPrescTable: [u32; 8usize];
+}
+extern "C" {
+    #[doc = "< HSI frequency table values"]
+    pub static HSIFreqTable: [u32; 8usize];
+}
+extern "C" {
+    #[doc = " @addtogroup PY32F0xx_System_Exported_Functions\n @{"]
+    pub fn SystemInit();
+}
+extern "C" {
+    pub fn SystemCoreClockUpdate();
+}
+#[doc = " @brief Analog to Digital Converter"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ADC_TypeDef {
+    #[doc = "< ADC interrupt and status register,             Address offset: 0x00"]
+    pub ISR: u32,
+    #[doc = "< ADC interrupt enable register,                 Address offset: 0x04"]
+    pub IER: u32,
+    #[doc = "< ADC control register,                          Address offset: 0x08"]
+    pub CR: u32,
+    #[doc = "< ADC configuration register 1,                  Address offset: 0x0C"]
+    pub CFGR1: u32,
+    #[doc = "< ADC configuration register 2,                  Address offset: 0x10"]
+    pub CFGR2: u32,
+    #[doc = "< ADC sampling time register,                    Address offset: 0x14"]
+    pub SMPR: u32,
+    #[doc = "< Reserved,                                                      0x18-0x1C"]
+    pub RESERVED1: [u32; 2usize],
+    #[doc = "< ADC analog watchdog 1 threshold register,      Address offset: 0x20"]
+    pub TR: u32,
+    #[doc = "< Reserved,                                                      0x24"]
+    pub RESERVED2: u32,
+    #[doc = "< ADC group regular sequencer register,          Address offset: 0x28"]
+    pub CHSELR: u32,
+    #[doc = "< Reserved,                                                      0x2C"]
+    pub RESERVED3: [u32; 5usize],
+    #[doc = "< ADC group regular data register,               Address offset: 0x40"]
+    pub DR: u32,
+    #[doc = "< ADC calibration configuration&status register  Address offset: 0x44"]
+    pub CCSR: u32,
+}
+const _: () = {
+    ["Size of ADC_TypeDef"][::core::mem::size_of::<ADC_TypeDef>() - 72usize];
+    ["Alignment of ADC_TypeDef"][::core::mem::align_of::<ADC_TypeDef>() - 4usize];
+    ["Offset of field: ADC_TypeDef::ISR"][::core::mem::offset_of!(ADC_TypeDef, ISR) - 0usize];
+    ["Offset of field: ADC_TypeDef::IER"][::core::mem::offset_of!(ADC_TypeDef, IER) - 4usize];
+    ["Offset of field: ADC_TypeDef::CR"][::core::mem::offset_of!(ADC_TypeDef, CR) - 8usize];
+    ["Offset of field: ADC_TypeDef::CFGR1"][::core::mem::offset_of!(ADC_TypeDef, CFGR1) - 12usize];
+    ["Offset of field: ADC_TypeDef::CFGR2"][::core::mem::offset_of!(ADC_TypeDef, CFGR2) - 16usize];
+    ["Offset of field: ADC_TypeDef::SMPR"][::core::mem::offset_of!(ADC_TypeDef, SMPR) - 20usize];
+    ["Offset of field: ADC_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(ADC_TypeDef, RESERVED1) - 24usize];
+    ["Offset of field: ADC_TypeDef::TR"][::core::mem::offset_of!(ADC_TypeDef, TR) - 32usize];
+    ["Offset of field: ADC_TypeDef::RESERVED2"]
+        [::core::mem::offset_of!(ADC_TypeDef, RESERVED2) - 36usize];
+    ["Offset of field: ADC_TypeDef::CHSELR"]
+        [::core::mem::offset_of!(ADC_TypeDef, CHSELR) - 40usize];
+    ["Offset of field: ADC_TypeDef::RESERVED3"]
+        [::core::mem::offset_of!(ADC_TypeDef, RESERVED3) - 44usize];
+    ["Offset of field: ADC_TypeDef::DR"][::core::mem::offset_of!(ADC_TypeDef, DR) - 64usize];
+    ["Offset of field: ADC_TypeDef::CCSR"][::core::mem::offset_of!(ADC_TypeDef, CCSR) - 68usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ADC_Common_TypeDef {
+    #[doc = "< ADC common configuration register,             Address offset: ADC1 base address + 0x308"]
+    pub CCR: u32,
+}
+const _: () = {
+    ["Size of ADC_Common_TypeDef"][::core::mem::size_of::<ADC_Common_TypeDef>() - 4usize];
+    ["Alignment of ADC_Common_TypeDef"][::core::mem::align_of::<ADC_Common_TypeDef>() - 4usize];
+    ["Offset of field: ADC_Common_TypeDef::CCR"]
+        [::core::mem::offset_of!(ADC_Common_TypeDef, CCR) - 0usize];
+};
+#[doc = " @brief CRC calculation unit"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct CRC_TypeDef {
+    #[doc = "< CRC Data register,                         Address offset: 0x00"]
+    pub DR: u32,
+    #[doc = "< CRC Independent data register,             Address offset: 0x04"]
+    pub IDR: u32,
+    #[doc = "< CRC Control register,                      Address offset: 0x08"]
+    pub CR: u32,
+}
+const _: () = {
+    ["Size of CRC_TypeDef"][::core::mem::size_of::<CRC_TypeDef>() - 12usize];
+    ["Alignment of CRC_TypeDef"][::core::mem::align_of::<CRC_TypeDef>() - 4usize];
+    ["Offset of field: CRC_TypeDef::DR"][::core::mem::offset_of!(CRC_TypeDef, DR) - 0usize];
+    ["Offset of field: CRC_TypeDef::IDR"][::core::mem::offset_of!(CRC_TypeDef, IDR) - 4usize];
+    ["Offset of field: CRC_TypeDef::CR"][::core::mem::offset_of!(CRC_TypeDef, CR) - 8usize];
+};
+#[doc = " @brief Comparator"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct COMP_TypeDef {
+    #[doc = "< COMP control and status register,           Address offset: 0x00"]
+    pub CSR: u32,
+    #[doc = "< COMP filter register,                       Address offset: 0x04"]
+    pub FR: u32,
+}
+const _: () = {
+    ["Size of COMP_TypeDef"][::core::mem::size_of::<COMP_TypeDef>() - 8usize];
+    ["Alignment of COMP_TypeDef"][::core::mem::align_of::<COMP_TypeDef>() - 4usize];
+    ["Offset of field: COMP_TypeDef::CSR"][::core::mem::offset_of!(COMP_TypeDef, CSR) - 0usize];
+    ["Offset of field: COMP_TypeDef::FR"][::core::mem::offset_of!(COMP_TypeDef, FR) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct COMP_Common_TypeDef {
+    #[doc = "< COMP control and status register located in register of comparator instance odd, used for bits common to several COMP instances, Address offset: 0x00"]
+    pub CSR_ODD: u32,
+    pub FR_ODD: u32,
+    pub RESERVED: [u32; 2usize],
+    #[doc = "< COMP control and status register located in register of comparator instance even, used for bits common to several COMP instances, Address offset: 0x04"]
+    pub CSR_EVEN: u32,
+    pub FR_EVEN: u32,
+}
+const _: () = {
+    ["Size of COMP_Common_TypeDef"][::core::mem::size_of::<COMP_Common_TypeDef>() - 24usize];
+    ["Alignment of COMP_Common_TypeDef"][::core::mem::align_of::<COMP_Common_TypeDef>() - 4usize];
+    ["Offset of field: COMP_Common_TypeDef::CSR_ODD"]
+        [::core::mem::offset_of!(COMP_Common_TypeDef, CSR_ODD) - 0usize];
+    ["Offset of field: COMP_Common_TypeDef::FR_ODD"]
+        [::core::mem::offset_of!(COMP_Common_TypeDef, FR_ODD) - 4usize];
+    ["Offset of field: COMP_Common_TypeDef::RESERVED"]
+        [::core::mem::offset_of!(COMP_Common_TypeDef, RESERVED) - 8usize];
+    ["Offset of field: COMP_Common_TypeDef::CSR_EVEN"]
+        [::core::mem::offset_of!(COMP_Common_TypeDef, CSR_EVEN) - 16usize];
+    ["Offset of field: COMP_Common_TypeDef::FR_EVEN"]
+        [::core::mem::offset_of!(COMP_Common_TypeDef, FR_EVEN) - 20usize];
+};
+#[doc = " @brief Debug MCU"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct DBGMCU_TypeDef {
+    #[doc = "< MCU device ID code,              Address offset: 0x00"]
+    pub IDCODE: u32,
+    #[doc = "< Debug configuration register,    Address offset: 0x04"]
+    pub CR: u32,
+    #[doc = "< Debug APB freeze register 1,     Address offset: 0x08"]
+    pub APBFZ1: u32,
+    #[doc = "< Debug APB freeze register 2,     Address offset: 0x0C"]
+    pub APBFZ2: u32,
+}
+const _: () = {
+    ["Size of DBGMCU_TypeDef"][::core::mem::size_of::<DBGMCU_TypeDef>() - 16usize];
+    ["Alignment of DBGMCU_TypeDef"][::core::mem::align_of::<DBGMCU_TypeDef>() - 4usize];
+    ["Offset of field: DBGMCU_TypeDef::IDCODE"]
+        [::core::mem::offset_of!(DBGMCU_TypeDef, IDCODE) - 0usize];
+    ["Offset of field: DBGMCU_TypeDef::CR"][::core::mem::offset_of!(DBGMCU_TypeDef, CR) - 4usize];
+    ["Offset of field: DBGMCU_TypeDef::APBFZ1"]
+        [::core::mem::offset_of!(DBGMCU_TypeDef, APBFZ1) - 8usize];
+    ["Offset of field: DBGMCU_TypeDef::APBFZ2"]
+        [::core::mem::offset_of!(DBGMCU_TypeDef, APBFZ2) - 12usize];
+};
+#[doc = " @brief DMA Controller"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct DMA_TypeDef {
+    #[doc = "< DMA interrupt status register,                 Address offset: 0x00"]
+    pub ISR: u32,
+    #[doc = "< DMA interrupt flag clear register,             Address offset: 0x04"]
+    pub IFCR: u32,
+}
+const _: () = {
+    ["Size of DMA_TypeDef"][::core::mem::size_of::<DMA_TypeDef>() - 8usize];
+    ["Alignment of DMA_TypeDef"][::core::mem::align_of::<DMA_TypeDef>() - 4usize];
+    ["Offset of field: DMA_TypeDef::ISR"][::core::mem::offset_of!(DMA_TypeDef, ISR) - 0usize];
+    ["Offset of field: DMA_TypeDef::IFCR"][::core::mem::offset_of!(DMA_TypeDef, IFCR) - 4usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct DMA_Channel_TypeDef {
+    #[doc = "< DMA channel x configuration register"]
+    pub CCR: u32,
+    #[doc = "< DMA channel x number of data register"]
+    pub CNDTR: u32,
+    #[doc = "< DMA channel x peripheral address register"]
+    pub CPAR: u32,
+    #[doc = "< DMA channel x memory address register"]
+    pub CMAR: u32,
+}
+const _: () = {
+    ["Size of DMA_Channel_TypeDef"][::core::mem::size_of::<DMA_Channel_TypeDef>() - 16usize];
+    ["Alignment of DMA_Channel_TypeDef"][::core::mem::align_of::<DMA_Channel_TypeDef>() - 4usize];
+    ["Offset of field: DMA_Channel_TypeDef::CCR"]
+        [::core::mem::offset_of!(DMA_Channel_TypeDef, CCR) - 0usize];
+    ["Offset of field: DMA_Channel_TypeDef::CNDTR"]
+        [::core::mem::offset_of!(DMA_Channel_TypeDef, CNDTR) - 4usize];
+    ["Offset of field: DMA_Channel_TypeDef::CPAR"]
+        [::core::mem::offset_of!(DMA_Channel_TypeDef, CPAR) - 8usize];
+    ["Offset of field: DMA_Channel_TypeDef::CMAR"]
+        [::core::mem::offset_of!(DMA_Channel_TypeDef, CMAR) - 12usize];
+};
+#[doc = " @brief Asynch Interrupt/Event Controller (EXTI)"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct EXTI_TypeDef {
+    #[doc = "< EXTI Rising Trigger Selection Register 1,        Address offset:   0x00"]
+    pub RTSR: u32,
+    #[doc = "< EXTI Falling Trigger Selection Register 1,       Address offset:   0x04"]
+    pub FTSR: u32,
+    #[doc = "< EXTI Software Interrupt event Register 1,        Address offset:   0x08"]
+    pub SWIER: u32,
+    #[doc = "< EXTI Pending Register 1                          Address offset:   0x0C"]
+    pub PR: u32,
+    #[doc = "< Reserved 1,                                                0x10 -- 0x1C"]
+    pub RESERVED1: [u32; 4usize],
+    #[doc = "< Reserved 2,                                                0x20 -- 0x30"]
+    pub RESERVED2: [u32; 5usize],
+    #[doc = "< Reserved 3,                                                0x34 -- 0x5C"]
+    pub RESERVED3: [u32; 11usize],
+    #[doc = "< EXTI External Interrupt Configuration Register,            0x60 -- 0x68"]
+    pub EXTICR: [u32; 3usize],
+    #[doc = "< Reserved 5,                                                0x6C -- 0x7C"]
+    pub RESERVED4: [u32; 5usize],
+    #[doc = "< EXTI Interrupt Mask Register ,                   Address offset:   0x80"]
+    pub IMR: u32,
+    #[doc = "< EXTI Event Mask Register ,                       Address offset:   0x84"]
+    pub EMR: u32,
+}
+const _: () = {
+    ["Size of EXTI_TypeDef"][::core::mem::size_of::<EXTI_TypeDef>() - 136usize];
+    ["Alignment of EXTI_TypeDef"][::core::mem::align_of::<EXTI_TypeDef>() - 4usize];
+    ["Offset of field: EXTI_TypeDef::RTSR"][::core::mem::offset_of!(EXTI_TypeDef, RTSR) - 0usize];
+    ["Offset of field: EXTI_TypeDef::FTSR"][::core::mem::offset_of!(EXTI_TypeDef, FTSR) - 4usize];
+    ["Offset of field: EXTI_TypeDef::SWIER"][::core::mem::offset_of!(EXTI_TypeDef, SWIER) - 8usize];
+    ["Offset of field: EXTI_TypeDef::PR"][::core::mem::offset_of!(EXTI_TypeDef, PR) - 12usize];
+    ["Offset of field: EXTI_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(EXTI_TypeDef, RESERVED1) - 16usize];
+    ["Offset of field: EXTI_TypeDef::RESERVED2"]
+        [::core::mem::offset_of!(EXTI_TypeDef, RESERVED2) - 32usize];
+    ["Offset of field: EXTI_TypeDef::RESERVED3"]
+        [::core::mem::offset_of!(EXTI_TypeDef, RESERVED3) - 52usize];
+    ["Offset of field: EXTI_TypeDef::EXTICR"]
+        [::core::mem::offset_of!(EXTI_TypeDef, EXTICR) - 96usize];
+    ["Offset of field: EXTI_TypeDef::RESERVED4"]
+        [::core::mem::offset_of!(EXTI_TypeDef, RESERVED4) - 108usize];
+    ["Offset of field: EXTI_TypeDef::IMR"][::core::mem::offset_of!(EXTI_TypeDef, IMR) - 128usize];
+    ["Offset of field: EXTI_TypeDef::EMR"][::core::mem::offset_of!(EXTI_TypeDef, EMR) - 132usize];
+};
+#[doc = " @brief FLASH Registers"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct FLASH_TypeDef {
+    #[doc = "< FLASH Access Control register,                     Address offset: 0x00"]
+    pub ACR: u32,
+    #[doc = "< Reserved1,                                         Address offset: 0x04"]
+    pub RESERVED1: u32,
+    #[doc = "< FLASH Key register,                                Address offset: 0x08"]
+    pub KEYR: u32,
+    #[doc = "< FLASH Option Key register,                         Address offset: 0x0C"]
+    pub OPTKEYR: u32,
+    #[doc = "< FLASH Status register,                             Address offset: 0x10"]
+    pub SR: u32,
+    #[doc = "< FLASH Control register,                            Address offset: 0x14"]
+    pub CR: u32,
+    #[doc = "< Reserved2,                                         Address offset: 0x18-0x1C"]
+    pub RESERVED2: [u32; 2usize],
+    #[doc = "< FLASH Option register,                             Address offset: 0x20"]
+    pub OPTR: u32,
+    #[doc = "< FLASH SDK address register,                        Address offset: 0x24"]
+    pub SDKR: u32,
+    #[doc = "< Reserved2,                                         Address offset: 0x28"]
+    pub RESERVED3: u32,
+    #[doc = "< FLASH WRP address register,                        Address offset: 0x2C"]
+    pub WRPR: u32,
+    pub RESERVED4: [u32; 24usize],
+    #[doc = "< FLASH sleep time config register,                  Address offset: 0x90"]
+    pub STCR: u32,
+    pub RESERVED5: [u32; 27usize],
+    #[doc = "< FLASH TS0 register,                                Address offset: 0x100"]
+    pub TS0: u32,
+    #[doc = "< FLASH TS1 register,                                Address offset: 0x104"]
+    pub TS1: u32,
+    #[doc = "< FLASH TS2P register,                               Address offset: 0x108"]
+    pub TS2P: u32,
+    #[doc = "< FLASH TPS3 register,                               Address offset: 0x10C"]
+    pub TPS3: u32,
+    #[doc = "< FLASH TS3 register,                                Address offset: 0x110"]
+    pub TS3: u32,
+    #[doc = "< FLASH PERTPE register,                             Address offset: 0x114"]
+    pub PERTPE: u32,
+    #[doc = "< FLASH SMERTPE register,                            Address offset: 0x118"]
+    pub SMERTPE: u32,
+    #[doc = "< FLASH PRGTPE register,                             Address offset: 0x11C"]
+    pub PRGTPE: u32,
+    #[doc = "< FLASH PRETPE register,                             Address offset: 0x120"]
+    pub PRETPE: u32,
+}
+const _: () = {
+    ["Size of FLASH_TypeDef"][::core::mem::size_of::<FLASH_TypeDef>() - 292usize];
+    ["Alignment of FLASH_TypeDef"][::core::mem::align_of::<FLASH_TypeDef>() - 4usize];
+    ["Offset of field: FLASH_TypeDef::ACR"][::core::mem::offset_of!(FLASH_TypeDef, ACR) - 0usize];
+    ["Offset of field: FLASH_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(FLASH_TypeDef, RESERVED1) - 4usize];
+    ["Offset of field: FLASH_TypeDef::KEYR"][::core::mem::offset_of!(FLASH_TypeDef, KEYR) - 8usize];
+    ["Offset of field: FLASH_TypeDef::OPTKEYR"]
+        [::core::mem::offset_of!(FLASH_TypeDef, OPTKEYR) - 12usize];
+    ["Offset of field: FLASH_TypeDef::SR"][::core::mem::offset_of!(FLASH_TypeDef, SR) - 16usize];
+    ["Offset of field: FLASH_TypeDef::CR"][::core::mem::offset_of!(FLASH_TypeDef, CR) - 20usize];
+    ["Offset of field: FLASH_TypeDef::RESERVED2"]
+        [::core::mem::offset_of!(FLASH_TypeDef, RESERVED2) - 24usize];
+    ["Offset of field: FLASH_TypeDef::OPTR"]
+        [::core::mem::offset_of!(FLASH_TypeDef, OPTR) - 32usize];
+    ["Offset of field: FLASH_TypeDef::SDKR"]
+        [::core::mem::offset_of!(FLASH_TypeDef, SDKR) - 36usize];
+    ["Offset of field: FLASH_TypeDef::RESERVED3"]
+        [::core::mem::offset_of!(FLASH_TypeDef, RESERVED3) - 40usize];
+    ["Offset of field: FLASH_TypeDef::WRPR"]
+        [::core::mem::offset_of!(FLASH_TypeDef, WRPR) - 44usize];
+    ["Offset of field: FLASH_TypeDef::RESERVED4"]
+        [::core::mem::offset_of!(FLASH_TypeDef, RESERVED4) - 48usize];
+    ["Offset of field: FLASH_TypeDef::STCR"]
+        [::core::mem::offset_of!(FLASH_TypeDef, STCR) - 144usize];
+    ["Offset of field: FLASH_TypeDef::RESERVED5"]
+        [::core::mem::offset_of!(FLASH_TypeDef, RESERVED5) - 148usize];
+    ["Offset of field: FLASH_TypeDef::TS0"][::core::mem::offset_of!(FLASH_TypeDef, TS0) - 256usize];
+    ["Offset of field: FLASH_TypeDef::TS1"][::core::mem::offset_of!(FLASH_TypeDef, TS1) - 260usize];
+    ["Offset of field: FLASH_TypeDef::TS2P"]
+        [::core::mem::offset_of!(FLASH_TypeDef, TS2P) - 264usize];
+    ["Offset of field: FLASH_TypeDef::TPS3"]
+        [::core::mem::offset_of!(FLASH_TypeDef, TPS3) - 268usize];
+    ["Offset of field: FLASH_TypeDef::TS3"][::core::mem::offset_of!(FLASH_TypeDef, TS3) - 272usize];
+    ["Offset of field: FLASH_TypeDef::PERTPE"]
+        [::core::mem::offset_of!(FLASH_TypeDef, PERTPE) - 276usize];
+    ["Offset of field: FLASH_TypeDef::SMERTPE"]
+        [::core::mem::offset_of!(FLASH_TypeDef, SMERTPE) - 280usize];
+    ["Offset of field: FLASH_TypeDef::PRGTPE"]
+        [::core::mem::offset_of!(FLASH_TypeDef, PRGTPE) - 284usize];
+    ["Offset of field: FLASH_TypeDef::PRETPE"]
+        [::core::mem::offset_of!(FLASH_TypeDef, PRETPE) - 288usize];
+};
+#[doc = " @brief Option Bytes"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OB_TypeDef {
+    #[doc = "< FLASH option byte Read protection,             Address offset: 0x00"]
+    pub RDP: u8,
+    #[doc = "< FLASH option byte user options,                Address offset: 0x01"]
+    pub USER: u8,
+    #[doc = "< Complemented FLASH option byte Read protection,Address offset: 0x02"]
+    pub nRDP: u8,
+    #[doc = "< Complemented FLASH option byte user options,   Address offset: 0x03"]
+    pub nUSER: u8,
+    #[doc = "< SDK area start address(stored in SDK[4:0]),    Address offset: 0x04"]
+    pub SDK_STRT: u8,
+    #[doc = "< SDK area end address(stored in SDK[12:8]),     Address offset: 0x05"]
+    pub SDK_END: u8,
+    #[doc = "< Complemented SDK area start address,           Address offset: 0x06"]
+    pub nSDK_STRT: u8,
+    #[doc = "< Complemented SDK area end address,             Address offset: 0x07"]
+    pub nSDK_END: u8,
+    #[doc = "< RESERVED1,                                     Address offset: 0x08"]
+    pub RESERVED1: u32,
+    #[doc = "< FLASH option byte write protection,            Address offset: 0x0C"]
+    pub WRP: u16,
+    #[doc = "< Complemented FLASH option byte write protection,Address offset: 0x0E"]
+    pub nWRP: u16,
+}
+const _: () = {
+    ["Size of OB_TypeDef"][::core::mem::size_of::<OB_TypeDef>() - 16usize];
+    ["Alignment of OB_TypeDef"][::core::mem::align_of::<OB_TypeDef>() - 4usize];
+    ["Offset of field: OB_TypeDef::RDP"][::core::mem::offset_of!(OB_TypeDef, RDP) - 0usize];
+    ["Offset of field: OB_TypeDef::USER"][::core::mem::offset_of!(OB_TypeDef, USER) - 1usize];
+    ["Offset of field: OB_TypeDef::nRDP"][::core::mem::offset_of!(OB_TypeDef, nRDP) - 2usize];
+    ["Offset of field: OB_TypeDef::nUSER"][::core::mem::offset_of!(OB_TypeDef, nUSER) - 3usize];
+    ["Offset of field: OB_TypeDef::SDK_STRT"]
+        [::core::mem::offset_of!(OB_TypeDef, SDK_STRT) - 4usize];
+    ["Offset of field: OB_TypeDef::SDK_END"][::core::mem::offset_of!(OB_TypeDef, SDK_END) - 5usize];
+    ["Offset of field: OB_TypeDef::nSDK_STRT"]
+        [::core::mem::offset_of!(OB_TypeDef, nSDK_STRT) - 6usize];
+    ["Offset of field: OB_TypeDef::nSDK_END"]
+        [::core::mem::offset_of!(OB_TypeDef, nSDK_END) - 7usize];
+    ["Offset of field: OB_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(OB_TypeDef, RESERVED1) - 8usize];
+    ["Offset of field: OB_TypeDef::WRP"][::core::mem::offset_of!(OB_TypeDef, WRP) - 12usize];
+    ["Offset of field: OB_TypeDef::nWRP"][::core::mem::offset_of!(OB_TypeDef, nWRP) - 14usize];
+};
+#[doc = " @brief General Purpose I/O"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct GPIO_TypeDef {
+    #[doc = "< GPIO port mode register,               Address offset: 0x00"]
+    pub MODER: u32,
+    #[doc = "< GPIO port output type register,        Address offset: 0x04"]
+    pub OTYPER: u32,
+    #[doc = "< GPIO port output speed register,       Address offset: 0x08"]
+    pub OSPEEDR: u32,
+    #[doc = "< GPIO port pull-up/pull-down register,  Address offset: 0x0C"]
+    pub PUPDR: u32,
+    #[doc = "< GPIO port input data register,         Address offset: 0x10"]
+    pub IDR: u32,
+    #[doc = "< GPIO port output data register,        Address offset: 0x14"]
+    pub ODR: u32,
+    #[doc = "< GPIO port bit set/reset  register,     Address offset: 0x18"]
+    pub BSRR: u32,
+    #[doc = "< GPIO port configuration lock register, Address offset: 0x1C"]
+    pub LCKR: u32,
+    #[doc = "< GPIO alternate function registers,     Address offset: 0x20-0x24"]
+    pub AFR: [u32; 2usize],
+    #[doc = "< GPIO Bit Reset register,               Address offset: 0x28"]
+    pub BRR: u32,
+}
+const _: () = {
+    ["Size of GPIO_TypeDef"][::core::mem::size_of::<GPIO_TypeDef>() - 44usize];
+    ["Alignment of GPIO_TypeDef"][::core::mem::align_of::<GPIO_TypeDef>() - 4usize];
+    ["Offset of field: GPIO_TypeDef::MODER"][::core::mem::offset_of!(GPIO_TypeDef, MODER) - 0usize];
+    ["Offset of field: GPIO_TypeDef::OTYPER"]
+        [::core::mem::offset_of!(GPIO_TypeDef, OTYPER) - 4usize];
+    ["Offset of field: GPIO_TypeDef::OSPEEDR"]
+        [::core::mem::offset_of!(GPIO_TypeDef, OSPEEDR) - 8usize];
+    ["Offset of field: GPIO_TypeDef::PUPDR"]
+        [::core::mem::offset_of!(GPIO_TypeDef, PUPDR) - 12usize];
+    ["Offset of field: GPIO_TypeDef::IDR"][::core::mem::offset_of!(GPIO_TypeDef, IDR) - 16usize];
+    ["Offset of field: GPIO_TypeDef::ODR"][::core::mem::offset_of!(GPIO_TypeDef, ODR) - 20usize];
+    ["Offset of field: GPIO_TypeDef::BSRR"][::core::mem::offset_of!(GPIO_TypeDef, BSRR) - 24usize];
+    ["Offset of field: GPIO_TypeDef::LCKR"][::core::mem::offset_of!(GPIO_TypeDef, LCKR) - 28usize];
+    ["Offset of field: GPIO_TypeDef::AFR"][::core::mem::offset_of!(GPIO_TypeDef, AFR) - 32usize];
+    ["Offset of field: GPIO_TypeDef::BRR"][::core::mem::offset_of!(GPIO_TypeDef, BRR) - 40usize];
+};
+#[doc = " @brief Inter-integrated Circuit Interface"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct I2C_TypeDef {
+    pub CR1: u32,
+    pub CR2: u32,
+    pub OAR1: u32,
+    pub OAR2: u32,
+    pub DR: u32,
+    pub SR1: u32,
+    pub SR2: u32,
+    pub CCR: u32,
+    pub TRISE: u32,
+}
+const _: () = {
+    ["Size of I2C_TypeDef"][::core::mem::size_of::<I2C_TypeDef>() - 36usize];
+    ["Alignment of I2C_TypeDef"][::core::mem::align_of::<I2C_TypeDef>() - 4usize];
+    ["Offset of field: I2C_TypeDef::CR1"][::core::mem::offset_of!(I2C_TypeDef, CR1) - 0usize];
+    ["Offset of field: I2C_TypeDef::CR2"][::core::mem::offset_of!(I2C_TypeDef, CR2) - 4usize];
+    ["Offset of field: I2C_TypeDef::OAR1"][::core::mem::offset_of!(I2C_TypeDef, OAR1) - 8usize];
+    ["Offset of field: I2C_TypeDef::OAR2"][::core::mem::offset_of!(I2C_TypeDef, OAR2) - 12usize];
+    ["Offset of field: I2C_TypeDef::DR"][::core::mem::offset_of!(I2C_TypeDef, DR) - 16usize];
+    ["Offset of field: I2C_TypeDef::SR1"][::core::mem::offset_of!(I2C_TypeDef, SR1) - 20usize];
+    ["Offset of field: I2C_TypeDef::SR2"][::core::mem::offset_of!(I2C_TypeDef, SR2) - 24usize];
+    ["Offset of field: I2C_TypeDef::CCR"][::core::mem::offset_of!(I2C_TypeDef, CCR) - 28usize];
+    ["Offset of field: I2C_TypeDef::TRISE"][::core::mem::offset_of!(I2C_TypeDef, TRISE) - 32usize];
+};
+#[doc = " @brief Independent WATCHDOG"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct IWDG_TypeDef {
+    #[doc = "< IWDG Key register,       Address offset: 0x00"]
+    pub KR: u32,
+    #[doc = "< IWDG Prescaler register, Address offset: 0x04"]
+    pub PR: u32,
+    #[doc = "< IWDG Reload register,    Address offset: 0x08"]
+    pub RLR: u32,
+    #[doc = "< IWDG Status register,    Address offset: 0x0C"]
+    pub SR: u32,
+}
+const _: () = {
+    ["Size of IWDG_TypeDef"][::core::mem::size_of::<IWDG_TypeDef>() - 16usize];
+    ["Alignment of IWDG_TypeDef"][::core::mem::align_of::<IWDG_TypeDef>() - 4usize];
+    ["Offset of field: IWDG_TypeDef::KR"][::core::mem::offset_of!(IWDG_TypeDef, KR) - 0usize];
+    ["Offset of field: IWDG_TypeDef::PR"][::core::mem::offset_of!(IWDG_TypeDef, PR) - 4usize];
+    ["Offset of field: IWDG_TypeDef::RLR"][::core::mem::offset_of!(IWDG_TypeDef, RLR) - 8usize];
+    ["Offset of field: IWDG_TypeDef::SR"][::core::mem::offset_of!(IWDG_TypeDef, SR) - 12usize];
+};
+#[doc = " @brief LPTIMER"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct LPTIM_TypeDef {
+    #[doc = "< LPTIM Interrupt and Status register,                Address offset: 0x00"]
+    pub ISR: u32,
+    #[doc = "< LPTIM Interrupt Clear register,                     Address offset: 0x04"]
+    pub ICR: u32,
+    #[doc = "< LPTIM Interrupt Enable register,                    Address offset: 0x08"]
+    pub IER: u32,
+    #[doc = "< LPTIM Configuration register,                       Address offset: 0x0C"]
+    pub CFGR: u32,
+    #[doc = "< LPTIM Control register,                             Address offset: 0x10"]
+    pub CR: u32,
+    #[doc = "< RESERVED1,                                          Address offset: 0x14"]
+    pub RESERVED1: u32,
+    #[doc = "< LPTIM Autoreload register,                          Address offset: 0x18"]
+    pub ARR: u32,
+    #[doc = "< LPTIM Counter register,                             Address offset: 0x1C"]
+    pub CNT: u32,
+}
+const _: () = {
+    ["Size of LPTIM_TypeDef"][::core::mem::size_of::<LPTIM_TypeDef>() - 32usize];
+    ["Alignment of LPTIM_TypeDef"][::core::mem::align_of::<LPTIM_TypeDef>() - 4usize];
+    ["Offset of field: LPTIM_TypeDef::ISR"][::core::mem::offset_of!(LPTIM_TypeDef, ISR) - 0usize];
+    ["Offset of field: LPTIM_TypeDef::ICR"][::core::mem::offset_of!(LPTIM_TypeDef, ICR) - 4usize];
+    ["Offset of field: LPTIM_TypeDef::IER"][::core::mem::offset_of!(LPTIM_TypeDef, IER) - 8usize];
+    ["Offset of field: LPTIM_TypeDef::CFGR"]
+        [::core::mem::offset_of!(LPTIM_TypeDef, CFGR) - 12usize];
+    ["Offset of field: LPTIM_TypeDef::CR"][::core::mem::offset_of!(LPTIM_TypeDef, CR) - 16usize];
+    ["Offset of field: LPTIM_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(LPTIM_TypeDef, RESERVED1) - 20usize];
+    ["Offset of field: LPTIM_TypeDef::ARR"][::core::mem::offset_of!(LPTIM_TypeDef, ARR) - 24usize];
+    ["Offset of field: LPTIM_TypeDef::CNT"][::core::mem::offset_of!(LPTIM_TypeDef, CNT) - 28usize];
+};
+#[doc = " @brief Power Control"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct PWR_TypeDef {
+    #[doc = "< PWR Power Control Register 1,                     Address offset: 0x00"]
+    pub CR1: u32,
+    #[doc = "< PWR Power Control Register 2,                     Address offset: 0x04"]
+    pub CR2: u32,
+    #[doc = "< Reserved1,                                        Address offset: 0x08-0x10"]
+    pub RESERVED1: [u32; 3usize],
+    #[doc = "< PWR Power Status Register,                        Address offset: 0x14"]
+    pub SR: u32,
+}
+const _: () = {
+    ["Size of PWR_TypeDef"][::core::mem::size_of::<PWR_TypeDef>() - 24usize];
+    ["Alignment of PWR_TypeDef"][::core::mem::align_of::<PWR_TypeDef>() - 4usize];
+    ["Offset of field: PWR_TypeDef::CR1"][::core::mem::offset_of!(PWR_TypeDef, CR1) - 0usize];
+    ["Offset of field: PWR_TypeDef::CR2"][::core::mem::offset_of!(PWR_TypeDef, CR2) - 4usize];
+    ["Offset of field: PWR_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(PWR_TypeDef, RESERVED1) - 8usize];
+    ["Offset of field: PWR_TypeDef::SR"][::core::mem::offset_of!(PWR_TypeDef, SR) - 20usize];
+};
+#[doc = " @brief Reset and Clock Control"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct RCC_TypeDef {
+    #[doc = "< RCC Clock Sources Control Register,                                     Address offset: 0x00"]
+    pub CR: u32,
+    #[doc = "< RCC Internal Clock Sources Calibration Register,                        Address offset: 0x04"]
+    pub ICSCR: u32,
+    #[doc = "< RCC Regulated Domain Clocks Configuration Register,                     Address offset: 0x08"]
+    pub CFGR: u32,
+    #[doc = "< RCC System PLL configuration Register,                                  Address offset: 0x0C"]
+    pub PLLCFGR: u32,
+    #[doc = "< RCC External clock source control register,                             Address offset: 0x10"]
+    pub ECSCR: u32,
+    #[doc = "< Reserved,                                                               Address offset: 0x14"]
+    pub RESERVED1: u32,
+    #[doc = "< RCC Clock Interrupt Enable Register,                                    Address offset: 0x18"]
+    pub CIER: u32,
+    #[doc = "< RCC Clock Interrupt Flag Register,                                      Address offset: 0x1C"]
+    pub CIFR: u32,
+    #[doc = "< RCC Clock Interrupt Clear Register,                                     Address offset: 0x20"]
+    pub CICR: u32,
+    #[doc = "< RCC IO port reset register,                                             Address offset: 0x24"]
+    pub IOPRSTR: u32,
+    #[doc = "< RCC AHB peripherals reset register,                                     Address offset: 0x28"]
+    pub AHBRSTR: u32,
+    #[doc = "< RCC APB peripherals reset register 1,                                   Address offset: 0x2C"]
+    pub APBRSTR1: u32,
+    #[doc = "< RCC APB peripherals reset register 2,                                   Address offset: 0x30"]
+    pub APBRSTR2: u32,
+    #[doc = "< RCC IO port enable register,                                            Address offset: 0x34"]
+    pub IOPENR: u32,
+    #[doc = "< RCC AHB peripherals clock enable register,                              Address offset: 0x38"]
+    pub AHBENR: u32,
+    #[doc = "< RCC APB peripherals clock enable register1,                             Address offset: 0x3C"]
+    pub APBENR1: u32,
+    #[doc = "< RCC APB peripherals clock enable register2,                             Address offset: 0x40"]
+    pub APBENR2: u32,
+    #[doc = "< Reserved,                                                               Address offset: 0x44-0x50"]
+    pub RESERVED2: [u32; 4usize],
+    #[doc = "< RCC Peripherals Independent Clocks Configuration Register,              Address offset: 0x54"]
+    pub CCIPR: u32,
+    #[doc = "< Reserved,                                                               Address offset: 0x58"]
+    pub RESERVED3: u32,
+    #[doc = "< RCC Backup Domain Control Register,                                     Address offset: 0x5C"]
+    pub BDCR: u32,
+    #[doc = "< RCC Unregulated Domain Clock Control and Status Register,               Address offset: 0x60"]
+    pub CSR: u32,
+}
+const _: () = {
+    ["Size of RCC_TypeDef"][::core::mem::size_of::<RCC_TypeDef>() - 100usize];
+    ["Alignment of RCC_TypeDef"][::core::mem::align_of::<RCC_TypeDef>() - 4usize];
+    ["Offset of field: RCC_TypeDef::CR"][::core::mem::offset_of!(RCC_TypeDef, CR) - 0usize];
+    ["Offset of field: RCC_TypeDef::ICSCR"][::core::mem::offset_of!(RCC_TypeDef, ICSCR) - 4usize];
+    ["Offset of field: RCC_TypeDef::CFGR"][::core::mem::offset_of!(RCC_TypeDef, CFGR) - 8usize];
+    ["Offset of field: RCC_TypeDef::PLLCFGR"]
+        [::core::mem::offset_of!(RCC_TypeDef, PLLCFGR) - 12usize];
+    ["Offset of field: RCC_TypeDef::ECSCR"][::core::mem::offset_of!(RCC_TypeDef, ECSCR) - 16usize];
+    ["Offset of field: RCC_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(RCC_TypeDef, RESERVED1) - 20usize];
+    ["Offset of field: RCC_TypeDef::CIER"][::core::mem::offset_of!(RCC_TypeDef, CIER) - 24usize];
+    ["Offset of field: RCC_TypeDef::CIFR"][::core::mem::offset_of!(RCC_TypeDef, CIFR) - 28usize];
+    ["Offset of field: RCC_TypeDef::CICR"][::core::mem::offset_of!(RCC_TypeDef, CICR) - 32usize];
+    ["Offset of field: RCC_TypeDef::IOPRSTR"]
+        [::core::mem::offset_of!(RCC_TypeDef, IOPRSTR) - 36usize];
+    ["Offset of field: RCC_TypeDef::AHBRSTR"]
+        [::core::mem::offset_of!(RCC_TypeDef, AHBRSTR) - 40usize];
+    ["Offset of field: RCC_TypeDef::APBRSTR1"]
+        [::core::mem::offset_of!(RCC_TypeDef, APBRSTR1) - 44usize];
+    ["Offset of field: RCC_TypeDef::APBRSTR2"]
+        [::core::mem::offset_of!(RCC_TypeDef, APBRSTR2) - 48usize];
+    ["Offset of field: RCC_TypeDef::IOPENR"]
+        [::core::mem::offset_of!(RCC_TypeDef, IOPENR) - 52usize];
+    ["Offset of field: RCC_TypeDef::AHBENR"]
+        [::core::mem::offset_of!(RCC_TypeDef, AHBENR) - 56usize];
+    ["Offset of field: RCC_TypeDef::APBENR1"]
+        [::core::mem::offset_of!(RCC_TypeDef, APBENR1) - 60usize];
+    ["Offset of field: RCC_TypeDef::APBENR2"]
+        [::core::mem::offset_of!(RCC_TypeDef, APBENR2) - 64usize];
+    ["Offset of field: RCC_TypeDef::RESERVED2"]
+        [::core::mem::offset_of!(RCC_TypeDef, RESERVED2) - 68usize];
+    ["Offset of field: RCC_TypeDef::CCIPR"][::core::mem::offset_of!(RCC_TypeDef, CCIPR) - 84usize];
+    ["Offset of field: RCC_TypeDef::RESERVED3"]
+        [::core::mem::offset_of!(RCC_TypeDef, RESERVED3) - 88usize];
+    ["Offset of field: RCC_TypeDef::BDCR"][::core::mem::offset_of!(RCC_TypeDef, BDCR) - 92usize];
+    ["Offset of field: RCC_TypeDef::CSR"][::core::mem::offset_of!(RCC_TypeDef, CSR) - 96usize];
+};
+#[doc = " @brief Real-Time Clock"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct RTC_TypeDef {
+    pub CRH: u32,
+    pub CRL: u32,
+    pub PRLH: u32,
+    pub PRLL: u32,
+    pub DIVH: u32,
+    pub DIVL: u32,
+    pub CNTH: u32,
+    pub CNTL: u32,
+    pub ALRH: u32,
+    pub ALRL: u32,
+    pub RESERVED1: u32,
+    pub BKP_RTCCR: u32,
+}
+const _: () = {
+    ["Size of RTC_TypeDef"][::core::mem::size_of::<RTC_TypeDef>() - 48usize];
+    ["Alignment of RTC_TypeDef"][::core::mem::align_of::<RTC_TypeDef>() - 4usize];
+    ["Offset of field: RTC_TypeDef::CRH"][::core::mem::offset_of!(RTC_TypeDef, CRH) - 0usize];
+    ["Offset of field: RTC_TypeDef::CRL"][::core::mem::offset_of!(RTC_TypeDef, CRL) - 4usize];
+    ["Offset of field: RTC_TypeDef::PRLH"][::core::mem::offset_of!(RTC_TypeDef, PRLH) - 8usize];
+    ["Offset of field: RTC_TypeDef::PRLL"][::core::mem::offset_of!(RTC_TypeDef, PRLL) - 12usize];
+    ["Offset of field: RTC_TypeDef::DIVH"][::core::mem::offset_of!(RTC_TypeDef, DIVH) - 16usize];
+    ["Offset of field: RTC_TypeDef::DIVL"][::core::mem::offset_of!(RTC_TypeDef, DIVL) - 20usize];
+    ["Offset of field: RTC_TypeDef::CNTH"][::core::mem::offset_of!(RTC_TypeDef, CNTH) - 24usize];
+    ["Offset of field: RTC_TypeDef::CNTL"][::core::mem::offset_of!(RTC_TypeDef, CNTL) - 28usize];
+    ["Offset of field: RTC_TypeDef::ALRH"][::core::mem::offset_of!(RTC_TypeDef, ALRH) - 32usize];
+    ["Offset of field: RTC_TypeDef::ALRL"][::core::mem::offset_of!(RTC_TypeDef, ALRL) - 36usize];
+    ["Offset of field: RTC_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(RTC_TypeDef, RESERVED1) - 40usize];
+    ["Offset of field: RTC_TypeDef::BKP_RTCCR"]
+        [::core::mem::offset_of!(RTC_TypeDef, BKP_RTCCR) - 44usize];
+};
+#[doc = " @brief Serial Peripheral Interface"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SPI_TypeDef {
+    #[doc = "< SPI Control register 1,                              Address offset: 0x00"]
+    pub CR1: u32,
+    #[doc = "< SPI Control register 2,                              Address offset: 0x04"]
+    pub CR2: u32,
+    #[doc = "< SPI Status register,                                 Address offset: 0x08"]
+    pub SR: u32,
+    #[doc = "< SPI data register,                                   Address offset: 0x0C"]
+    pub DR: u32,
+}
+const _: () = {
+    ["Size of SPI_TypeDef"][::core::mem::size_of::<SPI_TypeDef>() - 16usize];
+    ["Alignment of SPI_TypeDef"][::core::mem::align_of::<SPI_TypeDef>() - 4usize];
+    ["Offset of field: SPI_TypeDef::CR1"][::core::mem::offset_of!(SPI_TypeDef, CR1) - 0usize];
+    ["Offset of field: SPI_TypeDef::CR2"][::core::mem::offset_of!(SPI_TypeDef, CR2) - 4usize];
+    ["Offset of field: SPI_TypeDef::SR"][::core::mem::offset_of!(SPI_TypeDef, SR) - 8usize];
+    ["Offset of field: SPI_TypeDef::DR"][::core::mem::offset_of!(SPI_TypeDef, DR) - 12usize];
+};
+#[doc = " @brief System configuration controller"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SYSCFG_TypeDef {
+    #[doc = "< SYSCFG configuration register 1,                   Address offset: 0x00"]
+    pub CFGR1: u32,
+    #[doc = "< Reserved,                                                   0x04 --0x14"]
+    pub RESERVED1: [u32; 5usize],
+    #[doc = "< SYSCFG configuration register 2,                   Address offset: 0x18"]
+    pub CFGR2: u32,
+    #[doc = "< SYSCFG configuration register 3,                   Address offset: 0x1C"]
+    pub CFGR3: u32,
+}
+const _: () = {
+    ["Size of SYSCFG_TypeDef"][::core::mem::size_of::<SYSCFG_TypeDef>() - 32usize];
+    ["Alignment of SYSCFG_TypeDef"][::core::mem::align_of::<SYSCFG_TypeDef>() - 4usize];
+    ["Offset of field: SYSCFG_TypeDef::CFGR1"]
+        [::core::mem::offset_of!(SYSCFG_TypeDef, CFGR1) - 0usize];
+    ["Offset of field: SYSCFG_TypeDef::RESERVED1"]
+        [::core::mem::offset_of!(SYSCFG_TypeDef, RESERVED1) - 4usize];
+    ["Offset of field: SYSCFG_TypeDef::CFGR2"]
+        [::core::mem::offset_of!(SYSCFG_TypeDef, CFGR2) - 24usize];
+    ["Offset of field: SYSCFG_TypeDef::CFGR3"]
+        [::core::mem::offset_of!(SYSCFG_TypeDef, CFGR3) - 28usize];
+};
+#[doc = " @brief TIM"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct TIM_TypeDef {
+    #[doc = "< TIM control register 1,                   Address offset: 0x00"]
+    pub CR1: u32,
+    #[doc = "< TIM control register 2,                   Address offset: 0x04"]
+    pub CR2: u32,
+    #[doc = "< TIM slave mode control register,          Address offset: 0x08"]
+    pub SMCR: u32,
+    #[doc = "< TIM DMA/interrupt enable register,        Address offset: 0x0C"]
+    pub DIER: u32,
+    #[doc = "< TIM status register,                      Address offset: 0x10"]
+    pub SR: u32,
+    #[doc = "< TIM event generation register,            Address offset: 0x14"]
+    pub EGR: u32,
+    #[doc = "< TIM capture/compare mode register 1,      Address offset: 0x18"]
+    pub CCMR1: u32,
+    #[doc = "< TIM capture/compare mode register 2,      Address offset: 0x1C"]
+    pub CCMR2: u32,
+    #[doc = "< TIM capture/compare enable register,      Address offset: 0x20"]
+    pub CCER: u32,
+    #[doc = "< TIM counter register,                     Address offset: 0x24"]
+    pub CNT: u32,
+    #[doc = "< TIM prescaler register,                   Address offset: 0x28"]
+    pub PSC: u32,
+    #[doc = "< TIM auto-reload register,                 Address offset: 0x2C"]
+    pub ARR: u32,
+    #[doc = "< TIM repetition counter register,          Address offset: 0x30"]
+    pub RCR: u32,
+    #[doc = "< TIM capture/compare register 1,           Address offset: 0x34"]
+    pub CCR1: u32,
+    #[doc = "< TIM capture/compare register 2,           Address offset: 0x38"]
+    pub CCR2: u32,
+    #[doc = "< TIM capture/compare register 3,           Address offset: 0x3C"]
+    pub CCR3: u32,
+    #[doc = "< TIM capture/compare register 4,           Address offset: 0x40"]
+    pub CCR4: u32,
+    #[doc = "< TIM break and dead-time register,         Address offset: 0x44"]
+    pub BDTR: u32,
+    #[doc = "< TIM DMA control register,                 Address offset: 0x48"]
+    pub DCR: u32,
+    #[doc = "< TIM DMA address for full transfer,        Address offset: 0x4C"]
+    pub DMAR: u32,
+    #[doc = "< TIM option register,                      Address offset: 0x50"]
+    pub OR: u32,
+}
+const _: () = {
+    ["Size of TIM_TypeDef"][::core::mem::size_of::<TIM_TypeDef>() - 84usize];
+    ["Alignment of TIM_TypeDef"][::core::mem::align_of::<TIM_TypeDef>() - 4usize];
+    ["Offset of field: TIM_TypeDef::CR1"][::core::mem::offset_of!(TIM_TypeDef, CR1) - 0usize];
+    ["Offset of field: TIM_TypeDef::CR2"][::core::mem::offset_of!(TIM_TypeDef, CR2) - 4usize];
+    ["Offset of field: TIM_TypeDef::SMCR"][::core::mem::offset_of!(TIM_TypeDef, SMCR) - 8usize];
+    ["Offset of field: TIM_TypeDef::DIER"][::core::mem::offset_of!(TIM_TypeDef, DIER) - 12usize];
+    ["Offset of field: TIM_TypeDef::SR"][::core::mem::offset_of!(TIM_TypeDef, SR) - 16usize];
+    ["Offset of field: TIM_TypeDef::EGR"][::core::mem::offset_of!(TIM_TypeDef, EGR) - 20usize];
+    ["Offset of field: TIM_TypeDef::CCMR1"][::core::mem::offset_of!(TIM_TypeDef, CCMR1) - 24usize];
+    ["Offset of field: TIM_TypeDef::CCMR2"][::core::mem::offset_of!(TIM_TypeDef, CCMR2) - 28usize];
+    ["Offset of field: TIM_TypeDef::CCER"][::core::mem::offset_of!(TIM_TypeDef, CCER) - 32usize];
+    ["Offset of field: TIM_TypeDef::CNT"][::core::mem::offset_of!(TIM_TypeDef, CNT) - 36usize];
+    ["Offset of field: TIM_TypeDef::PSC"][::core::mem::offset_of!(TIM_TypeDef, PSC) - 40usize];
+    ["Offset of field: TIM_TypeDef::ARR"][::core::mem::offset_of!(TIM_TypeDef, ARR) - 44usize];
+    ["Offset of field: TIM_TypeDef::RCR"][::core::mem::offset_of!(TIM_TypeDef, RCR) - 48usize];
+    ["Offset of field: TIM_TypeDef::CCR1"][::core::mem::offset_of!(TIM_TypeDef, CCR1) - 52usize];
+    ["Offset of field: TIM_TypeDef::CCR2"][::core::mem::offset_of!(TIM_TypeDef, CCR2) - 56usize];
+    ["Offset of field: TIM_TypeDef::CCR3"][::core::mem::offset_of!(TIM_TypeDef, CCR3) - 60usize];
+    ["Offset of field: TIM_TypeDef::CCR4"][::core::mem::offset_of!(TIM_TypeDef, CCR4) - 64usize];
+    ["Offset of field: TIM_TypeDef::BDTR"][::core::mem::offset_of!(TIM_TypeDef, BDTR) - 68usize];
+    ["Offset of field: TIM_TypeDef::DCR"][::core::mem::offset_of!(TIM_TypeDef, DCR) - 72usize];
+    ["Offset of field: TIM_TypeDef::DMAR"][::core::mem::offset_of!(TIM_TypeDef, DMAR) - 76usize];
+    ["Offset of field: TIM_TypeDef::OR"][::core::mem::offset_of!(TIM_TypeDef, OR) - 80usize];
+};
+#[doc = " @brief Universal Synchronous Asynchronous Receiver Transmitter"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct USART_TypeDef {
+    #[doc = "< USART     Status  register ,              Address offset: 0x00"]
+    pub SR: u32,
+    #[doc = "< USART Data register,                      Address offset: 0x04"]
+    pub DR: u32,
+    #[doc = "< USART Baud rate register,                 Address offset: 0x08"]
+    pub BRR: u32,
+    #[doc = "< USART     Control  register 1,            Address offset: 0x0C"]
+    pub CR1: u32,
+    #[doc = "< USART     Control  register 2,            Address offset: 0x10"]
+    pub CR2: u32,
+    #[doc = "< USART     Control  register 3,            Address offset: 0x14"]
+    pub CR3: u32,
+    #[doc = "< USART Guard time and prescaler register,  Address offset: 0x18"]
+    pub GTPR: u32,
+}
+const _: () = {
+    ["Size of USART_TypeDef"][::core::mem::size_of::<USART_TypeDef>() - 28usize];
+    ["Alignment of USART_TypeDef"][::core::mem::align_of::<USART_TypeDef>() - 4usize];
+    ["Offset of field: USART_TypeDef::SR"][::core::mem::offset_of!(USART_TypeDef, SR) - 0usize];
+    ["Offset of field: USART_TypeDef::DR"][::core::mem::offset_of!(USART_TypeDef, DR) - 4usize];
+    ["Offset of field: USART_TypeDef::BRR"][::core::mem::offset_of!(USART_TypeDef, BRR) - 8usize];
+    ["Offset of field: USART_TypeDef::CR1"][::core::mem::offset_of!(USART_TypeDef, CR1) - 12usize];
+    ["Offset of field: USART_TypeDef::CR2"][::core::mem::offset_of!(USART_TypeDef, CR2) - 16usize];
+    ["Offset of field: USART_TypeDef::CR3"][::core::mem::offset_of!(USART_TypeDef, CR3) - 20usize];
+    ["Offset of field: USART_TypeDef::GTPR"]
+        [::core::mem::offset_of!(USART_TypeDef, GTPR) - 24usize];
+};
+#[doc = " @brief Window WATCHDOG"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WWDG_TypeDef {
+    #[doc = "< WWDG Control register,       Address offset: 0x00"]
+    pub CR: u32,
+    #[doc = "< WWDG Configuration register, Address offset: 0x04"]
+    pub CFR: u32,
+    #[doc = "< WWDG Status register,        Address offset: 0x08"]
+    pub SR: u32,
+}
+const _: () = {
+    ["Size of WWDG_TypeDef"][::core::mem::size_of::<WWDG_TypeDef>() - 12usize];
+    ["Alignment of WWDG_TypeDef"][::core::mem::align_of::<WWDG_TypeDef>() - 4usize];
+    ["Offset of field: WWDG_TypeDef::CR"][::core::mem::offset_of!(WWDG_TypeDef, CR) - 0usize];
+    ["Offset of field: WWDG_TypeDef::CFR"][::core::mem::offset_of!(WWDG_TypeDef, CFR) - 4usize];
+    ["Offset of field: WWDG_TypeDef::SR"][::core::mem::offset_of!(WWDG_TypeDef, SR) - 8usize];
+};
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct LED_TypeDef {
+    #[doc = "< LED Control register,        Address offset: 0x00"]
+    pub CR: u32,
+    #[doc = "< LED Prescaler register,      Address offset: 0x04"]
+    pub PR: u32,
+    #[doc = "< Time register,               Address offset: 0x08"]
+    pub TR: u32,
+    #[doc = "< Data0 register,              Address offset: 0x0C"]
+    pub DR0: u32,
+    #[doc = "< Data1 register,              Address offset: 0x10"]
+    pub DR1: u32,
+    #[doc = "< Data2 register,              Address offset: 0x14"]
+    pub DR2: u32,
+    #[doc = "< Data3 register,              Address offset: 0x18"]
+    pub DR3: u32,
+    #[doc = "< Interrupt register,          Address offset: 0x1C"]
+    pub IR: u32,
+}
+const _: () = {
+    ["Size of LED_TypeDef"][::core::mem::size_of::<LED_TypeDef>() - 32usize];
+    ["Alignment of LED_TypeDef"][::core::mem::align_of::<LED_TypeDef>() - 4usize];
+    ["Offset of field: LED_TypeDef::CR"][::core::mem::offset_of!(LED_TypeDef, CR) - 0usize];
+    ["Offset of field: LED_TypeDef::PR"][::core::mem::offset_of!(LED_TypeDef, PR) - 4usize];
+    ["Offset of field: LED_TypeDef::TR"][::core::mem::offset_of!(LED_TypeDef, TR) - 8usize];
+    ["Offset of field: LED_TypeDef::DR0"][::core::mem::offset_of!(LED_TypeDef, DR0) - 12usize];
+    ["Offset of field: LED_TypeDef::DR1"][::core::mem::offset_of!(LED_TypeDef, DR1) - 16usize];
+    ["Offset of field: LED_TypeDef::DR2"][::core::mem::offset_of!(LED_TypeDef, DR2) - 20usize];
+    ["Offset of field: LED_TypeDef::DR3"][::core::mem::offset_of!(LED_TypeDef, DR3) - 24usize];
+    ["Offset of field: LED_TypeDef::IR"][::core::mem::offset_of!(LED_TypeDef, IR) - 28usize];
+};
 pub const FLASH_BASE: u32 = 134217728;
 pub const FLASH_END: u32 = 134250495;
 pub const FLASH_SIZE: u32 = 32768;
@@ -250,6 +1719,44 @@ pub const CRC_BASE: u32 = 1073885184;
 pub const GPIOA_BASE: u32 = 1342177280;
 pub const GPIOB_BASE: u32 = 1342178304;
 pub const GPIOF_BASE: u32 = 1342182400;
+pub const TIM3: *mut TIM_TypeDef = 1073742848u32 as *mut TIM_TypeDef;
+pub const TIM14: *mut TIM_TypeDef = 1073750016u32 as *mut TIM_TypeDef;
+pub const LED: *mut LED_TypeDef = 1073751040u32 as *mut LED_TypeDef;
+pub const RTC: *mut RTC_TypeDef = 1073752064u32 as *mut RTC_TypeDef;
+pub const WWDG: *mut WWDG_TypeDef = 1073753088u32 as *mut WWDG_TypeDef;
+pub const IWDG: *mut IWDG_TypeDef = 1073754112u32 as *mut IWDG_TypeDef;
+pub const SPI2: *mut SPI_TypeDef = 1073756160u32 as *mut SPI_TypeDef;
+pub const USART2: *mut USART_TypeDef = 1073759232u32 as *mut USART_TypeDef;
+pub const I2C1: *mut I2C_TypeDef = 1073763328u32 as *mut I2C_TypeDef;
+pub const I2C: *mut I2C_TypeDef = 1073763328u32 as *mut I2C_TypeDef;
+pub const PWR: *mut PWR_TypeDef = 1073770496u32 as *mut PWR_TypeDef;
+pub const LPTIM1: *mut LPTIM_TypeDef = 1073773568u32 as *mut LPTIM_TypeDef;
+pub const LPTIM: *mut LPTIM_TypeDef = 1073773568u32 as *mut LPTIM_TypeDef;
+pub const SYSCFG: *mut SYSCFG_TypeDef = 1073807360u32 as *mut SYSCFG_TypeDef;
+pub const COMP1: *mut COMP_TypeDef = 1073807872u32 as *mut COMP_TypeDef;
+pub const COMP2: *mut COMP_TypeDef = 1073807888u32 as *mut COMP_TypeDef;
+pub const COMP12_COMMON: *mut COMP_Common_TypeDef = 1073807872u32 as *mut COMP_Common_TypeDef;
+pub const ADC1: *mut ADC_TypeDef = 1073816576u32 as *mut ADC_TypeDef;
+pub const ADC1_COMMON: *mut ADC_Common_TypeDef = 1073817352u32 as *mut ADC_Common_TypeDef;
+pub const ADC: *mut ADC_Common_TypeDef = 1073817352u32 as *mut ADC_Common_TypeDef;
+pub const TIM1: *mut TIM_TypeDef = 1073818624u32 as *mut TIM_TypeDef;
+pub const SPI1: *mut SPI_TypeDef = 1073819648u32 as *mut SPI_TypeDef;
+pub const USART1: *mut USART_TypeDef = 1073821696u32 as *mut USART_TypeDef;
+pub const TIM16: *mut TIM_TypeDef = 1073824768u32 as *mut TIM_TypeDef;
+pub const TIM17: *mut TIM_TypeDef = 1073825792u32 as *mut TIM_TypeDef;
+pub const DBGMCU: *mut DBGMCU_TypeDef = 1073829888u32 as *mut DBGMCU_TypeDef;
+pub const DMA1: *mut DMA_TypeDef = 1073872896u32 as *mut DMA_TypeDef;
+pub const DMA1_Channel1: *mut DMA_Channel_TypeDef = 1073872904u32 as *mut DMA_Channel_TypeDef;
+pub const DMA1_Channel2: *mut DMA_Channel_TypeDef = 1073872924u32 as *mut DMA_Channel_TypeDef;
+pub const DMA1_Channel3: *mut DMA_Channel_TypeDef = 1073872944u32 as *mut DMA_Channel_TypeDef;
+pub const RCC: *mut RCC_TypeDef = 1073876992u32 as *mut RCC_TypeDef;
+pub const EXTI: *mut EXTI_TypeDef = 1073879040u32 as *mut EXTI_TypeDef;
+pub const FLASH: *mut FLASH_TypeDef = 1073881088u32 as *mut FLASH_TypeDef;
+pub const OB: *mut OB_TypeDef = 536809088u32 as *mut OB_TypeDef;
+pub const CRC: *mut CRC_TypeDef = 1073885184u32 as *mut CRC_TypeDef;
+pub const GPIOA: *mut GPIO_TypeDef = 1342177280u32 as *mut GPIO_TypeDef;
+pub const GPIOB: *mut GPIO_TypeDef = 1342178304u32 as *mut GPIO_TypeDef;
+pub const GPIOF: *mut GPIO_TypeDef = 1342182400u32 as *mut GPIO_TypeDef;
 pub const ADC_ISR_EOSMP_Pos: u32 = 1;
 pub const ADC_ISR_EOSMP_Msk: u32 = 2;
 pub const ADC_ISR_EOSMP: u32 = 2;
@@ -3723,12 +5230,127 @@ pub const WWDG_CFR_EWI: u32 = 512;
 pub const WWDG_SR_EWIF_Pos: u32 = 0;
 pub const WWDG_SR_EWIF_Msk: u32 = 1;
 pub const WWDG_SR_EWIF: u32 = 1;
+pub const FlagStatus_RESET: FlagStatus = 0;
+pub const FlagStatus_SET: FlagStatus = 1;
+#[doc = " @brief Exported_types"]
+pub type FlagStatus = ::core::ffi::c_uint;
+#[doc = " @brief Exported_types"]
+pub use self::FlagStatus as ITStatus;
+pub const FunctionalState_DISABLE: FunctionalState = 0;
+pub const FunctionalState_ENABLE: FunctionalState = 1;
+pub type FunctionalState = ::core::ffi::c_uint;
+pub const ErrorStatus_SUCCESS: ErrorStatus = 0;
+pub const ErrorStatus_ERROR: ErrorStatus = 1;
+pub type ErrorStatus = ::core::ffi::c_uint;
+pub const HAL_StatusTypeDef_HAL_OK: HAL_StatusTypeDef = 0;
+pub const HAL_StatusTypeDef_HAL_ERROR: HAL_StatusTypeDef = 1;
+pub const HAL_StatusTypeDef_HAL_BUSY: HAL_StatusTypeDef = 2;
+pub const HAL_StatusTypeDef_HAL_TIMEOUT: HAL_StatusTypeDef = 3;
+#[doc = " @brief  HAL Status structures definition"]
+pub type HAL_StatusTypeDef = ::core::ffi::c_uint;
+pub const HAL_LockTypeDef_HAL_UNLOCKED: HAL_LockTypeDef = 0;
+pub const HAL_LockTypeDef_HAL_LOCKED: HAL_LockTypeDef = 1;
+#[doc = " @brief  HAL Lock structures definition"]
+pub type HAL_LockTypeDef = ::core::ffi::c_uint;
 pub const HAL_MAX_DELAY: u32 = 4294967295;
 pub const CR_REG_INDEX: u32 = 1;
 pub const BDCR_REG_INDEX: u32 = 2;
 pub const CSR_REG_INDEX: u32 = 3;
 pub const RCC_FLAG_MASK: u32 = 31;
+pub const RCC_CLOCKTYPE_ALL: u32 = 7;
+#[doc = " @brief  RCC PLL configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct RCC_PLLInitTypeDef {
+    #[doc = "< The new state of the PLL.\nThis parameter can be a value of @ref RCC_PLL_Config"]
+    pub PLLState: u32,
+    #[doc = "< RCC_PLLSource: PLL entry clock source.\nThis parameter must be a value of @ref RCC_PLL_Clock_Source"]
+    pub PLLSource: u32,
+}
+const _: () = {
+    ["Size of RCC_PLLInitTypeDef"][::core::mem::size_of::<RCC_PLLInitTypeDef>() - 8usize];
+    ["Alignment of RCC_PLLInitTypeDef"][::core::mem::align_of::<RCC_PLLInitTypeDef>() - 4usize];
+    ["Offset of field: RCC_PLLInitTypeDef::PLLState"]
+        [::core::mem::offset_of!(RCC_PLLInitTypeDef, PLLState) - 0usize];
+    ["Offset of field: RCC_PLLInitTypeDef::PLLSource"]
+        [::core::mem::offset_of!(RCC_PLLInitTypeDef, PLLSource) - 4usize];
+};
+#[doc = " @brief  RCC Internal/External Oscillator (HSE, HSI, LSE and LSI) configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct RCC_OscInitTypeDef {
+    #[doc = "< The oscillators to be configured.\nThis parameter can be a value of @ref RCC_Oscillator_Type"]
+    pub OscillatorType: u32,
+    #[doc = "< The new state of the HSE.\nThis parameter can be a value of @ref RCC_HSE_Config"]
+    pub HSEState: u32,
+    #[doc = "< The frequency range of the HSE.\nThis parameter can be a value of @ref RCC_HSE_Freq"]
+    pub HSEFreq: u32,
+    #[doc = "< The new state of the LSE.\nThis parameter can be a value of @ref RCC_LSE_Config"]
+    pub LSEState: u32,
+    #[doc = "< The driver factor of the LSE.\nThis parameter can be a value of @ref RCC_LSE_Driver"]
+    pub LSEDriver: u32,
+    #[doc = "< The new state of the HSI.\nThis parameter can be a value of @ref RCC_HSI_Config"]
+    pub HSIState: u32,
+    #[doc = "< The division factor of the HSI.\nThis parameter can be a value of @ref RCC_HSI_Div"]
+    pub HSIDiv: u32,
+    #[doc = "< The calibration trimming value (default is RCC_HSICALIBRATION_8MHz).\nThis parameter can be a value of @ref RCC_HSI_Calibration"]
+    pub HSICalibrationValue: u32,
+    #[doc = "< The new state of the LSI.\nThis parameter can be a value of @ref RCC_LSI_Config"]
+    pub LSIState: u32,
+    #[doc = "< Main PLL structure parameters"]
+    pub PLL: RCC_PLLInitTypeDef,
+}
+const _: () = {
+    ["Size of RCC_OscInitTypeDef"][::core::mem::size_of::<RCC_OscInitTypeDef>() - 44usize];
+    ["Alignment of RCC_OscInitTypeDef"][::core::mem::align_of::<RCC_OscInitTypeDef>() - 4usize];
+    ["Offset of field: RCC_OscInitTypeDef::OscillatorType"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, OscillatorType) - 0usize];
+    ["Offset of field: RCC_OscInitTypeDef::HSEState"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, HSEState) - 4usize];
+    ["Offset of field: RCC_OscInitTypeDef::HSEFreq"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, HSEFreq) - 8usize];
+    ["Offset of field: RCC_OscInitTypeDef::LSEState"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, LSEState) - 12usize];
+    ["Offset of field: RCC_OscInitTypeDef::LSEDriver"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, LSEDriver) - 16usize];
+    ["Offset of field: RCC_OscInitTypeDef::HSIState"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, HSIState) - 20usize];
+    ["Offset of field: RCC_OscInitTypeDef::HSIDiv"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, HSIDiv) - 24usize];
+    ["Offset of field: RCC_OscInitTypeDef::HSICalibrationValue"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, HSICalibrationValue) - 28usize];
+    ["Offset of field: RCC_OscInitTypeDef::LSIState"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, LSIState) - 32usize];
+    ["Offset of field: RCC_OscInitTypeDef::PLL"]
+        [::core::mem::offset_of!(RCC_OscInitTypeDef, PLL) - 36usize];
+};
+#[doc = " @brief  RCC System, AHB and APB busses clock configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct RCC_ClkInitTypeDef {
+    #[doc = "< The clock to be configured.\nThis parameter can be a combination of @ref RCC_System_Clock_Type"]
+    pub ClockType: u32,
+    #[doc = "< The clock source used as system clock (SYSCLK).\nThis parameter can be a value of @ref RCC_System_Clock_Source"]
+    pub SYSCLKSource: u32,
+    #[doc = "< The AHB clock (HCLK) divider. This clock is derived from the system clock (SYSCLK).\nThis parameter can be a value of @ref RCC_AHB_Clock_Source"]
+    pub AHBCLKDivider: u32,
+    #[doc = "< The APB1 clock (PCLK1) divider. This clock is derived from the AHB clock (HCLK).\nThis parameter can be a value of @ref RCC_APB1_Clock_Source"]
+    pub APB1CLKDivider: u32,
+}
+const _: () = {
+    ["Size of RCC_ClkInitTypeDef"][::core::mem::size_of::<RCC_ClkInitTypeDef>() - 16usize];
+    ["Alignment of RCC_ClkInitTypeDef"][::core::mem::align_of::<RCC_ClkInitTypeDef>() - 4usize];
+    ["Offset of field: RCC_ClkInitTypeDef::ClockType"]
+        [::core::mem::offset_of!(RCC_ClkInitTypeDef, ClockType) - 0usize];
+    ["Offset of field: RCC_ClkInitTypeDef::SYSCLKSource"]
+        [::core::mem::offset_of!(RCC_ClkInitTypeDef, SYSCLKSource) - 4usize];
+    ["Offset of field: RCC_ClkInitTypeDef::AHBCLKDivider"]
+        [::core::mem::offset_of!(RCC_ClkInitTypeDef, AHBCLKDivider) - 8usize];
+    ["Offset of field: RCC_ClkInitTypeDef::APB1CLKDivider"]
+        [::core::mem::offset_of!(RCC_ClkInitTypeDef, APB1CLKDivider) - 12usize];
+};
 pub const RCC_DBP_TIMEOUT_VALUE: u32 = 2;
+pub const RCC_LSE_TIMEOUT_VALUE: u32 = 5000u16 as u32;
 pub const RCC_OSCILLATORTYPE_NONE: u32 = 0;
 pub const RCC_OSCILLATORTYPE_HSE: u32 = 1;
 pub const RCC_OSCILLATORTYPE_HSI: u32 = 2;
@@ -3736,11 +5358,13 @@ pub const RCC_OSCILLATORTYPE_LSE: u32 = 4;
 pub const RCC_OSCILLATORTYPE_LSI: u32 = 8;
 pub const RCC_HSE_OFF: u32 = 0;
 pub const RCC_HSE_ON: u32 = 65536;
+pub const RCC_HSE_BYPASS: u32 = 327680u32 as u32;
 pub const RCC_HSE_4_8MHz: u32 = 4;
 pub const RCC_HSE_8_16MHz: u32 = 8;
 pub const RCC_HSE_16_32MHz: u32 = 12;
 pub const RCC_LSE_OFF: u32 = 0;
 pub const RCC_LSE_ON: u32 = 1;
+pub const RCC_LSE_BYPASS: u32 = 5u8 as u32;
 pub const RCC_LSEDRIVE_LOW: u32 = 65536;
 pub const RCC_LSEDRIVE_MEDIUM: u32 = 131072;
 pub const RCC_LSEDRIVE_HIGH: u32 = 196608;
@@ -3835,4767 +5459,6 @@ pub const RCC_FLAG_PWRRST: u32 = 123;
 pub const RCC_FLAG_SFTRST: u32 = 124;
 pub const RCC_FLAG_IWDGRST: u32 = 125;
 pub const RCC_FLAG_WWDGRST: u32 = 126;
-pub const RCC_LSCOSOURCE_LSI: u32 = 0;
-pub const RCC_LSCOSOURCE_LSE: u32 = 33554432;
-pub const RCC_PERIPHCLK_PVD: u32 = 1;
-pub const RCC_PERIPHCLK_COMP1: u32 = 2;
-pub const RCC_PERIPHCLK_COMP2: u32 = 32;
-pub const RCC_PERIPHCLK_LPTIM: u32 = 512;
-pub const RCC_PERIPHCLK_RTC: u32 = 131072;
-pub const RCC_PVDCLKSOURCE_PCLK: u32 = 0;
-pub const RCC_PVDCLKSOURCE_LSC: u32 = 128;
-pub const RCC_COMP1CLKSOURCE_PCLK: u32 = 0;
-pub const RCC_COMP1CLKSOURCE_LSC: u32 = 256;
-pub const RCC_COMP2CLKSOURCE_PCLK: u32 = 0;
-pub const RCC_COMP2CLKSOURCE_LSC: u32 = 512;
-pub const RCC_LPTIMCLKSOURCE_PCLK: u32 = 0;
-pub const RCC_LPTIMCLKSOURCE_LSI: u32 = 262144;
-pub const RCC_LPTIMCLKSOURCE_LSE: u32 = 786432;
-pub const EXTI_MODE_NONE: u32 = 0;
-pub const EXTI_MODE_INTERRUPT: u32 = 1;
-pub const EXTI_MODE_EVENT: u32 = 2;
-pub const EXTI_TRIGGER_NONE: u32 = 0;
-pub const EXTI_TRIGGER_RISING: u32 = 1;
-pub const EXTI_TRIGGER_FALLING: u32 = 2;
-pub const EXTI_TRIGGER_RISING_FALLING: u32 = 3;
-pub const EXTI_GPIOA: u32 = 0;
-pub const EXTI_GPIOB: u32 = 1;
-pub const EXTI_GPIOF: u32 = 2;
-pub const EXTI_PROPERTY_SHIFT: u32 = 24;
-pub const EXTI_DIRECT: u32 = 16777216;
-pub const EXTI_CONFIG: u32 = 33554432;
-pub const EXTI_GPIO: u32 = 100663296;
-pub const EXTI_RESERVED: u32 = 134217728;
-pub const EXTI_PROPERTY_MASK: u32 = 117440512;
-pub const EXTI_REG_SHIFT: u32 = 16;
-pub const EXTI_REG1: u32 = 0;
-pub const EXTI_REG2: u32 = 65536;
-pub const EXTI_REG_MASK: u32 = 65536;
-pub const EXTI_PIN_MASK: u32 = 31;
-pub const EXTI_MODE_MASK: u32 = 3;
-pub const EXTI_TRIGGER_MASK: u32 = 3;
-pub const EXTI_LINE_NB: u32 = 32;
-pub const GPIO_PIN_MASK: u32 = 65535;
-pub const GPIO_MODE_INPUT: u32 = 0;
-pub const GPIO_MODE_OUTPUT_PP: u32 = 1;
-pub const GPIO_MODE_OUTPUT_OD: u32 = 17;
-pub const GPIO_MODE_AF_PP: u32 = 2;
-pub const GPIO_MODE_AF_OD: u32 = 18;
-pub const GPIO_MODE_ANALOG: u32 = 3;
-pub const GPIO_MODE_IT_RISING: u32 = 269549568;
-pub const GPIO_MODE_IT_FALLING: u32 = 270598144;
-pub const GPIO_MODE_IT_RISING_FALLING: u32 = 271646720;
-pub const GPIO_MODE_EVT_RISING: u32 = 269615104;
-pub const GPIO_MODE_EVT_FALLING: u32 = 270663680;
-pub const GPIO_MODE_EVT_RISING_FALLING: u32 = 271712256;
-pub const GPIO_SPEED_FREQ_LOW: u32 = 0;
-pub const GPIO_SPEED_FREQ_MEDIUM: u32 = 1;
-pub const GPIO_SPEED_FREQ_HIGH: u32 = 2;
-pub const GPIO_SPEED_FREQ_VERY_HIGH: u32 = 3;
-pub const GPIO_NOPULL: u32 = 0;
-pub const GPIO_PULLUP: u32 = 1;
-pub const GPIO_PULLDOWN: u32 = 2;
-pub const SYSTICK_CLKSOURCE_HCLK_DIV8: u32 = 0;
-pub const SYSTICK_CLKSOURCE_HCLK: u32 = 4;
-pub const HAL_DMA_ERROR_NONE: u32 = 0;
-pub const HAL_DMA_ERROR_TE: u32 = 1;
-pub const HAL_DMA_ERROR_NO_XFER: u32 = 4;
-pub const HAL_DMA_ERROR_TIMEOUT: u32 = 32;
-pub const HAL_DMA_ERROR_NOT_SUPPORTED: u32 = 256;
-pub const DMA_PERIPH_TO_MEMORY: u32 = 0;
-pub const DMA_PINC_DISABLE: u32 = 0;
-pub const DMA_MINC_DISABLE: u32 = 0;
-pub const DMA_PDATAALIGN_BYTE: u32 = 0;
-pub const DMA_MDATAALIGN_BYTE: u32 = 0;
-pub const DMA_NORMAL: u32 = 0;
-pub const DMA_PRIORITY_LOW: u32 = 0;
-pub const DMA_FLAG_GL1: u32 = 1;
-pub const DMA_FLAG_TC1: u32 = 2;
-pub const DMA_FLAG_HT1: u32 = 4;
-pub const DMA_FLAG_TE1: u32 = 8;
-pub const DMA_FLAG_GL2: u32 = 16;
-pub const DMA_FLAG_TC2: u32 = 32;
-pub const DMA_FLAG_HT2: u32 = 64;
-pub const DMA_FLAG_TE2: u32 = 128;
-pub const DMA_FLAG_GL3: u32 = 256;
-pub const DMA_FLAG_TC3: u32 = 512;
-pub const DMA_FLAG_HT3: u32 = 1024;
-pub const DMA_FLAG_TE3: u32 = 2048;
-pub const DMA_CHANNEL_MAP_ADC: u32 = 0;
-pub const DMA_CHANNEL_MAP_SPI1_TX: u32 = 1;
-pub const DMA_CHANNEL_MAP_SPI1_RX: u32 = 2;
-pub const DMA_CHANNEL_MAP_SPI2_TX: u32 = 3;
-pub const DMA_CHANNEL_MAP_SPI2_RX: u32 = 4;
-pub const DMA_CHANNEL_MAP_USART1_TX: u32 = 5;
-pub const DMA_CHANNEL_MAP_USART1_RX: u32 = 6;
-pub const DMA_CHANNEL_MAP_USART2_TX: u32 = 7;
-pub const DMA_CHANNEL_MAP_USART2_RX: u32 = 8;
-pub const DMA_CHANNEL_MAP_I2C_TX: u32 = 9;
-pub const DMA_CHANNEL_MAP_I2C_RX: u32 = 10;
-pub const DMA_CHANNEL_MAP_TIM1_CH1: u32 = 11;
-pub const DMA_CHANNEL_MAP_TIM1_CH2: u32 = 12;
-pub const DMA_CHANNEL_MAP_TIM1_CH3: u32 = 13;
-pub const DMA_CHANNEL_MAP_TIM1_CH4: u32 = 14;
-pub const DMA_CHANNEL_MAP_TIM1_COM: u32 = 15;
-pub const DMA_CHANNEL_MAP_TIM1_UP: u32 = 16;
-pub const DMA_CHANNEL_MAP_TIM1_TRIG: u32 = 17;
-pub const DMA_CHANNEL_MAP_TIM3_CH1: u32 = 18;
-pub const DMA_CHANNEL_MAP_TIM3_CH3: u32 = 19;
-pub const DMA_CHANNEL_MAP_TIM3_CH4: u32 = 20;
-pub const DMA_CHANNEL_MAP_TIM3_TRIG: u32 = 21;
-pub const DMA_CHANNEL_MAP_TIM3_UP: u32 = 22;
-pub const DMA_CHANNEL_MAP_TIM16_CH1: u32 = 24;
-pub const DMA_CHANNEL_MAP_TIM16_UP: u32 = 25;
-pub const DMA_CHANNEL_MAP_TIM17_CH1: u32 = 26;
-pub const DMA_CHANNEL_MAP_TIM17_UP: u32 = 27;
-pub const DMA_CHANNEL_MAP_END: u32 = 28;
-pub const HAL_ADC_STATE_RESET: u32 = 0;
-pub const HAL_ADC_STATE_READY: u32 = 1;
-pub const HAL_ADC_STATE_BUSY_INTERNAL: u32 = 2;
-pub const HAL_ADC_STATE_TIMEOUT: u32 = 4;
-pub const HAL_ADC_STATE_ERROR_INTERNAL: u32 = 16;
-pub const HAL_ADC_STATE_ERROR_CONFIG: u32 = 32;
-pub const HAL_ADC_STATE_ERROR_DMA: u32 = 64;
-pub const HAL_ADC_STATE_REG_BUSY: u32 = 256;
-pub const HAL_ADC_STATE_REG_EOC: u32 = 512;
-pub const HAL_ADC_STATE_REG_OVR: u32 = 1024;
-pub const HAL_ADC_STATE_REG_EOSMP: u32 = 2048;
-pub const HAL_ADC_STATE_INJ_BUSY: u32 = 4096;
-pub const HAL_ADC_STATE_INJ_EOC: u32 = 8192;
-pub const HAL_ADC_STATE_INJ_JQOVF: u32 = 16384;
-pub const HAL_ADC_STATE_AWD1: u32 = 65536;
-pub const HAL_ADC_STATE_AWD2: u32 = 131072;
-pub const HAL_ADC_STATE_AWD3: u32 = 262144;
-pub const HAL_ADC_STATE_MULTIMODE_SLAVE: u32 = 1048576;
-pub const HAL_ADC_ERROR_NONE: u32 = 0;
-pub const HAL_ADC_ERROR_INTERNAL: u32 = 1;
-pub const HAL_ADC_ERROR_OVR: u32 = 2;
-pub const HAL_ADC_ERROR_DMA: u32 = 4;
-pub const ADC_CLOCK_SYNC_PCLK_DIV1: u32 = 0;
-pub const ADC_RESOLUTION_12B: u32 = 0;
-pub const ADC_DATAALIGN_RIGHT: u32 = 0;
-pub const ADC_SCAN_DIRECTION_FORWARD: u32 = 1;
-pub const ADC_SCAN_DIRECTION_BACKWARD: u32 = 2;
-pub const ADC_SCAN_ENABLE: u32 = 1;
-pub const ADC_EXTERNALTRIGCONVEDGE_NONE: u32 = 0;
-pub const ADC_OVR_DATA_OVERWRITTEN: u32 = 0;
-pub const ADC_OVR_DATA_PRESERVED: u32 = 1;
-pub const ADC_RANK_CHANNEL_NUMBER: u32 = 4096;
-pub const ADC_RANK_NONE: u32 = 4097;
-pub const ADC_SAMPLETIME_3CYCLES_5: u32 = 0;
-pub const ADC_ANALOGWATCHDOG_NONE: u32 = 0;
-pub const ADC_IT_AWD: u32 = 128;
-pub const ADC_IT_OVR: u32 = 16;
-pub const ADC_IT_EOS: u32 = 8;
-pub const ADC_IT_EOC: u32 = 4;
-pub const ADC_IT_EOSMP: u32 = 2;
-pub const ADC_FLAG_AWD: u32 = 128;
-pub const ADC_FLAG_OVR: u32 = 16;
-pub const ADC_FLAG_EOS: u32 = 8;
-pub const ADC_FLAG_EOC: u32 = 4;
-pub const ADC_FLAG_EOSMP: u32 = 2;
-pub const ADC_CALIBSAMPLETIME_2CYCLES: u32 = 0;
-pub const ADC_CALIBSELECTION_ONLYOFFSET: u32 = 0;
-pub const ADC_CALIBSTATUS_SUCCESS: u32 = 0;
-pub const ADC1_2_EXTERNALTRIG_T1_TRGO: u32 = 0;
-pub const ADC_FLAG_POSTCONV_ALL: u32 = 156;
-pub const ADC_CCR_ALL: u32 = 12582912;
-pub const ADC_CHANNEL_0: u32 = 0;
-pub const ADC_CHANNEL_1: u32 = 1;
-pub const ADC_CHANNEL_2: u32 = 2;
-pub const ADC_CHANNEL_3: u32 = 3;
-pub const ADC_CHANNEL_4: u32 = 4;
-pub const ADC_CHANNEL_5: u32 = 5;
-pub const ADC_CHANNEL_6: u32 = 6;
-pub const ADC_CHANNEL_7: u32 = 7;
-pub const ADC_CHANNEL_8: u32 = 8;
-pub const ADC_CHANNEL_9: u32 = 9;
-pub const ADC_CHANNEL_11: u32 = 11;
-pub const ADC_CHANNEL_12: u32 = 12;
-pub const ADC_CHANNEL_TEMPSENSOR: u32 = 11;
-pub const ADC_CHANNEL_VREFINT: u32 = 12;
-pub const ADC_EXTERNALTRIGCONV_T1_TRGO: u32 = 0;
-pub const ADC_SOFTWARE_START: u32 = 449;
-pub const FLASH_LATENCY_0: u32 = 0;
-pub const FLASH_LATENCY_1: u32 = 1;
-pub const FLASH_TYPEERASE_MASSERASE: u32 = 1;
-pub const FLASH_TYPEERASE_PAGEERASE: u32 = 2;
-pub const FLASH_TYPEERASE_SECTORERASE: u32 = 3;
-pub const FLASH_FLAG_BSY: u32 = 65536;
-pub const FLASH_FLAG_OPTVERR: u32 = 32768;
-pub const FLASH_FLAG_WRPERR: u32 = 16;
-pub const FLASH_FLAG_EOP: u32 = 1;
-pub const FLASH_FLAG_ALL_ERRORS: u32 = 32784;
-pub const FLASH_IT_EOP: u32 = 16777216;
-pub const FLASH_IT_OPERR: u32 = 33554432;
-pub const HAL_FLASH_ERROR_NONE: u32 = 0;
-pub const HAL_FLASH_ERROR_WRP: u32 = 16;
-pub const HAL_FLASH_ERROR_OPTV: u32 = 32768;
-pub const FLASH_PROGRAM_ERASE_CLOCK_4MHZ: u32 = 0;
-pub const FLASH_PROGRAM_ERASE_CLOCK_8MHZ: u32 = 1;
-pub const FLASH_PROGRAM_ERASE_CLOCK_16MHZ: u32 = 2;
-pub const FLASH_PROGRAM_ERASE_CLOCK_22p12MHZ: u32 = 3;
-pub const FLASH_PROGRAM_ERASE_CLOCK_24MHZ: u32 = 4;
-pub const OB_USER_BOR_EN: u32 = 256;
-pub const OB_USER_BOR_LEV: u32 = 3584;
-pub const OB_USER_IWDG_SW: u32 = 4096;
-pub const OB_USER_WWDG_SW: u32 = 8192;
-pub const OB_USER_NRST_MODE: u32 = 16384;
-pub const OB_USER_nBOOT1: u32 = 32768;
-pub const OB_USER_ALL: u32 = 65280;
-pub const FLASH_TYPEPROGRAM_PAGE: u32 = 1;
-pub const OB_BOR_DISABLE: u32 = 0;
-pub const OB_BOR_ENABLE: u32 = 256;
-pub const OB_IWDG_SW: u32 = 4096;
-pub const OB_IWDG_HW: u32 = 0;
-pub const OB_WWDG_SW: u32 = 8192;
-pub const OB_WWDG_HW: u32 = 0;
-pub const OB_RESET_MODE_RESET: u32 = 0;
-pub const OB_RESET_MODE_GPIO: u32 = 16384;
-pub const OB_BOOT1_SRAM: u32 = 0;
-pub const OB_BOOT1_SYSTEM: u32 = 32768;
-pub const FLASH_TIMEOUT_VALUE: u32 = 1000;
-pub const FLASH_TYPENONE: u32 = 0;
-pub const FLASH_FLAG_SR_ERROR: u32 = 32784;
-pub const FLASH_FLAG_SR_CLEAR: u32 = 32785;
-pub const HAL_I2C_ERROR_NONE: u32 = 0;
-pub const HAL_I2C_ERROR_BERR: u32 = 1;
-pub const HAL_I2C_ERROR_ARLO: u32 = 2;
-pub const HAL_I2C_ERROR_AF: u32 = 4;
-pub const HAL_I2C_ERROR_OVR: u32 = 8;
-pub const HAL_I2C_ERROR_DMA: u32 = 16;
-pub const HAL_I2C_ERROR_DMA_PARAM: u32 = 128;
-pub const HAL_I2C_ERROR_TIMEOUT: u32 = 32;
-pub const HAL_I2C_ERROR_SIZE: u32 = 64;
-pub const I2C_DUTYCYCLE_2: u32 = 0;
-pub const I2C_DUTYCYCLE_16_9: u32 = 16384;
-pub const I2C_GENERALCALL_DISABLE: u32 = 0;
-pub const I2C_GENERALCALL_ENABLE: u32 = 64;
-pub const I2C_NOSTRETCH_DISABLE: u32 = 0;
-pub const I2C_NOSTRETCH_ENABLE: u32 = 128;
-pub const I2C_MEMADD_SIZE_8BIT: u32 = 1;
-pub const I2C_MEMADD_SIZE_16BIT: u32 = 16;
-pub const I2C_DIRECTION_RECEIVE: u32 = 0;
-pub const I2C_DIRECTION_TRANSMIT: u32 = 1;
-pub const I2C_FIRST_FRAME: u32 = 1;
-pub const I2C_FIRST_AND_NEXT_FRAME: u32 = 2;
-pub const I2C_NEXT_FRAME: u32 = 4;
-pub const I2C_FIRST_AND_LAST_FRAME: u32 = 8;
-pub const I2C_LAST_FRAME_NO_STOP: u32 = 16;
-pub const I2C_LAST_FRAME: u32 = 32;
-pub const I2C_OTHER_FRAME: u32 = 11141120;
-pub const I2C_OTHER_AND_LAST_FRAME: u32 = 2852126720;
-pub const I2C_IT_BUF: u32 = 1024;
-pub const I2C_IT_EVT: u32 = 512;
-pub const I2C_IT_ERR: u32 = 256;
-pub const I2C_FLAG_OVR: u32 = 67584;
-pub const I2C_FLAG_AF: u32 = 66560;
-pub const I2C_FLAG_ARLO: u32 = 66048;
-pub const I2C_FLAG_BERR: u32 = 65792;
-pub const I2C_FLAG_TXE: u32 = 65664;
-pub const I2C_FLAG_RXNE: u32 = 65600;
-pub const I2C_FLAG_STOPF: u32 = 65552;
-pub const I2C_FLAG_ADD10: u32 = 65544;
-pub const I2C_FLAG_BTF: u32 = 65540;
-pub const I2C_FLAG_ADDR: u32 = 65538;
-pub const I2C_FLAG_SB: u32 = 65537;
-pub const I2C_FLAG_DUALF: u32 = 1048704;
-pub const I2C_FLAG_GENCALL: u32 = 1048592;
-pub const I2C_FLAG_TRA: u32 = 1048580;
-pub const I2C_FLAG_BUSY: u32 = 1048578;
-pub const I2C_FLAG_MSL: u32 = 1048577;
-pub const I2C_FLAG_MASK: u32 = 65535;
-pub const I2C_MIN_PCLK_FREQ_STANDARD: u32 = 2000000;
-pub const I2C_MIN_PCLK_FREQ_FAST: u32 = 4000000;
-pub const IWDG_PRESCALER_4: u32 = 0;
-pub const IWDG_PRESCALER_8: u32 = 1;
-pub const IWDG_PRESCALER_16: u32 = 2;
-pub const IWDG_PRESCALER_32: u32 = 3;
-pub const IWDG_PRESCALER_64: u32 = 4;
-pub const IWDG_PRESCALER_128: u32 = 5;
-pub const IWDG_PRESCALER_256: u32 = 6;
-pub const IWDG_KEY_RELOAD: u32 = 43690;
-pub const IWDG_KEY_ENABLE: u32 = 52428;
-pub const IWDG_KEY_WRITE_ACCESS_ENABLE: u32 = 21845;
-pub const IWDG_KEY_WRITE_ACCESS_DISABLE: u32 = 0;
-pub const PWR_PVD_SOURCE_VCC: u32 = 0;
-pub const PWR_PVD_SOURCE_PB07: u32 = 4;
-pub const PWR_PVD_FILTER_NONE: u32 = 0;
-pub const PWR_PVD_FILTER_1CLOCK: u32 = 256;
-pub const PWR_PVD_FILTER_2CLOCK: u32 = 768;
-pub const PWR_PVD_FILTER_4CLOCK: u32 = 1280;
-pub const PWR_PVD_FILTER_16CLOCK: u32 = 1792;
-pub const PWR_PVD_FILTER_64CLOCK: u32 = 2304;
-pub const PWR_PVD_FILTER_128CLOCK: u32 = 2816;
-pub const PWR_PVD_FILTER_1024CLOCK: u32 = 3328;
-pub const PWR_PVDLEVEL_0: u32 = 0;
-pub const PWR_PVDLEVEL_1: u32 = 16;
-pub const PWR_PVDLEVEL_2: u32 = 32;
-pub const PWR_PVDLEVEL_3: u32 = 48;
-pub const PWR_PVDLEVEL_4: u32 = 64;
-pub const PWR_PVDLEVEL_5: u32 = 80;
-pub const PWR_PVDLEVEL_6: u32 = 96;
-pub const PWR_PVDLEVEL_7: u32 = 112;
-pub const PWR_PVD_MODE_NORMAL: u32 = 0;
-pub const PWR_PVD_MODE_IT_RISING: u32 = 65537;
-pub const PWR_PVD_MODE_IT_FALLING: u32 = 65538;
-pub const PWR_PVD_MODE_IT_RISING_FALLING: u32 = 65539;
-pub const PWR_PVD_MODE_EVENT_RISING: u32 = 131073;
-pub const PWR_PVD_MODE_EVENT_FALLING: u32 = 131074;
-pub const PWR_PVD_MODE_EVENT_RISING_FALLING: u32 = 131075;
-pub const PWR_EXTI_LINE_PVD: u32 = 65536;
-pub const PWR_EVENT_LINE_PVD: u32 = 65536;
-pub const PWR_MAINREGULATOR_ON: u32 = 0;
-pub const PWR_LOWPOWERREGULATOR_ON: u32 = 16384;
-pub const PWR_FLAG_PVDO: u32 = 2048;
-pub const PWR_STOPMOD_LPR_VOLT_SCALE1: u32 = 0;
-pub const PWR_STOPMOD_LPR_VOLT_SCALE2: u32 = 512;
-pub const PWR_WAKEUP_LPR_TO_MR_DELAY_2US: u32 = 0;
-pub const PWR_WAKEUP_LPR_TO_MR_DELAY_3US: u32 = 1024;
-pub const PWR_WAKEUP_LPR_TO_MR_DELAY_4US: u32 = 2048;
-pub const PWR_WAKEUP_LPR_TO_MR_DELAY_5US: u32 = 3072;
-pub const PWR_WAKEUP_HSIEN_AFTER_MR: u32 = 0;
-pub const PWR_WAKEUP_HSIEN_IMMEDIATE: u32 = 524288;
-pub const PWR_SRAM_RETENTION_VOLT_0p9: u32 = 196608;
-pub const PWR_SRAM_RETENTION_VOLT_VOS: u32 = 262144;
-pub const PWR_WAKEUP_FLASH_DELAY_0US: u32 = 12288;
-pub const PWR_WAKEUP_FLASH_DELAY_2US: u32 = 4096;
-pub const PWR_WAKEUP_FLASH_DELAY_3US: u32 = 8192;
-pub const PWR_WAKEUP_FLASH_DELAY_5US: u32 = 0;
-pub const PWR_BIAS_CURRENTS_FROM_FACTORY_BYTES: u32 = 0;
-pub const PWR_BIAS_CURRENTS_FROM_BIAS_CR: u32 = 16;
-pub const PWR_WUP_POLARITY_SHIFT: u32 = 8;
-pub const RTC_TIMEOUT_VALUE: u32 = 2000;
-pub const RTC_RTOFF_RESET_TIMEOUT_VALUE: u32 = 4;
-pub const RTC_AUTO_1_SECOND: u32 = 4294967295;
-pub const RTC_FORMAT_BIN: u32 = 0;
-pub const RTC_FORMAT_BCD: u32 = 1;
-pub const RTC_ALARM_A: u32 = 0;
-pub const RTC_OUTPUTSOURCE_NONE: u32 = 0;
-pub const RTC_OUTPUTSOURCE_CALIBCLOCK: u32 = 128;
-pub const RTC_OUTPUTSOURCE_ALARM: u32 = 256;
-pub const RTC_OUTPUTSOURCE_SECOND: u32 = 768;
-pub const RTC_IT_OW: u32 = 4;
-pub const RTC_IT_ALRA: u32 = 2;
-pub const RTC_IT_SEC: u32 = 1;
-pub const RTC_FLAG_RTOFF: u32 = 32;
-pub const RTC_FLAG_RSF: u32 = 8;
-pub const RTC_FLAG_OW: u32 = 4;
-pub const RTC_FLAG_ALRAF: u32 = 2;
-pub const RTC_FLAG_SEC: u32 = 1;
-pub const HAL_SPI_ERROR_NONE: u32 = 0;
-pub const HAL_SPI_ERROR_MODF: u32 = 1;
-pub const HAL_SPI_ERROR_OVR: u32 = 4;
-pub const HAL_SPI_ERROR_FRE: u32 = 8;
-pub const HAL_SPI_ERROR_DMA: u32 = 16;
-pub const HAL_SPI_ERROR_FLAG: u32 = 32;
-pub const HAL_SPI_ERROR_ABORT: u32 = 64;
-pub const SPI_MODE_SLAVE: u32 = 0;
-pub const SPI_MODE_MASTER: u32 = 260;
-pub const SPI_DIRECTION_2LINES: u32 = 0;
-pub const SPI_DIRECTION_2LINES_RXONLY: u32 = 1024;
-pub const SPI_DIRECTION_1LINE: u32 = 32768;
-pub const SPI_DATASIZE_8BIT: u32 = 1792;
-pub const SPI_DATASIZE_16BIT: u32 = 3840;
-pub const SPI_POLARITY_LOW: u32 = 0;
-pub const SPI_POLARITY_HIGH: u32 = 2;
-pub const SPI_PHASE_1EDGE: u32 = 0;
-pub const SPI_PHASE_2EDGE: u32 = 1;
-pub const SPI_NSS_SOFT: u32 = 512;
-pub const SPI_NSS_HARD_INPUT: u32 = 0;
-pub const SPI_NSS_HARD_OUTPUT: u32 = 262144;
-pub const SPI_BAUDRATEPRESCALER_2: u32 = 0;
-pub const SPI_BAUDRATEPRESCALER_4: u32 = 8;
-pub const SPI_BAUDRATEPRESCALER_8: u32 = 16;
-pub const SPI_BAUDRATEPRESCALER_16: u32 = 24;
-pub const SPI_BAUDRATEPRESCALER_32: u32 = 32;
-pub const SPI_BAUDRATEPRESCALER_64: u32 = 40;
-pub const SPI_BAUDRATEPRESCALER_128: u32 = 48;
-pub const SPI_BAUDRATEPRESCALER_256: u32 = 56;
-pub const SPI_FIRSTBIT_MSB: u32 = 0;
-pub const SPI_FIRSTBIT_LSB: u32 = 128;
-pub const SPI_SLAVE_FAST_MODE_DISABLE: u32 = 0;
-pub const SPI_SLAVE_FAST_MODE_ENABLE: u32 = 32768;
-pub const SPI_RXFIFO_THRESHOLD: u32 = 4096;
-pub const SPI_RXFIFO_THRESHOLD_QF: u32 = 4096;
-pub const SPI_RXFIFO_THRESHOLD_HF: u32 = 0;
-pub const SPI_IT_TXE: u32 = 128;
-pub const SPI_IT_RXNE: u32 = 64;
-pub const SPI_IT_ERR: u32 = 32;
-pub const SPI_FLAG_RXNE: u32 = 1;
-pub const SPI_FLAG_TXE: u32 = 2;
-pub const SPI_FLAG_BSY: u32 = 128;
-pub const SPI_FLAG_MODF: u32 = 32;
-pub const SPI_FLAG_OVR: u32 = 64;
-pub const SPI_FLAG_FTLVL: u32 = 6144;
-pub const SPI_FLAG_FRLVL: u32 = 1536;
-pub const SPI_FLAG_MASK: u32 = 7907;
-pub const SPI_FTLVL_EMPTY: u32 = 0;
-pub const SPI_FTLVL_QUARTER_FULL: u32 = 2048;
-pub const SPI_FTLVL_HALF_FULL: u32 = 4096;
-pub const SPI_FTLVL_FULL: u32 = 6144;
-pub const SPI_FRLVL_EMPTY: u32 = 0;
-pub const SPI_FRLVL_QUARTER_FULL: u32 = 512;
-pub const SPI_FRLVL_HALF_FULL: u32 = 1024;
-pub const SPI_FRLVL_FULL: u32 = 1536;
-pub const TIM_CLEARINPUTSOURCE_NONE: u32 = 0;
-pub const TIM_CLEARINPUTSOURCE_ETR: u32 = 1;
-pub const TIM_CLEARINPUTSOURCE_OCREFCLR: u32 = 2;
-pub const TIM_DMABASE_CR1: u32 = 0;
-pub const TIM_DMABASE_CR2: u32 = 1;
-pub const TIM_DMABASE_SMCR: u32 = 2;
-pub const TIM_DMABASE_DIER: u32 = 3;
-pub const TIM_DMABASE_SR: u32 = 4;
-pub const TIM_DMABASE_EGR: u32 = 5;
-pub const TIM_DMABASE_CCMR1: u32 = 6;
-pub const TIM_DMABASE_CCMR2: u32 = 7;
-pub const TIM_DMABASE_CCER: u32 = 8;
-pub const TIM_DMABASE_CNT: u32 = 9;
-pub const TIM_DMABASE_PSC: u32 = 10;
-pub const TIM_DMABASE_ARR: u32 = 11;
-pub const TIM_DMABASE_RCR: u32 = 12;
-pub const TIM_DMABASE_CCR1: u32 = 13;
-pub const TIM_DMABASE_CCR2: u32 = 14;
-pub const TIM_DMABASE_CCR3: u32 = 15;
-pub const TIM_DMABASE_CCR4: u32 = 16;
-pub const TIM_DMABASE_BDTR: u32 = 17;
-pub const TIM_DMABASE_DCR: u32 = 18;
-pub const TIM_DMABASE_DMAR: u32 = 19;
-pub const TIM_EVENTSOURCE_UPDATE: u32 = 1;
-pub const TIM_EVENTSOURCE_CC1: u32 = 2;
-pub const TIM_EVENTSOURCE_CC2: u32 = 4;
-pub const TIM_EVENTSOURCE_CC3: u32 = 8;
-pub const TIM_EVENTSOURCE_CC4: u32 = 16;
-pub const TIM_EVENTSOURCE_COM: u32 = 32;
-pub const TIM_EVENTSOURCE_TRIGGER: u32 = 64;
-pub const TIM_EVENTSOURCE_BREAK: u32 = 128;
-pub const TIM_INPUTCHANNELPOLARITY_RISING: u32 = 0;
-pub const TIM_INPUTCHANNELPOLARITY_FALLING: u32 = 2;
-pub const TIM_INPUTCHANNELPOLARITY_BOTHEDGE: u32 = 10;
-pub const TIM_ETRPOLARITY_INVERTED: u32 = 32768;
-pub const TIM_ETRPOLARITY_NONINVERTED: u32 = 0;
-pub const TIM_ETRPRESCALER_DIV1: u32 = 0;
-pub const TIM_ETRPRESCALER_DIV2: u32 = 4096;
-pub const TIM_ETRPRESCALER_DIV4: u32 = 8192;
-pub const TIM_ETRPRESCALER_DIV8: u32 = 12288;
-pub const TIM_COUNTERMODE_UP: u32 = 0;
-pub const TIM_COUNTERMODE_DOWN: u32 = 16;
-pub const TIM_COUNTERMODE_CENTERALIGNED1: u32 = 32;
-pub const TIM_COUNTERMODE_CENTERALIGNED2: u32 = 64;
-pub const TIM_COUNTERMODE_CENTERALIGNED3: u32 = 96;
-pub const TIM_CLOCKDIVISION_DIV1: u32 = 0;
-pub const TIM_CLOCKDIVISION_DIV2: u32 = 256;
-pub const TIM_CLOCKDIVISION_DIV4: u32 = 512;
-pub const TIM_OUTPUTSTATE_DISABLE: u32 = 0;
-pub const TIM_OUTPUTSTATE_ENABLE: u32 = 1;
-pub const TIM_AUTORELOAD_PRELOAD_DISABLE: u32 = 0;
-pub const TIM_AUTORELOAD_PRELOAD_ENABLE: u32 = 128;
-pub const TIM_OCFAST_DISABLE: u32 = 0;
-pub const TIM_OCFAST_ENABLE: u32 = 4;
-pub const TIM_OUTPUTNSTATE_DISABLE: u32 = 0;
-pub const TIM_OUTPUTNSTATE_ENABLE: u32 = 4;
-pub const TIM_OCPOLARITY_HIGH: u32 = 0;
-pub const TIM_OCPOLARITY_LOW: u32 = 2;
-pub const TIM_OCNPOLARITY_HIGH: u32 = 0;
-pub const TIM_OCNPOLARITY_LOW: u32 = 8;
-pub const TIM_OCIDLESTATE_SET: u32 = 256;
-pub const TIM_OCIDLESTATE_RESET: u32 = 0;
-pub const TIM_OCNIDLESTATE_SET: u32 = 512;
-pub const TIM_OCNIDLESTATE_RESET: u32 = 0;
-pub const TIM_ICPOLARITY_RISING: u32 = 0;
-pub const TIM_ICPOLARITY_FALLING: u32 = 2;
-pub const TIM_ICPOLARITY_BOTHEDGE: u32 = 10;
-pub const TIM_ENCODERINPUTPOLARITY_RISING: u32 = 0;
-pub const TIM_ENCODERINPUTPOLARITY_FALLING: u32 = 2;
-pub const TIM_ENCODERINPUTPOLARITY_BOTHEDGE: u32 = 10;
-pub const TIM_ICSELECTION_DIRECTTI: u32 = 1;
-pub const TIM_ICSELECTION_INDIRECTTI: u32 = 2;
-pub const TIM_ICSELECTION_TRC: u32 = 3;
-pub const TIM_ICPSC_DIV1: u32 = 0;
-pub const TIM_ICPSC_DIV2: u32 = 4;
-pub const TIM_ICPSC_DIV4: u32 = 8;
-pub const TIM_ICPSC_DIV8: u32 = 12;
-pub const TIM_OPMODE_SINGLE: u32 = 8;
-pub const TIM_OPMODE_REPETITIVE: u32 = 0;
-pub const TIM_ENCODERMODE_TI1: u32 = 1;
-pub const TIM_ENCODERMODE_TI2: u32 = 2;
-pub const TIM_ENCODERMODE_TI12: u32 = 3;
-pub const TIM_IT_UPDATE: u32 = 1;
-pub const TIM_IT_CC1: u32 = 2;
-pub const TIM_IT_CC2: u32 = 4;
-pub const TIM_IT_CC3: u32 = 8;
-pub const TIM_IT_CC4: u32 = 16;
-pub const TIM_IT_COM: u32 = 32;
-pub const TIM_IT_TRIGGER: u32 = 64;
-pub const TIM_IT_BREAK: u32 = 128;
-pub const TIM_COMMUTATION_TRGI: u32 = 4;
-pub const TIM_COMMUTATION_SOFTWARE: u32 = 0;
-pub const TIM_DMA_UPDATE: u32 = 256;
-pub const TIM_DMA_CC1: u32 = 512;
-pub const TIM_DMA_CC2: u32 = 1024;
-pub const TIM_DMA_CC3: u32 = 2048;
-pub const TIM_DMA_CC4: u32 = 4096;
-pub const TIM_DMA_COM: u32 = 8192;
-pub const TIM_DMA_TRIGGER: u32 = 16384;
-pub const TIM_FLAG_UPDATE: u32 = 1;
-pub const TIM_FLAG_CC1: u32 = 2;
-pub const TIM_FLAG_CC2: u32 = 4;
-pub const TIM_FLAG_CC3: u32 = 8;
-pub const TIM_FLAG_CC4: u32 = 16;
-pub const TIM_FLAG_COM: u32 = 32;
-pub const TIM_FLAG_TRIGGER: u32 = 64;
-pub const TIM_FLAG_BREAK: u32 = 128;
-pub const TIM_FLAG_CC1OF: u32 = 512;
-pub const TIM_FLAG_CC2OF: u32 = 1024;
-pub const TIM_FLAG_CC3OF: u32 = 2048;
-pub const TIM_FLAG_CC4OF: u32 = 4096;
-pub const TIM_CHANNEL_1: u32 = 0;
-pub const TIM_CHANNEL_2: u32 = 4;
-pub const TIM_CHANNEL_3: u32 = 8;
-pub const TIM_CHANNEL_4: u32 = 12;
-pub const TIM_CHANNEL_ALL: u32 = 60;
-pub const TIM_CLOCKSOURCE_ETRMODE2: u32 = 8192;
-pub const TIM_CLOCKSOURCE_INTERNAL: u32 = 4096;
-pub const TIM_CLOCKPOLARITY_INVERTED: u32 = 32768;
-pub const TIM_CLOCKPOLARITY_NONINVERTED: u32 = 0;
-pub const TIM_CLOCKPOLARITY_RISING: u32 = 0;
-pub const TIM_CLOCKPOLARITY_FALLING: u32 = 2;
-pub const TIM_CLOCKPOLARITY_BOTHEDGE: u32 = 10;
-pub const TIM_CLOCKPRESCALER_DIV1: u32 = 0;
-pub const TIM_CLOCKPRESCALER_DIV2: u32 = 4096;
-pub const TIM_CLOCKPRESCALER_DIV4: u32 = 8192;
-pub const TIM_CLOCKPRESCALER_DIV8: u32 = 12288;
-pub const TIM_CLEARINPUTPOLARITY_INVERTED: u32 = 32768;
-pub const TIM_CLEARINPUTPOLARITY_NONINVERTED: u32 = 0;
-pub const TIM_CLEARINPUTPRESCALER_DIV1: u32 = 0;
-pub const TIM_CLEARINPUTPRESCALER_DIV2: u32 = 4096;
-pub const TIM_CLEARINPUTPRESCALER_DIV4: u32 = 8192;
-pub const TIM_CLEARINPUTPRESCALER_DIV8: u32 = 12288;
-pub const TIM_OSSR_ENABLE: u32 = 2048;
-pub const TIM_OSSR_DISABLE: u32 = 0;
-pub const TIM_OSSI_ENABLE: u32 = 1024;
-pub const TIM_OSSI_DISABLE: u32 = 0;
-pub const TIM_LOCKLEVEL_OFF: u32 = 0;
-pub const TIM_LOCKLEVEL_1: u32 = 256;
-pub const TIM_LOCKLEVEL_2: u32 = 512;
-pub const TIM_LOCKLEVEL_3: u32 = 768;
-pub const TIM_BREAK_ENABLE: u32 = 4096;
-pub const TIM_BREAK_DISABLE: u32 = 0;
-pub const TIM_BREAKPOLARITY_LOW: u32 = 0;
-pub const TIM_BREAKPOLARITY_HIGH: u32 = 8192;
-pub const TIM_AUTOMATICOUTPUT_DISABLE: u32 = 0;
-pub const TIM_AUTOMATICOUTPUT_ENABLE: u32 = 16384;
-pub const TIM_TRGO_RESET: u32 = 0;
-pub const TIM_TRGO_ENABLE: u32 = 16;
-pub const TIM_TRGO_UPDATE: u32 = 32;
-pub const TIM_TRGO_OC1: u32 = 48;
-pub const TIM_TRGO_OC1REF: u32 = 64;
-pub const TIM_TRGO_OC2REF: u32 = 80;
-pub const TIM_TRGO_OC3REF: u32 = 96;
-pub const TIM_TRGO_OC4REF: u32 = 112;
-pub const TIM_MASTERSLAVEMODE_ENABLE: u32 = 128;
-pub const TIM_MASTERSLAVEMODE_DISABLE: u32 = 0;
-pub const TIM_SLAVEMODE_DISABLE: u32 = 0;
-pub const TIM_SLAVEMODE_RESET: u32 = 4;
-pub const TIM_SLAVEMODE_GATED: u32 = 5;
-pub const TIM_SLAVEMODE_TRIGGER: u32 = 6;
-pub const TIM_SLAVEMODE_EXTERNAL1: u32 = 7;
-pub const TIM_OCMODE_TIMING: u32 = 0;
-pub const TIM_OCMODE_ACTIVE: u32 = 16;
-pub const TIM_OCMODE_INACTIVE: u32 = 32;
-pub const TIM_OCMODE_TOGGLE: u32 = 48;
-pub const TIM_OCMODE_PWM1: u32 = 96;
-pub const TIM_OCMODE_PWM2: u32 = 112;
-pub const TIM_OCMODE_FORCED_ACTIVE: u32 = 80;
-pub const TIM_OCMODE_FORCED_INACTIVE: u32 = 64;
-pub const TIM_TS_ITR0: u32 = 0;
-pub const TIM_TS_ITR1: u32 = 16;
-pub const TIM_TS_ITR2: u32 = 32;
-pub const TIM_TS_ITR3: u32 = 48;
-pub const TIM_TS_TI1F_ED: u32 = 64;
-pub const TIM_TS_TI1FP1: u32 = 80;
-pub const TIM_TS_TI2FP2: u32 = 96;
-pub const TIM_TS_ETRF: u32 = 112;
-pub const TIM_TS_NONE: u32 = 65535;
-pub const TIM_TRIGGERPOLARITY_INVERTED: u32 = 32768;
-pub const TIM_TRIGGERPOLARITY_NONINVERTED: u32 = 0;
-pub const TIM_TRIGGERPOLARITY_RISING: u32 = 0;
-pub const TIM_TRIGGERPOLARITY_FALLING: u32 = 2;
-pub const TIM_TRIGGERPOLARITY_BOTHEDGE: u32 = 10;
-pub const TIM_TRIGGERPRESCALER_DIV1: u32 = 0;
-pub const TIM_TRIGGERPRESCALER_DIV2: u32 = 4096;
-pub const TIM_TRIGGERPRESCALER_DIV4: u32 = 8192;
-pub const TIM_TRIGGERPRESCALER_DIV8: u32 = 12288;
-pub const TIM_TI1SELECTION_CH1: u32 = 0;
-pub const TIM_TI1SELECTION_XORCOMBINATION: u32 = 128;
-pub const TIM_DMABURSTLENGTH_1TRANSFER: u32 = 0;
-pub const TIM_DMABURSTLENGTH_2TRANSFERS: u32 = 256;
-pub const TIM_DMABURSTLENGTH_3TRANSFERS: u32 = 512;
-pub const TIM_DMABURSTLENGTH_4TRANSFERS: u32 = 768;
-pub const TIM_DMABURSTLENGTH_5TRANSFERS: u32 = 1024;
-pub const TIM_DMABURSTLENGTH_6TRANSFERS: u32 = 1280;
-pub const TIM_DMABURSTLENGTH_7TRANSFERS: u32 = 1536;
-pub const TIM_DMABURSTLENGTH_8TRANSFERS: u32 = 1792;
-pub const TIM_DMABURSTLENGTH_9TRANSFERS: u32 = 2048;
-pub const TIM_DMABURSTLENGTH_10TRANSFERS: u32 = 2304;
-pub const TIM_DMABURSTLENGTH_11TRANSFERS: u32 = 2560;
-pub const TIM_DMABURSTLENGTH_12TRANSFERS: u32 = 2816;
-pub const TIM_DMABURSTLENGTH_13TRANSFERS: u32 = 3072;
-pub const TIM_DMABURSTLENGTH_14TRANSFERS: u32 = 3328;
-pub const TIM_DMABURSTLENGTH_15TRANSFERS: u32 = 3584;
-pub const TIM_DMABURSTLENGTH_16TRANSFERS: u32 = 3840;
-pub const TIM_DMABURSTLENGTH_17TRANSFERS: u32 = 4096;
-pub const TIM_DMABURSTLENGTH_18TRANSFERS: u32 = 4352;
-pub const TIM_CCx_ENABLE: u32 = 1;
-pub const TIM_CCx_DISABLE: u32 = 0;
-pub const TIM_CCxN_ENABLE: u32 = 4;
-pub const TIM_CCxN_DISABLE: u32 = 0;
-pub const TIM_TIM14_GPIO: u32 = 0;
-pub const TIM_TIM14_RTC: u32 = 1;
-pub const TIM_TIM14_HSE: u32 = 2;
-pub const TIM_TIM14_MCO: u32 = 3;
-pub const LPTIM_PRESCALER_DIV1: u32 = 0;
-pub const LPTIM_PRESCALER_DIV2: u32 = 512;
-pub const LPTIM_PRESCALER_DIV4: u32 = 1024;
-pub const LPTIM_PRESCALER_DIV8: u32 = 1536;
-pub const LPTIM_PRESCALER_DIV16: u32 = 2048;
-pub const LPTIM_PRESCALER_DIV32: u32 = 2560;
-pub const LPTIM_PRESCALER_DIV64: u32 = 3072;
-pub const LPTIM_PRESCALER_DIV128: u32 = 3584;
-pub const LPTIM_UPDATE_IMMEDIATE: u32 = 0;
-pub const LPTIM_UPDATE_ENDOFPERIOD: u32 = 4194304;
-pub const LPTIM_FLAG_ARRM: u32 = 2;
-pub const LPTIM_IT_ARRM: u32 = 2;
-pub const HAL_UART_ERROR_NONE: u32 = 0;
-pub const HAL_UART_ERROR_PE: u32 = 1;
-pub const HAL_UART_ERROR_NE: u32 = 2;
-pub const HAL_UART_ERROR_FE: u32 = 4;
-pub const HAL_UART_ERROR_ORE: u32 = 8;
-pub const HAL_UART_ERROR_DMA: u32 = 16;
-pub const UART_WORDLENGTH_8B: u32 = 0;
-pub const UART_STOPBITS_1: u32 = 0;
-pub const UART_PARITY_NONE: u32 = 0;
-pub const UART_HWCONTROL_NONE: u32 = 0;
-pub const UART_STATE_DISABLE: u32 = 0;
-pub const UART_OVERSAMPLING_16: u32 = 0;
-pub const UART_LINBREAKDETECTLENGTH_10B: u32 = 0;
-pub const UART_WAKEUPMETHOD_IDLELINE: u32 = 0;
-pub const UART_ADVFEATURE_NO_INIT: u32 = 0;
-pub const UART_ADVFEATURE_AUTOBAUDRATE_INIT: u32 = 64;
-pub const UART_ADVFEATURE_AUTOBAUDRATE_DISABLE: u32 = 0;
-pub const UART_ADVFEATURE_AUTOBAUDRATE_ENABLE: u32 = 4096;
-pub const UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT: u32 = 0;
-pub const UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE: u32 = 8192;
-pub const UART_IT_MASK: u32 = 65535;
-pub const UART_CR1_REG_INDEX: u32 = 1;
-pub const UART_CR2_REG_INDEX: u32 = 2;
-pub const UART_CR3_REG_INDEX: u32 = 3;
-pub const WWDG_IT_EWI: u32 = 512;
-pub const WWDG_FLAG_EWIF: u32 = 1;
-pub const WWDG_PRESCALER_1: u32 = 0;
-pub const WWDG_PRESCALER_2: u32 = 128;
-pub const WWDG_PRESCALER_4: u32 = 256;
-pub const WWDG_PRESCALER_8: u32 = 384;
-pub const WWDG_EWI_DISABLE: u32 = 0;
-pub const WWDG_EWI_ENABLE: u32 = 512;
-pub const LED_DISP_NONE: u32 = 0;
-pub const LED_DISP_FULL: u32 = 255;
-pub const LED_DISP_0: u32 = 63;
-pub const LED_DISP_1: u32 = 6;
-pub const LED_DISP_2: u32 = 91;
-pub const LED_DISP_3: u32 = 79;
-pub const LED_DISP_4: u32 = 102;
-pub const LED_DISP_5: u32 = 109;
-pub const LED_DISP_6: u32 = 125;
-pub const LED_DISP_7: u32 = 7;
-pub const LED_DISP_8: u32 = 127;
-pub const LED_DISP_9: u32 = 111;
-pub const LED_DISP_A: u32 = 119;
-pub const LED_DISP_B: u32 = 124;
-pub const LED_DISP_C: u32 = 57;
-pub const LED_DISP_D: u32 = 94;
-pub const LED_DISP_E: u32 = 121;
-pub const LED_DISP_F: u32 = 113;
-pub const LED_DISP_H: u32 = 118;
-pub const LED_DISP_P: u32 = 115;
-pub const LED_DISP_U: u32 = 62;
-pub const LED_DISP_DOT: u32 = 128;
-pub const LED_COM0: u32 = 1;
-pub const LED_COM1: u32 = 2;
-pub const LED_COM2: u32 = 4;
-pub const LED_COM3: u32 = 8;
-pub const LED_COM_ALL: u32 = 15;
-pub const LED_COMDRIVE_LOW: u32 = 0;
-pub const LED_COMDRIVE_HIGH: u32 = 4096;
-pub const SYSCFG_BOOT_MAINFLASH: u32 = 0;
-pub const SYSCFG_BOOT_SYSTEMFLASH: u32 = 1;
-pub const SYSCFG_BOOT_SRAM: u32 = 3;
-#[doc = "< 2 Non Maskable Interrupt"]
-pub const IRQn_Type_NonMaskableInt_IRQn: IRQn_Type = -14;
-#[doc = "< 3 Cortex-M Hard Fault Interrupt"]
-pub const IRQn_Type_HardFault_IRQn: IRQn_Type = -13;
-#[doc = "< 11 Cortex-M SV Call Interrupt"]
-pub const IRQn_Type_SVC_IRQn: IRQn_Type = -5;
-#[doc = "< 14 Cortex-M Pend SV Interrupt"]
-pub const IRQn_Type_PendSV_IRQn: IRQn_Type = -2;
-#[doc = "< 15 Cortex-M System Tick Interrupt"]
-pub const IRQn_Type_SysTick_IRQn: IRQn_Type = -1;
-#[doc = "< Window WatchDog Interrupt"]
-pub const IRQn_Type_WWDG_IRQn: IRQn_Type = 0;
-#[doc = "< PVD through EXTI Line detection Interrupt(EXTI line 16)"]
-pub const IRQn_Type_PVD_IRQn: IRQn_Type = 1;
-#[doc = "< RTC interrupt through the EXTI line 19"]
-pub const IRQn_Type_RTC_IRQn: IRQn_Type = 2;
-#[doc = "< FLASH global Interrupt"]
-pub const IRQn_Type_FLASH_IRQn: IRQn_Type = 3;
-#[doc = "< RCC global Interrupt"]
-pub const IRQn_Type_RCC_IRQn: IRQn_Type = 4;
-#[doc = "< EXTI 0 and 1 Interrupts"]
-pub const IRQn_Type_EXTI0_1_IRQn: IRQn_Type = 5;
-#[doc = "< EXTI Line 2 and 3 Interrupts"]
-pub const IRQn_Type_EXTI2_3_IRQn: IRQn_Type = 6;
-#[doc = "< EXTI Line 4 to 15 Interrupts"]
-pub const IRQn_Type_EXTI4_15_IRQn: IRQn_Type = 7;
-#[doc = "< DMA1 Channel 1 Interrupt"]
-pub const IRQn_Type_DMA1_Channel1_IRQn: IRQn_Type = 9;
-#[doc = "< DMA1 Channel 2 and Channel 3 Interrupts"]
-pub const IRQn_Type_DMA1_Channel2_3_IRQn: IRQn_Type = 10;
-#[doc = "< ADC&COMP Interrupts"]
-pub const IRQn_Type_ADC_COMP_IRQn: IRQn_Type = 12;
-#[doc = "< TIM1 Break, Update, Trigger and Commutation Interrupts"]
-pub const IRQn_Type_TIM1_BRK_UP_TRG_COM_IRQn: IRQn_Type = 13;
-#[doc = "< TIM1 Capture Compare Interrupt"]
-pub const IRQn_Type_TIM1_CC_IRQn: IRQn_Type = 14;
-#[doc = "< TIM3 global Interrupt"]
-pub const IRQn_Type_TIM3_IRQn: IRQn_Type = 16;
-#[doc = "< LPTIM1 global Interrupts"]
-pub const IRQn_Type_LPTIM1_IRQn: IRQn_Type = 17;
-#[doc = "< TIM14 global Interrupt"]
-pub const IRQn_Type_TIM14_IRQn: IRQn_Type = 19;
-#[doc = "< TIM16 global Interrupt"]
-pub const IRQn_Type_TIM16_IRQn: IRQn_Type = 21;
-#[doc = "< TIM17 global Interrupt"]
-pub const IRQn_Type_TIM17_IRQn: IRQn_Type = 22;
-#[doc = "< I2C1 Interrupt  (combined with EXTI 23)"]
-pub const IRQn_Type_I2C1_IRQn: IRQn_Type = 23;
-#[doc = "< SPI1 Interrupt"]
-pub const IRQn_Type_SPI1_IRQn: IRQn_Type = 25;
-#[doc = "< SPI2 Interrupt"]
-pub const IRQn_Type_SPI2_IRQn: IRQn_Type = 26;
-#[doc = "< USART1 Interrupt"]
-pub const IRQn_Type_USART1_IRQn: IRQn_Type = 27;
-#[doc = "< USART2 Interrupt"]
-pub const IRQn_Type_USART2_IRQn: IRQn_Type = 28;
-#[doc = "< LED global Interrupt"]
-pub const IRQn_Type_LED_IRQn: IRQn_Type = 30;
-pub type IRQn_Type = ::core::ffi::c_int;
-pub type int_least64_t = i64;
-pub type uint_least64_t = u64;
-pub type int_fast64_t = i64;
-pub type uint_fast64_t = u64;
-pub type int_least32_t = i32;
-pub type uint_least32_t = u32;
-pub type int_fast32_t = i32;
-pub type uint_fast32_t = u32;
-pub type int_least16_t = i16;
-pub type uint_least16_t = u16;
-pub type int_fast16_t = i16;
-pub type uint_fast16_t = u16;
-pub type int_least8_t = i8;
-pub type uint_least8_t = u8;
-pub type int_fast8_t = i8;
-pub type uint_fast8_t = u8;
-pub type intmax_t = ::core::ffi::c_longlong;
-pub type uintmax_t = ::core::ffi::c_ulonglong;
-#[doc = "\\brief  Union type to access the Application Program Status Register (APSR)."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union APSR_Type {
-    #[doc = "< Structure used for bit  access"]
-    pub b: APSR_Type__bindgen_ty_1,
-    #[doc = "< Type      used for word access"]
-    pub w: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct APSR_Type__bindgen_ty_1 {
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[test]
-fn bindgen_test_layout_APSR_Type__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<APSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(APSR_Type__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<APSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(APSR_Type__bindgen_ty_1))
-    );
-}
-impl APSR_Type__bindgen_ty_1 {
-    #[inline]
-    pub fn _reserved0(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 28u8) as u32) }
-    }
-    #[inline]
-    pub fn set__reserved0(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 28u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn V(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(28usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_V(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(28usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn C(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(29usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_C(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(29usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn Z(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(30usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_Z(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(30usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn N(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_N(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(31usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        _reserved0: u32,
-        V: u32,
-        C: u32,
-        Z: u32,
-        N: u32,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 28u8, {
-            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
-            _reserved0 as u64
-        });
-        __bindgen_bitfield_unit.set(28usize, 1u8, {
-            let V: u32 = unsafe { ::core::mem::transmute(V) };
-            V as u64
-        });
-        __bindgen_bitfield_unit.set(29usize, 1u8, {
-            let C: u32 = unsafe { ::core::mem::transmute(C) };
-            C as u64
-        });
-        __bindgen_bitfield_unit.set(30usize, 1u8, {
-            let Z: u32 = unsafe { ::core::mem::transmute(Z) };
-            Z as u64
-        });
-        __bindgen_bitfield_unit.set(31usize, 1u8, {
-            let N: u32 = unsafe { ::core::mem::transmute(N) };
-            N as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[test]
-fn bindgen_test_layout_APSR_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<APSR_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<APSR_Type>(),
-        4usize,
-        concat!("Size of: ", stringify!(APSR_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<APSR_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(APSR_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(APSR_Type),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(APSR_Type),
-            "::",
-            stringify!(w)
-        )
-    );
-}
-#[doc = "\\brief  Union type to access the Interrupt Program Status Register (IPSR)."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union IPSR_Type {
-    #[doc = "< Structure used for bit  access"]
-    pub b: IPSR_Type__bindgen_ty_1,
-    #[doc = "< Type      used for word access"]
-    pub w: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct IPSR_Type__bindgen_ty_1 {
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[test]
-fn bindgen_test_layout_IPSR_Type__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<IPSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(IPSR_Type__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<IPSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(IPSR_Type__bindgen_ty_1))
-    );
-}
-impl IPSR_Type__bindgen_ty_1 {
-    #[inline]
-    pub fn ISR(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 9u8) as u32) }
-    }
-    #[inline]
-    pub fn set_ISR(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 9u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _reserved0(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(9usize, 23u8) as u32) }
-    }
-    #[inline]
-    pub fn set__reserved0(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(9usize, 23u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(ISR: u32, _reserved0: u32) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 9u8, {
-            let ISR: u32 = unsafe { ::core::mem::transmute(ISR) };
-            ISR as u64
-        });
-        __bindgen_bitfield_unit.set(9usize, 23u8, {
-            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
-            _reserved0 as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[test]
-fn bindgen_test_layout_IPSR_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<IPSR_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<IPSR_Type>(),
-        4usize,
-        concat!("Size of: ", stringify!(IPSR_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<IPSR_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(IPSR_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IPSR_Type),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IPSR_Type),
-            "::",
-            stringify!(w)
-        )
-    );
-}
-#[doc = "\\brief  Union type to access the Special-Purpose Program Status Registers (xPSR)."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union xPSR_Type {
-    #[doc = "< Structure used for bit  access"]
-    pub b: xPSR_Type__bindgen_ty_1,
-    #[doc = "< Type      used for word access"]
-    pub w: u32,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone)]
-pub struct xPSR_Type__bindgen_ty_1 {
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[test]
-fn bindgen_test_layout_xPSR_Type__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<xPSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(xPSR_Type__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<xPSR_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(xPSR_Type__bindgen_ty_1))
-    );
-}
-impl xPSR_Type__bindgen_ty_1 {
-    #[inline]
-    pub fn ISR(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 9u8) as u32) }
-    }
-    #[inline]
-    pub fn set_ISR(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 9u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _reserved0(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(9usize, 15u8) as u32) }
-    }
-    #[inline]
-    pub fn set__reserved0(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(9usize, 15u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn T(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(24usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_T(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(24usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _reserved1(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(25usize, 3u8) as u32) }
-    }
-    #[inline]
-    pub fn set__reserved1(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(25usize, 3u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn V(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(28usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_V(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(28usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn C(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(29usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_C(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(29usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn Z(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(30usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_Z(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(30usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn N(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_N(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(31usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        ISR: u32,
-        _reserved0: u32,
-        T: u32,
-        _reserved1: u32,
-        V: u32,
-        C: u32,
-        Z: u32,
-        N: u32,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 9u8, {
-            let ISR: u32 = unsafe { ::core::mem::transmute(ISR) };
-            ISR as u64
-        });
-        __bindgen_bitfield_unit.set(9usize, 15u8, {
-            let _reserved0: u32 = unsafe { ::core::mem::transmute(_reserved0) };
-            _reserved0 as u64
-        });
-        __bindgen_bitfield_unit.set(24usize, 1u8, {
-            let T: u32 = unsafe { ::core::mem::transmute(T) };
-            T as u64
-        });
-        __bindgen_bitfield_unit.set(25usize, 3u8, {
-            let _reserved1: u32 = unsafe { ::core::mem::transmute(_reserved1) };
-            _reserved1 as u64
-        });
-        __bindgen_bitfield_unit.set(28usize, 1u8, {
-            let V: u32 = unsafe { ::core::mem::transmute(V) };
-            V as u64
-        });
-        __bindgen_bitfield_unit.set(29usize, 1u8, {
-            let C: u32 = unsafe { ::core::mem::transmute(C) };
-            C as u64
-        });
-        __bindgen_bitfield_unit.set(30usize, 1u8, {
-            let Z: u32 = unsafe { ::core::mem::transmute(Z) };
-            Z as u64
-        });
-        __bindgen_bitfield_unit.set(31usize, 1u8, {
-            let N: u32 = unsafe { ::core::mem::transmute(N) };
-            N as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[test]
-fn bindgen_test_layout_xPSR_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<xPSR_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<xPSR_Type>(),
-        4usize,
-        concat!("Size of: ", stringify!(xPSR_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<xPSR_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(xPSR_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(xPSR_Type),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(xPSR_Type),
-            "::",
-            stringify!(w)
-        )
-    );
-}
-#[doc = "\\brief  Union type to access the Control Registers (CONTROL)."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CONTROL_Type {
-    #[doc = "< Structure used for bit  access"]
-    pub b: CONTROL_Type__bindgen_ty_1,
-    #[doc = "< Type      used for word access"]
-    pub w: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct CONTROL_Type__bindgen_ty_1 {
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[test]
-fn bindgen_test_layout_CONTROL_Type__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<CONTROL_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(CONTROL_Type__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<CONTROL_Type__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(CONTROL_Type__bindgen_ty_1))
-    );
-}
-impl CONTROL_Type__bindgen_ty_1 {
-    #[inline]
-    pub fn nPRIV(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_nPRIV(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn SPSEL(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_SPSEL(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _reserved1(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 30u8) as u32) }
-    }
-    #[inline]
-    pub fn set__reserved1(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 30u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        nPRIV: u32,
-        SPSEL: u32,
-        _reserved1: u32,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let nPRIV: u32 = unsafe { ::core::mem::transmute(nPRIV) };
-            nPRIV as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let SPSEL: u32 = unsafe { ::core::mem::transmute(SPSEL) };
-            SPSEL as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 30u8, {
-            let _reserved1: u32 = unsafe { ::core::mem::transmute(_reserved1) };
-            _reserved1 as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[test]
-fn bindgen_test_layout_CONTROL_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<CONTROL_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<CONTROL_Type>(),
-        4usize,
-        concat!("Size of: ", stringify!(CONTROL_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<CONTROL_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(CONTROL_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CONTROL_Type),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CONTROL_Type),
-            "::",
-            stringify!(w)
-        )
-    );
-}
-#[doc = "\\brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC)."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct NVIC_Type {
-    #[doc = "< Offset: 0x000 (R/W)  Interrupt Set Enable Register"]
-    pub ISER: [u32; 1usize],
-    pub RESERVED0: [u32; 31usize],
-    #[doc = "< Offset: 0x080 (R/W)  Interrupt Clear Enable Register"]
-    pub ICER: [u32; 1usize],
-    pub RSERVED1: [u32; 31usize],
-    #[doc = "< Offset: 0x100 (R/W)  Interrupt Set Pending Register"]
-    pub ISPR: [u32; 1usize],
-    pub RESERVED2: [u32; 31usize],
-    #[doc = "< Offset: 0x180 (R/W)  Interrupt Clear Pending Register"]
-    pub ICPR: [u32; 1usize],
-    pub RESERVED3: [u32; 31usize],
-    pub RESERVED4: [u32; 64usize],
-    #[doc = "< Offset: 0x300 (R/W)  Interrupt Priority Register"]
-    pub IP: [u32; 8usize],
-}
-#[test]
-fn bindgen_test_layout_NVIC_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<NVIC_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<NVIC_Type>(),
-        800usize,
-        concat!("Size of: ", stringify!(NVIC_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<NVIC_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(NVIC_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ISER) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(ISER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED0) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(RESERVED0)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICER) as usize - ptr as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(ICER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RSERVED1) as usize - ptr as usize },
-        132usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(RSERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ISPR) as usize - ptr as usize },
-        256usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(ISPR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED2) as usize - ptr as usize },
-        260usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(RESERVED2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICPR) as usize - ptr as usize },
-        384usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(ICPR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED3) as usize - ptr as usize },
-        388usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(RESERVED3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED4) as usize - ptr as usize },
-        512usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(RESERVED4)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IP) as usize - ptr as usize },
-        768usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(NVIC_Type),
-            "::",
-            stringify!(IP)
-        )
-    );
-}
-#[doc = "\\brief  Structure type to access the System Control Block (SCB)."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SCB_Type {
-    #[doc = "< Offset: 0x000 (R/ )  CPUID Base Register"]
-    pub CPUID: u32,
-    #[doc = "< Offset: 0x004 (R/W)  Interrupt Control and State Register"]
-    pub ICSR: u32,
-    #[doc = "< Offset: 0x008 (R/W)  Vector Table Offset Register"]
-    pub VTOR: u32,
-    #[doc = "< Offset: 0x00C (R/W)  Application Interrupt and Reset Control Register"]
-    pub AIRCR: u32,
-    #[doc = "< Offset: 0x010 (R/W)  System Control Register"]
-    pub SCR: u32,
-    #[doc = "< Offset: 0x014 (R/W)  Configuration Control Register"]
-    pub CCR: u32,
-    pub RESERVED1: u32,
-    #[doc = "< Offset: 0x01C (R/W)  System Handlers Priority Registers. [0] is RESERVED"]
-    pub SHP: [u32; 2usize],
-    #[doc = "< Offset: 0x024 (R/W)  System Handler Control and State Register"]
-    pub SHCSR: u32,
-}
-#[test]
-fn bindgen_test_layout_SCB_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<SCB_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SCB_Type>(),
-        40usize,
-        concat!("Size of: ", stringify!(SCB_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SCB_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SCB_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CPUID) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(CPUID)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICSR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(ICSR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).VTOR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(VTOR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AIRCR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(AIRCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SCR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(SCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(CCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SHP) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(SHP)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SHCSR) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SCB_Type),
-            "::",
-            stringify!(SHCSR)
-        )
-    );
-}
-#[doc = "\\brief  Structure type to access the System Timer (SysTick)."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SysTick_Type {
-    #[doc = "< Offset: 0x000 (R/W)  SysTick Control and Status Register"]
-    pub CTRL: u32,
-    #[doc = "< Offset: 0x004 (R/W)  SysTick Reload Value Register"]
-    pub LOAD: u32,
-    #[doc = "< Offset: 0x008 (R/W)  SysTick Current Value Register"]
-    pub VAL: u32,
-    #[doc = "< Offset: 0x00C (R/ )  SysTick Calibration Register"]
-    pub CALIB: u32,
-}
-#[test]
-fn bindgen_test_layout_SysTick_Type() {
-    const UNINIT: ::core::mem::MaybeUninit<SysTick_Type> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SysTick_Type>(),
-        16usize,
-        concat!("Size of: ", stringify!(SysTick_Type))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SysTick_Type>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SysTick_Type))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CTRL) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SysTick_Type),
-            "::",
-            stringify!(CTRL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LOAD) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SysTick_Type),
-            "::",
-            stringify!(LOAD)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).VAL) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SysTick_Type),
-            "::",
-            stringify!(VAL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CALIB) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SysTick_Type),
-            "::",
-            stringify!(CALIB)
-        )
-    );
-}
-extern "C" {
-    #[doc = "< System Clock Frequency (Core Clock)"]
-    pub static mut SystemCoreClock: u32;
-}
-extern "C" {
-    #[doc = "< AHB prescalers table values"]
-    pub static AHBPrescTable: [u32; 16usize];
-}
-extern "C" {
-    #[doc = "< APB prescalers table values"]
-    pub static APBPrescTable: [u32; 8usize];
-}
-extern "C" {
-    #[doc = "< HSI frequency table values"]
-    pub static HSIFreqTable: [u32; 8usize];
-}
-extern "C" {
-    #[doc = " @addtogroup PY32F0xx_System_Exported_Functions\n @{"]
-    pub fn SystemInit();
-}
-extern "C" {
-    pub fn SystemCoreClockUpdate();
-}
-#[doc = " @brief Analog to Digital Converter"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct ADC_TypeDef {
-    #[doc = "< ADC interrupt and status register,             Address offset: 0x00"]
-    pub ISR: u32,
-    #[doc = "< ADC interrupt enable register,                 Address offset: 0x04"]
-    pub IER: u32,
-    #[doc = "< ADC control register,                          Address offset: 0x08"]
-    pub CR: u32,
-    #[doc = "< ADC configuration register 1,                  Address offset: 0x0C"]
-    pub CFGR1: u32,
-    #[doc = "< ADC configuration register 2,                  Address offset: 0x10"]
-    pub CFGR2: u32,
-    #[doc = "< ADC sampling time register,                    Address offset: 0x14"]
-    pub SMPR: u32,
-    #[doc = "< Reserved,                                                      0x18-0x1C"]
-    pub RESERVED1: [u32; 2usize],
-    #[doc = "< ADC analog watchdog 1 threshold register,      Address offset: 0x20"]
-    pub TR: u32,
-    #[doc = "< Reserved,                                                      0x24"]
-    pub RESERVED2: u32,
-    #[doc = "< ADC group regular sequencer register,          Address offset: 0x28"]
-    pub CHSELR: u32,
-    #[doc = "< Reserved,                                                      0x2C"]
-    pub RESERVED3: [u32; 5usize],
-    #[doc = "< ADC group regular data register,               Address offset: 0x40"]
-    pub DR: u32,
-    #[doc = "< ADC calibration configuration&status register  Address offset: 0x44"]
-    pub CCSR: u32,
-}
-#[test]
-fn bindgen_test_layout_ADC_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<ADC_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<ADC_TypeDef>(),
-        72usize,
-        concat!("Size of: ", stringify!(ADC_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<ADC_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ADC_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ISR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(ISR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IER) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(IER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR1) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(CFGR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR2) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(CFGR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SMPR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(SMPR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TR) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(TR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED2) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(RESERVED2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CHSELR) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(CHSELR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED3) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(RESERVED3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(DR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCSR) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_TypeDef),
-            "::",
-            stringify!(CCSR)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct ADC_Common_TypeDef {
-    #[doc = "< ADC common configuration register,             Address offset: ADC1 base address + 0x308"]
-    pub CCR: u32,
-}
-#[test]
-fn bindgen_test_layout_ADC_Common_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<ADC_Common_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<ADC_Common_TypeDef>(),
-        4usize,
-        concat!("Size of: ", stringify!(ADC_Common_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<ADC_Common_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ADC_Common_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_Common_TypeDef),
-            "::",
-            stringify!(CCR)
-        )
-    );
-}
-#[doc = " @brief CRC calculation unit"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct CRC_TypeDef {
-    #[doc = "< CRC Data register,                         Address offset: 0x00"]
-    pub DR: u32,
-    #[doc = "< CRC Independent data register,             Address offset: 0x04"]
-    pub IDR: u32,
-    #[doc = "< CRC Control register,                      Address offset: 0x08"]
-    pub CR: u32,
-}
-#[test]
-fn bindgen_test_layout_CRC_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<CRC_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<CRC_TypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(CRC_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<CRC_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(CRC_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_TypeDef),
-            "::",
-            stringify!(DR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IDR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_TypeDef),
-            "::",
-            stringify!(IDR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-}
-#[doc = " @brief Comparator"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct COMP_TypeDef {
-    #[doc = "< COMP control and status register,           Address offset: 0x00"]
-    pub CSR: u32,
-    #[doc = "< COMP filter register,                       Address offset: 0x04"]
-    pub FR: u32,
-}
-#[test]
-fn bindgen_test_layout_COMP_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<COMP_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<COMP_TypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(COMP_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<COMP_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(COMP_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CSR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_TypeDef),
-            "::",
-            stringify!(CSR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_TypeDef),
-            "::",
-            stringify!(FR)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct COMP_Common_TypeDef {
-    #[doc = "< COMP control and status register located in register of comparator instance odd, used for bits common to several COMP instances, Address offset: 0x00"]
-    pub CSR_ODD: u32,
-    pub FR_ODD: u32,
-    pub RESERVED: [u32; 2usize],
-    #[doc = "< COMP control and status register located in register of comparator instance even, used for bits common to several COMP instances, Address offset: 0x04"]
-    pub CSR_EVEN: u32,
-    pub FR_EVEN: u32,
-}
-#[test]
-fn bindgen_test_layout_COMP_Common_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<COMP_Common_TypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<COMP_Common_TypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(COMP_Common_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<COMP_Common_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(COMP_Common_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CSR_ODD) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_Common_TypeDef),
-            "::",
-            stringify!(CSR_ODD)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FR_ODD) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_Common_TypeDef),
-            "::",
-            stringify!(FR_ODD)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_Common_TypeDef),
-            "::",
-            stringify!(RESERVED)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CSR_EVEN) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_Common_TypeDef),
-            "::",
-            stringify!(CSR_EVEN)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FR_EVEN) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(COMP_Common_TypeDef),
-            "::",
-            stringify!(FR_EVEN)
-        )
-    );
-}
-#[doc = " @brief Debug MCU"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct DBGMCU_TypeDef {
-    #[doc = "< MCU device ID code,              Address offset: 0x00"]
-    pub IDCODE: u32,
-    #[doc = "< Debug configuration register,    Address offset: 0x04"]
-    pub CR: u32,
-    #[doc = "< Debug APB freeze register 1,     Address offset: 0x08"]
-    pub APBFZ1: u32,
-    #[doc = "< Debug APB freeze register 2,     Address offset: 0x0C"]
-    pub APBFZ2: u32,
-}
-#[test]
-fn bindgen_test_layout_DBGMCU_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<DBGMCU_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<DBGMCU_TypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(DBGMCU_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<DBGMCU_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(DBGMCU_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IDCODE) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DBGMCU_TypeDef),
-            "::",
-            stringify!(IDCODE)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DBGMCU_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBFZ1) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DBGMCU_TypeDef),
-            "::",
-            stringify!(APBFZ1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBFZ2) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DBGMCU_TypeDef),
-            "::",
-            stringify!(APBFZ2)
-        )
-    );
-}
-#[doc = " @brief DMA Controller"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct DMA_TypeDef {
-    #[doc = "< DMA interrupt status register,                 Address offset: 0x00"]
-    pub ISR: u32,
-    #[doc = "< DMA interrupt flag clear register,             Address offset: 0x04"]
-    pub IFCR: u32,
-}
-#[test]
-fn bindgen_test_layout_DMA_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<DMA_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<DMA_TypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(DMA_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<DMA_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(DMA_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ISR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_TypeDef),
-            "::",
-            stringify!(ISR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IFCR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_TypeDef),
-            "::",
-            stringify!(IFCR)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct DMA_Channel_TypeDef {
-    #[doc = "< DMA channel x configuration register"]
-    pub CCR: u32,
-    #[doc = "< DMA channel x number of data register"]
-    pub CNDTR: u32,
-    #[doc = "< DMA channel x peripheral address register"]
-    pub CPAR: u32,
-    #[doc = "< DMA channel x memory address register"]
-    pub CMAR: u32,
-}
-#[test]
-fn bindgen_test_layout_DMA_Channel_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<DMA_Channel_TypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<DMA_Channel_TypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(DMA_Channel_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<DMA_Channel_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(DMA_Channel_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_Channel_TypeDef),
-            "::",
-            stringify!(CCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CNDTR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_Channel_TypeDef),
-            "::",
-            stringify!(CNDTR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CPAR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_Channel_TypeDef),
-            "::",
-            stringify!(CPAR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CMAR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_Channel_TypeDef),
-            "::",
-            stringify!(CMAR)
-        )
-    );
-}
-#[doc = " @brief Asynch Interrupt/Event Controller (EXTI)"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct EXTI_TypeDef {
-    #[doc = "< EXTI Rising Trigger Selection Register 1,        Address offset:   0x00"]
-    pub RTSR: u32,
-    #[doc = "< EXTI Falling Trigger Selection Register 1,       Address offset:   0x04"]
-    pub FTSR: u32,
-    #[doc = "< EXTI Software Interrupt event Register 1,        Address offset:   0x08"]
-    pub SWIER: u32,
-    #[doc = "< EXTI Pending Register 1                          Address offset:   0x0C"]
-    pub PR: u32,
-    #[doc = "< Reserved 1,                                                0x10 -- 0x1C"]
-    pub RESERVED1: [u32; 4usize],
-    #[doc = "< Reserved 2,                                                0x20 -- 0x30"]
-    pub RESERVED2: [u32; 5usize],
-    #[doc = "< Reserved 3,                                                0x34 -- 0x5C"]
-    pub RESERVED3: [u32; 11usize],
-    #[doc = "< EXTI External Interrupt Configuration Register,            0x60 -- 0x68"]
-    pub EXTICR: [u32; 3usize],
-    #[doc = "< Reserved 5,                                                0x6C -- 0x7C"]
-    pub RESERVED4: [u32; 5usize],
-    #[doc = "< EXTI Interrupt Mask Register ,                   Address offset:   0x80"]
-    pub IMR: u32,
-    #[doc = "< EXTI Event Mask Register ,                       Address offset:   0x84"]
-    pub EMR: u32,
-}
-#[test]
-fn bindgen_test_layout_EXTI_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<EXTI_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<EXTI_TypeDef>(),
-        136usize,
-        concat!("Size of: ", stringify!(EXTI_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<EXTI_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(EXTI_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RTSR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(RTSR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FTSR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(FTSR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SWIER) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(SWIER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(PR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED2) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(RESERVED2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED3) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(RESERVED3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EXTICR) as usize - ptr as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(EXTICR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED4) as usize - ptr as usize },
-        108usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(RESERVED4)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IMR) as usize - ptr as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(IMR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EMR) as usize - ptr as usize },
-        132usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_TypeDef),
-            "::",
-            stringify!(EMR)
-        )
-    );
-}
-#[doc = " @brief FLASH Registers"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct FLASH_TypeDef {
-    #[doc = "< FLASH Access Control register,                     Address offset: 0x00"]
-    pub ACR: u32,
-    #[doc = "< Reserved1,                                         Address offset: 0x04"]
-    pub RESERVED1: u32,
-    #[doc = "< FLASH Key register,                                Address offset: 0x08"]
-    pub KEYR: u32,
-    #[doc = "< FLASH Option Key register,                         Address offset: 0x0C"]
-    pub OPTKEYR: u32,
-    #[doc = "< FLASH Status register,                             Address offset: 0x10"]
-    pub SR: u32,
-    #[doc = "< FLASH Control register,                            Address offset: 0x14"]
-    pub CR: u32,
-    #[doc = "< Reserved2,                                         Address offset: 0x18-0x1C"]
-    pub RESERVED2: [u32; 2usize],
-    #[doc = "< FLASH Option register,                             Address offset: 0x20"]
-    pub OPTR: u32,
-    #[doc = "< FLASH SDK address register,                        Address offset: 0x24"]
-    pub SDKR: u32,
-    #[doc = "< Reserved2,                                         Address offset: 0x28"]
-    pub RESERVED3: u32,
-    #[doc = "< FLASH WRP address register,                        Address offset: 0x2C"]
-    pub WRPR: u32,
-    pub RESERVED4: [u32; 24usize],
-    #[doc = "< FLASH sleep time config register,                  Address offset: 0x90"]
-    pub STCR: u32,
-    pub RESERVED5: [u32; 27usize],
-    #[doc = "< FLASH TS0 register,                                Address offset: 0x100"]
-    pub TS0: u32,
-    #[doc = "< FLASH TS1 register,                                Address offset: 0x104"]
-    pub TS1: u32,
-    #[doc = "< FLASH TS2P register,                               Address offset: 0x108"]
-    pub TS2P: u32,
-    #[doc = "< FLASH TPS3 register,                               Address offset: 0x10C"]
-    pub TPS3: u32,
-    #[doc = "< FLASH TS3 register,                                Address offset: 0x110"]
-    pub TS3: u32,
-    #[doc = "< FLASH PERTPE register,                             Address offset: 0x114"]
-    pub PERTPE: u32,
-    #[doc = "< FLASH SMERTPE register,                            Address offset: 0x118"]
-    pub SMERTPE: u32,
-    #[doc = "< FLASH PRGTPE register,                             Address offset: 0x11C"]
-    pub PRGTPE: u32,
-    #[doc = "< FLASH PRETPE register,                             Address offset: 0x120"]
-    pub PRETPE: u32,
-}
-#[test]
-fn bindgen_test_layout_FLASH_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<FLASH_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<FLASH_TypeDef>(),
-        292usize,
-        concat!("Size of: ", stringify!(FLASH_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<FLASH_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(FLASH_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ACR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(ACR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).KEYR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(KEYR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OPTKEYR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(OPTKEYR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED2) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(RESERVED2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OPTR) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(OPTR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SDKR) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(SDKR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED3) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(RESERVED3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WRPR) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(WRPR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED4) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(RESERVED4)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).STCR) as usize - ptr as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(STCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED5) as usize - ptr as usize },
-        148usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(RESERVED5)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TS0) as usize - ptr as usize },
-        256usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(TS0)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TS1) as usize - ptr as usize },
-        260usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(TS1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TS2P) as usize - ptr as usize },
-        264usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(TS2P)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TPS3) as usize - ptr as usize },
-        268usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(TPS3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TS3) as usize - ptr as usize },
-        272usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(TS3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PERTPE) as usize - ptr as usize },
-        276usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(PERTPE)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SMERTPE) as usize - ptr as usize },
-        280usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(SMERTPE)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PRGTPE) as usize - ptr as usize },
-        284usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(PRGTPE)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PRETPE) as usize - ptr as usize },
-        288usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_TypeDef),
-            "::",
-            stringify!(PRETPE)
-        )
-    );
-}
-#[doc = " @brief Option Bytes"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OB_TypeDef {
-    #[doc = "< FLASH option byte Read protection,             Address offset: 0x00"]
-    pub RDP: u8,
-    #[doc = "< FLASH option byte user options,                Address offset: 0x01"]
-    pub USER: u8,
-    #[doc = "< Complemented FLASH option byte Read protection,Address offset: 0x02"]
-    pub nRDP: u8,
-    #[doc = "< Complemented FLASH option byte user options,   Address offset: 0x03"]
-    pub nUSER: u8,
-    #[doc = "< SDK area start address(stored in SDK[4:0]),    Address offset: 0x04"]
-    pub SDK_STRT: u8,
-    #[doc = "< SDK area end address(stored in SDK[12:8]),     Address offset: 0x05"]
-    pub SDK_END: u8,
-    #[doc = "< Complemented SDK area start address,           Address offset: 0x06"]
-    pub nSDK_STRT: u8,
-    #[doc = "< Complemented SDK area end address,             Address offset: 0x07"]
-    pub nSDK_END: u8,
-    #[doc = "< RESERVED1,                                     Address offset: 0x08"]
-    pub RESERVED1: u32,
-    #[doc = "< FLASH option byte write protection,            Address offset: 0x0C"]
-    pub WRP: u16,
-    #[doc = "< Complemented FLASH option byte write protection,Address offset: 0x0E"]
-    pub nWRP: u16,
-}
-#[test]
-fn bindgen_test_layout_OB_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<OB_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<OB_TypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(OB_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<OB_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(OB_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RDP) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(RDP)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).USER) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(USER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nRDP) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(nRDP)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nUSER) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(nUSER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SDK_STRT) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(SDK_STRT)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SDK_END) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(SDK_END)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nSDK_STRT) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(nSDK_STRT)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nSDK_END) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(nSDK_END)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WRP) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(WRP)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nWRP) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(OB_TypeDef),
-            "::",
-            stringify!(nWRP)
-        )
-    );
-}
-#[doc = " @brief General Purpose I/O"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct GPIO_TypeDef {
-    #[doc = "< GPIO port mode register,               Address offset: 0x00"]
-    pub MODER: u32,
-    #[doc = "< GPIO port output type register,        Address offset: 0x04"]
-    pub OTYPER: u32,
-    #[doc = "< GPIO port output speed register,       Address offset: 0x08"]
-    pub OSPEEDR: u32,
-    #[doc = "< GPIO port pull-up/pull-down register,  Address offset: 0x0C"]
-    pub PUPDR: u32,
-    #[doc = "< GPIO port input data register,         Address offset: 0x10"]
-    pub IDR: u32,
-    #[doc = "< GPIO port output data register,        Address offset: 0x14"]
-    pub ODR: u32,
-    #[doc = "< GPIO port bit set/reset  register,     Address offset: 0x18"]
-    pub BSRR: u32,
-    #[doc = "< GPIO port configuration lock register, Address offset: 0x1C"]
-    pub LCKR: u32,
-    #[doc = "< GPIO alternate function registers,     Address offset: 0x20-0x24"]
-    pub AFR: [u32; 2usize],
-    #[doc = "< GPIO Bit Reset register,               Address offset: 0x28"]
-    pub BRR: u32,
-}
-#[test]
-fn bindgen_test_layout_GPIO_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<GPIO_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<GPIO_TypeDef>(),
-        44usize,
-        concat!("Size of: ", stringify!(GPIO_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<GPIO_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(GPIO_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MODER) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(MODER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OTYPER) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(OTYPER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OSPEEDR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(OSPEEDR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PUPDR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(PUPDR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IDR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(IDR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ODR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(ODR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BSRR) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(BSRR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LCKR) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(LCKR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AFR) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(AFR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BRR) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_TypeDef),
-            "::",
-            stringify!(BRR)
-        )
-    );
-}
-#[doc = " @brief Inter-integrated Circuit Interface"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct I2C_TypeDef {
-    pub CR1: u32,
-    pub CR2: u32,
-    pub OAR1: u32,
-    pub OAR2: u32,
-    pub DR: u32,
-    pub SR1: u32,
-    pub SR2: u32,
-    pub CCR: u32,
-    pub TRISE: u32,
-}
-#[test]
-fn bindgen_test_layout_I2C_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<I2C_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<I2C_TypeDef>(),
-        36usize,
-        concat!("Size of: ", stringify!(I2C_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<I2C_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(I2C_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR1) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(CR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR2) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(CR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OAR1) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(OAR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OAR2) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(OAR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(DR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR1) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(SR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR2) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(SR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(CCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TRISE) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_TypeDef),
-            "::",
-            stringify!(TRISE)
-        )
-    );
-}
-#[doc = " @brief Independent WATCHDOG"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct IWDG_TypeDef {
-    #[doc = "< IWDG Key register,       Address offset: 0x00"]
-    pub KR: u32,
-    #[doc = "< IWDG Prescaler register, Address offset: 0x04"]
-    pub PR: u32,
-    #[doc = "< IWDG Reload register,    Address offset: 0x08"]
-    pub RLR: u32,
-    #[doc = "< IWDG Status register,    Address offset: 0x0C"]
-    pub SR: u32,
-}
-#[test]
-fn bindgen_test_layout_IWDG_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<IWDG_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<IWDG_TypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(IWDG_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<IWDG_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(IWDG_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).KR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_TypeDef),
-            "::",
-            stringify!(KR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_TypeDef),
-            "::",
-            stringify!(PR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RLR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_TypeDef),
-            "::",
-            stringify!(RLR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-}
-#[doc = " @brief LPTIMER"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct LPTIM_TypeDef {
-    #[doc = "< LPTIM Interrupt and Status register,                Address offset: 0x00"]
-    pub ISR: u32,
-    #[doc = "< LPTIM Interrupt Clear register,                     Address offset: 0x04"]
-    pub ICR: u32,
-    #[doc = "< LPTIM Interrupt Enable register,                    Address offset: 0x08"]
-    pub IER: u32,
-    #[doc = "< LPTIM Configuration register,                       Address offset: 0x0C"]
-    pub CFGR: u32,
-    #[doc = "< LPTIM Control register,                             Address offset: 0x10"]
-    pub CR: u32,
-    #[doc = "< RESERVED1,                                          Address offset: 0x14"]
-    pub RESERVED1: u32,
-    #[doc = "< LPTIM Autoreload register,                          Address offset: 0x18"]
-    pub ARR: u32,
-    #[doc = "< LPTIM Counter register,                             Address offset: 0x1C"]
-    pub CNT: u32,
-}
-#[test]
-fn bindgen_test_layout_LPTIM_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LPTIM_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LPTIM_TypeDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(LPTIM_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LPTIM_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LPTIM_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ISR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(ISR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(ICR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IER) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(IER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(CFGR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ARR) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(ARR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CNT) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_TypeDef),
-            "::",
-            stringify!(CNT)
-        )
-    );
-}
-#[doc = " @brief Power Control"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct PWR_TypeDef {
-    #[doc = "< PWR Power Control Register 1,                     Address offset: 0x00"]
-    pub CR1: u32,
-    #[doc = "< PWR Power Control Register 2,                     Address offset: 0x04"]
-    pub CR2: u32,
-    #[doc = "< Reserved1,                                        Address offset: 0x08-0x10"]
-    pub RESERVED1: [u32; 3usize],
-    #[doc = "< PWR Power Status Register,                        Address offset: 0x14"]
-    pub SR: u32,
-}
-#[test]
-fn bindgen_test_layout_PWR_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<PWR_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<PWR_TypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(PWR_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<PWR_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(PWR_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR1) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_TypeDef),
-            "::",
-            stringify!(CR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR2) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_TypeDef),
-            "::",
-            stringify!(CR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-}
-#[doc = " @brief Reset and Clock Control"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct RCC_TypeDef {
-    #[doc = "< RCC Clock Sources Control Register,                                     Address offset: 0x00"]
-    pub CR: u32,
-    #[doc = "< RCC Internal Clock Sources Calibration Register,                        Address offset: 0x04"]
-    pub ICSCR: u32,
-    #[doc = "< RCC Regulated Domain Clocks Configuration Register,                     Address offset: 0x08"]
-    pub CFGR: u32,
-    #[doc = "< RCC System PLL configuration Register,                                  Address offset: 0x0C"]
-    pub PLLCFGR: u32,
-    #[doc = "< RCC External clock source control register,                             Address offset: 0x10"]
-    pub ECSCR: u32,
-    #[doc = "< Reserved,                                                               Address offset: 0x14"]
-    pub RESERVED1: u32,
-    #[doc = "< RCC Clock Interrupt Enable Register,                                    Address offset: 0x18"]
-    pub CIER: u32,
-    #[doc = "< RCC Clock Interrupt Flag Register,                                      Address offset: 0x1C"]
-    pub CIFR: u32,
-    #[doc = "< RCC Clock Interrupt Clear Register,                                     Address offset: 0x20"]
-    pub CICR: u32,
-    #[doc = "< RCC IO port reset register,                                             Address offset: 0x24"]
-    pub IOPRSTR: u32,
-    #[doc = "< RCC AHB peripherals reset register,                                     Address offset: 0x28"]
-    pub AHBRSTR: u32,
-    #[doc = "< RCC APB peripherals reset register 1,                                   Address offset: 0x2C"]
-    pub APBRSTR1: u32,
-    #[doc = "< RCC APB peripherals reset register 2,                                   Address offset: 0x30"]
-    pub APBRSTR2: u32,
-    #[doc = "< RCC IO port enable register,                                            Address offset: 0x34"]
-    pub IOPENR: u32,
-    #[doc = "< RCC AHB peripherals clock enable register,                              Address offset: 0x38"]
-    pub AHBENR: u32,
-    #[doc = "< RCC APB peripherals clock enable register1,                             Address offset: 0x3C"]
-    pub APBENR1: u32,
-    #[doc = "< RCC APB peripherals clock enable register2,                             Address offset: 0x40"]
-    pub APBENR2: u32,
-    #[doc = "< Reserved,                                                               Address offset: 0x44-0x50"]
-    pub RESERVED2: [u32; 4usize],
-    #[doc = "< RCC Peripherals Independent Clocks Configuration Register,              Address offset: 0x54"]
-    pub CCIPR: u32,
-    #[doc = "< Reserved,                                                               Address offset: 0x58"]
-    pub RESERVED3: u32,
-    #[doc = "< RCC Backup Domain Control Register,                                     Address offset: 0x5C"]
-    pub BDCR: u32,
-    #[doc = "< RCC Unregulated Domain Clock Control and Status Register,               Address offset: 0x60"]
-    pub CSR: u32,
-}
-#[test]
-fn bindgen_test_layout_RCC_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RCC_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RCC_TypeDef>(),
-        100usize,
-        concat!("Size of: ", stringify!(RCC_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RCC_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RCC_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICSCR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(ICSCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CFGR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PLLCFGR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(PLLCFGR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ECSCR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(ECSCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CIER) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CIER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CIFR) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CIFR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CICR) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CICR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IOPRSTR) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(IOPRSTR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AHBRSTR) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(AHBRSTR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBRSTR1) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(APBRSTR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBRSTR2) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(APBRSTR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IOPENR) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(IOPENR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AHBENR) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(AHBENR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBENR1) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(APBENR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APBENR2) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(APBENR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED2) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(RESERVED2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCIPR) as usize - ptr as usize },
-        84usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CCIPR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED3) as usize - ptr as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(RESERVED3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BDCR) as usize - ptr as usize },
-        92usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(BDCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CSR) as usize - ptr as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_TypeDef),
-            "::",
-            stringify!(CSR)
-        )
-    );
-}
-#[doc = " @brief Real-Time Clock"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct RTC_TypeDef {
-    pub CRH: u32,
-    pub CRL: u32,
-    pub PRLH: u32,
-    pub PRLL: u32,
-    pub DIVH: u32,
-    pub DIVL: u32,
-    pub CNTH: u32,
-    pub CNTL: u32,
-    pub ALRH: u32,
-    pub ALRL: u32,
-    pub RESERVED1: u32,
-    pub BKP_RTCCR: u32,
-}
-#[test]
-fn bindgen_test_layout_RTC_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_TypeDef>(),
-        48usize,
-        concat!("Size of: ", stringify!(RTC_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RTC_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CRH) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(CRH)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CRL) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(CRL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PRLH) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(PRLH)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PRLL) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(PRLL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DIVH) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(DIVH)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DIVL) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(DIVL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CNTH) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(CNTH)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CNTL) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(CNTL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ALRH) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(ALRH)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ALRL) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(ALRL)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BKP_RTCCR) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TypeDef),
-            "::",
-            stringify!(BKP_RTCCR)
-        )
-    );
-}
-#[doc = " @brief Serial Peripheral Interface"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SPI_TypeDef {
-    #[doc = "< SPI Control register 1,                              Address offset: 0x00"]
-    pub CR1: u32,
-    #[doc = "< SPI Control register 2,                              Address offset: 0x04"]
-    pub CR2: u32,
-    #[doc = "< SPI Status register,                                 Address offset: 0x08"]
-    pub SR: u32,
-    #[doc = "< SPI data register,                                   Address offset: 0x0C"]
-    pub DR: u32,
-}
-#[test]
-fn bindgen_test_layout_SPI_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<SPI_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SPI_TypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(SPI_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SPI_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SPI_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR1) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_TypeDef),
-            "::",
-            stringify!(CR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR2) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_TypeDef),
-            "::",
-            stringify!(CR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_TypeDef),
-            "::",
-            stringify!(DR)
-        )
-    );
-}
-#[doc = " @brief System configuration controller"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct SYSCFG_TypeDef {
-    #[doc = "< SYSCFG configuration register 1,                   Address offset: 0x00"]
-    pub CFGR1: u32,
-    #[doc = "< Reserved,                                                   0x04 --0x14"]
-    pub RESERVED1: [u32; 5usize],
-    #[doc = "< SYSCFG configuration register 2,                   Address offset: 0x18"]
-    pub CFGR2: u32,
-    #[doc = "< SYSCFG configuration register 3,                   Address offset: 0x1C"]
-    pub CFGR3: u32,
-}
-#[test]
-fn bindgen_test_layout_SYSCFG_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<SYSCFG_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SYSCFG_TypeDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(SYSCFG_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SYSCFG_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SYSCFG_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR1) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SYSCFG_TypeDef),
-            "::",
-            stringify!(CFGR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RESERVED1) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SYSCFG_TypeDef),
-            "::",
-            stringify!(RESERVED1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR2) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SYSCFG_TypeDef),
-            "::",
-            stringify!(CFGR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFGR3) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SYSCFG_TypeDef),
-            "::",
-            stringify!(CFGR3)
-        )
-    );
-}
-#[doc = " @brief TIM"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct TIM_TypeDef {
-    #[doc = "< TIM control register 1,                   Address offset: 0x00"]
-    pub CR1: u32,
-    #[doc = "< TIM control register 2,                   Address offset: 0x04"]
-    pub CR2: u32,
-    #[doc = "< TIM slave mode control register,          Address offset: 0x08"]
-    pub SMCR: u32,
-    #[doc = "< TIM DMA/interrupt enable register,        Address offset: 0x0C"]
-    pub DIER: u32,
-    #[doc = "< TIM status register,                      Address offset: 0x10"]
-    pub SR: u32,
-    #[doc = "< TIM event generation register,            Address offset: 0x14"]
-    pub EGR: u32,
-    #[doc = "< TIM capture/compare mode register 1,      Address offset: 0x18"]
-    pub CCMR1: u32,
-    #[doc = "< TIM capture/compare mode register 2,      Address offset: 0x1C"]
-    pub CCMR2: u32,
-    #[doc = "< TIM capture/compare enable register,      Address offset: 0x20"]
-    pub CCER: u32,
-    #[doc = "< TIM counter register,                     Address offset: 0x24"]
-    pub CNT: u32,
-    #[doc = "< TIM prescaler register,                   Address offset: 0x28"]
-    pub PSC: u32,
-    #[doc = "< TIM auto-reload register,                 Address offset: 0x2C"]
-    pub ARR: u32,
-    #[doc = "< TIM repetition counter register,          Address offset: 0x30"]
-    pub RCR: u32,
-    #[doc = "< TIM capture/compare register 1,           Address offset: 0x34"]
-    pub CCR1: u32,
-    #[doc = "< TIM capture/compare register 2,           Address offset: 0x38"]
-    pub CCR2: u32,
-    #[doc = "< TIM capture/compare register 3,           Address offset: 0x3C"]
-    pub CCR3: u32,
-    #[doc = "< TIM capture/compare register 4,           Address offset: 0x40"]
-    pub CCR4: u32,
-    #[doc = "< TIM break and dead-time register,         Address offset: 0x44"]
-    pub BDTR: u32,
-    #[doc = "< TIM DMA control register,                 Address offset: 0x48"]
-    pub DCR: u32,
-    #[doc = "< TIM DMA address for full transfer,        Address offset: 0x4C"]
-    pub DMAR: u32,
-    #[doc = "< TIM option register,                      Address offset: 0x50"]
-    pub OR: u32,
-}
-#[test]
-fn bindgen_test_layout_TIM_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_TypeDef>(),
-        84usize,
-        concat!("Size of: ", stringify!(TIM_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR1) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR2) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SMCR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(SMCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DIER) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(DIER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EGR) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(EGR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCMR1) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCMR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCMR2) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCMR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCER) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCER)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CNT) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CNT)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PSC) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(PSC)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ARR) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(ARR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RCR) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(RCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR1) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR2) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR3) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCR3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CCR4) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(CCR4)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BDTR) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(BDTR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DCR) as usize - ptr as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(DCR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DMAR) as usize - ptr as usize },
-        76usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(DMAR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OR) as usize - ptr as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_TypeDef),
-            "::",
-            stringify!(OR)
-        )
-    );
-}
-#[doc = " @brief Universal Synchronous Asynchronous Receiver Transmitter"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct USART_TypeDef {
-    #[doc = "< USART     Status  register ,              Address offset: 0x00"]
-    pub SR: u32,
-    #[doc = "< USART Data register,                      Address offset: 0x04"]
-    pub DR: u32,
-    #[doc = "< USART Baud rate register,                 Address offset: 0x08"]
-    pub BRR: u32,
-    #[doc = "< USART     Control  register 1,            Address offset: 0x0C"]
-    pub CR1: u32,
-    #[doc = "< USART     Control  register 2,            Address offset: 0x10"]
-    pub CR2: u32,
-    #[doc = "< USART     Control  register 3,            Address offset: 0x14"]
-    pub CR3: u32,
-    #[doc = "< USART Guard time and prescaler register,  Address offset: 0x18"]
-    pub GTPR: u32,
-}
-#[test]
-fn bindgen_test_layout_USART_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<USART_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<USART_TypeDef>(),
-        28usize,
-        concat!("Size of: ", stringify!(USART_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<USART_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(USART_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(DR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BRR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(BRR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR1) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(CR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR2) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(CR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR3) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(CR3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).GTPR) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(USART_TypeDef),
-            "::",
-            stringify!(GTPR)
-        )
-    );
-}
-#[doc = " @brief Window WATCHDOG"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct WWDG_TypeDef {
-    #[doc = "< WWDG Control register,       Address offset: 0x00"]
-    pub CR: u32,
-    #[doc = "< WWDG Configuration register, Address offset: 0x04"]
-    pub CFR: u32,
-    #[doc = "< WWDG Status register,        Address offset: 0x08"]
-    pub SR: u32,
-}
-#[test]
-fn bindgen_test_layout_WWDG_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<WWDG_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<WWDG_TypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(WWDG_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<WWDG_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(WWDG_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CFR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_TypeDef),
-            "::",
-            stringify!(CFR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_TypeDef),
-            "::",
-            stringify!(SR)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct LED_TypeDef {
-    #[doc = "< LED Control register,        Address offset: 0x00"]
-    pub CR: u32,
-    #[doc = "< LED Prescaler register,      Address offset: 0x04"]
-    pub PR: u32,
-    #[doc = "< Time register,               Address offset: 0x08"]
-    pub TR: u32,
-    #[doc = "< Data0 register,              Address offset: 0x0C"]
-    pub DR0: u32,
-    #[doc = "< Data1 register,              Address offset: 0x10"]
-    pub DR1: u32,
-    #[doc = "< Data2 register,              Address offset: 0x14"]
-    pub DR2: u32,
-    #[doc = "< Data3 register,              Address offset: 0x18"]
-    pub DR3: u32,
-    #[doc = "< Interrupt register,          Address offset: 0x1C"]
-    pub IR: u32,
-}
-#[test]
-fn bindgen_test_layout_LED_TypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LED_TypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LED_TypeDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(LED_TypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LED_TypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LED_TypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CR) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(CR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PR) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(PR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TR) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(TR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR0) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(DR0)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR1) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(DR1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR2) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(DR2)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DR3) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(DR3)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IR) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_TypeDef),
-            "::",
-            stringify!(IR)
-        )
-    );
-}
-pub const FlagStatus_RESET: FlagStatus = 0;
-pub const FlagStatus_SET: FlagStatus = 1;
-#[doc = " @brief Exported_types"]
-pub type FlagStatus = ::core::ffi::c_uint;
-#[doc = " @brief Exported_types"]
-pub use self::FlagStatus as ITStatus;
-pub const FunctionalState_DISABLE: FunctionalState = 0;
-pub const FunctionalState_ENABLE: FunctionalState = 1;
-pub type FunctionalState = ::core::ffi::c_uint;
-pub const ErrorStatus_SUCCESS: ErrorStatus = 0;
-pub const ErrorStatus_ERROR: ErrorStatus = 1;
-pub type ErrorStatus = ::core::ffi::c_uint;
-pub const HAL_StatusTypeDef_HAL_OK: HAL_StatusTypeDef = 0;
-pub const HAL_StatusTypeDef_HAL_ERROR: HAL_StatusTypeDef = 1;
-pub const HAL_StatusTypeDef_HAL_BUSY: HAL_StatusTypeDef = 2;
-pub const HAL_StatusTypeDef_HAL_TIMEOUT: HAL_StatusTypeDef = 3;
-#[doc = " @brief  HAL Status structures definition"]
-pub type HAL_StatusTypeDef = ::core::ffi::c_uint;
-pub const HAL_LockTypeDef_HAL_UNLOCKED: HAL_LockTypeDef = 0;
-pub const HAL_LockTypeDef_HAL_LOCKED: HAL_LockTypeDef = 1;
-#[doc = " @brief  HAL Lock structures definition"]
-pub type HAL_LockTypeDef = ::core::ffi::c_uint;
-#[doc = " @brief  RCC PLL configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct RCC_PLLInitTypeDef {
-    #[doc = "< The new state of the PLL.\nThis parameter can be a value of @ref RCC_PLL_Config"]
-    pub PLLState: u32,
-    #[doc = "< RCC_PLLSource: PLL entry clock source.\nThis parameter must be a value of @ref RCC_PLL_Clock_Source"]
-    pub PLLSource: u32,
-}
-#[test]
-fn bindgen_test_layout_RCC_PLLInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RCC_PLLInitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RCC_PLLInitTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(RCC_PLLInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RCC_PLLInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RCC_PLLInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PLLState) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PLLInitTypeDef),
-            "::",
-            stringify!(PLLState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PLLSource) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PLLInitTypeDef),
-            "::",
-            stringify!(PLLSource)
-        )
-    );
-}
-#[doc = " @brief  RCC Internal/External Oscillator (HSE, HSI, LSE and LSI) configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct RCC_OscInitTypeDef {
-    #[doc = "< The oscillators to be configured.\nThis parameter can be a value of @ref RCC_Oscillator_Type"]
-    pub OscillatorType: u32,
-    #[doc = "< The new state of the HSE.\nThis parameter can be a value of @ref RCC_HSE_Config"]
-    pub HSEState: u32,
-    #[doc = "< The frequency range of the HSE.\nThis parameter can be a value of @ref RCC_HSE_Freq"]
-    pub HSEFreq: u32,
-    #[doc = "< The new state of the LSE.\nThis parameter can be a value of @ref RCC_LSE_Config"]
-    pub LSEState: u32,
-    #[doc = "< The driver factor of the LSE.\nThis parameter can be a value of @ref RCC_LSE_Driver"]
-    pub LSEDriver: u32,
-    #[doc = "< The new state of the HSI.\nThis parameter can be a value of @ref RCC_HSI_Config"]
-    pub HSIState: u32,
-    #[doc = "< The division factor of the HSI.\nThis parameter can be a value of @ref RCC_HSI_Div"]
-    pub HSIDiv: u32,
-    #[doc = "< The calibration trimming value (default is RCC_HSICALIBRATION_8MHz).\nThis parameter can be a value of @ref RCC_HSI_Calibration"]
-    pub HSICalibrationValue: u32,
-    #[doc = "< The new state of the LSI.\nThis parameter can be a value of @ref RCC_LSI_Config"]
-    pub LSIState: u32,
-    #[doc = "< Main PLL structure parameters"]
-    pub PLL: RCC_PLLInitTypeDef,
-}
-#[test]
-fn bindgen_test_layout_RCC_OscInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RCC_OscInitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RCC_OscInitTypeDef>(),
-        44usize,
-        concat!("Size of: ", stringify!(RCC_OscInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RCC_OscInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RCC_OscInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OscillatorType) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(OscillatorType)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HSEState) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(HSEState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HSEFreq) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(HSEFreq)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LSEState) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(LSEState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LSEDriver) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(LSEDriver)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HSIState) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(HSIState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HSIDiv) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(HSIDiv)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HSICalibrationValue) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(HSICalibrationValue)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LSIState) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(LSIState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PLL) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_OscInitTypeDef),
-            "::",
-            stringify!(PLL)
-        )
-    );
-}
-#[doc = " @brief  RCC System, AHB and APB busses clock configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct RCC_ClkInitTypeDef {
-    #[doc = "< The clock to be configured.\nThis parameter can be a combination of @ref RCC_System_Clock_Type"]
-    pub ClockType: u32,
-    #[doc = "< The clock source used as system clock (SYSCLK).\nThis parameter can be a value of @ref RCC_System_Clock_Source"]
-    pub SYSCLKSource: u32,
-    #[doc = "< The AHB clock (HCLK) divider. This clock is derived from the system clock (SYSCLK).\nThis parameter can be a value of @ref RCC_AHB_Clock_Source"]
-    pub AHBCLKDivider: u32,
-    #[doc = "< The APB1 clock (PCLK1) divider. This clock is derived from the AHB clock (HCLK).\nThis parameter can be a value of @ref RCC_APB1_Clock_Source"]
-    pub APB1CLKDivider: u32,
-}
-#[test]
-fn bindgen_test_layout_RCC_ClkInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RCC_ClkInitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RCC_ClkInitTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(RCC_ClkInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RCC_ClkInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RCC_ClkInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockType) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_ClkInitTypeDef),
-            "::",
-            stringify!(ClockType)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SYSCLKSource) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_ClkInitTypeDef),
-            "::",
-            stringify!(SYSCLKSource)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AHBCLKDivider) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_ClkInitTypeDef),
-            "::",
-            stringify!(AHBCLKDivider)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).APB1CLKDivider) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_ClkInitTypeDef),
-            "::",
-            stringify!(APB1CLKDivider)
-        )
-    );
-}
 #[doc = " @brief  RCC extended clocks structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8613,82 +5476,40 @@ pub struct RCC_PeriphCLKInitTypeDef {
     #[doc = "< Specifies RTC clock source.\nThis parameter can be a value of @ref RCC_RTC_Clock_Source"]
     pub RTCClockSelection: u32,
 }
-#[test]
-fn bindgen_test_layout_RCC_PeriphCLKInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RCC_PeriphCLKInitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RCC_PeriphCLKInitTypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(RCC_PeriphCLKInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RCC_PeriphCLKInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RCC_PeriphCLKInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PeriphClockSelection) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(PeriphClockSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PvdClockSelection) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(PvdClockSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Comp1ClockSelection) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(Comp1ClockSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Comp2ClockSelection) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(Comp2ClockSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LptimClockSelection) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(LptimClockSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RTCClockSelection) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RCC_PeriphCLKInitTypeDef),
-            "::",
-            stringify!(RTCClockSelection)
-        )
-    );
-}
+const _: () = {
+    ["Size of RCC_PeriphCLKInitTypeDef"]
+        [::core::mem::size_of::<RCC_PeriphCLKInitTypeDef>() - 24usize];
+    ["Alignment of RCC_PeriphCLKInitTypeDef"]
+        [::core::mem::align_of::<RCC_PeriphCLKInitTypeDef>() - 4usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::PeriphClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, PeriphClockSelection) - 0usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::PvdClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, PvdClockSelection) - 4usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::Comp1ClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, Comp1ClockSelection) - 8usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::Comp2ClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, Comp2ClockSelection) - 12usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::LptimClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, LptimClockSelection) - 16usize];
+    ["Offset of field: RCC_PeriphCLKInitTypeDef::RTCClockSelection"]
+        [::core::mem::offset_of!(RCC_PeriphCLKInitTypeDef, RTCClockSelection) - 20usize];
+};
+pub const RCC_LSCOSOURCE_LSI: u32 = 0;
+pub const RCC_LSCOSOURCE_LSE: u32 = 33554432;
+pub const RCC_PERIPHCLK_PVD: u32 = 1;
+pub const RCC_PERIPHCLK_COMP1: u32 = 2;
+pub const RCC_PERIPHCLK_COMP2: u32 = 32;
+pub const RCC_PERIPHCLK_LPTIM: u32 = 512;
+pub const RCC_PERIPHCLK_RTC: u32 = 131072;
+pub const RCC_PVDCLKSOURCE_PCLK: u32 = 0;
+pub const RCC_PVDCLKSOURCE_LSC: u32 = 128;
+pub const RCC_COMP1CLKSOURCE_PCLK: u32 = 0;
+pub const RCC_COMP1CLKSOURCE_LSC: u32 = 256;
+pub const RCC_COMP2CLKSOURCE_PCLK: u32 = 0;
+pub const RCC_COMP2CLKSOURCE_LSC: u32 = 512;
+pub const RCC_LPTIMCLKSOURCE_PCLK: u32 = 0;
+pub const RCC_LPTIMCLKSOURCE_LSI: u32 = 262144;
+pub const RCC_LPTIMCLKSOURCE_LSE: u32 = 786432;
 extern "C" {
     #[doc = " @addtogroup RCCEx_Exported_Functions_Group1\n @{"]
     pub fn HAL_RCCEx_PeriphCLKConfig(
@@ -8769,41 +5590,14 @@ pub struct EXTI_HandleTypeDef {
     #[doc = "<  Exti pending callback"]
     pub PendingCallback: ::core::option::Option<unsafe extern "C" fn()>,
 }
-#[test]
-fn bindgen_test_layout_EXTI_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<EXTI_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<EXTI_HandleTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(EXTI_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<EXTI_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(EXTI_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Line) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_HandleTypeDef),
-            "::",
-            stringify!(Line)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PendingCallback) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_HandleTypeDef),
-            "::",
-            stringify!(PendingCallback)
-        )
-    );
-}
+const _: () = {
+    ["Size of EXTI_HandleTypeDef"][::core::mem::size_of::<EXTI_HandleTypeDef>() - 8usize];
+    ["Alignment of EXTI_HandleTypeDef"][::core::mem::align_of::<EXTI_HandleTypeDef>() - 4usize];
+    ["Offset of field: EXTI_HandleTypeDef::Line"]
+        [::core::mem::offset_of!(EXTI_HandleTypeDef, Line) - 0usize];
+    ["Offset of field: EXTI_HandleTypeDef::PendingCallback"]
+        [::core::mem::offset_of!(EXTI_HandleTypeDef, PendingCallback) - 4usize];
+};
 #[doc = " @brief  EXTI Configuration structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8817,61 +5611,74 @@ pub struct EXTI_ConfigTypeDef {
     #[doc = "< The Exti GPIO multiplexer selection to be configured.\nThis parameter is only possible for line 0 to 15. It\ncan be a value of @ref EXTI_GPIOSel"]
     pub GPIOSel: u32,
 }
-#[test]
-fn bindgen_test_layout_EXTI_ConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<EXTI_ConfigTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<EXTI_ConfigTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(EXTI_ConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<EXTI_ConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(EXTI_ConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Line) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_ConfigTypeDef),
-            "::",
-            stringify!(Line)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_ConfigTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Trigger) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_ConfigTypeDef),
-            "::",
-            stringify!(Trigger)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).GPIOSel) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(EXTI_ConfigTypeDef),
-            "::",
-            stringify!(GPIOSel)
-        )
-    );
-}
+const _: () = {
+    ["Size of EXTI_ConfigTypeDef"][::core::mem::size_of::<EXTI_ConfigTypeDef>() - 16usize];
+    ["Alignment of EXTI_ConfigTypeDef"][::core::mem::align_of::<EXTI_ConfigTypeDef>() - 4usize];
+    ["Offset of field: EXTI_ConfigTypeDef::Line"]
+        [::core::mem::offset_of!(EXTI_ConfigTypeDef, Line) - 0usize];
+    ["Offset of field: EXTI_ConfigTypeDef::Mode"]
+        [::core::mem::offset_of!(EXTI_ConfigTypeDef, Mode) - 4usize];
+    ["Offset of field: EXTI_ConfigTypeDef::Trigger"]
+        [::core::mem::offset_of!(EXTI_ConfigTypeDef, Trigger) - 8usize];
+    ["Offset of field: EXTI_ConfigTypeDef::GPIOSel"]
+        [::core::mem::offset_of!(EXTI_ConfigTypeDef, GPIOSel) - 12usize];
+};
+pub const EXTI_LINE_0: u32 = 100663296;
+pub const EXTI_LINE_1: u32 = 100663297;
+pub const EXTI_LINE_2: u32 = 100663298;
+pub const EXTI_LINE_3: u32 = 100663299;
+pub const EXTI_LINE_4: u32 = 100663300;
+pub const EXTI_LINE_5: u32 = 100663301;
+pub const EXTI_LINE_6: u32 = 100663302;
+pub const EXTI_LINE_7: u32 = 100663303;
+pub const EXTI_LINE_8: u32 = 100663304;
+pub const EXTI_LINE_9: u32 = 100663305;
+pub const EXTI_LINE_10: u32 = 100663306;
+pub const EXTI_LINE_11: u32 = 100663307;
+pub const EXTI_LINE_12: u32 = 100663308;
+pub const EXTI_LINE_13: u32 = 100663309;
+pub const EXTI_LINE_14: u32 = 100663310;
+pub const EXTI_LINE_15: u32 = 100663311;
+pub const EXTI_LINE_16: u32 = 33554448;
+pub const EXTI_LINE_17: u32 = 33554449;
+pub const EXTI_LINE_18: u32 = 33554450;
+pub const EXTI_LINE_19: u32 = 16777235;
+pub const EXTI_LINE_20: u32 = 134217748;
+pub const EXTI_LINE_21: u32 = 134217749;
+pub const EXTI_LINE_22: u32 = 134217750;
+pub const EXTI_LINE_23: u32 = 134217751;
+pub const EXTI_LINE_24: u32 = 134217752;
+pub const EXTI_LINE_25: u32 = 134217753;
+pub const EXTI_LINE_26: u32 = 134217754;
+pub const EXTI_LINE_27: u32 = 134217755;
+pub const EXTI_LINE_28: u32 = 134217756;
+pub const EXTI_LINE_29: u32 = 16777245;
+pub const EXTI_LINE_30: u32 = 134217758;
+pub const EXTI_LINE_31: u32 = 134217759;
+pub const EXTI_MODE_NONE: u32 = 0;
+pub const EXTI_MODE_INTERRUPT: u32 = 1;
+pub const EXTI_MODE_EVENT: u32 = 2;
+pub const EXTI_TRIGGER_NONE: u32 = 0;
+pub const EXTI_TRIGGER_RISING: u32 = 1;
+pub const EXTI_TRIGGER_FALLING: u32 = 2;
+pub const EXTI_TRIGGER_RISING_FALLING: u32 = 3;
+pub const EXTI_GPIOA: u32 = 0;
+pub const EXTI_GPIOB: u32 = 1;
+pub const EXTI_GPIOF: u32 = 2;
+pub const EXTI_PROPERTY_SHIFT: u32 = 24;
+pub const EXTI_DIRECT: u32 = 16777216;
+pub const EXTI_CONFIG: u32 = 33554432;
+pub const EXTI_GPIO: u32 = 100663296;
+pub const EXTI_RESERVED: u32 = 134217728;
+pub const EXTI_PROPERTY_MASK: u32 = 117440512;
+pub const EXTI_REG_SHIFT: u32 = 16;
+pub const EXTI_REG1: u32 = 0;
+pub const EXTI_REG2: u32 = 65536;
+pub const EXTI_REG_MASK: u32 = 65536;
+pub const EXTI_PIN_MASK: u32 = 31;
+pub const EXTI_MODE_MASK: u32 = 3;
+pub const EXTI_TRIGGER_MASK: u32 = 3;
+pub const EXTI_LINE_NB: u32 = 32;
 extern "C" {
     #[doc = " @defgroup EXTI_Exported_Functions_Group1 Configuration functions\n @brief    Configuration functions\n @{"]
     pub fn HAL_EXTI_SetConfigLine(
@@ -8926,75 +5733,108 @@ pub struct GPIO_InitTypeDef {
     #[doc = "< Peripheral to be connected to the selected pins\nThis parameter can be a value of @ref GPIOEx_Alternate_function_selection"]
     pub Alternate: u32,
 }
-#[test]
-fn bindgen_test_layout_GPIO_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<GPIO_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<GPIO_InitTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(GPIO_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<GPIO_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(GPIO_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Pin) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_InitTypeDef),
-            "::",
-            stringify!(Pin)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_InitTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Pull) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_InitTypeDef),
-            "::",
-            stringify!(Pull)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Speed) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_InitTypeDef),
-            "::",
-            stringify!(Speed)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Alternate) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(GPIO_InitTypeDef),
-            "::",
-            stringify!(Alternate)
-        )
-    );
-}
+const _: () = {
+    ["Size of GPIO_InitTypeDef"][::core::mem::size_of::<GPIO_InitTypeDef>() - 20usize];
+    ["Alignment of GPIO_InitTypeDef"][::core::mem::align_of::<GPIO_InitTypeDef>() - 4usize];
+    ["Offset of field: GPIO_InitTypeDef::Pin"]
+        [::core::mem::offset_of!(GPIO_InitTypeDef, Pin) - 0usize];
+    ["Offset of field: GPIO_InitTypeDef::Mode"]
+        [::core::mem::offset_of!(GPIO_InitTypeDef, Mode) - 4usize];
+    ["Offset of field: GPIO_InitTypeDef::Pull"]
+        [::core::mem::offset_of!(GPIO_InitTypeDef, Pull) - 8usize];
+    ["Offset of field: GPIO_InitTypeDef::Speed"]
+        [::core::mem::offset_of!(GPIO_InitTypeDef, Speed) - 12usize];
+    ["Offset of field: GPIO_InitTypeDef::Alternate"]
+        [::core::mem::offset_of!(GPIO_InitTypeDef, Alternate) - 16usize];
+};
 pub const GPIO_PinState_GPIO_PIN_RESET: GPIO_PinState = 0;
 pub const GPIO_PinState_GPIO_PIN_SET: GPIO_PinState = 1;
 #[doc = " @brief  GPIO Bit SET and Bit RESET enumeration"]
 pub type GPIO_PinState = ::core::ffi::c_uint;
+pub const GPIO_PIN_0: u16 = 1u8 as u16;
+pub const GPIO_PIN_1: u16 = 2u8 as u16;
+pub const GPIO_PIN_2: u16 = 4u8 as u16;
+pub const GPIO_PIN_3: u16 = 8u8 as u16;
+pub const GPIO_PIN_4: u16 = 16u8 as u16;
+pub const GPIO_PIN_5: u16 = 32u8 as u16;
+pub const GPIO_PIN_6: u16 = 64u8 as u16;
+pub const GPIO_PIN_7: u16 = 128u8 as u16;
+pub const GPIO_PIN_8: u16 = 256u16 as u16;
+pub const GPIO_PIN_9: u16 = 512u16 as u16;
+pub const GPIO_PIN_10: u16 = 1024u16 as u16;
+pub const GPIO_PIN_11: u16 = 2048u16 as u16;
+pub const GPIO_PIN_12: u16 = 4096u16 as u16;
+pub const GPIO_PIN_13: u16 = 8192u16 as u16;
+pub const GPIO_PIN_14: u16 = 16384u16 as u16;
+pub const GPIO_PIN_15: u16 = 32768u16 as u16;
+pub const GPIO_PIN_All: u16 = 65535u16 as u16;
+pub const GPIO_PIN_MASK: u32 = 65535;
+pub const GPIO_MODE_INPUT: u32 = 0;
+pub const GPIO_MODE_OUTPUT_PP: u32 = 1;
+pub const GPIO_MODE_OUTPUT_OD: u32 = 17;
+pub const GPIO_MODE_AF_PP: u32 = 2;
+pub const GPIO_MODE_AF_OD: u32 = 18;
+pub const GPIO_MODE_ANALOG: u32 = 3;
+pub const GPIO_MODE_IT_RISING: u32 = 269549568;
+pub const GPIO_MODE_IT_FALLING: u32 = 270598144;
+pub const GPIO_MODE_IT_RISING_FALLING: u32 = 271646720;
+pub const GPIO_MODE_EVT_RISING: u32 = 269615104;
+pub const GPIO_MODE_EVT_FALLING: u32 = 270663680;
+pub const GPIO_MODE_EVT_RISING_FALLING: u32 = 271712256;
+pub const GPIO_SPEED_FREQ_LOW: u32 = 0;
+pub const GPIO_SPEED_FREQ_MEDIUM: u32 = 1;
+pub const GPIO_SPEED_FREQ_HIGH: u32 = 2;
+pub const GPIO_SPEED_FREQ_VERY_HIGH: u32 = 3;
+pub const GPIO_NOPULL: u32 = 0;
+pub const GPIO_PULLUP: u32 = 1;
+pub const GPIO_PULLDOWN: u32 = 2;
+pub const GPIO_AF0_SWJ: u8 = 0u8 as u8;
+pub const GPIO_AF0_SPI1: u8 = 0u8 as u8;
+pub const GPIO_AF0_SPI2: u8 = 0u8 as u8;
+pub const GPIO_AF0_TIM14: u8 = 0u8 as u8;
+pub const GPIO_AF0_USART1: u8 = 0u8 as u8;
+pub const GPIO_AF1_IR: u8 = 1u8 as u8;
+pub const GPIO_AF1_SPI2: u8 = 1u8 as u8;
+pub const GPIO_AF1_TIM1: u8 = 1u8 as u8;
+pub const GPIO_AF1_TIM3: u8 = 1u8 as u8;
+pub const GPIO_AF1_USART1: u8 = 1u8 as u8;
+pub const GPIO_AF2_SPI2: u8 = 2u8 as u8;
+pub const GPIO_AF2_TIM1: u8 = 2u8 as u8;
+pub const GPIO_AF2_TIM14: u8 = 2u8 as u8;
+pub const GPIO_AF2_TIM16: u8 = 2u8 as u8;
+pub const GPIO_AF2_TIM17: u8 = 2u8 as u8;
+pub const GPIO_AF3_LED: u8 = 3u8 as u8;
+pub const GPIO_AF3_USART1: u8 = 3u8 as u8;
+pub const GPIO_AF3_USART2: u8 = 3u8 as u8;
+pub const GPIO_AF3_SPI2: u8 = 3u8 as u8;
+pub const GPIO_AF4_TIM14: u8 = 4u8 as u8;
+pub const GPIO_AF4_USART2: u8 = 4u8 as u8;
+pub const GPIO_AF5_LPTIM: u8 = 5u8 as u8;
+pub const GPIO_AF5_USART2: u8 = 5u8 as u8;
+pub const GPIO_AF5_EVENTOUT: u8 = 5u8 as u8;
+pub const GPIO_AF5_TIM16: u8 = 5u8 as u8;
+pub const GPIO_AF5_TIM17: u8 = 5u8 as u8;
+pub const GPIO_AF5_MCO: u8 = 5u8 as u8;
+pub const GPIO_AF6_I2C: u8 = 6u8 as u8;
+pub const GPIO_AF6_LED: u8 = 6u8 as u8;
+pub const GPIO_AF6_MCO: u8 = 6u8 as u8;
+pub const GPIO_AF6_EVENTOUT: u8 = 6u8 as u8;
+pub const GPIO_AF7_EVENTOUT: u8 = 7u8 as u8;
+pub const GPIO_AF7_COMP1: u8 = 7u8 as u8;
+pub const GPIO_AF7_COMP2: u8 = 7u8 as u8;
+pub const GPIO_AF8_USART1: u8 = 8u8 as u8;
+pub const GPIO_AF9_USART2: u8 = 9u8 as u8;
+pub const GPIO_AF10_SPI1: u8 = 10u8 as u8;
+pub const GPIO_AF11_SPI2: u8 = 11u8 as u8;
+pub const GPIO_AF12_I2C: u8 = 12u8 as u8;
+pub const GPIO_AF13_TIM1: u8 = 13u8 as u8;
+pub const GPIO_AF13_TIM3: u8 = 13u8 as u8;
+pub const GPIO_AF13_TIM14: u8 = 13u8 as u8;
+pub const GPIO_AF13_TIM17: u8 = 13u8 as u8;
+pub const GPIO_AF14_TIM1: u8 = 14u8 as u8;
+pub const GPIO_AF15_RTCOUT: u8 = 15u8 as u8;
+pub const GPIO_AF15_MCO: u8 = 15u8 as u8;
+pub const GPIO_AF15_IR: u8 = 15u8 as u8;
 extern "C" {
     #[doc = " @defgroup GPIO_Exported_Functions_Group1 Initialization/de-initialization functions\n  @brief    Initialization and Configuration functions\n @{"]
     pub fn HAL_GPIO_Init(GPIOx: *mut GPIO_TypeDef, GPIO_Init: *mut GPIO_InitTypeDef);
@@ -9021,6 +5861,8 @@ extern "C" {
 extern "C" {
     pub fn HAL_GPIO_EXTI_Callback(GPIO_Pin: u16);
 }
+pub const SYSTICK_CLKSOURCE_HCLK_DIV8: u32 = 0;
+pub const SYSTICK_CLKSOURCE_HCLK: u32 = 4;
 extern "C" {
     #[doc = " @defgroup CORTEX_Exported_Functions_Group1 Initialization and Configuration functions\n  @brief    Initialization and Configuration functions\n @{"]
     pub fn HAL_NVIC_SetPriority(IRQn: IRQn_Type, PreemptPriority: u32, SubPriority: u32);
@@ -9078,91 +5920,24 @@ pub struct DMA_InitTypeDef {
     #[doc = "< Specifies the software priority for the DMAy Channelx.\nThis parameter can be a value of @ref DMA_Priority_level"]
     pub Priority: u32,
 }
-#[test]
-fn bindgen_test_layout_DMA_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<DMA_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<DMA_InitTypeDef>(),
-        28usize,
-        concat!("Size of: ", stringify!(DMA_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<DMA_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(DMA_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Direction) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(Direction)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PeriphInc) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(PeriphInc)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MemInc) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(MemInc)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PeriphDataAlignment) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(PeriphDataAlignment)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MemDataAlignment) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(MemDataAlignment)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Priority) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(DMA_InitTypeDef),
-            "::",
-            stringify!(Priority)
-        )
-    );
-}
+const _: () = {
+    ["Size of DMA_InitTypeDef"][::core::mem::size_of::<DMA_InitTypeDef>() - 28usize];
+    ["Alignment of DMA_InitTypeDef"][::core::mem::align_of::<DMA_InitTypeDef>() - 4usize];
+    ["Offset of field: DMA_InitTypeDef::Direction"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, Direction) - 0usize];
+    ["Offset of field: DMA_InitTypeDef::PeriphInc"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, PeriphInc) - 4usize];
+    ["Offset of field: DMA_InitTypeDef::MemInc"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, MemInc) - 8usize];
+    ["Offset of field: DMA_InitTypeDef::PeriphDataAlignment"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, PeriphDataAlignment) - 12usize];
+    ["Offset of field: DMA_InitTypeDef::MemDataAlignment"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, MemDataAlignment) - 16usize];
+    ["Offset of field: DMA_InitTypeDef::Mode"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, Mode) - 20usize];
+    ["Offset of field: DMA_InitTypeDef::Priority"]
+        [::core::mem::offset_of!(DMA_InitTypeDef, Priority) - 24usize];
+};
 #[doc = "< DMA not yet initialized or disabled"]
 pub const HAL_DMA_StateTypeDef_HAL_DMA_STATE_RESET: HAL_DMA_StateTypeDef = 0;
 #[doc = "< DMA initialized and ready for use"]
@@ -9224,144 +5999,103 @@ pub struct __DMA_HandleTypeDef {
     #[doc = "< DMA Channel Index"]
     pub ChannelIndex: u32,
 }
-#[test]
-fn bindgen_test_layout___DMA_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<__DMA_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<__DMA_HandleTypeDef>(),
-        72usize,
-        concat!("Size of: ", stringify!(__DMA_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<__DMA_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__DMA_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Parent) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(Parent)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferCpltCallback) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(XferCpltCallback)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferHalfCpltCallback) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(XferHalfCpltCallback)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferErrorCallback) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(XferErrorCallback)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferAbortCallback) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(XferAbortCallback)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DmaBaseAddress) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(DmaBaseAddress)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ChannelIndex) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__DMA_HandleTypeDef),
-            "::",
-            stringify!(ChannelIndex)
-        )
-    );
-}
+const _: () = {
+    ["Size of __DMA_HandleTypeDef"][::core::mem::size_of::<__DMA_HandleTypeDef>() - 72usize];
+    ["Alignment of __DMA_HandleTypeDef"][::core::mem::align_of::<__DMA_HandleTypeDef>() - 4usize];
+    ["Offset of field: __DMA_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __DMA_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __DMA_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, Lock) - 32usize];
+    ["Offset of field: __DMA_HandleTypeDef::State"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, State) - 36usize];
+    ["Offset of field: __DMA_HandleTypeDef::Parent"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, Parent) - 40usize];
+    ["Offset of field: __DMA_HandleTypeDef::XferCpltCallback"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, XferCpltCallback) - 44usize];
+    ["Offset of field: __DMA_HandleTypeDef::XferHalfCpltCallback"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, XferHalfCpltCallback) - 48usize];
+    ["Offset of field: __DMA_HandleTypeDef::XferErrorCallback"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, XferErrorCallback) - 52usize];
+    ["Offset of field: __DMA_HandleTypeDef::XferAbortCallback"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, XferAbortCallback) - 56usize];
+    ["Offset of field: __DMA_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, ErrorCode) - 60usize];
+    ["Offset of field: __DMA_HandleTypeDef::DmaBaseAddress"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, DmaBaseAddress) - 64usize];
+    ["Offset of field: __DMA_HandleTypeDef::ChannelIndex"]
+        [::core::mem::offset_of!(__DMA_HandleTypeDef, ChannelIndex) - 68usize];
+};
 #[doc = " @brief  DMA handle Structure definition"]
 pub type DMA_HandleTypeDef = __DMA_HandleTypeDef;
+pub const HAL_DMA_ERROR_NONE: u32 = 0;
+pub const HAL_DMA_ERROR_TE: u32 = 1;
+pub const HAL_DMA_ERROR_NO_XFER: u32 = 4;
+pub const HAL_DMA_ERROR_TIMEOUT: u32 = 32;
+pub const HAL_DMA_ERROR_NOT_SUPPORTED: u32 = 256;
+pub const DMA_PERIPH_TO_MEMORY: u32 = 0;
+pub const DMA_MEMORY_TO_PERIPH: u32 = 16u8 as u32;
+pub const DMA_MEMORY_TO_MEMORY: u32 = 16384u16 as u32;
+pub const DMA_PINC_ENABLE: u32 = 64u8 as u32;
+pub const DMA_PINC_DISABLE: u32 = 0;
+pub const DMA_MINC_ENABLE: u32 = 128u8 as u32;
+pub const DMA_MINC_DISABLE: u32 = 0;
+pub const DMA_PDATAALIGN_BYTE: u32 = 0;
+pub const DMA_PDATAALIGN_HALFWORD: u32 = 256u16 as u32;
+pub const DMA_PDATAALIGN_WORD: u32 = 512u16 as u32;
+pub const DMA_MDATAALIGN_BYTE: u32 = 0;
+pub const DMA_MDATAALIGN_HALFWORD: u32 = 1024u16 as u32;
+pub const DMA_MDATAALIGN_WORD: u32 = 2048u16 as u32;
+pub const DMA_NORMAL: u32 = 0;
+pub const DMA_CIRCULAR: u32 = 32u8 as u32;
+pub const DMA_PRIORITY_LOW: u32 = 0;
+pub const DMA_PRIORITY_MEDIUM: u32 = 4096u16 as u32;
+pub const DMA_PRIORITY_HIGH: u32 = 8192u16 as u32;
+pub const DMA_PRIORITY_VERY_HIGH: u32 = 12288u16 as u32;
+pub const DMA_IT_TC: u32 = 2u8 as u32;
+pub const DMA_IT_HT: u32 = 4u8 as u32;
+pub const DMA_IT_TE: u32 = 8u8 as u32;
+pub const DMA_FLAG_GL1: u32 = 1;
+pub const DMA_FLAG_TC1: u32 = 2;
+pub const DMA_FLAG_HT1: u32 = 4;
+pub const DMA_FLAG_TE1: u32 = 8;
+pub const DMA_FLAG_GL2: u32 = 16;
+pub const DMA_FLAG_TC2: u32 = 32;
+pub const DMA_FLAG_HT2: u32 = 64;
+pub const DMA_FLAG_TE2: u32 = 128;
+pub const DMA_FLAG_GL3: u32 = 256;
+pub const DMA_FLAG_TC3: u32 = 512;
+pub const DMA_FLAG_HT3: u32 = 1024;
+pub const DMA_FLAG_TE3: u32 = 2048;
+pub const DMA_CHANNEL_MAP_ADC: u32 = 0;
+pub const DMA_CHANNEL_MAP_SPI1_TX: u32 = 1;
+pub const DMA_CHANNEL_MAP_SPI1_RX: u32 = 2;
+pub const DMA_CHANNEL_MAP_SPI2_TX: u32 = 3;
+pub const DMA_CHANNEL_MAP_SPI2_RX: u32 = 4;
+pub const DMA_CHANNEL_MAP_USART1_TX: u32 = 5;
+pub const DMA_CHANNEL_MAP_USART1_RX: u32 = 6;
+pub const DMA_CHANNEL_MAP_USART2_TX: u32 = 7;
+pub const DMA_CHANNEL_MAP_USART2_RX: u32 = 8;
+pub const DMA_CHANNEL_MAP_I2C_TX: u32 = 9;
+pub const DMA_CHANNEL_MAP_I2C_RX: u32 = 10;
+pub const DMA_CHANNEL_MAP_TIM1_CH1: u32 = 11;
+pub const DMA_CHANNEL_MAP_TIM1_CH2: u32 = 12;
+pub const DMA_CHANNEL_MAP_TIM1_CH3: u32 = 13;
+pub const DMA_CHANNEL_MAP_TIM1_CH4: u32 = 14;
+pub const DMA_CHANNEL_MAP_TIM1_COM: u32 = 15;
+pub const DMA_CHANNEL_MAP_TIM1_UP: u32 = 16;
+pub const DMA_CHANNEL_MAP_TIM1_TRIG: u32 = 17;
+pub const DMA_CHANNEL_MAP_TIM3_CH1: u32 = 18;
+pub const DMA_CHANNEL_MAP_TIM3_CH3: u32 = 19;
+pub const DMA_CHANNEL_MAP_TIM3_CH4: u32 = 20;
+pub const DMA_CHANNEL_MAP_TIM3_TRIG: u32 = 21;
+pub const DMA_CHANNEL_MAP_TIM3_UP: u32 = 22;
+pub const DMA_CHANNEL_MAP_TIM16_CH1: u32 = 24;
+pub const DMA_CHANNEL_MAP_TIM16_UP: u32 = 25;
+pub const DMA_CHANNEL_MAP_TIM17_CH1: u32 = 26;
+pub const DMA_CHANNEL_MAP_TIM17_UP: u32 = 27;
+pub const DMA_CHANNEL_MAP_END: u32 = 28;
 extern "C" {
     #[doc = " @addtogroup DMA_Exported_Functions_Group1\n @{"]
     pub fn HAL_DMA_Init(hdma: *mut DMA_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -9456,151 +6190,36 @@ pub struct ADC_InitTypeDef {
     #[doc = "< Sampling time value to be set for the selected channel.\nUnit: ADC clock cycles\nConversion time is the addition of sampling time and processing time (12.5 ADC clock cycles at ADC resolution 12 bits, 10.5 cycles at 10 bits, 8.5 cycles at 8 bits, 6.5 cycles at 6 bits).\nNote: On PY32F0 devices, the sampling time setting is common to all channels. On some other PY32 devices, this parameter in channel wise and is located into ADC channel initialization structure.\nThis parameter can be a value of @ref ADC_sampling_times\nNote: In case of usage of internal measurement channels (VrefInt/TempSensor),\nsampling time constraints must be respected (sampling time can be adjusted in function of ADC clock frequency and sampling time setting)\nRefer to device datasheet for timings values, parameters TS_vrefint, TS_temp (values rough order: 5us to 17us)."]
     pub SamplingTimeCommon: u32,
 }
-#[test]
-fn bindgen_test_layout_ADC_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<ADC_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<ADC_InitTypeDef>(),
-        52usize,
-        concat!("Size of: ", stringify!(ADC_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<ADC_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ADC_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockPrescaler) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(ClockPrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Resolution) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(Resolution)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DataAlign) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(DataAlign)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ScanConvMode) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(ScanConvMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EOCSelection) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(EOCSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LowPowerAutoWait) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(LowPowerAutoWait)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ContinuousConvMode) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(ContinuousConvMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DiscontinuousConvMode) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(DiscontinuousConvMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ExternalTrigConv) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(ExternalTrigConv)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ExternalTrigConvEdge) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(ExternalTrigConvEdge)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DMAContinuousRequests) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(DMAContinuousRequests)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Overrun) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(Overrun)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SamplingTimeCommon) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_InitTypeDef),
-            "::",
-            stringify!(SamplingTimeCommon)
-        )
-    );
-}
+const _: () = {
+    ["Size of ADC_InitTypeDef"][::core::mem::size_of::<ADC_InitTypeDef>() - 52usize];
+    ["Alignment of ADC_InitTypeDef"][::core::mem::align_of::<ADC_InitTypeDef>() - 4usize];
+    ["Offset of field: ADC_InitTypeDef::ClockPrescaler"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, ClockPrescaler) - 0usize];
+    ["Offset of field: ADC_InitTypeDef::Resolution"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, Resolution) - 4usize];
+    ["Offset of field: ADC_InitTypeDef::DataAlign"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, DataAlign) - 8usize];
+    ["Offset of field: ADC_InitTypeDef::ScanConvMode"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, ScanConvMode) - 12usize];
+    ["Offset of field: ADC_InitTypeDef::EOCSelection"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, EOCSelection) - 16usize];
+    ["Offset of field: ADC_InitTypeDef::LowPowerAutoWait"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, LowPowerAutoWait) - 20usize];
+    ["Offset of field: ADC_InitTypeDef::ContinuousConvMode"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, ContinuousConvMode) - 24usize];
+    ["Offset of field: ADC_InitTypeDef::DiscontinuousConvMode"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, DiscontinuousConvMode) - 28usize];
+    ["Offset of field: ADC_InitTypeDef::ExternalTrigConv"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, ExternalTrigConv) - 32usize];
+    ["Offset of field: ADC_InitTypeDef::ExternalTrigConvEdge"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, ExternalTrigConvEdge) - 36usize];
+    ["Offset of field: ADC_InitTypeDef::DMAContinuousRequests"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, DMAContinuousRequests) - 40usize];
+    ["Offset of field: ADC_InitTypeDef::Overrun"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, Overrun) - 44usize];
+    ["Offset of field: ADC_InitTypeDef::SamplingTimeCommon"]
+        [::core::mem::offset_of!(ADC_InitTypeDef, SamplingTimeCommon) - 48usize];
+};
 #[doc = " @brief  Structure definition of ADC channel for regular group\n @note   The setting of these parameters with function HAL_ADC_ConfigChannel() is conditioned to ADC state.\n         ADC state can be either:\n          - For all parameters: ADC disabled or enabled without conversion on going on regular group.\n         If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed\n         without error reporting (as it can be the expected behaviour in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly)."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -9612,52 +6231,17 @@ pub struct ADC_ChannelConfTypeDef {
     #[doc = "< Sampling time value to be set for the selected channel.\nUnit: ADC clock cycles\nConversion time is the addition of sampling time and processing time (12.5 ADC clock cycles at ADC resolution 12 bits, 10.5 cycles at 10 bits, 8.5 cycles at 8 bits, 6.5 cycles at 6 bits).\nThis parameter can be a value of @ref ADC_sampling_times\nCaution: this setting impacts the entire regular group. Therefore, call of HAL_ADC_ConfigChannel() to configure a channel can impact the configuration of other channels previously set.\nCaution: Obsolete parameter. Use parameter \"SamplingTimeCommon\" in ADC initialization structure.\nIf parameter \"SamplingTimeCommon\" is set to a valid sampling time, parameter \"SamplingTime\" is discarded.\nNote: In case of usage of internal measurement channels (VrefInt/TempSensor),\nsampling time constraints must be respected (sampling time can be adjusted in function of ADC clock frequency and sampling time setting)\nRefer to device datasheet for timings values, parameters TS_vrefint, TS_temp (values rough order: 5us to 17us)."]
     pub SamplingTime: u32,
 }
-#[test]
-fn bindgen_test_layout_ADC_ChannelConfTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<ADC_ChannelConfTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<ADC_ChannelConfTypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(ADC_ChannelConfTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<ADC_ChannelConfTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ADC_ChannelConfTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Channel) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_ChannelConfTypeDef),
-            "::",
-            stringify!(Channel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Rank) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_ChannelConfTypeDef),
-            "::",
-            stringify!(Rank)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SamplingTime) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_ChannelConfTypeDef),
-            "::",
-            stringify!(SamplingTime)
-        )
-    );
-}
+const _: () = {
+    ["Size of ADC_ChannelConfTypeDef"][::core::mem::size_of::<ADC_ChannelConfTypeDef>() - 12usize];
+    ["Alignment of ADC_ChannelConfTypeDef"]
+        [::core::mem::align_of::<ADC_ChannelConfTypeDef>() - 4usize];
+    ["Offset of field: ADC_ChannelConfTypeDef::Channel"]
+        [::core::mem::offset_of!(ADC_ChannelConfTypeDef, Channel) - 0usize];
+    ["Offset of field: ADC_ChannelConfTypeDef::Rank"]
+        [::core::mem::offset_of!(ADC_ChannelConfTypeDef, Rank) - 4usize];
+    ["Offset of field: ADC_ChannelConfTypeDef::SamplingTime"]
+        [::core::mem::offset_of!(ADC_ChannelConfTypeDef, SamplingTime) - 8usize];
+};
 #[doc = " @brief  Structure definition of ADC analog watchdog\n @note   The setting of these parameters with function HAL_ADC_AnalogWDGConfig() is conditioned to ADC state.\n         ADC state can be either: ADC disabled or ADC enabled without conversion on going on regular group."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -9673,72 +6257,40 @@ pub struct ADC_AnalogWDGConfTypeDef {
     #[doc = "< Configures the ADC analog watchdog High threshold value.\nDepending of ADC resolution selected (12, 10, 8 or 6 bits), this parameter must be a number between Min_Data = 0x000 and Max_Data = 0xFFF, 0x3FF, 0xFF or 0x3F respectively."]
     pub LowThreshold: u32,
 }
-#[test]
-fn bindgen_test_layout_ADC_AnalogWDGConfTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<ADC_AnalogWDGConfTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<ADC_AnalogWDGConfTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(ADC_AnalogWDGConfTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<ADC_AnalogWDGConfTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ADC_AnalogWDGConfTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WatchdogMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_AnalogWDGConfTypeDef),
-            "::",
-            stringify!(WatchdogMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Channel) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_AnalogWDGConfTypeDef),
-            "::",
-            stringify!(Channel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ITMode) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_AnalogWDGConfTypeDef),
-            "::",
-            stringify!(ITMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HighThreshold) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_AnalogWDGConfTypeDef),
-            "::",
-            stringify!(HighThreshold)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LowThreshold) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ADC_AnalogWDGConfTypeDef),
-            "::",
-            stringify!(LowThreshold)
-        )
-    );
-}
+const _: () = {
+    ["Size of ADC_AnalogWDGConfTypeDef"]
+        [::core::mem::size_of::<ADC_AnalogWDGConfTypeDef>() - 20usize];
+    ["Alignment of ADC_AnalogWDGConfTypeDef"]
+        [::core::mem::align_of::<ADC_AnalogWDGConfTypeDef>() - 4usize];
+    ["Offset of field: ADC_AnalogWDGConfTypeDef::WatchdogMode"]
+        [::core::mem::offset_of!(ADC_AnalogWDGConfTypeDef, WatchdogMode) - 0usize];
+    ["Offset of field: ADC_AnalogWDGConfTypeDef::Channel"]
+        [::core::mem::offset_of!(ADC_AnalogWDGConfTypeDef, Channel) - 4usize];
+    ["Offset of field: ADC_AnalogWDGConfTypeDef::ITMode"]
+        [::core::mem::offset_of!(ADC_AnalogWDGConfTypeDef, ITMode) - 8usize];
+    ["Offset of field: ADC_AnalogWDGConfTypeDef::HighThreshold"]
+        [::core::mem::offset_of!(ADC_AnalogWDGConfTypeDef, HighThreshold) - 12usize];
+    ["Offset of field: ADC_AnalogWDGConfTypeDef::LowThreshold"]
+        [::core::mem::offset_of!(ADC_AnalogWDGConfTypeDef, LowThreshold) - 16usize];
+};
+pub const HAL_ADC_STATE_RESET: u32 = 0;
+pub const HAL_ADC_STATE_READY: u32 = 1;
+pub const HAL_ADC_STATE_BUSY_INTERNAL: u32 = 2;
+pub const HAL_ADC_STATE_TIMEOUT: u32 = 4;
+pub const HAL_ADC_STATE_ERROR_INTERNAL: u32 = 16;
+pub const HAL_ADC_STATE_ERROR_CONFIG: u32 = 32;
+pub const HAL_ADC_STATE_ERROR_DMA: u32 = 64;
+pub const HAL_ADC_STATE_REG_BUSY: u32 = 256;
+pub const HAL_ADC_STATE_REG_EOC: u32 = 512;
+pub const HAL_ADC_STATE_REG_OVR: u32 = 1024;
+pub const HAL_ADC_STATE_REG_EOSMP: u32 = 2048;
+pub const HAL_ADC_STATE_INJ_BUSY: u32 = 4096;
+pub const HAL_ADC_STATE_INJ_EOC: u32 = 8192;
+pub const HAL_ADC_STATE_INJ_JQOVF: u32 = 16384;
+pub const HAL_ADC_STATE_AWD1: u32 = 65536;
+pub const HAL_ADC_STATE_AWD2: u32 = 131072;
+pub const HAL_ADC_STATE_AWD3: u32 = 262144;
+pub const HAL_ADC_STATE_MULTIMODE_SLAVE: u32 = 1048576;
 #[doc = " @brief  ADC handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -9756,84 +6308,117 @@ pub struct __ADC_HandleTypeDef {
     #[doc = "< ADC Error code"]
     pub ErrorCode: u32,
 }
-#[test]
-fn bindgen_test_layout___ADC_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<__ADC_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<__ADC_HandleTypeDef>(),
-        72usize,
-        concat!("Size of: ", stringify!(__ADC_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<__ADC_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__ADC_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DMA_Handle) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(DMA_Handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ADC_HandleTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-}
+const _: () = {
+    ["Size of __ADC_HandleTypeDef"][::core::mem::size_of::<__ADC_HandleTypeDef>() - 72usize];
+    ["Alignment of __ADC_HandleTypeDef"][::core::mem::align_of::<__ADC_HandleTypeDef>() - 4usize];
+    ["Offset of field: __ADC_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __ADC_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __ADC_HandleTypeDef::DMA_Handle"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, DMA_Handle) - 56usize];
+    ["Offset of field: __ADC_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, Lock) - 60usize];
+    ["Offset of field: __ADC_HandleTypeDef::State"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, State) - 64usize];
+    ["Offset of field: __ADC_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__ADC_HandleTypeDef, ErrorCode) - 68usize];
+};
 #[doc = " @brief  ADC handle Structure definition"]
 pub type ADC_HandleTypeDef = __ADC_HandleTypeDef;
+pub const HAL_ADC_ERROR_NONE: u32 = 0;
+pub const HAL_ADC_ERROR_INTERNAL: u32 = 1;
+pub const HAL_ADC_ERROR_OVR: u32 = 2;
+pub const HAL_ADC_ERROR_DMA: u32 = 4;
+pub const ADC_CLOCK_SYNC_PCLK_DIV1: u32 = 0;
+pub const ADC_CLOCK_SYNC_PCLK_DIV2: u32 = 268435456u32 as u32;
+pub const ADC_CLOCK_SYNC_PCLK_DIV4: u32 = 536870912u32 as u32;
+pub const ADC_CLOCK_SYNC_PCLK_DIV8: u32 = 805306368u32 as u32;
+pub const ADC_CLOCK_SYNC_PCLK_DIV16: u32 = 1073741824u32 as u32;
+pub const ADC_CLOCK_SYNC_PCLK_DIV32: u32 = 1342177280u32 as u32;
+pub const ADC_CLOCK_SYNC_PCLK_DIV64: u32 = 1610612736u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV1: u32 = 2147483648u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV2: u32 = 2415919104u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV4: u32 = 2684354560u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV8: u32 = 2952790016u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV16: u32 = 3221225472u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV32: u32 = 3489660928u32 as u32;
+pub const ADC_CLOCK_ASYNC_HSI_DIV64: u32 = 3758096384u32 as u32;
+pub const ADC_RESOLUTION_12B: u32 = 0;
+pub const ADC_RESOLUTION_10B: u32 = 8u8 as u32;
+pub const ADC_RESOLUTION_8B: u32 = 16u8 as u32;
+pub const ADC_RESOLUTION_6B: u32 = 24u8 as u32;
+pub const ADC_DATAALIGN_RIGHT: u32 = 0;
+pub const ADC_DATAALIGN_LEFT: u32 = 32u8 as u32;
+pub const ADC_SCAN_DIRECTION_FORWARD: u32 = 1;
+pub const ADC_SCAN_DIRECTION_BACKWARD: u32 = 2;
+pub const ADC_SCAN_ENABLE: u32 = 1;
+pub const ADC_EXTERNALTRIGCONVEDGE_NONE: u32 = 0;
+pub const ADC_EXTERNALTRIGCONVEDGE_RISING: u32 = 1024u16 as u32;
+pub const ADC_EXTERNALTRIGCONVEDGE_FALLING: u32 = 2048u16 as u32;
+pub const ADC_EXTERNALTRIGCONVEDGE_RISINGFALLING: u32 = 3072u16 as u32;
+pub const ADC_EOC_SINGLE_CONV: u32 = 4u8 as u32;
+pub const ADC_EOC_SEQ_CONV: u32 = 8u8 as u32;
+pub const ADC_OVR_DATA_OVERWRITTEN: u32 = 0;
+pub const ADC_OVR_DATA_PRESERVED: u32 = 1;
+pub const ADC_RANK_CHANNEL_NUMBER: u32 = 4096;
+pub const ADC_RANK_NONE: u32 = 4097;
+pub const ADC_SAMPLETIME_3CYCLES_5: u32 = 0;
+pub const ADC_SAMPLETIME_5CYCLES_5: u32 = 1u8 as u32;
+pub const ADC_SAMPLETIME_7CYCLES_5: u32 = 2u8 as u32;
+pub const ADC_SAMPLETIME_13CYCLES_5: u32 = 3u8 as u32;
+pub const ADC_SAMPLETIME_28CYCLES_5: u32 = 4u8 as u32;
+pub const ADC_SAMPLETIME_41CYCLES_5: u32 = 5u8 as u32;
+pub const ADC_SAMPLETIME_71CYCLES_5: u32 = 6u8 as u32;
+pub const ADC_SAMPLETIME_239CYCLES_5: u32 = 7u8 as u32;
+pub const ADC_ANALOGWATCHDOG_NONE: u32 = 0;
+pub const ADC_ANALOGWATCHDOG_SINGLE_REG: u32 = 12582912u32 as u32;
+pub const ADC_ANALOGWATCHDOG_ALL_REG: u32 = 8388608u32 as u32;
+pub const ADC_AWD_EVENT: u32 = 128u8 as u32;
+pub const ADC_OVR_EVENT: u32 = 16u8 as u32;
+pub const ADC_IT_AWD: u32 = 128;
+pub const ADC_IT_OVR: u32 = 16;
+pub const ADC_IT_EOS: u32 = 8;
+pub const ADC_IT_EOC: u32 = 4;
+pub const ADC_IT_EOSMP: u32 = 2;
+pub const ADC_FLAG_AWD: u32 = 128;
+pub const ADC_FLAG_OVR: u32 = 16;
+pub const ADC_FLAG_EOS: u32 = 8;
+pub const ADC_FLAG_EOC: u32 = 4;
+pub const ADC_FLAG_EOSMP: u32 = 2;
+pub const ADC_CALIBSAMPLETIME_2CYCLES: u32 = 0;
+pub const ADC_CALIBSAMPLETIME_4CYCLES: u32 = 4096u16 as u32;
+pub const ADC_CALIBSAMPLETIME_8CYCLES: u32 = 8192u16 as u32;
+pub const ADC_CALIBSAMPLETIME_1CYCLE: u32 = 12288u16 as u32;
+pub const ADC_CALIBSELECTION_ONLYOFFSET: u32 = 0;
+pub const ADC_CALIBSELECTION_OFFSET_LINEARITY: u32 = 2048u16 as u32;
+pub const ADC_CALIBSTATUS_SUCCESS: u32 = 0;
+pub const ADC_CALIBSTATUS_FAIL: u32 = 1073741824u32 as u32;
+pub const ADC_CALIBSTATUS_ONGOING: u32 = 2147483648u32 as u32;
+pub const ADC_CALIBSTATUS_INVALID: u32 = 3221225472u32 as u32;
+pub const ADC1_2_EXTERNALTRIG_T1_TRGO: u32 = 0;
+pub const ADC1_2_EXTERNALTRIG_T1_CC4: u32 = 64u8 as u32;
+pub const ADC1_2_EXTERNALTRIG_T3_TRGO: u32 = 192u8 as u32;
+pub const ADC_FLAG_POSTCONV_ALL: u32 = 156;
+pub const ADC_CCR_ALL: u32 = 12582912;
+pub const ADC_CHANNEL_0: u32 = 0;
+pub const ADC_CHANNEL_1: u32 = 1;
+pub const ADC_CHANNEL_2: u32 = 2;
+pub const ADC_CHANNEL_3: u32 = 3;
+pub const ADC_CHANNEL_4: u32 = 4;
+pub const ADC_CHANNEL_5: u32 = 5;
+pub const ADC_CHANNEL_6: u32 = 6;
+pub const ADC_CHANNEL_7: u32 = 7;
+pub const ADC_CHANNEL_8: u32 = 8;
+pub const ADC_CHANNEL_9: u32 = 9;
+pub const ADC_CHANNEL_11: u32 = 11;
+pub const ADC_CHANNEL_12: u32 = 12;
+pub const ADC_CHANNEL_TEMPSENSOR: u32 = 11;
+pub const ADC_CHANNEL_VREFINT: u32 = 12;
+pub const ADC_EXTERNALTRIGCONV_T1_TRGO: u32 = 0;
+pub const ADC_EXTERNALTRIGCONV_T1_CC4: u32 = 64u8 as u32;
+pub const ADC_EXTERNALTRIGCONV_T3_TRGO: u32 = 192u8 as u32;
+pub const ADC_SOFTWARE_START: u32 = 449;
 extern "C" {
     #[doc = " @addtogroup ADC_Exported_Functions_Group1\n @{"]
     pub fn HAL_ADC_Init(hadc: *mut ADC_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -9957,51 +6542,16 @@ pub struct CRC_HandleTypeDef {
     #[doc = "< CRC communication state"]
     pub State: HAL_CRC_StateTypeDef,
 }
-#[test]
-fn bindgen_test_layout_CRC_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<CRC_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<CRC_HandleTypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(CRC_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<CRC_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(CRC_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(CRC_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-}
+const _: () = {
+    ["Size of CRC_HandleTypeDef"][::core::mem::size_of::<CRC_HandleTypeDef>() - 12usize];
+    ["Alignment of CRC_HandleTypeDef"][::core::mem::align_of::<CRC_HandleTypeDef>() - 4usize];
+    ["Offset of field: CRC_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(CRC_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: CRC_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(CRC_HandleTypeDef, Lock) - 4usize];
+    ["Offset of field: CRC_HandleTypeDef::State"]
+        [::core::mem::offset_of!(CRC_HandleTypeDef, State) - 8usize];
+};
 extern "C" {
     #[doc = " @defgroup CRC_Exported_Functions_Group1 Initialization and de-initialization functions\n @{"]
     pub fn HAL_CRC_Init(hcrc: *mut CRC_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -10049,72 +6599,21 @@ pub struct FLASH_EraseInitTypeDef {
     #[doc = "< Number of sectors to be erased.\nThis parameter must be a value between 1 and (FLASH_SECTOR_NB - value of initial sector)"]
     pub NbSectors: u32,
 }
-#[test]
-fn bindgen_test_layout_FLASH_EraseInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<FLASH_EraseInitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<FLASH_EraseInitTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(FLASH_EraseInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<FLASH_EraseInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(FLASH_EraseInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TypeErase) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_EraseInitTypeDef),
-            "::",
-            stringify!(TypeErase)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PageAddress) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_EraseInitTypeDef),
-            "::",
-            stringify!(PageAddress)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).NbPages) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_EraseInitTypeDef),
-            "::",
-            stringify!(NbPages)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SectorAddress) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_EraseInitTypeDef),
-            "::",
-            stringify!(SectorAddress)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).NbSectors) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_EraseInitTypeDef),
-            "::",
-            stringify!(NbSectors)
-        )
-    );
-}
+const _: () = {
+    ["Size of FLASH_EraseInitTypeDef"][::core::mem::size_of::<FLASH_EraseInitTypeDef>() - 20usize];
+    ["Alignment of FLASH_EraseInitTypeDef"]
+        [::core::mem::align_of::<FLASH_EraseInitTypeDef>() - 4usize];
+    ["Offset of field: FLASH_EraseInitTypeDef::TypeErase"]
+        [::core::mem::offset_of!(FLASH_EraseInitTypeDef, TypeErase) - 0usize];
+    ["Offset of field: FLASH_EraseInitTypeDef::PageAddress"]
+        [::core::mem::offset_of!(FLASH_EraseInitTypeDef, PageAddress) - 4usize];
+    ["Offset of field: FLASH_EraseInitTypeDef::NbPages"]
+        [::core::mem::offset_of!(FLASH_EraseInitTypeDef, NbPages) - 8usize];
+    ["Offset of field: FLASH_EraseInitTypeDef::SectorAddress"]
+        [::core::mem::offset_of!(FLASH_EraseInitTypeDef, SectorAddress) - 12usize];
+    ["Offset of field: FLASH_EraseInitTypeDef::NbSectors"]
+        [::core::mem::offset_of!(FLASH_EraseInitTypeDef, NbSectors) - 16usize];
+};
 #[doc = " @brief  FLASH Option Bytes PROGRAM structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10134,92 +6633,26 @@ pub struct FLASH_OBProgramInitTypeDef {
     #[doc = "< Value of the user option byte (used for OPTIONBYTE_USER).\nThis parameter can be a combination of\n@ref FLASH_OB_USER_BOR_ENABLE,\n@ref FLASH_OB_USER_BOR_LEVEL,\n@ref FLASH_OB_USER_RESET_CONFIG,\n@ref FLASH_OB_USER_IWDG_SW,\n@ref FLASH_OB_USER_WWDG_SW,\n@ref FLASH_OB_USER_nBOOT1"]
     pub USERConfig: u32,
 }
-#[test]
-fn bindgen_test_layout_FLASH_OBProgramInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<FLASH_OBProgramInitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<FLASH_OBProgramInitTypeDef>(),
-        28usize,
-        concat!("Size of: ", stringify!(FLASH_OBProgramInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<FLASH_OBProgramInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(FLASH_OBProgramInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OptionType) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(OptionType)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WRPSector) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(WRPSector)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SDKStartAddr) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(SDKStartAddr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SDKEndAddr) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(SDKEndAddr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RDPLevel) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(RDPLevel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).USERType) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(USERType)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).USERConfig) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_OBProgramInitTypeDef),
-            "::",
-            stringify!(USERConfig)
-        )
-    );
-}
+const _: () = {
+    ["Size of FLASH_OBProgramInitTypeDef"]
+        [::core::mem::size_of::<FLASH_OBProgramInitTypeDef>() - 28usize];
+    ["Alignment of FLASH_OBProgramInitTypeDef"]
+        [::core::mem::align_of::<FLASH_OBProgramInitTypeDef>() - 4usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::OptionType"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, OptionType) - 0usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::WRPSector"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, WRPSector) - 4usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::SDKStartAddr"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, SDKStartAddr) - 8usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::SDKEndAddr"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, SDKEndAddr) - 12usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::RDPLevel"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, RDPLevel) - 16usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::USERType"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, USERType) - 20usize];
+    ["Offset of field: FLASH_OBProgramInitTypeDef::USERConfig"]
+        [::core::mem::offset_of!(FLASH_OBProgramInitTypeDef, USERConfig) - 24usize];
+};
 #[doc = " @brief  FLASH handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10231,82 +6664,110 @@ pub struct FLASH_ProcessTypeDef {
     pub PageOrSector: u32,
     pub NbPagesSectorsToErase: u32,
 }
-#[test]
-fn bindgen_test_layout_FLASH_ProcessTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<FLASH_ProcessTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<FLASH_ProcessTypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(FLASH_ProcessTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<FLASH_ProcessTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(FLASH_ProcessTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ProcedureOnGoing) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(ProcedureOnGoing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Address) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(Address)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PageOrSector) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(PageOrSector)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).NbPagesSectorsToErase) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FLASH_ProcessTypeDef),
-            "::",
-            stringify!(NbPagesSectorsToErase)
-        )
-    );
-}
+const _: () = {
+    ["Size of FLASH_ProcessTypeDef"][::core::mem::size_of::<FLASH_ProcessTypeDef>() - 24usize];
+    ["Alignment of FLASH_ProcessTypeDef"][::core::mem::align_of::<FLASH_ProcessTypeDef>() - 4usize];
+    ["Offset of field: FLASH_ProcessTypeDef::Lock"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, Lock) - 0usize];
+    ["Offset of field: FLASH_ProcessTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, ErrorCode) - 4usize];
+    ["Offset of field: FLASH_ProcessTypeDef::ProcedureOnGoing"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, ProcedureOnGoing) - 8usize];
+    ["Offset of field: FLASH_ProcessTypeDef::Address"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, Address) - 12usize];
+    ["Offset of field: FLASH_ProcessTypeDef::PageOrSector"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, PageOrSector) - 16usize];
+    ["Offset of field: FLASH_ProcessTypeDef::NbPagesSectorsToErase"]
+        [::core::mem::offset_of!(FLASH_ProcessTypeDef, NbPagesSectorsToErase) - 20usize];
+};
+pub const FLASH_LATENCY_0: u32 = 0;
+pub const FLASH_LATENCY_1: u32 = 1;
+pub const FLASH_TYPEERASE_MASSERASE: u32 = 1;
+pub const FLASH_TYPEERASE_PAGEERASE: u32 = 2;
+pub const FLASH_TYPEERASE_SECTORERASE: u32 = 3;
+pub const FLASH_FLAG_BSY: u32 = 65536;
+pub const FLASH_FLAG_OPTVERR: u32 = 32768;
+pub const FLASH_FLAG_WRPERR: u32 = 16;
+pub const FLASH_FLAG_EOP: u32 = 1;
+pub const FLASH_FLAG_ALL_ERRORS: u32 = 32784;
+pub const FLASH_IT_EOP: u32 = 16777216;
+pub const FLASH_IT_OPERR: u32 = 33554432;
+pub const HAL_FLASH_ERROR_NONE: u32 = 0;
+pub const HAL_FLASH_ERROR_WRP: u32 = 16;
+pub const HAL_FLASH_ERROR_OPTV: u32 = 32768;
+pub const FLASH_PROGRAM_ERASE_CLOCK_4MHZ: u32 = 0;
+pub const FLASH_PROGRAM_ERASE_CLOCK_8MHZ: u32 = 1;
+pub const FLASH_PROGRAM_ERASE_CLOCK_16MHZ: u32 = 2;
+pub const FLASH_PROGRAM_ERASE_CLOCK_22p12MHZ: u32 = 3;
+pub const FLASH_PROGRAM_ERASE_CLOCK_24MHZ: u32 = 4;
+pub const OB_WRP_SECTOR_0: u32 = 1u8 as u32;
+pub const OB_WRP_SECTOR_1: u32 = 2u8 as u32;
+pub const OB_WRP_SECTOR_2: u32 = 4u8 as u32;
+pub const OB_WRP_SECTOR_3: u32 = 8u8 as u32;
+pub const OB_WRP_SECTOR_4: u32 = 16u8 as u32;
+pub const OB_WRP_SECTOR_5: u32 = 32u8 as u32;
+pub const OB_WRP_SECTOR_6: u32 = 64u8 as u32;
+pub const OB_WRP_SECTOR_7: u32 = 128u8 as u32;
+pub const OB_WRP_SECTOR_8: u32 = 256u16 as u32;
+pub const OB_WRP_SECTOR_9: u32 = 512u16 as u32;
+pub const OB_WRP_SECTOR_10: u32 = 1024u16 as u32;
+pub const OB_WRP_SECTOR_11: u32 = 2048u16 as u32;
+pub const OB_WRP_SECTOR_12: u32 = 4096u16 as u32;
+pub const OB_WRP_SECTOR_13: u32 = 8192u16 as u32;
+pub const OB_WRP_SECTOR_14: u32 = 16384u16 as u32;
+pub const OB_WRP_SECTOR_15: u32 = 32768u16 as u32;
+pub const OB_WRP_Pages0to31: u32 = 1u8 as u32;
+pub const OB_WRP_Pages32to63: u32 = 2u8 as u32;
+pub const OB_WRP_Pages64to95: u32 = 4u8 as u32;
+pub const OB_WRP_Pages96to127: u32 = 8u8 as u32;
+pub const OB_WRP_Pages128to159: u32 = 16u8 as u32;
+pub const OB_WRP_Pages160to191: u32 = 32u8 as u32;
+pub const OB_WRP_Pages192to223: u32 = 64u8 as u32;
+pub const OB_WRP_Pages224to255: u32 = 128u8 as u32;
+pub const OB_WRP_Pages256to287: u32 = 256u16 as u32;
+pub const OB_WRP_Pages288to319: u32 = 512u16 as u32;
+pub const OB_WRP_Pages320to351: u32 = 1024u16 as u32;
+pub const OB_WRP_Pages352to383: u32 = 2048u16 as u32;
+pub const OB_WRP_Pages384to415: u32 = 4096u16 as u32;
+pub const OB_WRP_Pages416to447: u32 = 8192u16 as u32;
+pub const OB_WRP_Pages448to479: u32 = 16384u16 as u32;
+pub const OB_WRP_Pages480to511: u32 = 32768u16 as u32;
+pub const OB_WRP_AllPages: u32 = 65535u16 as u32;
+pub const OB_RDP_LEVEL_0: u8 = 170u8 as u8;
+pub const OB_RDP_LEVEL_1: u8 = 85u8 as u8;
+pub const OB_USER_BOR_EN: u32 = 256;
+pub const OB_USER_BOR_LEV: u32 = 3584;
+pub const OB_USER_IWDG_SW: u32 = 4096;
+pub const OB_USER_WWDG_SW: u32 = 8192;
+pub const OB_USER_NRST_MODE: u32 = 16384;
+pub const OB_USER_nBOOT1: u32 = 32768;
+pub const OB_USER_ALL: u32 = 65280;
+pub const FLASH_TYPEPROGRAM_PAGE: u32 = 1;
+pub const OB_BOR_DISABLE: u32 = 0;
+pub const OB_BOR_ENABLE: u32 = 256;
+pub const OB_BOR_LEVEL_1p7_1p8: u32 = 0u8 as u32;
+pub const OB_BOR_LEVEL_1p9_2p0: u32 = 512u16 as u32;
+pub const OB_BOR_LEVEL_2p1_2p2: u32 = 1024u16 as u32;
+pub const OB_BOR_LEVEL_2p3_2p4: u32 = 1536u16 as u32;
+pub const OB_BOR_LEVEL_2p5_2p6: u32 = 2048u16 as u32;
+pub const OB_BOR_LEVEL_2p7_2p8: u32 = 2560u16 as u32;
+pub const OB_BOR_LEVEL_2p9_3p0: u32 = 3072u16 as u32;
+pub const OB_BOR_LEVEL_3p1_3p2: u32 = 3584u16 as u32;
+pub const OPTIONBYTE_WRP: u32 = 1u8 as u32;
+pub const OPTIONBYTE_SDK: u32 = 2u8 as u32;
+pub const OPTIONBYTE_RDP: u32 = 4u8 as u32;
+pub const OPTIONBYTE_USER: u32 = 8u8 as u32;
+pub const OPTIONBYTE_ALL: u32 = 1u8 as u32 | 2u8 as u32 | 4u8 as u32 | 8u8 as u32;
+pub const OB_WRPSTATE_DISABLE: u32 = 0u8 as u32;
+pub const OB_WRPSTATE_ENABLE: u32 = 1u8 as u32;
+pub const OB_IWDG_SW: u32 = 4096;
+pub const OB_IWDG_HW: u32 = 0;
+pub const OB_WWDG_SW: u32 = 8192;
+pub const OB_WWDG_HW: u32 = 0;
+pub const OB_RESET_MODE_RESET: u32 = 0;
+pub const OB_RESET_MODE_GPIO: u32 = 16384;
+pub const OB_BOOT1_SRAM: u32 = 0;
+pub const OB_BOOT1_SYSTEM: u32 = 32768;
 extern "C" {
     #[doc = " @defgroup FLASH_Exported_Variables FLASH Exported Variables\n @{"]
     pub static mut pFlash: FLASH_ProcessTypeDef;
@@ -10383,6 +6844,10 @@ extern "C" {
     #[doc = " @defgroup FLASH_Private_types FLASH Private Types\n @{"]
     pub fn FLASH_WaitForLastOperation(Timeout: u32) -> HAL_StatusTypeDef;
 }
+pub const FLASH_TIMEOUT_VALUE: u32 = 1000;
+pub const FLASH_TYPENONE: u32 = 0;
+pub const FLASH_FLAG_SR_ERROR: u32 = 32784;
+pub const FLASH_FLAG_SR_CLEAR: u32 = 32785;
 #[doc = " @defgroup I2C_Configuration_Structure_definition I2C Configuration Structure definition\n @brief  I2C Configuration Structure definition\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10398,71 +6863,20 @@ pub struct I2C_InitTypeDef {
     #[doc = "< Specifies if nostretch mode is selected.\nThis parameter can be a value of @ref I2C_nostretch_mode"]
     pub NoStretchMode: u32,
 }
-#[test]
-fn bindgen_test_layout_I2C_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<I2C_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<I2C_InitTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(I2C_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<I2C_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(I2C_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockSpeed) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_InitTypeDef),
-            "::",
-            stringify!(ClockSpeed)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DutyCycle) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_InitTypeDef),
-            "::",
-            stringify!(DutyCycle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OwnAddress1) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_InitTypeDef),
-            "::",
-            stringify!(OwnAddress1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).GeneralCallMode) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_InitTypeDef),
-            "::",
-            stringify!(GeneralCallMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).NoStretchMode) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(I2C_InitTypeDef),
-            "::",
-            stringify!(NoStretchMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of I2C_InitTypeDef"][::core::mem::size_of::<I2C_InitTypeDef>() - 20usize];
+    ["Alignment of I2C_InitTypeDef"][::core::mem::align_of::<I2C_InitTypeDef>() - 4usize];
+    ["Offset of field: I2C_InitTypeDef::ClockSpeed"]
+        [::core::mem::offset_of!(I2C_InitTypeDef, ClockSpeed) - 0usize];
+    ["Offset of field: I2C_InitTypeDef::DutyCycle"]
+        [::core::mem::offset_of!(I2C_InitTypeDef, DutyCycle) - 4usize];
+    ["Offset of field: I2C_InitTypeDef::OwnAddress1"]
+        [::core::mem::offset_of!(I2C_InitTypeDef, OwnAddress1) - 8usize];
+    ["Offset of field: I2C_InitTypeDef::GeneralCallMode"]
+        [::core::mem::offset_of!(I2C_InitTypeDef, GeneralCallMode) - 12usize];
+    ["Offset of field: I2C_InitTypeDef::NoStretchMode"]
+        [::core::mem::offset_of!(I2C_InitTypeDef, NoStretchMode) - 16usize];
+};
 #[doc = "< Peripheral is not yet Initialized"]
 pub const HAL_I2C_StateTypeDef_HAL_I2C_STATE_RESET: HAL_I2C_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use"]
@@ -10497,6 +6911,15 @@ pub const HAL_I2C_ModeTypeDef_HAL_I2C_MODE_SLAVE: HAL_I2C_ModeTypeDef = 32;
 pub const HAL_I2C_ModeTypeDef_HAL_I2C_MODE_MEM: HAL_I2C_ModeTypeDef = 64;
 #[doc = " @defgroup HAL_mode_structure_definition HAL mode structure definition\n @brief  HAL Mode structure definition\n @note  HAL I2C Mode value coding follow below described bitmap :\\n\n          b7     (not used)\\n\n             x  : Should be set to 0\\n\n          b6\\n\n             0  : None\\n\n             1  : Memory (HAL I2C communication is in Memory Mode)\\n\n          b5\\n\n             0  : None\\n\n             1  : Slave (HAL I2C communication is in Slave Mode)\\n\n          b4\\n\n             0  : None\\n\n             1  : Master (HAL I2C communication is in Master Mode)\\n\n          b3-b2-b1-b0  (not used)\\n\n             xxxx : Should be set to 0000\n @{"]
 pub type HAL_I2C_ModeTypeDef = ::core::ffi::c_uint;
+pub const HAL_I2C_ERROR_NONE: u32 = 0;
+pub const HAL_I2C_ERROR_BERR: u32 = 1;
+pub const HAL_I2C_ERROR_ARLO: u32 = 2;
+pub const HAL_I2C_ERROR_AF: u32 = 4;
+pub const HAL_I2C_ERROR_OVR: u32 = 8;
+pub const HAL_I2C_ERROR_DMA: u32 = 16;
+pub const HAL_I2C_ERROR_DMA_PARAM: u32 = 128;
+pub const HAL_I2C_ERROR_TIMEOUT: u32 = 32;
+pub const HAL_I2C_ERROR_SIZE: u32 = 64;
 #[doc = " @defgroup I2C_handle_Structure_definition I2C handle Structure definition\n @brief  I2C handle Structure definition\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10536,194 +6959,83 @@ pub struct __I2C_HandleTypeDef {
     #[doc = "< I2C Event counter"]
     pub EventCount: u32,
 }
-#[test]
-fn bindgen_test_layout___I2C_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<__I2C_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<__I2C_HandleTypeDef>(),
-        80usize,
-        concat!("Size of: ", stringify!(__I2C_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<__I2C_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__I2C_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pBuffPtr) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(pBuffPtr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferSize) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(XferSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferCount) as usize - ptr as usize },
-        30usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(XferCount)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).XferOptions) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(XferOptions)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PreviousState) as usize - ptr as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(PreviousState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmatx) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(hdmatx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmarx) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(hdmarx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Devaddress) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Devaddress)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Memaddress) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(Memaddress)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MemaddSize) as usize - ptr as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(MemaddSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EventCount) as usize - ptr as usize },
-        76usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__I2C_HandleTypeDef),
-            "::",
-            stringify!(EventCount)
-        )
-    );
-}
+const _: () = {
+    ["Size of __I2C_HandleTypeDef"][::core::mem::size_of::<__I2C_HandleTypeDef>() - 80usize];
+    ["Alignment of __I2C_HandleTypeDef"][::core::mem::align_of::<__I2C_HandleTypeDef>() - 4usize];
+    ["Offset of field: __I2C_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __I2C_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __I2C_HandleTypeDef::pBuffPtr"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, pBuffPtr) - 24usize];
+    ["Offset of field: __I2C_HandleTypeDef::XferSize"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, XferSize) - 28usize];
+    ["Offset of field: __I2C_HandleTypeDef::XferCount"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, XferCount) - 30usize];
+    ["Offset of field: __I2C_HandleTypeDef::XferOptions"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, XferOptions) - 32usize];
+    ["Offset of field: __I2C_HandleTypeDef::PreviousState"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, PreviousState) - 36usize];
+    ["Offset of field: __I2C_HandleTypeDef::hdmatx"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, hdmatx) - 40usize];
+    ["Offset of field: __I2C_HandleTypeDef::hdmarx"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, hdmarx) - 44usize];
+    ["Offset of field: __I2C_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Lock) - 48usize];
+    ["Offset of field: __I2C_HandleTypeDef::State"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, State) - 52usize];
+    ["Offset of field: __I2C_HandleTypeDef::Mode"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Mode) - 56usize];
+    ["Offset of field: __I2C_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, ErrorCode) - 60usize];
+    ["Offset of field: __I2C_HandleTypeDef::Devaddress"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Devaddress) - 64usize];
+    ["Offset of field: __I2C_HandleTypeDef::Memaddress"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, Memaddress) - 68usize];
+    ["Offset of field: __I2C_HandleTypeDef::MemaddSize"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, MemaddSize) - 72usize];
+    ["Offset of field: __I2C_HandleTypeDef::EventCount"]
+        [::core::mem::offset_of!(__I2C_HandleTypeDef, EventCount) - 76usize];
+};
 #[doc = " @defgroup I2C_handle_Structure_definition I2C handle Structure definition\n @brief  I2C handle Structure definition\n @{"]
 pub type I2C_HandleTypeDef = __I2C_HandleTypeDef;
+pub const I2C_DUTYCYCLE_2: u32 = 0;
+pub const I2C_DUTYCYCLE_16_9: u32 = 16384;
+pub const I2C_GENERALCALL_DISABLE: u32 = 0;
+pub const I2C_GENERALCALL_ENABLE: u32 = 64;
+pub const I2C_NOSTRETCH_DISABLE: u32 = 0;
+pub const I2C_NOSTRETCH_ENABLE: u32 = 128;
+pub const I2C_MEMADD_SIZE_8BIT: u32 = 1;
+pub const I2C_MEMADD_SIZE_16BIT: u32 = 16;
+pub const I2C_DIRECTION_RECEIVE: u32 = 0;
+pub const I2C_DIRECTION_TRANSMIT: u32 = 1;
+pub const I2C_FIRST_FRAME: u32 = 1;
+pub const I2C_FIRST_AND_NEXT_FRAME: u32 = 2;
+pub const I2C_NEXT_FRAME: u32 = 4;
+pub const I2C_FIRST_AND_LAST_FRAME: u32 = 8;
+pub const I2C_LAST_FRAME_NO_STOP: u32 = 16;
+pub const I2C_LAST_FRAME: u32 = 32;
+pub const I2C_OTHER_FRAME: u32 = 11141120;
+pub const I2C_OTHER_AND_LAST_FRAME: u32 = 2852126720;
+pub const I2C_IT_BUF: u32 = 1024;
+pub const I2C_IT_EVT: u32 = 512;
+pub const I2C_IT_ERR: u32 = 256;
+pub const I2C_FLAG_OVR: u32 = 67584;
+pub const I2C_FLAG_AF: u32 = 66560;
+pub const I2C_FLAG_ARLO: u32 = 66048;
+pub const I2C_FLAG_BERR: u32 = 65792;
+pub const I2C_FLAG_TXE: u32 = 65664;
+pub const I2C_FLAG_RXNE: u32 = 65600;
+pub const I2C_FLAG_STOPF: u32 = 65552;
+pub const I2C_FLAG_ADD10: u32 = 65544;
+pub const I2C_FLAG_BTF: u32 = 65540;
+pub const I2C_FLAG_ADDR: u32 = 65538;
+pub const I2C_FLAG_SB: u32 = 65537;
+pub const I2C_FLAG_DUALF: u32 = 1048704;
+pub const I2C_FLAG_GENCALL: u32 = 1048592;
+pub const I2C_FLAG_TRA: u32 = 1048580;
+pub const I2C_FLAG_BUSY: u32 = 1048578;
+pub const I2C_FLAG_MSL: u32 = 1048577;
 extern "C" {
     #[doc = " @addtogroup I2C_Exported_Functions_Group1 Initialization and de-initialization functions\n @{"]
     pub fn HAL_I2C_Init(hi2c: *mut I2C_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -11035,6 +7347,9 @@ extern "C" {
 extern "C" {
     pub fn HAL_I2C_GetError(hi2c: *mut I2C_HandleTypeDef) -> u32;
 }
+pub const I2C_FLAG_MASK: u32 = 65535;
+pub const I2C_MIN_PCLK_FREQ_STANDARD: u32 = 2000000;
+pub const I2C_MIN_PCLK_FREQ_FAST: u32 = 4000000;
 #[doc = " @brief  IWDG Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11044,41 +7359,14 @@ pub struct IWDG_InitTypeDef {
     #[doc = "< Specifies the IWDG down-counter reload value.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x0FFF"]
     pub Reload: u32,
 }
-#[test]
-fn bindgen_test_layout_IWDG_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<IWDG_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<IWDG_InitTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(IWDG_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<IWDG_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(IWDG_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Prescaler) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_InitTypeDef),
-            "::",
-            stringify!(Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Reload) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_InitTypeDef),
-            "::",
-            stringify!(Reload)
-        )
-    );
-}
+const _: () = {
+    ["Size of IWDG_InitTypeDef"][::core::mem::size_of::<IWDG_InitTypeDef>() - 8usize];
+    ["Alignment of IWDG_InitTypeDef"][::core::mem::align_of::<IWDG_InitTypeDef>() - 4usize];
+    ["Offset of field: IWDG_InitTypeDef::Prescaler"]
+        [::core::mem::offset_of!(IWDG_InitTypeDef, Prescaler) - 0usize];
+    ["Offset of field: IWDG_InitTypeDef::Reload"]
+        [::core::mem::offset_of!(IWDG_InitTypeDef, Reload) - 4usize];
+};
 #[doc = " @brief  IWDG Handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11088,41 +7376,21 @@ pub struct IWDG_HandleTypeDef {
     #[doc = "< IWDG required parameters"]
     pub Init: IWDG_InitTypeDef,
 }
-#[test]
-fn bindgen_test_layout_IWDG_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<IWDG_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<IWDG_HandleTypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(IWDG_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<IWDG_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(IWDG_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(IWDG_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-}
+const _: () = {
+    ["Size of IWDG_HandleTypeDef"][::core::mem::size_of::<IWDG_HandleTypeDef>() - 12usize];
+    ["Alignment of IWDG_HandleTypeDef"][::core::mem::align_of::<IWDG_HandleTypeDef>() - 4usize];
+    ["Offset of field: IWDG_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(IWDG_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: IWDG_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(IWDG_HandleTypeDef, Init) - 4usize];
+};
+pub const IWDG_PRESCALER_4: u32 = 0;
+pub const IWDG_PRESCALER_8: u32 = 1;
+pub const IWDG_PRESCALER_16: u32 = 2;
+pub const IWDG_PRESCALER_32: u32 = 3;
+pub const IWDG_PRESCALER_64: u32 = 4;
+pub const IWDG_PRESCALER_128: u32 = 5;
+pub const IWDG_PRESCALER_256: u32 = 6;
 extern "C" {
     #[doc = " @defgroup IWDG_Exported_Functions_Group1 Initialization and Start functions\n @{"]
     pub fn HAL_IWDG_Init(hiwdg: *mut IWDG_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -11131,6 +7399,10 @@ extern "C" {
     #[doc = " @defgroup IWDG_Exported_Functions_Group2 IO operation functions\n @{"]
     pub fn HAL_IWDG_Refresh(hiwdg: *mut IWDG_HandleTypeDef) -> HAL_StatusTypeDef;
 }
+pub const IWDG_KEY_RELOAD: u32 = 43690;
+pub const IWDG_KEY_ENABLE: u32 = 52428;
+pub const IWDG_KEY_WRITE_ACCESS_ENABLE: u32 = 21845;
+pub const IWDG_KEY_WRITE_ACCESS_DISABLE: u32 = 0;
 #[doc = " @brief  PWR PVD configuration structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11144,61 +7416,18 @@ pub struct PWR_PVDTypeDef {
     #[doc = "< Mode: Specifies the operating mode for the selected pins.\nThis parameter can be a value of @ref PWR_PVD_Mode."]
     pub Mode: u32,
 }
-#[test]
-fn bindgen_test_layout_PWR_PVDTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<PWR_PVDTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<PWR_PVDTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(PWR_PVDTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<PWR_PVDTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(PWR_PVDTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PVDSource) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_PVDTypeDef),
-            "::",
-            stringify!(PVDSource)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PVDFilter) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_PVDTypeDef),
-            "::",
-            stringify!(PVDFilter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).PVDLevel) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_PVDTypeDef),
-            "::",
-            stringify!(PVDLevel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_PVDTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-}
+const _: () = {
+    ["Size of PWR_PVDTypeDef"][::core::mem::size_of::<PWR_PVDTypeDef>() - 16usize];
+    ["Alignment of PWR_PVDTypeDef"][::core::mem::align_of::<PWR_PVDTypeDef>() - 4usize];
+    ["Offset of field: PWR_PVDTypeDef::PVDSource"]
+        [::core::mem::offset_of!(PWR_PVDTypeDef, PVDSource) - 0usize];
+    ["Offset of field: PWR_PVDTypeDef::PVDFilter"]
+        [::core::mem::offset_of!(PWR_PVDTypeDef, PVDFilter) - 4usize];
+    ["Offset of field: PWR_PVDTypeDef::PVDLevel"]
+        [::core::mem::offset_of!(PWR_PVDTypeDef, PVDLevel) - 8usize];
+    ["Offset of field: PWR_PVDTypeDef::Mode"]
+        [::core::mem::offset_of!(PWR_PVDTypeDef, Mode) - 12usize];
+};
 #[doc = " @brief  PWR Stop configuration structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11214,72 +7443,22 @@ pub struct PWR_StopModeConfigTypeDef {
     #[doc = "< FlsahDelay: Set the flash delay time after wake up.\nThis parameter can be a value of @ref PWR_STOP_WakeUp_Flash_Dealy."]
     pub FlashDelay: u32,
 }
-#[test]
-fn bindgen_test_layout_PWR_StopModeConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<PWR_StopModeConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<PWR_StopModeConfigTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(PWR_StopModeConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<PWR_StopModeConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(PWR_StopModeConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LPVoltSelection) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_StopModeConfigTypeDef),
-            "::",
-            stringify!(LPVoltSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RegulatorSwitchDelay) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_StopModeConfigTypeDef),
-            "::",
-            stringify!(RegulatorSwitchDelay)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WakeUpHsiEnableTime) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_StopModeConfigTypeDef),
-            "::",
-            stringify!(WakeUpHsiEnableTime)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SramRetentionVolt) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_StopModeConfigTypeDef),
-            "::",
-            stringify!(SramRetentionVolt)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FlashDelay) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_StopModeConfigTypeDef),
-            "::",
-            stringify!(FlashDelay)
-        )
-    );
-}
+const _: () = {
+    ["Size of PWR_StopModeConfigTypeDef"]
+        [::core::mem::size_of::<PWR_StopModeConfigTypeDef>() - 20usize];
+    ["Alignment of PWR_StopModeConfigTypeDef"]
+        [::core::mem::align_of::<PWR_StopModeConfigTypeDef>() - 4usize];
+    ["Offset of field: PWR_StopModeConfigTypeDef::LPVoltSelection"]
+        [::core::mem::offset_of!(PWR_StopModeConfigTypeDef, LPVoltSelection) - 0usize];
+    ["Offset of field: PWR_StopModeConfigTypeDef::RegulatorSwitchDelay"]
+        [::core::mem::offset_of!(PWR_StopModeConfigTypeDef, RegulatorSwitchDelay) - 4usize];
+    ["Offset of field: PWR_StopModeConfigTypeDef::WakeUpHsiEnableTime"]
+        [::core::mem::offset_of!(PWR_StopModeConfigTypeDef, WakeUpHsiEnableTime) - 8usize];
+    ["Offset of field: PWR_StopModeConfigTypeDef::SramRetentionVolt"]
+        [::core::mem::offset_of!(PWR_StopModeConfigTypeDef, SramRetentionVolt) - 12usize];
+    ["Offset of field: PWR_StopModeConfigTypeDef::FlashDelay"]
+        [::core::mem::offset_of!(PWR_StopModeConfigTypeDef, FlashDelay) - 16usize];
+};
 #[doc = " @brief  PWR BIAS configuration structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11289,42 +7468,66 @@ pub struct PWR_BIASConfigTypeDef {
     #[doc = "< BiasCurrentValue: Set the bias currents config value.\nThis parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF."]
     pub BiasCurrentValue: u32,
 }
-#[test]
-fn bindgen_test_layout_PWR_BIASConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<PWR_BIASConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<PWR_BIASConfigTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(PWR_BIASConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<PWR_BIASConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(PWR_BIASConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BiasCurrentSource) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_BIASConfigTypeDef),
-            "::",
-            stringify!(BiasCurrentSource)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BiasCurrentValue) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(PWR_BIASConfigTypeDef),
-            "::",
-            stringify!(BiasCurrentValue)
-        )
-    );
-}
+const _: () = {
+    ["Size of PWR_BIASConfigTypeDef"][::core::mem::size_of::<PWR_BIASConfigTypeDef>() - 8usize];
+    ["Alignment of PWR_BIASConfigTypeDef"]
+        [::core::mem::align_of::<PWR_BIASConfigTypeDef>() - 4usize];
+    ["Offset of field: PWR_BIASConfigTypeDef::BiasCurrentSource"]
+        [::core::mem::offset_of!(PWR_BIASConfigTypeDef, BiasCurrentSource) - 0usize];
+    ["Offset of field: PWR_BIASConfigTypeDef::BiasCurrentValue"]
+        [::core::mem::offset_of!(PWR_BIASConfigTypeDef, BiasCurrentValue) - 4usize];
+};
+pub const PWR_PVD_SOURCE_VCC: u32 = 0;
+pub const PWR_PVD_SOURCE_PB07: u32 = 4;
+pub const PWR_PVD_FILTER_NONE: u32 = 0;
+pub const PWR_PVD_FILTER_1CLOCK: u32 = 256;
+pub const PWR_PVD_FILTER_2CLOCK: u32 = 768;
+pub const PWR_PVD_FILTER_4CLOCK: u32 = 1280;
+pub const PWR_PVD_FILTER_16CLOCK: u32 = 1792;
+pub const PWR_PVD_FILTER_64CLOCK: u32 = 2304;
+pub const PWR_PVD_FILTER_128CLOCK: u32 = 2816;
+pub const PWR_PVD_FILTER_1024CLOCK: u32 = 3328;
+pub const PWR_PVDLEVEL_0: u32 = 0;
+pub const PWR_PVDLEVEL_1: u32 = 16;
+pub const PWR_PVDLEVEL_2: u32 = 32;
+pub const PWR_PVDLEVEL_3: u32 = 48;
+pub const PWR_PVDLEVEL_4: u32 = 64;
+pub const PWR_PVDLEVEL_5: u32 = 80;
+pub const PWR_PVDLEVEL_6: u32 = 96;
+pub const PWR_PVDLEVEL_7: u32 = 112;
+pub const PWR_PVD_MODE_NORMAL: u32 = 0;
+pub const PWR_PVD_MODE_IT_RISING: u32 = 65537;
+pub const PWR_PVD_MODE_IT_FALLING: u32 = 65538;
+pub const PWR_PVD_MODE_IT_RISING_FALLING: u32 = 65539;
+pub const PWR_PVD_MODE_EVENT_RISING: u32 = 131073;
+pub const PWR_PVD_MODE_EVENT_FALLING: u32 = 131074;
+pub const PWR_PVD_MODE_EVENT_RISING_FALLING: u32 = 131075;
+pub const PWR_EXTI_LINE_PVD: u32 = 65536;
+pub const PWR_EVENT_LINE_PVD: u32 = 65536;
+pub const PWR_MAINREGULATOR_ON: u32 = 0;
+pub const PWR_LOWPOWERREGULATOR_ON: u32 = 16384;
+pub const PWR_SLEEPENTRY_WFI: u8 = 1u8 as u8;
+pub const PWR_SLEEPENTRY_WFE: u8 = 2u8 as u8;
+pub const PWR_STOPENTRY_WFI: u8 = 1u8 as u8;
+pub const PWR_STOPENTRY_WFE: u8 = 2u8 as u8;
+pub const PWR_FLAG_PVDO: u32 = 2048;
+pub const PWR_STOPMOD_LPR_VOLT_SCALE1: u32 = 0;
+pub const PWR_STOPMOD_LPR_VOLT_SCALE2: u32 = 512;
+pub const PWR_WAKEUP_LPR_TO_MR_DELAY_2US: u32 = 0;
+pub const PWR_WAKEUP_LPR_TO_MR_DELAY_3US: u32 = 1024;
+pub const PWR_WAKEUP_LPR_TO_MR_DELAY_4US: u32 = 2048;
+pub const PWR_WAKEUP_LPR_TO_MR_DELAY_5US: u32 = 3072;
+pub const PWR_WAKEUP_HSIEN_AFTER_MR: u32 = 0;
+pub const PWR_WAKEUP_HSIEN_IMMEDIATE: u32 = 524288;
+pub const PWR_SRAM_RETENTION_VOLT_0p9: u32 = 196608;
+pub const PWR_SRAM_RETENTION_VOLT_VOS: u32 = 262144;
+pub const PWR_WAKEUP_FLASH_DELAY_0US: u32 = 12288;
+pub const PWR_WAKEUP_FLASH_DELAY_2US: u32 = 4096;
+pub const PWR_WAKEUP_FLASH_DELAY_3US: u32 = 8192;
+pub const PWR_WAKEUP_FLASH_DELAY_5US: u32 = 0;
+pub const PWR_BIAS_CURRENTS_FROM_FACTORY_BYTES: u32 = 0;
+pub const PWR_BIAS_CURRENTS_FROM_BIAS_CR: u32 = 16;
+pub const PWR_WUP_POLARITY_SHIFT: u32 = 8;
 extern "C" {
     #[doc = " @defgroup PWR_Exported_Functions_Group1  Initialization and de-initialization functions\n @{"]
     pub fn HAL_PWR_DeInit();
@@ -11377,6 +7580,9 @@ extern "C" {
 extern "C" {
     pub fn HAL_PWR_PVD_Callback();
 }
+pub const RTC_TIMEOUT_VALUE: u32 = 2000;
+pub const RTC_RTOFF_RESET_TIMEOUT_VALUE: u32 = 4;
+pub const RTC_EXTI_LINE_ALARM_EVENT: u32 = 524288u32 as u32;
 #[doc = " @defgroup RTC_Exported_Types RTC Exported Types\n @{\n/\n/**\n @brief  RTC Time structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11388,51 +7594,16 @@ pub struct RTC_TimeTypeDef {
     #[doc = "< Specifies the RTC Time Seconds.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 59"]
     pub Seconds: u8,
 }
-#[test]
-fn bindgen_test_layout_RTC_TimeTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_TimeTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_TimeTypeDef>(),
-        3usize,
-        concat!("Size of: ", stringify!(RTC_TimeTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_TimeTypeDef>(),
-        1usize,
-        concat!("Alignment of ", stringify!(RTC_TimeTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Hours) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TimeTypeDef),
-            "::",
-            stringify!(Hours)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Minutes) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TimeTypeDef),
-            "::",
-            stringify!(Minutes)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Seconds) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_TimeTypeDef),
-            "::",
-            stringify!(Seconds)
-        )
-    );
-}
+const _: () = {
+    ["Size of RTC_TimeTypeDef"][::core::mem::size_of::<RTC_TimeTypeDef>() - 3usize];
+    ["Alignment of RTC_TimeTypeDef"][::core::mem::align_of::<RTC_TimeTypeDef>() - 1usize];
+    ["Offset of field: RTC_TimeTypeDef::Hours"]
+        [::core::mem::offset_of!(RTC_TimeTypeDef, Hours) - 0usize];
+    ["Offset of field: RTC_TimeTypeDef::Minutes"]
+        [::core::mem::offset_of!(RTC_TimeTypeDef, Minutes) - 1usize];
+    ["Offset of field: RTC_TimeTypeDef::Seconds"]
+        [::core::mem::offset_of!(RTC_TimeTypeDef, Seconds) - 2usize];
+};
 #[doc = " @brief  RTC Alarm structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11440,31 +7611,12 @@ pub struct RTC_AlarmTypeDef {
     #[doc = "< Specifies the RTC Alarm Time members"]
     pub AlarmTime: RTC_TimeTypeDef,
 }
-#[test]
-fn bindgen_test_layout_RTC_AlarmTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_AlarmTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_AlarmTypeDef>(),
-        3usize,
-        concat!("Size of: ", stringify!(RTC_AlarmTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_AlarmTypeDef>(),
-        1usize,
-        concat!("Alignment of ", stringify!(RTC_AlarmTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AlarmTime) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_AlarmTypeDef),
-            "::",
-            stringify!(AlarmTime)
-        )
-    );
-}
+const _: () = {
+    ["Size of RTC_AlarmTypeDef"][::core::mem::size_of::<RTC_AlarmTypeDef>() - 3usize];
+    ["Alignment of RTC_AlarmTypeDef"][::core::mem::align_of::<RTC_AlarmTypeDef>() - 1usize];
+    ["Offset of field: RTC_AlarmTypeDef::AlarmTime"]
+        [::core::mem::offset_of!(RTC_AlarmTypeDef, AlarmTime) - 0usize];
+};
 #[doc = "< RTC not yet initialized or disabled"]
 pub const HAL_RTCStateTypeDef_HAL_RTC_STATE_RESET: HAL_RTCStateTypeDef = 0;
 #[doc = "< RTC initialized and ready for use"]
@@ -11486,41 +7638,14 @@ pub struct RTC_InitTypeDef {
     #[doc = "< Specifies which signal will be routed to the RTC Tamper pin.\nThis parameter can be a value of @ref RTC_output_source_to_output_pin"]
     pub OutPut: u32,
 }
-#[test]
-fn bindgen_test_layout_RTC_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_InitTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(RTC_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RTC_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AsynchPrediv) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_InitTypeDef),
-            "::",
-            stringify!(AsynchPrediv)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OutPut) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_InitTypeDef),
-            "::",
-            stringify!(OutPut)
-        )
-    );
-}
+const _: () = {
+    ["Size of RTC_InitTypeDef"][::core::mem::size_of::<RTC_InitTypeDef>() - 8usize];
+    ["Alignment of RTC_InitTypeDef"][::core::mem::align_of::<RTC_InitTypeDef>() - 4usize];
+    ["Offset of field: RTC_InitTypeDef::AsynchPrediv"]
+        [::core::mem::offset_of!(RTC_InitTypeDef, AsynchPrediv) - 0usize];
+    ["Offset of field: RTC_InitTypeDef::OutPut"]
+        [::core::mem::offset_of!(RTC_InitTypeDef, OutPut) - 4usize];
+};
 #[doc = " @brief  RTC Date structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11534,61 +7659,18 @@ pub struct RTC_DateTypeDef {
     #[doc = "< Specifies the RTC Date Year.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 99"]
     pub Year: u8,
 }
-#[test]
-fn bindgen_test_layout_RTC_DateTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_DateTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_DateTypeDef>(),
-        4usize,
-        concat!("Size of: ", stringify!(RTC_DateTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_DateTypeDef>(),
-        1usize,
-        concat!("Alignment of ", stringify!(RTC_DateTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WeekDay) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_DateTypeDef),
-            "::",
-            stringify!(WeekDay)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Month) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_DateTypeDef),
-            "::",
-            stringify!(Month)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Date) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_DateTypeDef),
-            "::",
-            stringify!(Date)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Year) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_DateTypeDef),
-            "::",
-            stringify!(Year)
-        )
-    );
-}
+const _: () = {
+    ["Size of RTC_DateTypeDef"][::core::mem::size_of::<RTC_DateTypeDef>() - 4usize];
+    ["Alignment of RTC_DateTypeDef"][::core::mem::align_of::<RTC_DateTypeDef>() - 1usize];
+    ["Offset of field: RTC_DateTypeDef::WeekDay"]
+        [::core::mem::offset_of!(RTC_DateTypeDef, WeekDay) - 0usize];
+    ["Offset of field: RTC_DateTypeDef::Month"]
+        [::core::mem::offset_of!(RTC_DateTypeDef, Month) - 1usize];
+    ["Offset of field: RTC_DateTypeDef::Date"]
+        [::core::mem::offset_of!(RTC_DateTypeDef, Date) - 2usize];
+    ["Offset of field: RTC_DateTypeDef::Year"]
+        [::core::mem::offset_of!(RTC_DateTypeDef, Year) - 3usize];
+};
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RTC_HandleTypeDef {
@@ -11603,71 +7685,55 @@ pub struct RTC_HandleTypeDef {
     #[doc = "< Time communication state"]
     pub State: HAL_RTCStateTypeDef,
 }
-#[test]
-fn bindgen_test_layout_RTC_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<RTC_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<RTC_HandleTypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(RTC_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<RTC_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(RTC_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DateToUpdate) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_HandleTypeDef),
-            "::",
-            stringify!(DateToUpdate)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(RTC_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-}
+const _: () = {
+    ["Size of RTC_HandleTypeDef"][::core::mem::size_of::<RTC_HandleTypeDef>() - 24usize];
+    ["Alignment of RTC_HandleTypeDef"][::core::mem::align_of::<RTC_HandleTypeDef>() - 4usize];
+    ["Offset of field: RTC_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(RTC_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: RTC_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(RTC_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: RTC_HandleTypeDef::DateToUpdate"]
+        [::core::mem::offset_of!(RTC_HandleTypeDef, DateToUpdate) - 12usize];
+    ["Offset of field: RTC_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(RTC_HandleTypeDef, Lock) - 16usize];
+    ["Offset of field: RTC_HandleTypeDef::State"]
+        [::core::mem::offset_of!(RTC_HandleTypeDef, State) - 20usize];
+};
+pub const RTC_AUTO_1_SECOND: u32 = 4294967295;
+pub const RTC_FORMAT_BIN: u32 = 0;
+pub const RTC_FORMAT_BCD: u32 = 1;
+pub const RTC_MONTH_JANUARY: u8 = 1u8 as u8;
+pub const RTC_MONTH_FEBRUARY: u8 = 2u8 as u8;
+pub const RTC_MONTH_MARCH: u8 = 3u8 as u8;
+pub const RTC_MONTH_APRIL: u8 = 4u8 as u8;
+pub const RTC_MONTH_MAY: u8 = 5u8 as u8;
+pub const RTC_MONTH_JUNE: u8 = 6u8 as u8;
+pub const RTC_MONTH_JULY: u8 = 7u8 as u8;
+pub const RTC_MONTH_AUGUST: u8 = 8u8 as u8;
+pub const RTC_MONTH_SEPTEMBER: u8 = 9u8 as u8;
+pub const RTC_MONTH_OCTOBER: u8 = 16u8 as u8;
+pub const RTC_MONTH_NOVEMBER: u8 = 17u8 as u8;
+pub const RTC_MONTH_DECEMBER: u8 = 18u8 as u8;
+pub const RTC_WEEKDAY_MONDAY: u8 = 1u8 as u8;
+pub const RTC_WEEKDAY_TUESDAY: u8 = 2u8 as u8;
+pub const RTC_WEEKDAY_WEDNESDAY: u8 = 3u8 as u8;
+pub const RTC_WEEKDAY_THURSDAY: u8 = 4u8 as u8;
+pub const RTC_WEEKDAY_FRIDAY: u8 = 5u8 as u8;
+pub const RTC_WEEKDAY_SATURDAY: u8 = 6u8 as u8;
+pub const RTC_WEEKDAY_SUNDAY: u8 = 0u8 as u8;
+pub const RTC_ALARM_A: u32 = 0;
+pub const RTC_OUTPUTSOURCE_NONE: u32 = 0;
+pub const RTC_OUTPUTSOURCE_CALIBCLOCK: u32 = 128;
+pub const RTC_OUTPUTSOURCE_ALARM: u32 = 256;
+pub const RTC_OUTPUTSOURCE_SECOND: u32 = 768;
+pub const RTC_IT_OW: u32 = 4;
+pub const RTC_IT_ALRA: u32 = 2;
+pub const RTC_IT_SEC: u32 = 1;
+pub const RTC_FLAG_RTOFF: u32 = 32;
+pub const RTC_FLAG_RSF: u32 = 8;
+pub const RTC_FLAG_OW: u32 = 4;
+pub const RTC_FLAG_ALRAF: u32 = 2;
+pub const RTC_FLAG_SEC: u32 = 1;
 extern "C" {
     #[doc = " @addtogroup RTCEx_Exported_Functions_Group2\n @{"]
     pub fn HAL_RTCEx_SetSecond_IT(hrtc: *mut RTC_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -11803,111 +7869,28 @@ pub struct SPI_InitTypeDef {
     #[doc = "< Specifies the Slave fast mode is enabled or not.\nThis parameter can be a value of @ref SPI_Slave_Fast_mode"]
     pub SlaveFastMode: u32,
 }
-#[test]
-fn bindgen_test_layout_SPI_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<SPI_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SPI_InitTypeDef>(),
-        36usize,
-        concat!("Size of: ", stringify!(SPI_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SPI_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SPI_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Direction) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(Direction)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DataSize) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(DataSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CLKPolarity) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(CLKPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CLKPhase) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(CLKPhase)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).NSS) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(NSS)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BaudRatePrescaler) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(BaudRatePrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).FirstBit) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(FirstBit)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SlaveFastMode) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SPI_InitTypeDef),
-            "::",
-            stringify!(SlaveFastMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of SPI_InitTypeDef"][::core::mem::size_of::<SPI_InitTypeDef>() - 36usize];
+    ["Alignment of SPI_InitTypeDef"][::core::mem::align_of::<SPI_InitTypeDef>() - 4usize];
+    ["Offset of field: SPI_InitTypeDef::Mode"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, Mode) - 0usize];
+    ["Offset of field: SPI_InitTypeDef::Direction"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, Direction) - 4usize];
+    ["Offset of field: SPI_InitTypeDef::DataSize"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, DataSize) - 8usize];
+    ["Offset of field: SPI_InitTypeDef::CLKPolarity"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, CLKPolarity) - 12usize];
+    ["Offset of field: SPI_InitTypeDef::CLKPhase"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, CLKPhase) - 16usize];
+    ["Offset of field: SPI_InitTypeDef::NSS"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, NSS) - 20usize];
+    ["Offset of field: SPI_InitTypeDef::BaudRatePrescaler"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, BaudRatePrescaler) - 24usize];
+    ["Offset of field: SPI_InitTypeDef::FirstBit"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, FirstBit) - 28usize];
+    ["Offset of field: SPI_InitTypeDef::SlaveFastMode"]
+        [::core::mem::offset_of!(SPI_InitTypeDef, SlaveFastMode) - 32usize];
+};
 #[doc = "< Peripheral not Initialized"]
 pub const HAL_SPI_StateTypeDef_HAL_SPI_STATE_RESET: HAL_SPI_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use"]
@@ -11961,174 +7944,97 @@ pub struct __SPI_HandleTypeDef {
     #[doc = "< SPI Error code"]
     pub ErrorCode: u32,
 }
-#[test]
-fn bindgen_test_layout___SPI_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<__SPI_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<__SPI_HandleTypeDef>(),
-        84usize,
-        concat!("Size of: ", stringify!(__SPI_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<__SPI_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__SPI_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pTxBuffPtr) as usize - ptr as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(pTxBuffPtr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TxXferSize) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(TxXferSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TxXferCount) as usize - ptr as usize },
-        46usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(TxXferCount)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pRxBuffPtr) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(pRxBuffPtr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxXferSize) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(RxXferSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxXferCount) as usize - ptr as usize },
-        54usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(RxXferCount)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxISR) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(RxISR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TxISR) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(TxISR)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmatx) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(hdmatx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmarx) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(hdmarx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        76usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__SPI_HandleTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-}
+const _: () = {
+    ["Size of __SPI_HandleTypeDef"][::core::mem::size_of::<__SPI_HandleTypeDef>() - 84usize];
+    ["Alignment of __SPI_HandleTypeDef"][::core::mem::align_of::<__SPI_HandleTypeDef>() - 4usize];
+    ["Offset of field: __SPI_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __SPI_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __SPI_HandleTypeDef::pTxBuffPtr"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, pTxBuffPtr) - 40usize];
+    ["Offset of field: __SPI_HandleTypeDef::TxXferSize"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, TxXferSize) - 44usize];
+    ["Offset of field: __SPI_HandleTypeDef::TxXferCount"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, TxXferCount) - 46usize];
+    ["Offset of field: __SPI_HandleTypeDef::pRxBuffPtr"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, pRxBuffPtr) - 48usize];
+    ["Offset of field: __SPI_HandleTypeDef::RxXferSize"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, RxXferSize) - 52usize];
+    ["Offset of field: __SPI_HandleTypeDef::RxXferCount"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, RxXferCount) - 54usize];
+    ["Offset of field: __SPI_HandleTypeDef::RxISR"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, RxISR) - 56usize];
+    ["Offset of field: __SPI_HandleTypeDef::TxISR"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, TxISR) - 60usize];
+    ["Offset of field: __SPI_HandleTypeDef::hdmatx"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, hdmatx) - 64usize];
+    ["Offset of field: __SPI_HandleTypeDef::hdmarx"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, hdmarx) - 68usize];
+    ["Offset of field: __SPI_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, Lock) - 72usize];
+    ["Offset of field: __SPI_HandleTypeDef::State"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, State) - 76usize];
+    ["Offset of field: __SPI_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__SPI_HandleTypeDef, ErrorCode) - 80usize];
+};
 #[doc = " @brief  SPI handle Structure definition"]
 pub type SPI_HandleTypeDef = __SPI_HandleTypeDef;
+pub const HAL_SPI_ERROR_NONE: u32 = 0;
+pub const HAL_SPI_ERROR_MODF: u32 = 1;
+pub const HAL_SPI_ERROR_OVR: u32 = 4;
+pub const HAL_SPI_ERROR_FRE: u32 = 8;
+pub const HAL_SPI_ERROR_DMA: u32 = 16;
+pub const HAL_SPI_ERROR_FLAG: u32 = 32;
+pub const HAL_SPI_ERROR_ABORT: u32 = 64;
+pub const SPI_MODE_SLAVE: u32 = 0;
+pub const SPI_MODE_MASTER: u32 = 260;
+pub const SPI_DIRECTION_2LINES: u32 = 0;
+pub const SPI_DIRECTION_2LINES_RXONLY: u32 = 1024;
+pub const SPI_DIRECTION_1LINE: u32 = 32768;
+pub const SPI_DATASIZE_8BIT: u32 = 1792;
+pub const SPI_DATASIZE_16BIT: u32 = 3840;
+pub const SPI_POLARITY_LOW: u32 = 0;
+pub const SPI_POLARITY_HIGH: u32 = 2;
+pub const SPI_PHASE_1EDGE: u32 = 0;
+pub const SPI_PHASE_2EDGE: u32 = 1;
+pub const SPI_NSS_SOFT: u32 = 512;
+pub const SPI_NSS_HARD_INPUT: u32 = 0;
+pub const SPI_NSS_HARD_OUTPUT: u32 = 262144;
+pub const SPI_BAUDRATEPRESCALER_2: u32 = 0;
+pub const SPI_BAUDRATEPRESCALER_4: u32 = 8;
+pub const SPI_BAUDRATEPRESCALER_8: u32 = 16;
+pub const SPI_BAUDRATEPRESCALER_16: u32 = 24;
+pub const SPI_BAUDRATEPRESCALER_32: u32 = 32;
+pub const SPI_BAUDRATEPRESCALER_64: u32 = 40;
+pub const SPI_BAUDRATEPRESCALER_128: u32 = 48;
+pub const SPI_BAUDRATEPRESCALER_256: u32 = 56;
+pub const SPI_FIRSTBIT_MSB: u32 = 0;
+pub const SPI_FIRSTBIT_LSB: u32 = 128;
+pub const SPI_SLAVE_FAST_MODE_DISABLE: u32 = 0;
+pub const SPI_SLAVE_FAST_MODE_ENABLE: u32 = 32768;
+pub const SPI_RXFIFO_THRESHOLD: u32 = 4096;
+pub const SPI_RXFIFO_THRESHOLD_QF: u32 = 4096;
+pub const SPI_RXFIFO_THRESHOLD_HF: u32 = 0;
+pub const SPI_IT_TXE: u32 = 128;
+pub const SPI_IT_RXNE: u32 = 64;
+pub const SPI_IT_ERR: u32 = 32;
+pub const SPI_FLAG_RXNE: u32 = 1;
+pub const SPI_FLAG_TXE: u32 = 2;
+pub const SPI_FLAG_BSY: u32 = 128;
+pub const SPI_FLAG_MODF: u32 = 32;
+pub const SPI_FLAG_OVR: u32 = 64;
+pub const SPI_FLAG_FTLVL: u32 = 6144;
+pub const SPI_FLAG_FRLVL: u32 = 1536;
+pub const SPI_FLAG_MASK: u32 = 7907;
+pub const SPI_FTLVL_EMPTY: u32 = 0;
+pub const SPI_FTLVL_QUARTER_FULL: u32 = 2048;
+pub const SPI_FTLVL_HALF_FULL: u32 = 4096;
+pub const SPI_FTLVL_FULL: u32 = 6144;
+pub const SPI_FRLVL_EMPTY: u32 = 0;
+pub const SPI_FRLVL_QUARTER_FULL: u32 = 512;
+pub const SPI_FRLVL_HALF_FULL: u32 = 1024;
+pub const SPI_FRLVL_FULL: u32 = 1536;
 extern "C" {
     #[doc = " @addtogroup SPI_Exported_Functions_Group1\n @{"]
     pub fn HAL_SPI_Init(hspi: *mut SPI_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -12278,82 +8184,22 @@ pub struct TIM_Base_InitTypeDef {
     #[doc = "< Specifies the auto-reload preload.\nThis parameter can be a value of @ref TIM_AutoReloadPreload"]
     pub AutoReloadPreload: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_Base_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_Base_InitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_Base_InitTypeDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(TIM_Base_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_Base_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_Base_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Prescaler) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).CounterMode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(CounterMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Period) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(Period)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockDivision) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(ClockDivision)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RepetitionCounter) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(RepetitionCounter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AutoReloadPreload) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Base_InitTypeDef),
-            "::",
-            stringify!(AutoReloadPreload)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_Base_InitTypeDef"][::core::mem::size_of::<TIM_Base_InitTypeDef>() - 24usize];
+    ["Alignment of TIM_Base_InitTypeDef"][::core::mem::align_of::<TIM_Base_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_Base_InitTypeDef::Prescaler"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, Prescaler) - 0usize];
+    ["Offset of field: TIM_Base_InitTypeDef::CounterMode"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, CounterMode) - 4usize];
+    ["Offset of field: TIM_Base_InitTypeDef::Period"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, Period) - 8usize];
+    ["Offset of field: TIM_Base_InitTypeDef::ClockDivision"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, ClockDivision) - 12usize];
+    ["Offset of field: TIM_Base_InitTypeDef::RepetitionCounter"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, RepetitionCounter) - 16usize];
+    ["Offset of field: TIM_Base_InitTypeDef::AutoReloadPreload"]
+        [::core::mem::offset_of!(TIM_Base_InitTypeDef, AutoReloadPreload) - 20usize];
+};
 #[doc = " @brief  TIM Output Compare Configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12373,91 +8219,24 @@ pub struct TIM_OC_InitTypeDef {
     #[doc = "< Specifies the TIM Output Compare pin state during Idle state.\nThis parameter can be a value of @ref TIM_Output_Compare_N_Idle_State\n@note This parameter is valid only for timer instances supporting break feature."]
     pub OCNIdleState: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_OC_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_OC_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_OC_InitTypeDef>(),
-        28usize,
-        concat!("Size of: ", stringify!(TIM_OC_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_OC_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_OC_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Pulse) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(Pulse)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCPolarity) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCNPolarity) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCNPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCFastMode) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCFastMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCIdleState) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCIdleState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCNIdleState) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OC_InitTypeDef),
-            "::",
-            stringify!(OCNIdleState)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_OC_InitTypeDef"][::core::mem::size_of::<TIM_OC_InitTypeDef>() - 28usize];
+    ["Alignment of TIM_OC_InitTypeDef"][::core::mem::align_of::<TIM_OC_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCMode"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCMode) - 0usize];
+    ["Offset of field: TIM_OC_InitTypeDef::Pulse"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, Pulse) - 4usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCPolarity"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCPolarity) - 8usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCNPolarity"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCNPolarity) - 12usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCFastMode"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCFastMode) - 16usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCIdleState"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCIdleState) - 20usize];
+    ["Offset of field: TIM_OC_InitTypeDef::OCNIdleState"]
+        [::core::mem::offset_of!(TIM_OC_InitTypeDef, OCNIdleState) - 24usize];
+};
 #[doc = " @brief  TIM One Pulse Mode Configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12481,112 +8260,30 @@ pub struct TIM_OnePulse_InitTypeDef {
     #[doc = "< Specifies the input capture filter.\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub ICFilter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_OnePulse_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_OnePulse_InitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_OnePulse_InitTypeDef>(),
-        36usize,
-        concat!("Size of: ", stringify!(TIM_OnePulse_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_OnePulse_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_OnePulse_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(OCMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Pulse) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(Pulse)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCPolarity) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(OCPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCNPolarity) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(OCNPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCIdleState) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(OCIdleState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OCNIdleState) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(OCNIdleState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICPolarity) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(ICPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICSelection) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(ICSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICFilter) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_OnePulse_InitTypeDef),
-            "::",
-            stringify!(ICFilter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_OnePulse_InitTypeDef"]
+        [::core::mem::size_of::<TIM_OnePulse_InitTypeDef>() - 36usize];
+    ["Alignment of TIM_OnePulse_InitTypeDef"]
+        [::core::mem::align_of::<TIM_OnePulse_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::OCMode"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, OCMode) - 0usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::Pulse"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, Pulse) - 4usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::OCPolarity"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, OCPolarity) - 8usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::OCNPolarity"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, OCNPolarity) - 12usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::OCIdleState"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, OCIdleState) - 16usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::OCNIdleState"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, OCNIdleState) - 20usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::ICPolarity"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, ICPolarity) - 24usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::ICSelection"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, ICSelection) - 28usize];
+    ["Offset of field: TIM_OnePulse_InitTypeDef::ICFilter"]
+        [::core::mem::offset_of!(TIM_OnePulse_InitTypeDef, ICFilter) - 32usize];
+};
 #[doc = " @brief  TIM Input Capture Configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12600,61 +8297,18 @@ pub struct TIM_IC_InitTypeDef {
     #[doc = "< Specifies the input capture filter.\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub ICFilter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_IC_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_IC_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_IC_InitTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(TIM_IC_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_IC_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_IC_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICPolarity) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_IC_InitTypeDef),
-            "::",
-            stringify!(ICPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICSelection) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_IC_InitTypeDef),
-            "::",
-            stringify!(ICSelection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICPrescaler) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_IC_InitTypeDef),
-            "::",
-            stringify!(ICPrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ICFilter) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_IC_InitTypeDef),
-            "::",
-            stringify!(ICFilter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_IC_InitTypeDef"][::core::mem::size_of::<TIM_IC_InitTypeDef>() - 16usize];
+    ["Alignment of TIM_IC_InitTypeDef"][::core::mem::align_of::<TIM_IC_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_IC_InitTypeDef::ICPolarity"]
+        [::core::mem::offset_of!(TIM_IC_InitTypeDef, ICPolarity) - 0usize];
+    ["Offset of field: TIM_IC_InitTypeDef::ICSelection"]
+        [::core::mem::offset_of!(TIM_IC_InitTypeDef, ICSelection) - 4usize];
+    ["Offset of field: TIM_IC_InitTypeDef::ICPrescaler"]
+        [::core::mem::offset_of!(TIM_IC_InitTypeDef, ICPrescaler) - 8usize];
+    ["Offset of field: TIM_IC_InitTypeDef::ICFilter"]
+        [::core::mem::offset_of!(TIM_IC_InitTypeDef, ICFilter) - 12usize];
+};
 #[doc = " @brief  TIM Encoder Configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12678,112 +8332,30 @@ pub struct TIM_Encoder_InitTypeDef {
     #[doc = "< Specifies the input capture filter.\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub IC2Filter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_Encoder_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_Encoder_InitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_Encoder_InitTypeDef>(),
-        36usize,
-        concat!("Size of: ", stringify!(TIM_Encoder_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_Encoder_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_Encoder_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EncoderMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(EncoderMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Polarity) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC1Polarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Selection) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC1Selection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Prescaler) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC1Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Filter) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC1Filter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC2Polarity) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC2Polarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC2Selection) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC2Selection)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC2Prescaler) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC2Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC2Filter) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_Encoder_InitTypeDef),
-            "::",
-            stringify!(IC2Filter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_Encoder_InitTypeDef"]
+        [::core::mem::size_of::<TIM_Encoder_InitTypeDef>() - 36usize];
+    ["Alignment of TIM_Encoder_InitTypeDef"]
+        [::core::mem::align_of::<TIM_Encoder_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::EncoderMode"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, EncoderMode) - 0usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC1Polarity"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC1Polarity) - 4usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC1Selection"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC1Selection) - 8usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC1Prescaler"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC1Prescaler) - 12usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC1Filter"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC1Filter) - 16usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC2Polarity"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC2Polarity) - 20usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC2Selection"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC2Selection) - 24usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC2Prescaler"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC2Prescaler) - 28usize];
+    ["Offset of field: TIM_Encoder_InitTypeDef::IC2Filter"]
+        [::core::mem::offset_of!(TIM_Encoder_InitTypeDef, IC2Filter) - 32usize];
+};
 #[doc = " @brief  Clock Configuration Handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12797,62 +8369,19 @@ pub struct TIM_ClockConfigTypeDef {
     #[doc = "< TIM clock filter\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub ClockFilter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_ClockConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_ClockConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_ClockConfigTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(TIM_ClockConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_ClockConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_ClockConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockSource) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClockConfigTypeDef),
-            "::",
-            stringify!(ClockSource)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockPolarity) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClockConfigTypeDef),
-            "::",
-            stringify!(ClockPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockPrescaler) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClockConfigTypeDef),
-            "::",
-            stringify!(ClockPrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClockFilter) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClockConfigTypeDef),
-            "::",
-            stringify!(ClockFilter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_ClockConfigTypeDef"][::core::mem::size_of::<TIM_ClockConfigTypeDef>() - 16usize];
+    ["Alignment of TIM_ClockConfigTypeDef"]
+        [::core::mem::align_of::<TIM_ClockConfigTypeDef>() - 4usize];
+    ["Offset of field: TIM_ClockConfigTypeDef::ClockSource"]
+        [::core::mem::offset_of!(TIM_ClockConfigTypeDef, ClockSource) - 0usize];
+    ["Offset of field: TIM_ClockConfigTypeDef::ClockPolarity"]
+        [::core::mem::offset_of!(TIM_ClockConfigTypeDef, ClockPolarity) - 4usize];
+    ["Offset of field: TIM_ClockConfigTypeDef::ClockPrescaler"]
+        [::core::mem::offset_of!(TIM_ClockConfigTypeDef, ClockPrescaler) - 8usize];
+    ["Offset of field: TIM_ClockConfigTypeDef::ClockFilter"]
+        [::core::mem::offset_of!(TIM_ClockConfigTypeDef, ClockFilter) - 12usize];
+};
 #[doc = " @brief  TIM Clear Input Configuration Handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12868,72 +8397,22 @@ pub struct TIM_ClearInputConfigTypeDef {
     #[doc = "< TIM Clear Input filter\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub ClearInputFilter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_ClearInputConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_ClearInputConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_ClearInputConfigTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(TIM_ClearInputConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_ClearInputConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_ClearInputConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClearInputState) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClearInputConfigTypeDef),
-            "::",
-            stringify!(ClearInputState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClearInputSource) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClearInputConfigTypeDef),
-            "::",
-            stringify!(ClearInputSource)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClearInputPolarity) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClearInputConfigTypeDef),
-            "::",
-            stringify!(ClearInputPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClearInputPrescaler) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClearInputConfigTypeDef),
-            "::",
-            stringify!(ClearInputPrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ClearInputFilter) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_ClearInputConfigTypeDef),
-            "::",
-            stringify!(ClearInputFilter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_ClearInputConfigTypeDef"]
+        [::core::mem::size_of::<TIM_ClearInputConfigTypeDef>() - 20usize];
+    ["Alignment of TIM_ClearInputConfigTypeDef"]
+        [::core::mem::align_of::<TIM_ClearInputConfigTypeDef>() - 4usize];
+    ["Offset of field: TIM_ClearInputConfigTypeDef::ClearInputState"]
+        [::core::mem::offset_of!(TIM_ClearInputConfigTypeDef, ClearInputState) - 0usize];
+    ["Offset of field: TIM_ClearInputConfigTypeDef::ClearInputSource"]
+        [::core::mem::offset_of!(TIM_ClearInputConfigTypeDef, ClearInputSource) - 4usize];
+    ["Offset of field: TIM_ClearInputConfigTypeDef::ClearInputPolarity"]
+        [::core::mem::offset_of!(TIM_ClearInputConfigTypeDef, ClearInputPolarity) - 8usize];
+    ["Offset of field: TIM_ClearInputConfigTypeDef::ClearInputPrescaler"]
+        [::core::mem::offset_of!(TIM_ClearInputConfigTypeDef, ClearInputPrescaler) - 12usize];
+    ["Offset of field: TIM_ClearInputConfigTypeDef::ClearInputFilter"]
+        [::core::mem::offset_of!(TIM_ClearInputConfigTypeDef, ClearInputFilter) - 16usize];
+};
 #[doc = " @brief  TIM Master configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12943,42 +8422,15 @@ pub struct TIM_MasterConfigTypeDef {
     #[doc = "< Master/slave mode selection\nThis parameter can be a value of @ref TIM_Master_Slave_Mode\n@note When the Master/slave mode is enabled, the effect of\nan event on the trigger input (TRGI) is delayed to allow a\nperfect synchronization between the current timer and its\nslaves (through TRGO). It is not mandatory in case of timer\nsynchronization mode."]
     pub MasterSlaveMode: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_MasterConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_MasterConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_MasterConfigTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(TIM_MasterConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_MasterConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_MasterConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MasterOutputTrigger) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_MasterConfigTypeDef),
-            "::",
-            stringify!(MasterOutputTrigger)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).MasterSlaveMode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_MasterConfigTypeDef),
-            "::",
-            stringify!(MasterSlaveMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_MasterConfigTypeDef"][::core::mem::size_of::<TIM_MasterConfigTypeDef>() - 8usize];
+    ["Alignment of TIM_MasterConfigTypeDef"]
+        [::core::mem::align_of::<TIM_MasterConfigTypeDef>() - 4usize];
+    ["Offset of field: TIM_MasterConfigTypeDef::MasterOutputTrigger"]
+        [::core::mem::offset_of!(TIM_MasterConfigTypeDef, MasterOutputTrigger) - 0usize];
+    ["Offset of field: TIM_MasterConfigTypeDef::MasterSlaveMode"]
+        [::core::mem::offset_of!(TIM_MasterConfigTypeDef, MasterSlaveMode) - 4usize];
+};
 #[doc = " @brief  TIM Slave configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12994,72 +8446,21 @@ pub struct TIM_SlaveConfigTypeDef {
     #[doc = "< Input trigger filter\nThis parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF"]
     pub TriggerFilter: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_SlaveConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_SlaveConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_SlaveConfigTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(TIM_SlaveConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_SlaveConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_SlaveConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).SlaveMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_SlaveConfigTypeDef),
-            "::",
-            stringify!(SlaveMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).InputTrigger) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_SlaveConfigTypeDef),
-            "::",
-            stringify!(InputTrigger)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TriggerPolarity) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_SlaveConfigTypeDef),
-            "::",
-            stringify!(TriggerPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TriggerPrescaler) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_SlaveConfigTypeDef),
-            "::",
-            stringify!(TriggerPrescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TriggerFilter) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_SlaveConfigTypeDef),
-            "::",
-            stringify!(TriggerFilter)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_SlaveConfigTypeDef"][::core::mem::size_of::<TIM_SlaveConfigTypeDef>() - 20usize];
+    ["Alignment of TIM_SlaveConfigTypeDef"]
+        [::core::mem::align_of::<TIM_SlaveConfigTypeDef>() - 4usize];
+    ["Offset of field: TIM_SlaveConfigTypeDef::SlaveMode"]
+        [::core::mem::offset_of!(TIM_SlaveConfigTypeDef, SlaveMode) - 0usize];
+    ["Offset of field: TIM_SlaveConfigTypeDef::InputTrigger"]
+        [::core::mem::offset_of!(TIM_SlaveConfigTypeDef, InputTrigger) - 4usize];
+    ["Offset of field: TIM_SlaveConfigTypeDef::TriggerPolarity"]
+        [::core::mem::offset_of!(TIM_SlaveConfigTypeDef, TriggerPolarity) - 8usize];
+    ["Offset of field: TIM_SlaveConfigTypeDef::TriggerPrescaler"]
+        [::core::mem::offset_of!(TIM_SlaveConfigTypeDef, TriggerPrescaler) - 12usize];
+    ["Offset of field: TIM_SlaveConfigTypeDef::TriggerFilter"]
+        [::core::mem::offset_of!(TIM_SlaveConfigTypeDef, TriggerFilter) - 16usize];
+};
 #[doc = " @brief  TIM Break input(s) and Dead time configuration Structure definition\n @note   2 break inputs can be configured (BKIN and BKIN2) with configurable\n        filter and polarity."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13081,102 +8482,28 @@ pub struct TIM_BreakDeadTimeConfigTypeDef {
     #[doc = "< TIM Automatic Output Enable state\nThis parameter can be a value of @ref TIM_AOE_Bit_Set_Reset"]
     pub AutomaticOutput: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_BreakDeadTimeConfigTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_BreakDeadTimeConfigTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_BreakDeadTimeConfigTypeDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(TIM_BreakDeadTimeConfigTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_BreakDeadTimeConfigTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_BreakDeadTimeConfigTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OffStateRunMode) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(OffStateRunMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OffStateIDLEMode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(OffStateIDLEMode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LockLevel) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(LockLevel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DeadTime) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(DeadTime)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BreakState) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(BreakState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BreakPolarity) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(BreakPolarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BreakFilter) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(BreakFilter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AutomaticOutput) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_BreakDeadTimeConfigTypeDef),
-            "::",
-            stringify!(AutomaticOutput)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_BreakDeadTimeConfigTypeDef"]
+        [::core::mem::size_of::<TIM_BreakDeadTimeConfigTypeDef>() - 32usize];
+    ["Alignment of TIM_BreakDeadTimeConfigTypeDef"]
+        [::core::mem::align_of::<TIM_BreakDeadTimeConfigTypeDef>() - 4usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::OffStateRunMode"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, OffStateRunMode) - 0usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::OffStateIDLEMode"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, OffStateIDLEMode) - 4usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::LockLevel"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, LockLevel) - 8usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::DeadTime"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, DeadTime) - 12usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::BreakState"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, BreakState) - 16usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::BreakPolarity"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, BreakPolarity) - 20usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::BreakFilter"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, BreakFilter) - 24usize];
+    ["Offset of field: TIM_BreakDeadTimeConfigTypeDef::AutomaticOutput"]
+        [::core::mem::offset_of!(TIM_BreakDeadTimeConfigTypeDef, AutomaticOutput) - 28usize];
+};
 #[doc = "< Peripheral not yet initialized or disabled"]
 pub const HAL_TIM_StateTypeDef_HAL_TIM_STATE_RESET: HAL_TIM_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use"]
@@ -13217,81 +8544,251 @@ pub struct TIM_HandleTypeDef {
     #[doc = "< TIM operation state"]
     pub State: HAL_TIM_StateTypeDef,
 }
-#[test]
-fn bindgen_test_layout_TIM_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_HandleTypeDef>(),
-        68usize,
-        concat!("Size of: ", stringify!(TIM_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Channel) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(Channel)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdma) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(hdma)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_HandleTypeDef"][::core::mem::size_of::<TIM_HandleTypeDef>() - 68usize];
+    ["Alignment of TIM_HandleTypeDef"][::core::mem::align_of::<TIM_HandleTypeDef>() - 4usize];
+    ["Offset of field: TIM_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: TIM_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: TIM_HandleTypeDef::Channel"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, Channel) - 28usize];
+    ["Offset of field: TIM_HandleTypeDef::hdma"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, hdma) - 32usize];
+    ["Offset of field: TIM_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, Lock) - 60usize];
+    ["Offset of field: TIM_HandleTypeDef::State"]
+        [::core::mem::offset_of!(TIM_HandleTypeDef, State) - 64usize];
+};
+pub const TIM_CLEARINPUTSOURCE_NONE: u32 = 0;
+pub const TIM_CLEARINPUTSOURCE_ETR: u32 = 1;
+pub const TIM_CLEARINPUTSOURCE_OCREFCLR: u32 = 2;
+pub const TIM_DMABASE_CR1: u32 = 0;
+pub const TIM_DMABASE_CR2: u32 = 1;
+pub const TIM_DMABASE_SMCR: u32 = 2;
+pub const TIM_DMABASE_DIER: u32 = 3;
+pub const TIM_DMABASE_SR: u32 = 4;
+pub const TIM_DMABASE_EGR: u32 = 5;
+pub const TIM_DMABASE_CCMR1: u32 = 6;
+pub const TIM_DMABASE_CCMR2: u32 = 7;
+pub const TIM_DMABASE_CCER: u32 = 8;
+pub const TIM_DMABASE_CNT: u32 = 9;
+pub const TIM_DMABASE_PSC: u32 = 10;
+pub const TIM_DMABASE_ARR: u32 = 11;
+pub const TIM_DMABASE_RCR: u32 = 12;
+pub const TIM_DMABASE_CCR1: u32 = 13;
+pub const TIM_DMABASE_CCR2: u32 = 14;
+pub const TIM_DMABASE_CCR3: u32 = 15;
+pub const TIM_DMABASE_CCR4: u32 = 16;
+pub const TIM_DMABASE_BDTR: u32 = 17;
+pub const TIM_DMABASE_DCR: u32 = 18;
+pub const TIM_DMABASE_DMAR: u32 = 19;
+pub const TIM_EVENTSOURCE_UPDATE: u32 = 1;
+pub const TIM_EVENTSOURCE_CC1: u32 = 2;
+pub const TIM_EVENTSOURCE_CC2: u32 = 4;
+pub const TIM_EVENTSOURCE_CC3: u32 = 8;
+pub const TIM_EVENTSOURCE_CC4: u32 = 16;
+pub const TIM_EVENTSOURCE_COM: u32 = 32;
+pub const TIM_EVENTSOURCE_TRIGGER: u32 = 64;
+pub const TIM_EVENTSOURCE_BREAK: u32 = 128;
+pub const TIM_INPUTCHANNELPOLARITY_RISING: u32 = 0;
+pub const TIM_INPUTCHANNELPOLARITY_FALLING: u32 = 2;
+pub const TIM_INPUTCHANNELPOLARITY_BOTHEDGE: u32 = 10;
+pub const TIM_ETRPOLARITY_INVERTED: u32 = 32768;
+pub const TIM_ETRPOLARITY_NONINVERTED: u32 = 0;
+pub const TIM_ETRPRESCALER_DIV1: u32 = 0;
+pub const TIM_ETRPRESCALER_DIV2: u32 = 4096;
+pub const TIM_ETRPRESCALER_DIV4: u32 = 8192;
+pub const TIM_ETRPRESCALER_DIV8: u32 = 12288;
+pub const TIM_COUNTERMODE_UP: u32 = 0;
+pub const TIM_COUNTERMODE_DOWN: u32 = 16;
+pub const TIM_COUNTERMODE_CENTERALIGNED1: u32 = 32;
+pub const TIM_COUNTERMODE_CENTERALIGNED2: u32 = 64;
+pub const TIM_COUNTERMODE_CENTERALIGNED3: u32 = 96;
+pub const TIM_CLOCKDIVISION_DIV1: u32 = 0;
+pub const TIM_CLOCKDIVISION_DIV2: u32 = 256;
+pub const TIM_CLOCKDIVISION_DIV4: u32 = 512;
+pub const TIM_OUTPUTSTATE_DISABLE: u32 = 0;
+pub const TIM_OUTPUTSTATE_ENABLE: u32 = 1;
+pub const TIM_AUTORELOAD_PRELOAD_DISABLE: u32 = 0;
+pub const TIM_AUTORELOAD_PRELOAD_ENABLE: u32 = 128;
+pub const TIM_OCFAST_DISABLE: u32 = 0;
+pub const TIM_OCFAST_ENABLE: u32 = 4;
+pub const TIM_OUTPUTNSTATE_DISABLE: u32 = 0;
+pub const TIM_OUTPUTNSTATE_ENABLE: u32 = 4;
+pub const TIM_OCPOLARITY_HIGH: u32 = 0;
+pub const TIM_OCPOLARITY_LOW: u32 = 2;
+pub const TIM_OCNPOLARITY_HIGH: u32 = 0;
+pub const TIM_OCNPOLARITY_LOW: u32 = 8;
+pub const TIM_OCIDLESTATE_SET: u32 = 256;
+pub const TIM_OCIDLESTATE_RESET: u32 = 0;
+pub const TIM_OCNIDLESTATE_SET: u32 = 512;
+pub const TIM_OCNIDLESTATE_RESET: u32 = 0;
+pub const TIM_ICPOLARITY_RISING: u32 = 0;
+pub const TIM_ICPOLARITY_FALLING: u32 = 2;
+pub const TIM_ICPOLARITY_BOTHEDGE: u32 = 10;
+pub const TIM_ENCODERINPUTPOLARITY_RISING: u32 = 0;
+pub const TIM_ENCODERINPUTPOLARITY_FALLING: u32 = 2;
+pub const TIM_ENCODERINPUTPOLARITY_BOTHEDGE: u32 = 10;
+pub const TIM_ICSELECTION_DIRECTTI: u32 = 1;
+pub const TIM_ICSELECTION_INDIRECTTI: u32 = 2;
+pub const TIM_ICSELECTION_TRC: u32 = 3;
+pub const TIM_ICPSC_DIV1: u32 = 0;
+pub const TIM_ICPSC_DIV2: u32 = 4;
+pub const TIM_ICPSC_DIV4: u32 = 8;
+pub const TIM_ICPSC_DIV8: u32 = 12;
+pub const TIM_OPMODE_SINGLE: u32 = 8;
+pub const TIM_OPMODE_REPETITIVE: u32 = 0;
+pub const TIM_ENCODERMODE_TI1: u32 = 1;
+pub const TIM_ENCODERMODE_TI2: u32 = 2;
+pub const TIM_ENCODERMODE_TI12: u32 = 3;
+pub const TIM_IT_UPDATE: u32 = 1;
+pub const TIM_IT_CC1: u32 = 2;
+pub const TIM_IT_CC2: u32 = 4;
+pub const TIM_IT_CC3: u32 = 8;
+pub const TIM_IT_CC4: u32 = 16;
+pub const TIM_IT_COM: u32 = 32;
+pub const TIM_IT_TRIGGER: u32 = 64;
+pub const TIM_IT_BREAK: u32 = 128;
+pub const TIM_COMMUTATION_TRGI: u32 = 4;
+pub const TIM_COMMUTATION_SOFTWARE: u32 = 0;
+pub const TIM_DMA_UPDATE: u32 = 256;
+pub const TIM_DMA_CC1: u32 = 512;
+pub const TIM_DMA_CC2: u32 = 1024;
+pub const TIM_DMA_CC3: u32 = 2048;
+pub const TIM_DMA_CC4: u32 = 4096;
+pub const TIM_DMA_COM: u32 = 8192;
+pub const TIM_DMA_TRIGGER: u32 = 16384;
+pub const TIM_FLAG_UPDATE: u32 = 1;
+pub const TIM_FLAG_CC1: u32 = 2;
+pub const TIM_FLAG_CC2: u32 = 4;
+pub const TIM_FLAG_CC3: u32 = 8;
+pub const TIM_FLAG_CC4: u32 = 16;
+pub const TIM_FLAG_COM: u32 = 32;
+pub const TIM_FLAG_TRIGGER: u32 = 64;
+pub const TIM_FLAG_BREAK: u32 = 128;
+pub const TIM_FLAG_CC1OF: u32 = 512;
+pub const TIM_FLAG_CC2OF: u32 = 1024;
+pub const TIM_FLAG_CC3OF: u32 = 2048;
+pub const TIM_FLAG_CC4OF: u32 = 4096;
+pub const TIM_CHANNEL_1: u32 = 0;
+pub const TIM_CHANNEL_2: u32 = 4;
+pub const TIM_CHANNEL_3: u32 = 8;
+pub const TIM_CHANNEL_4: u32 = 12;
+pub const TIM_CHANNEL_ALL: u32 = 60;
+pub const TIM_CLOCKSOURCE_ETRMODE2: u32 = 8192;
+pub const TIM_CLOCKSOURCE_INTERNAL: u32 = 4096;
+pub const TIM_CLOCKSOURCE_ITR0: u32 = 0;
+pub const TIM_CLOCKSOURCE_ITR1: u32 = 16;
+pub const TIM_CLOCKSOURCE_ITR2: u32 = 32;
+pub const TIM_CLOCKSOURCE_ITR3: u32 = 48;
+pub const TIM_CLOCKSOURCE_TI1ED: u32 = 64;
+pub const TIM_CLOCKSOURCE_TI1: u32 = 80;
+pub const TIM_CLOCKSOURCE_TI2: u32 = 96;
+pub const TIM_CLOCKSOURCE_ETRMODE1: u32 = 112;
+pub const TIM_CLOCKPOLARITY_INVERTED: u32 = 32768;
+pub const TIM_CLOCKPOLARITY_NONINVERTED: u32 = 0;
+pub const TIM_CLOCKPOLARITY_RISING: u32 = 0;
+pub const TIM_CLOCKPOLARITY_FALLING: u32 = 2;
+pub const TIM_CLOCKPOLARITY_BOTHEDGE: u32 = 10;
+pub const TIM_CLOCKPRESCALER_DIV1: u32 = 0;
+pub const TIM_CLOCKPRESCALER_DIV2: u32 = 4096;
+pub const TIM_CLOCKPRESCALER_DIV4: u32 = 8192;
+pub const TIM_CLOCKPRESCALER_DIV8: u32 = 12288;
+pub const TIM_CLEARINPUTPOLARITY_INVERTED: u32 = 32768;
+pub const TIM_CLEARINPUTPOLARITY_NONINVERTED: u32 = 0;
+pub const TIM_CLEARINPUTPRESCALER_DIV1: u32 = 0;
+pub const TIM_CLEARINPUTPRESCALER_DIV2: u32 = 4096;
+pub const TIM_CLEARINPUTPRESCALER_DIV4: u32 = 8192;
+pub const TIM_CLEARINPUTPRESCALER_DIV8: u32 = 12288;
+pub const TIM_OSSR_ENABLE: u32 = 2048;
+pub const TIM_OSSR_DISABLE: u32 = 0;
+pub const TIM_OSSI_ENABLE: u32 = 1024;
+pub const TIM_OSSI_DISABLE: u32 = 0;
+pub const TIM_LOCKLEVEL_OFF: u32 = 0;
+pub const TIM_LOCKLEVEL_1: u32 = 256;
+pub const TIM_LOCKLEVEL_2: u32 = 512;
+pub const TIM_LOCKLEVEL_3: u32 = 768;
+pub const TIM_BREAK_ENABLE: u32 = 4096;
+pub const TIM_BREAK_DISABLE: u32 = 0;
+pub const TIM_BREAKPOLARITY_LOW: u32 = 0;
+pub const TIM_BREAKPOLARITY_HIGH: u32 = 8192;
+pub const TIM_AUTOMATICOUTPUT_DISABLE: u32 = 0;
+pub const TIM_AUTOMATICOUTPUT_ENABLE: u32 = 16384;
+pub const TIM_TRGO_RESET: u32 = 0;
+pub const TIM_TRGO_ENABLE: u32 = 16;
+pub const TIM_TRGO_UPDATE: u32 = 32;
+pub const TIM_TRGO_OC1: u32 = 48;
+pub const TIM_TRGO_OC1REF: u32 = 64;
+pub const TIM_TRGO_OC2REF: u32 = 80;
+pub const TIM_TRGO_OC3REF: u32 = 96;
+pub const TIM_TRGO_OC4REF: u32 = 112;
+pub const TIM_MASTERSLAVEMODE_ENABLE: u32 = 128;
+pub const TIM_MASTERSLAVEMODE_DISABLE: u32 = 0;
+pub const TIM_SLAVEMODE_DISABLE: u32 = 0;
+pub const TIM_SLAVEMODE_RESET: u32 = 4;
+pub const TIM_SLAVEMODE_GATED: u32 = 5;
+pub const TIM_SLAVEMODE_TRIGGER: u32 = 6;
+pub const TIM_SLAVEMODE_EXTERNAL1: u32 = 7;
+pub const TIM_OCMODE_TIMING: u32 = 0;
+pub const TIM_OCMODE_ACTIVE: u32 = 16;
+pub const TIM_OCMODE_INACTIVE: u32 = 32;
+pub const TIM_OCMODE_TOGGLE: u32 = 48;
+pub const TIM_OCMODE_PWM1: u32 = 96;
+pub const TIM_OCMODE_PWM2: u32 = 112;
+pub const TIM_OCMODE_FORCED_ACTIVE: u32 = 80;
+pub const TIM_OCMODE_FORCED_INACTIVE: u32 = 64;
+pub const TIM_TS_ITR0: u32 = 0;
+pub const TIM_TS_ITR1: u32 = 16;
+pub const TIM_TS_ITR2: u32 = 32;
+pub const TIM_TS_ITR3: u32 = 48;
+pub const TIM_TS_TI1F_ED: u32 = 64;
+pub const TIM_TS_TI1FP1: u32 = 80;
+pub const TIM_TS_TI2FP2: u32 = 96;
+pub const TIM_TS_ETRF: u32 = 112;
+pub const TIM_TS_NONE: u32 = 65535;
+pub const TIM_TRIGGERPOLARITY_INVERTED: u32 = 32768;
+pub const TIM_TRIGGERPOLARITY_NONINVERTED: u32 = 0;
+pub const TIM_TRIGGERPOLARITY_RISING: u32 = 0;
+pub const TIM_TRIGGERPOLARITY_FALLING: u32 = 2;
+pub const TIM_TRIGGERPOLARITY_BOTHEDGE: u32 = 10;
+pub const TIM_TRIGGERPRESCALER_DIV1: u32 = 0;
+pub const TIM_TRIGGERPRESCALER_DIV2: u32 = 4096;
+pub const TIM_TRIGGERPRESCALER_DIV4: u32 = 8192;
+pub const TIM_TRIGGERPRESCALER_DIV8: u32 = 12288;
+pub const TIM_TI1SELECTION_CH1: u32 = 0;
+pub const TIM_TI1SELECTION_XORCOMBINATION: u32 = 128;
+pub const TIM_DMABURSTLENGTH_1TRANSFER: u32 = 0;
+pub const TIM_DMABURSTLENGTH_2TRANSFERS: u32 = 256;
+pub const TIM_DMABURSTLENGTH_3TRANSFERS: u32 = 512;
+pub const TIM_DMABURSTLENGTH_4TRANSFERS: u32 = 768;
+pub const TIM_DMABURSTLENGTH_5TRANSFERS: u32 = 1024;
+pub const TIM_DMABURSTLENGTH_6TRANSFERS: u32 = 1280;
+pub const TIM_DMABURSTLENGTH_7TRANSFERS: u32 = 1536;
+pub const TIM_DMABURSTLENGTH_8TRANSFERS: u32 = 1792;
+pub const TIM_DMABURSTLENGTH_9TRANSFERS: u32 = 2048;
+pub const TIM_DMABURSTLENGTH_10TRANSFERS: u32 = 2304;
+pub const TIM_DMABURSTLENGTH_11TRANSFERS: u32 = 2560;
+pub const TIM_DMABURSTLENGTH_12TRANSFERS: u32 = 2816;
+pub const TIM_DMABURSTLENGTH_13TRANSFERS: u32 = 3072;
+pub const TIM_DMABURSTLENGTH_14TRANSFERS: u32 = 3328;
+pub const TIM_DMABURSTLENGTH_15TRANSFERS: u32 = 3584;
+pub const TIM_DMABURSTLENGTH_16TRANSFERS: u32 = 3840;
+pub const TIM_DMABURSTLENGTH_17TRANSFERS: u32 = 4096;
+pub const TIM_DMABURSTLENGTH_18TRANSFERS: u32 = 4352;
+pub const TIM_DMA_ID_UPDATE: u16 = 0u8 as u16;
+pub const TIM_DMA_ID_CC1: u16 = 1u8 as u16;
+pub const TIM_DMA_ID_CC2: u16 = 2u8 as u16;
+pub const TIM_DMA_ID_CC3: u16 = 3u8 as u16;
+pub const TIM_DMA_ID_CC4: u16 = 4u8 as u16;
+pub const TIM_DMA_ID_COMMUTATION: u16 = 5u8 as u16;
+pub const TIM_DMA_ID_TRIGGER: u16 = 6u8 as u16;
+pub const TIM_CCx_ENABLE: u32 = 1;
+pub const TIM_CCx_DISABLE: u32 = 0;
+pub const TIM_CCxN_ENABLE: u32 = 4;
+pub const TIM_CCxN_DISABLE: u32 = 0;
+pub const TIM_CCER_CCxE_MASK: u32 = 4369u16 as u32;
+pub const TIM_CCER_CCxNE_MASK: u32 = 1092u16 as u32;
 #[doc = " @brief  TIM Hall sensor Configuration Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13305,62 +8802,24 @@ pub struct TIM_HallSensor_InitTypeDef {
     #[doc = "< Specifies the pulse value to be loaded into the Capture Compare Register.\nThis parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF"]
     pub Commutation_Delay: u32,
 }
-#[test]
-fn bindgen_test_layout_TIM_HallSensor_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<TIM_HallSensor_InitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<TIM_HallSensor_InitTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(TIM_HallSensor_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<TIM_HallSensor_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(TIM_HallSensor_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Polarity) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HallSensor_InitTypeDef),
-            "::",
-            stringify!(IC1Polarity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Prescaler) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HallSensor_InitTypeDef),
-            "::",
-            stringify!(IC1Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).IC1Filter) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HallSensor_InitTypeDef),
-            "::",
-            stringify!(IC1Filter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Commutation_Delay) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(TIM_HallSensor_InitTypeDef),
-            "::",
-            stringify!(Commutation_Delay)
-        )
-    );
-}
+const _: () = {
+    ["Size of TIM_HallSensor_InitTypeDef"]
+        [::core::mem::size_of::<TIM_HallSensor_InitTypeDef>() - 16usize];
+    ["Alignment of TIM_HallSensor_InitTypeDef"]
+        [::core::mem::align_of::<TIM_HallSensor_InitTypeDef>() - 4usize];
+    ["Offset of field: TIM_HallSensor_InitTypeDef::IC1Polarity"]
+        [::core::mem::offset_of!(TIM_HallSensor_InitTypeDef, IC1Polarity) - 0usize];
+    ["Offset of field: TIM_HallSensor_InitTypeDef::IC1Prescaler"]
+        [::core::mem::offset_of!(TIM_HallSensor_InitTypeDef, IC1Prescaler) - 4usize];
+    ["Offset of field: TIM_HallSensor_InitTypeDef::IC1Filter"]
+        [::core::mem::offset_of!(TIM_HallSensor_InitTypeDef, IC1Filter) - 8usize];
+    ["Offset of field: TIM_HallSensor_InitTypeDef::Commutation_Delay"]
+        [::core::mem::offset_of!(TIM_HallSensor_InitTypeDef, Commutation_Delay) - 12usize];
+};
+pub const TIM_TIM14_GPIO: u32 = 0;
+pub const TIM_TIM14_RTC: u32 = 1;
+pub const TIM_TIM14_HSE: u32 = 2;
+pub const TIM_TIM14_MCO: u32 = 3;
 extern "C" {
     #[doc = " @addtogroup TIMEx_Exported_Functions_Group1 Extended Timer Hall Sensor functions\n  @brief    Timer Hall Sensor functions\n @{"]
     pub fn HAL_TIMEx_HallSensor_Init(
@@ -13985,41 +9444,14 @@ pub struct LPTIM_InitTypeDef {
     #[doc = "< Specifies whether to update immediately or after the end\nof current period.\nThis parameter can be a value of @ref LPTIM_Updating_Mode"]
     pub UpdateMode: u32,
 }
-#[test]
-fn bindgen_test_layout_LPTIM_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LPTIM_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LPTIM_InitTypeDef>(),
-        8usize,
-        concat!("Size of: ", stringify!(LPTIM_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LPTIM_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LPTIM_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Prescaler) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_InitTypeDef),
-            "::",
-            stringify!(Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).UpdateMode) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_InitTypeDef),
-            "::",
-            stringify!(UpdateMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of LPTIM_InitTypeDef"][::core::mem::size_of::<LPTIM_InitTypeDef>() - 8usize];
+    ["Alignment of LPTIM_InitTypeDef"][::core::mem::align_of::<LPTIM_InitTypeDef>() - 4usize];
+    ["Offset of field: LPTIM_InitTypeDef::Prescaler"]
+        [::core::mem::offset_of!(LPTIM_InitTypeDef, Prescaler) - 0usize];
+    ["Offset of field: LPTIM_InitTypeDef::UpdateMode"]
+        [::core::mem::offset_of!(LPTIM_InitTypeDef, UpdateMode) - 4usize];
+};
 #[doc = "< Peripheral not yet initialized or disabled"]
 pub const HAL_LPTIM_StateTypeDef_HAL_LPTIM_STATE_RESET: HAL_LPTIM_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use"]
@@ -14044,62 +9476,30 @@ pub struct LPTIM_HandleTypeDef {
     #[doc = "< LPTIM peripheral state"]
     pub State: HAL_LPTIM_StateTypeDef,
 }
-#[test]
-fn bindgen_test_layout_LPTIM_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LPTIM_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LPTIM_HandleTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(LPTIM_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LPTIM_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LPTIM_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LPTIM_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-}
+const _: () = {
+    ["Size of LPTIM_HandleTypeDef"][::core::mem::size_of::<LPTIM_HandleTypeDef>() - 20usize];
+    ["Alignment of LPTIM_HandleTypeDef"][::core::mem::align_of::<LPTIM_HandleTypeDef>() - 4usize];
+    ["Offset of field: LPTIM_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(LPTIM_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: LPTIM_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(LPTIM_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: LPTIM_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(LPTIM_HandleTypeDef, Lock) - 12usize];
+    ["Offset of field: LPTIM_HandleTypeDef::State"]
+        [::core::mem::offset_of!(LPTIM_HandleTypeDef, State) - 16usize];
+};
+pub const LPTIM_PRESCALER_DIV1: u32 = 0;
+pub const LPTIM_PRESCALER_DIV2: u32 = 512;
+pub const LPTIM_PRESCALER_DIV4: u32 = 1024;
+pub const LPTIM_PRESCALER_DIV8: u32 = 1536;
+pub const LPTIM_PRESCALER_DIV16: u32 = 2048;
+pub const LPTIM_PRESCALER_DIV32: u32 = 2560;
+pub const LPTIM_PRESCALER_DIV64: u32 = 3072;
+pub const LPTIM_PRESCALER_DIV128: u32 = 3584;
+pub const LPTIM_UPDATE_IMMEDIATE: u32 = 0;
+pub const LPTIM_UPDATE_ENDOFPERIOD: u32 = 4194304;
+pub const LPTIM_FLAG_ARRM: u32 = 2;
+pub const LPTIM_IT_ARRM: u32 = 2;
 extern "C" {
     #[doc = " @defgroup LPTIM_Exported_Functions LPTIM Exported Functions\n @{"]
     pub fn HAL_LPTIM_Init(hlptim: *mut LPTIM_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -14165,91 +9565,24 @@ pub struct UART_InitTypeDef {
     #[doc = "< Specifies whether the Over sampling 8 or Over sampling 16.\nThis parameter can be a value of @ref UART_Over_Sampling."]
     pub OverSampling: u32,
 }
-#[test]
-fn bindgen_test_layout_UART_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<UART_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<UART_InitTypeDef>(),
-        28usize,
-        concat!("Size of: ", stringify!(UART_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<UART_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(UART_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).BaudRate) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(BaudRate)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).WordLength) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(WordLength)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).StopBits) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(StopBits)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Parity) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(Parity)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Mode) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(Mode)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).HwFlowCtl) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(HwFlowCtl)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).OverSampling) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_InitTypeDef),
-            "::",
-            stringify!(OverSampling)
-        )
-    );
-}
+const _: () = {
+    ["Size of UART_InitTypeDef"][::core::mem::size_of::<UART_InitTypeDef>() - 28usize];
+    ["Alignment of UART_InitTypeDef"][::core::mem::align_of::<UART_InitTypeDef>() - 4usize];
+    ["Offset of field: UART_InitTypeDef::BaudRate"]
+        [::core::mem::offset_of!(UART_InitTypeDef, BaudRate) - 0usize];
+    ["Offset of field: UART_InitTypeDef::WordLength"]
+        [::core::mem::offset_of!(UART_InitTypeDef, WordLength) - 4usize];
+    ["Offset of field: UART_InitTypeDef::StopBits"]
+        [::core::mem::offset_of!(UART_InitTypeDef, StopBits) - 8usize];
+    ["Offset of field: UART_InitTypeDef::Parity"]
+        [::core::mem::offset_of!(UART_InitTypeDef, Parity) - 12usize];
+    ["Offset of field: UART_InitTypeDef::Mode"]
+        [::core::mem::offset_of!(UART_InitTypeDef, Mode) - 16usize];
+    ["Offset of field: UART_InitTypeDef::HwFlowCtl"]
+        [::core::mem::offset_of!(UART_InitTypeDef, HwFlowCtl) - 20usize];
+    ["Offset of field: UART_InitTypeDef::OverSampling"]
+        [::core::mem::offset_of!(UART_InitTypeDef, OverSampling) - 24usize];
+};
 #[doc = "< Peripheral is not yet Initialized\nValue is allowed for gState and RxState"]
 pub const HAL_UART_StateTypeDef_HAL_UART_STATE_RESET: HAL_UART_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use\nValue is allowed for gState and RxState"]
@@ -14278,52 +9611,18 @@ pub struct UART_AdvFeatureInitTypeDef {
     #[doc = "< If auto Baud rate detection is enabled, specifies how the rate\ndetection is carried out.\nThis parameter can be a value of @ref UART_AutoBaud_Rate_Mode."]
     pub AutoBaudRateMode: u32,
 }
-#[test]
-fn bindgen_test_layout_UART_AdvFeatureInitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<UART_AdvFeatureInitTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<UART_AdvFeatureInitTypeDef>(),
-        12usize,
-        concat!("Size of: ", stringify!(UART_AdvFeatureInitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<UART_AdvFeatureInitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(UART_AdvFeatureInitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AdvFeatureInit) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_AdvFeatureInitTypeDef),
-            "::",
-            stringify!(AdvFeatureInit)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AutoBaudRateEnable) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_AdvFeatureInitTypeDef),
-            "::",
-            stringify!(AutoBaudRateEnable)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AutoBaudRateMode) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(UART_AdvFeatureInitTypeDef),
-            "::",
-            stringify!(AutoBaudRateMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of UART_AdvFeatureInitTypeDef"]
+        [::core::mem::size_of::<UART_AdvFeatureInitTypeDef>() - 12usize];
+    ["Alignment of UART_AdvFeatureInitTypeDef"]
+        [::core::mem::align_of::<UART_AdvFeatureInitTypeDef>() - 4usize];
+    ["Offset of field: UART_AdvFeatureInitTypeDef::AdvFeatureInit"]
+        [::core::mem::offset_of!(UART_AdvFeatureInitTypeDef, AdvFeatureInit) - 0usize];
+    ["Offset of field: UART_AdvFeatureInitTypeDef::AutoBaudRateEnable"]
+        [::core::mem::offset_of!(UART_AdvFeatureInitTypeDef, AutoBaudRateEnable) - 4usize];
+    ["Offset of field: UART_AdvFeatureInitTypeDef::AutoBaudRateMode"]
+        [::core::mem::offset_of!(UART_AdvFeatureInitTypeDef, AutoBaudRateMode) - 8usize];
+};
 #[doc = " @brief  UART handle Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14359,174 +9658,93 @@ pub struct __UART_HandleTypeDef {
     #[doc = "< UART Error code"]
     pub ErrorCode: u32,
 }
-#[test]
-fn bindgen_test_layout___UART_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<__UART_HandleTypeDef> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<__UART_HandleTypeDef>(),
-        84usize,
-        concat!("Size of: ", stringify!(__UART_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<__UART_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__UART_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).AdvancedInit) as usize - ptr as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(AdvancedInit)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pTxBuffPtr) as usize - ptr as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(pTxBuffPtr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TxXferSize) as usize - ptr as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(TxXferSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).TxXferCount) as usize - ptr as usize },
-        50usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(TxXferCount)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pRxBuffPtr) as usize - ptr as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(pRxBuffPtr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxXferSize) as usize - ptr as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(RxXferSize)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxXferCount) as usize - ptr as usize },
-        58usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(RxXferCount)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmatx) as usize - ptr as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(hdmatx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hdmarx) as usize - ptr as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(hdmarx)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).gState) as usize - ptr as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(gState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).RxState) as usize - ptr as usize },
-        76usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(RxState)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ErrorCode) as usize - ptr as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__UART_HandleTypeDef),
-            "::",
-            stringify!(ErrorCode)
-        )
-    );
-}
+const _: () = {
+    ["Size of __UART_HandleTypeDef"][::core::mem::size_of::<__UART_HandleTypeDef>() - 84usize];
+    ["Alignment of __UART_HandleTypeDef"][::core::mem::align_of::<__UART_HandleTypeDef>() - 4usize];
+    ["Offset of field: __UART_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __UART_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __UART_HandleTypeDef::AdvancedInit"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, AdvancedInit) - 32usize];
+    ["Offset of field: __UART_HandleTypeDef::pTxBuffPtr"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, pTxBuffPtr) - 44usize];
+    ["Offset of field: __UART_HandleTypeDef::TxXferSize"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, TxXferSize) - 48usize];
+    ["Offset of field: __UART_HandleTypeDef::TxXferCount"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, TxXferCount) - 50usize];
+    ["Offset of field: __UART_HandleTypeDef::pRxBuffPtr"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, pRxBuffPtr) - 52usize];
+    ["Offset of field: __UART_HandleTypeDef::RxXferSize"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, RxXferSize) - 56usize];
+    ["Offset of field: __UART_HandleTypeDef::RxXferCount"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, RxXferCount) - 58usize];
+    ["Offset of field: __UART_HandleTypeDef::hdmatx"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, hdmatx) - 60usize];
+    ["Offset of field: __UART_HandleTypeDef::hdmarx"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, hdmarx) - 64usize];
+    ["Offset of field: __UART_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, Lock) - 68usize];
+    ["Offset of field: __UART_HandleTypeDef::gState"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, gState) - 72usize];
+    ["Offset of field: __UART_HandleTypeDef::RxState"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, RxState) - 76usize];
+    ["Offset of field: __UART_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__UART_HandleTypeDef, ErrorCode) - 80usize];
+};
 #[doc = " @brief  UART handle Structure definition"]
 pub type UART_HandleTypeDef = __UART_HandleTypeDef;
+pub const HAL_UART_ERROR_NONE: u32 = 0;
+pub const HAL_UART_ERROR_PE: u32 = 1;
+pub const HAL_UART_ERROR_NE: u32 = 2;
+pub const HAL_UART_ERROR_FE: u32 = 4;
+pub const HAL_UART_ERROR_ORE: u32 = 8;
+pub const HAL_UART_ERROR_DMA: u32 = 16;
+pub const UART_WORDLENGTH_8B: u32 = 0;
+pub const UART_WORDLENGTH_9B: u32 = 4096u16 as u32;
+pub const UART_STOPBITS_1: u32 = 0;
+pub const UART_STOPBITS_2: u32 = 8192u16 as u32;
+pub const UART_PARITY_NONE: u32 = 0;
+pub const UART_PARITY_EVEN: u32 = 1024u16 as u32;
+pub const UART_PARITY_ODD: u32 = 1536u16 as u32;
+pub const UART_HWCONTROL_NONE: u32 = 0;
+pub const UART_HWCONTROL_RTS: u32 = 256u16 as u32;
+pub const UART_HWCONTROL_CTS: u32 = 512u16 as u32;
+pub const UART_HWCONTROL_RTS_CTS: u32 = 768u16 as u32;
+pub const UART_MODE_RX: u32 = 4u8 as u32;
+pub const UART_MODE_TX: u32 = 8u8 as u32;
+pub const UART_MODE_TX_RX: u32 = 12u8 as u32;
+pub const UART_STATE_DISABLE: u32 = 0;
+pub const UART_STATE_ENABLE: u32 = 8192u16 as u32;
+pub const UART_OVERSAMPLING_16: u32 = 0;
+pub const UART_OVERSAMPLING_8: u32 = 2048u16 as u32;
+pub const UART_LINBREAKDETECTLENGTH_10B: u32 = 0;
+pub const UART_WAKEUPMETHOD_IDLELINE: u32 = 0;
+pub const UART_WAKEUPMETHOD_ADDRESSMARK: u32 = 2048u16 as u32;
+pub const UART_FLAG_ABRF: u32 = 1024u16 as u32;
+pub const UART_FLAG_ABRE: u32 = 2048u16 as u32;
+pub const UART_FLAG_CTS: u32 = 512u16 as u32;
+pub const UART_FLAG_TXE: u32 = 128u8 as u32;
+pub const UART_FLAG_TC: u32 = 64u8 as u32;
+pub const UART_FLAG_RXNE: u32 = 32u8 as u32;
+pub const UART_FLAG_IDLE: u32 = 16u8 as u32;
+pub const UART_FLAG_ORE: u32 = 8u8 as u32;
+pub const UART_FLAG_NE: u32 = 4u8 as u32;
+pub const UART_FLAG_FE: u32 = 2u8 as u32;
+pub const UART_FLAG_PE: u32 = 1u8 as u32;
+pub const UART_IT_PE: u32 = 268435712u32 as u32;
+pub const UART_IT_TXE: u32 = 268435584u32 as u32;
+pub const UART_IT_TC: u32 = 268435520u32 as u32;
+pub const UART_IT_RXNE: u32 = 268435488u32 as u32;
+pub const UART_IT_IDLE: u32 = 268435472u32 as u32;
+pub const UART_IT_CTS: u32 = 805307392u32 as u32;
+pub const UART_IT_ERR: u32 = 805306369u32 as u32;
+pub const UART_ADVFEATURE_NO_INIT: u32 = 0;
+pub const UART_ADVFEATURE_AUTOBAUDRATE_INIT: u32 = 64;
+pub const UART_ADVFEATURE_AUTOBAUDRATE_DISABLE: u32 = 0;
+pub const UART_ADVFEATURE_AUTOBAUDRATE_ENABLE: u32 = 4096;
+pub const UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT: u32 = 0;
+pub const UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE: u32 = 8192;
 extern "C" {
     #[doc = " @addtogroup UART_Exported_Functions_Group1 Initialization and de-initialization functions\n @{"]
     pub fn HAL_UART_Init(huart: *mut UART_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -14675,6 +9893,10 @@ extern "C" {
 extern "C" {
     pub fn HAL_UART_GetError(huart: *mut UART_HandleTypeDef) -> u32;
 }
+pub const UART_IT_MASK: u32 = 65535;
+pub const UART_CR1_REG_INDEX: u32 = 1;
+pub const UART_CR2_REG_INDEX: u32 = 2;
+pub const UART_CR3_REG_INDEX: u32 = 3;
 #[doc = " @brief  WWDG Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14688,61 +9910,18 @@ pub struct WWDG_InitTypeDef {
     #[doc = "< Specifies if WWDG Early Wakeup Interupt is enable or not.\nThis parameter can be a value of @ref WWDG_EWI_Mode"]
     pub EWIMode: u32,
 }
-#[test]
-fn bindgen_test_layout_WWDG_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<WWDG_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<WWDG_InitTypeDef>(),
-        16usize,
-        concat!("Size of: ", stringify!(WWDG_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<WWDG_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(WWDG_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Prescaler) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_InitTypeDef),
-            "::",
-            stringify!(Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Window) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_InitTypeDef),
-            "::",
-            stringify!(Window)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Counter) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_InitTypeDef),
-            "::",
-            stringify!(Counter)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).EWIMode) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_InitTypeDef),
-            "::",
-            stringify!(EWIMode)
-        )
-    );
-}
+const _: () = {
+    ["Size of WWDG_InitTypeDef"][::core::mem::size_of::<WWDG_InitTypeDef>() - 16usize];
+    ["Alignment of WWDG_InitTypeDef"][::core::mem::align_of::<WWDG_InitTypeDef>() - 4usize];
+    ["Offset of field: WWDG_InitTypeDef::Prescaler"]
+        [::core::mem::offset_of!(WWDG_InitTypeDef, Prescaler) - 0usize];
+    ["Offset of field: WWDG_InitTypeDef::Window"]
+        [::core::mem::offset_of!(WWDG_InitTypeDef, Window) - 4usize];
+    ["Offset of field: WWDG_InitTypeDef::Counter"]
+        [::core::mem::offset_of!(WWDG_InitTypeDef, Counter) - 8usize];
+    ["Offset of field: WWDG_InitTypeDef::EWIMode"]
+        [::core::mem::offset_of!(WWDG_InitTypeDef, EWIMode) - 12usize];
+};
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WWDG_HandleTypeDef {
@@ -14751,41 +9930,22 @@ pub struct WWDG_HandleTypeDef {
     #[doc = "< WWDG required parameters"]
     pub Init: WWDG_InitTypeDef,
 }
-#[test]
-fn bindgen_test_layout_WWDG_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<WWDG_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<WWDG_HandleTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(WWDG_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<WWDG_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(WWDG_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(WWDG_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-}
+const _: () = {
+    ["Size of WWDG_HandleTypeDef"][::core::mem::size_of::<WWDG_HandleTypeDef>() - 20usize];
+    ["Alignment of WWDG_HandleTypeDef"][::core::mem::align_of::<WWDG_HandleTypeDef>() - 4usize];
+    ["Offset of field: WWDG_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(WWDG_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: WWDG_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(WWDG_HandleTypeDef, Init) - 4usize];
+};
+pub const WWDG_IT_EWI: u32 = 512;
+pub const WWDG_FLAG_EWIF: u32 = 1;
+pub const WWDG_PRESCALER_1: u32 = 0;
+pub const WWDG_PRESCALER_2: u32 = 128;
+pub const WWDG_PRESCALER_4: u32 = 256;
+pub const WWDG_PRESCALER_8: u32 = 384;
+pub const WWDG_EWI_DISABLE: u32 = 0;
+pub const WWDG_EWI_ENABLE: u32 = 512;
 extern "C" {
     #[doc = " @addtogroup WWDG_Exported_Functions_Group1\n @{"]
     pub fn HAL_WWDG_Init(hwwdg: *mut WWDG_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -14818,71 +9978,20 @@ pub struct LED_InitTypeDef {
     #[doc = "< Specifies LED Dead time.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 0xFF"]
     pub DeadTime: u32,
 }
-#[test]
-fn bindgen_test_layout_LED_InitTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LED_InitTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LED_InitTypeDef>(),
-        20usize,
-        concat!("Size of: ", stringify!(LED_InitTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LED_InitTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LED_InitTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ComDrive) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_InitTypeDef),
-            "::",
-            stringify!(ComDrive)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Prescaler) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_InitTypeDef),
-            "::",
-            stringify!(Prescaler)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ComNum) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_InitTypeDef),
-            "::",
-            stringify!(ComNum)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).LightTime) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_InitTypeDef),
-            "::",
-            stringify!(LightTime)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).DeadTime) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_InitTypeDef),
-            "::",
-            stringify!(DeadTime)
-        )
-    );
-}
+const _: () = {
+    ["Size of LED_InitTypeDef"][::core::mem::size_of::<LED_InitTypeDef>() - 20usize];
+    ["Alignment of LED_InitTypeDef"][::core::mem::align_of::<LED_InitTypeDef>() - 4usize];
+    ["Offset of field: LED_InitTypeDef::ComDrive"]
+        [::core::mem::offset_of!(LED_InitTypeDef, ComDrive) - 0usize];
+    ["Offset of field: LED_InitTypeDef::Prescaler"]
+        [::core::mem::offset_of!(LED_InitTypeDef, Prescaler) - 4usize];
+    ["Offset of field: LED_InitTypeDef::ComNum"]
+        [::core::mem::offset_of!(LED_InitTypeDef, ComNum) - 8usize];
+    ["Offset of field: LED_InitTypeDef::LightTime"]
+        [::core::mem::offset_of!(LED_InitTypeDef, LightTime) - 12usize];
+    ["Offset of field: LED_InitTypeDef::DeadTime"]
+        [::core::mem::offset_of!(LED_InitTypeDef, DeadTime) - 16usize];
+};
 #[doc = "< Peripheral is not yet Initialized"]
 pub const HAL_LED_StateTypeDef_HAL_LED_STATE_RESET: HAL_LED_StateTypeDef = 0;
 #[doc = "< Peripheral Initialized and ready for use"]
@@ -14903,61 +10012,47 @@ pub struct LED_HandleTypeDef {
     pub Lock: HAL_LockTypeDef,
     pub State: HAL_LED_StateTypeDef,
 }
-#[test]
-fn bindgen_test_layout_LED_HandleTypeDef() {
-    const UNINIT: ::core::mem::MaybeUninit<LED_HandleTypeDef> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<LED_HandleTypeDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(LED_HandleTypeDef))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<LED_HandleTypeDef>(),
-        4usize,
-        concat!("Alignment of ", stringify!(LED_HandleTypeDef))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Instance) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_HandleTypeDef),
-            "::",
-            stringify!(Instance)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Init) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_HandleTypeDef),
-            "::",
-            stringify!(Init)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).Lock) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_HandleTypeDef),
-            "::",
-            stringify!(Lock)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).State) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(LED_HandleTypeDef),
-            "::",
-            stringify!(State)
-        )
-    );
-}
+const _: () = {
+    ["Size of LED_HandleTypeDef"][::core::mem::size_of::<LED_HandleTypeDef>() - 32usize];
+    ["Alignment of LED_HandleTypeDef"][::core::mem::align_of::<LED_HandleTypeDef>() - 4usize];
+    ["Offset of field: LED_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(LED_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: LED_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(LED_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: LED_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(LED_HandleTypeDef, Lock) - 24usize];
+    ["Offset of field: LED_HandleTypeDef::State"]
+        [::core::mem::offset_of!(LED_HandleTypeDef, State) - 28usize];
+};
+pub const LED_DISP_NONE: u32 = 0;
+pub const LED_DISP_FULL: u32 = 255;
+pub const LED_DISP_0: u32 = 63;
+pub const LED_DISP_1: u32 = 6;
+pub const LED_DISP_2: u32 = 91;
+pub const LED_DISP_3: u32 = 79;
+pub const LED_DISP_4: u32 = 102;
+pub const LED_DISP_5: u32 = 109;
+pub const LED_DISP_6: u32 = 125;
+pub const LED_DISP_7: u32 = 7;
+pub const LED_DISP_8: u32 = 127;
+pub const LED_DISP_9: u32 = 111;
+pub const LED_DISP_A: u32 = 119;
+pub const LED_DISP_B: u32 = 124;
+pub const LED_DISP_C: u32 = 57;
+pub const LED_DISP_D: u32 = 94;
+pub const LED_DISP_E: u32 = 121;
+pub const LED_DISP_F: u32 = 113;
+pub const LED_DISP_H: u32 = 118;
+pub const LED_DISP_P: u32 = 115;
+pub const LED_DISP_U: u32 = 62;
+pub const LED_DISP_DOT: u32 = 128;
+pub const LED_COM0: u32 = 1;
+pub const LED_COM1: u32 = 2;
+pub const LED_COM2: u32 = 4;
+pub const LED_COM3: u32 = 8;
+pub const LED_COM_ALL: u32 = 15;
+pub const LED_COMDRIVE_LOW: u32 = 0;
+pub const LED_COMDRIVE_HIGH: u32 = 4096;
 extern "C" {
     #[doc = " @defgroup LED_Exported_Functions_Group LED operation functions\n  @brief    LED operation functions\n @{"]
     pub fn HAL_LED_Init(hled: *mut LED_HandleTypeDef) -> HAL_StatusTypeDef;
@@ -14991,6 +10086,9 @@ extern "C" {
 extern "C" {
     pub static mut uwTickFreq: u32;
 }
+pub const SYSCFG_BOOT_MAINFLASH: u32 = 0;
+pub const SYSCFG_BOOT_SYSTEMFLASH: u32 = 1;
+pub const SYSCFG_BOOT_SRAM: u32 = 3;
 extern "C" {
     pub fn HAL_Init() -> HAL_StatusTypeDef;
 }
