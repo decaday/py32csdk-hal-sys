@@ -10163,6 +10163,18 @@ extern "C" {
     pub fn HAL_SYSCFG_DMA_Req(Requset: u32);
 }
 extern "C" {
+    pub fn HAL_RCC_DMA_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_FLASH_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_SRAM_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_CRC_CLK_ENABLE();
+}
+extern "C" {
     pub fn HAL_RCC_DMA_CLK_DISABLE();
 }
 extern "C" {
@@ -10175,6 +10187,15 @@ extern "C" {
     pub fn HAL_RCC_CRC_CLK_DISABLE();
 }
 extern "C" {
+    pub fn HAL_RCC_GPIOA_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_GPIOB_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_GPIOF_CLK_ENABLE();
+}
+extern "C" {
     pub fn HAL_RCC_GPIOA_CLK_DISABLE();
 }
 extern "C" {
@@ -10182,6 +10203,66 @@ extern "C" {
 }
 extern "C" {
     pub fn HAL_RCC_GPIOF_CLK_DISABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_TIM3_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_RTCAPB_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_WWDG_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_SPI2_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_USART2_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_I2C_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_DBGMCU_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_PWR_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_LPTIM_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_SYSCFG_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_TIM1_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_SPI1_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_USART1_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_TIM14_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_TIM16_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_TIM17_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_ADC_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_COMP1_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_COMP2_CLK_ENABLE();
+}
+extern "C" {
+    pub fn HAL_RCC_LED_CLK_ENABLE();
 }
 extern "C" {
     pub fn HAL_RCC_TIM3_CLK_DISABLE();
@@ -10596,4 +10677,7 @@ extern "C" {
 }
 extern "C" {
     pub fn HAL_RCC_GET_SYSCLK_SOURCE();
+}
+extern "C" {
+    pub fn HAL_RCC_CLEAR_RESET_FLAGS();
 }
