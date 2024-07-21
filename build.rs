@@ -44,6 +44,9 @@ fn copy_lib_file(out_path: &mut PathBuf, mcu_series: &str){
     let destination = out_path.join("libpy32csdk_hal.a");
 
     fs::copy(source, destination).unwrap();
+
+    println!("cargo:rustc-link-lib=static=py32csdk_hal");
+    println!("cargo:rustc-link-search={}", out_path.display());
 }
 
 #[cfg(not(feature = "regenerate-bindings"))]
