@@ -168,7 +168,7 @@ dependencies = [
 
 [[package]]
 name = "py32csdk-hal-sys"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "bindgen",
  "cc",

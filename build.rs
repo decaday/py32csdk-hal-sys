@@ -34,7 +34,7 @@ fn main() {
     #[cfg(not(feature = "regenerate-bindings"))]
     copy_bindings_file(&mut out_path, mcu_series);
 
-
+    copy_interrupt_file(&mut out_path, mcu_series);
 }
 
 #[cfg(not(feature = "recompile"))]
@@ -56,6 +56,22 @@ fn copy_bindings_file(out_path: &mut PathBuf, mcu_series: &str){
     let destination = out_path.join("bindings.rs");
 
     fs::copy(source, destination).unwrap();
+}
+
+fn copy_interrupt_file(out_path: &mut PathBuf, mcu_series: &str){
+    let sourse_path = format!("src/prebuild/{mcu_series}/interrupt.rs");
+    let source = PathBuf::from(sourse_path);
+    let destination = out_path.join("interrupt.rs");
+
+    fs::copy(source, destination).unwrap();
+
+    let sourse_path = format!("src/prebuild/{mcu_series}/device.x");
+    let source = PathBuf::from(sourse_path);
+    let destination = out_path.join("device.x");
+
+    fs::copy(source, destination).unwrap();
+
+    // println!("cargo:rustc-link-search={}", out.display());
 }
 
 #[cfg(feature = "recompile")]
