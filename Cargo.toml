@@ -19,7 +19,8 @@ exclude = [
 
 
 [dependencies]
-
+cortex-m-rt = { version = "0.7", optional = true }
+cortex-m = { version = "0.7" }
 
 [build-dependencies]
 # https://github.com/rust-lang/rust-bindgen/pull/2369
@@ -40,9 +41,10 @@ bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], 
 
 
 [features]
-default = ["py32f030", "py32xxx6"]
+default = ["py32f030", "py32xxx6", "rt"]
 recompile = ["regenerate-bindings", "cc"]
 regenerate-bindings = ["bindgen"]
+rt = ["cortex-m-rt/device"]
 py32f030 = []
 py32xxx6 = []
 py32xxx8 = []

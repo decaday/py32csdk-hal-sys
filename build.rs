@@ -1,5 +1,4 @@
 use std::env;
-use std::fmt::Pointer;
 use std::path::PathBuf;
 use std::fs;
 
@@ -15,7 +14,7 @@ fn main() {
     #[cfg(feature = "py32f030")]
     let mcu_series = "py32f030";
 
-    #[cfg(all(feature = "py32f030", feature = "py32xxx6"))]
+    #[cfg(all(feature = "py32f030", feature = "py32xxx6", feature = "recompile"))]
     let mcu_name = "PY32F030x6";
     #[cfg(all(feature = "py32f030", feature = "py32xxx8"))]
     let mcu_name = "PY32F030x8";
@@ -59,11 +58,11 @@ fn copy_bindings_file(out_path: &mut PathBuf, mcu_series: &str){
 }
 
 fn copy_interrupt_file(out_path: &mut PathBuf, mcu_series: &str){
-    let sourse_path = format!("src/prebuild/{mcu_series}/interrupt.rs");
-    let source = PathBuf::from(sourse_path);
-    let destination = out_path.join("interrupt.rs");
+    // let sourse_path = format!("src/prebuild/{mcu_series}/interrupt.rs");
+    // let source = PathBuf::from(sourse_path);
+    // let destination = out_path.join("interrupt.rs");
 
-    fs::copy(source, destination).unwrap();
+    // fs::copy(source, destination).unwrap();
 
     let sourse_path = format!("src/prebuild/{mcu_series}/device.x");
     let source = PathBuf::from(sourse_path);

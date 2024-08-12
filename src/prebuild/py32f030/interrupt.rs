@@ -1,93 +1,136 @@
 
+#[cfg(feature = "rt")]
+pub use cortex_m_rt::interrupt;
+#[cfg(feature = "rt")]
+pub use self::Interrupt as interrupt;
+
 pub union Vector {
     handler: unsafe extern "C" fn(),
     reserved: usize,
 }
 
 extern "C" {
-    fn EXTI2_3_IRQHandler();
-    fn TIM16_IRQHandler();
-    fn PendSV_Handler();
-    fn Reset_Handler();
-    fn PVD_IRQHandler();
-    fn HardFault_Handler();
-    fn SPI2_IRQHandler();
-    fn EXTI0_1_IRQHandler();
-    fn DMA1_Channel2_3_IRQHandler();
-    fn RCC_IRQHandler();
-    fn TIM1_BRK_UP_TRG_COM_IRQHandler();
-    fn TIM3_IRQHandler();
-    fn LED_IRQHandler();
-    fn RTC_IRQHandler();
-    fn TIM1_CC_IRQHandler();
-    fn TIM17_IRQHandler();
-    fn USART2_IRQHandler();
-    fn WWDG_IRQHandler();
-    fn FLASH_IRQHandler();
-    fn DMA1_Channel1_IRQHandler();
-    fn TIM14_IRQHandler();
-    fn SysTick_Handler();
-    fn USART1_IRQHandler();
-    fn SPI1_IRQHandler();
-    fn EXTI4_15_IRQHandler();
-    fn __initial_sp();
-    fn ADC_COMP_IRQHandler();
-    fn LPTIM1_IRQHandler();
-    fn SVC_Handler();
-    fn I2C1_IRQHandler();
-    fn NMI_Handler();
+    fn RCC();
+    fn RTC();
+    fn EXTI4_15();
+    fn LED();
+    fn TIM3();
+    fn TIM1_CC();
+    fn EXTI2_3();
+    fn WWDG();
+    fn USART2();
+    fn USART1();
+    fn TIM14();
+    fn DMA1_CHANNEL2_3();
+    fn TIM1_BRK_UP_TRG_COM();
+    fn DMA1_CHANNEL1();
+    fn TIM17();
+    fn ADC_COMP();
+    fn LPTIM1();
+    fn TIM16();
+    fn I2C1();
+    fn SPI2();
+    fn EXTI0_1();
+    fn PVD();
+    fn SPI1();
+    fn FLASH();
     
 }
 
 #[link_section = ".vector_table.interrupts"]
 #[no_mangle]
-pub static __INTERRUPTS: [Vector; 48] = [
-    Vector { handler: __initial_sp },
-    Vector { handler: Reset_Handler },
-    Vector { handler: NMI_Handler },
-    Vector { handler: HardFault_Handler },
+pub static __INTERRUPTS: [Vector; 32] = [
+    Vector { handler: WWDG },
+    Vector { handler: PVD },
+    Vector { handler: RTC },
+    Vector { handler: FLASH },
+    Vector { handler: RCC },
+    Vector { handler: EXTI0_1 },
+    Vector { handler: EXTI2_3 },
+    Vector { handler: EXTI4_15 },
     Vector { reserved: 0 },
+    Vector { handler: DMA1_CHANNEL1 },
+    Vector { handler: DMA1_CHANNEL2_3 },
     Vector { reserved: 0 },
+    Vector { handler: ADC_COMP },
+    Vector { handler: TIM1_BRK_UP_TRG_COM },
+    Vector { handler: TIM1_CC },
     Vector { reserved: 0 },
+    Vector { handler: TIM3 },
+    Vector { handler: LPTIM1 },
     Vector { reserved: 0 },
+    Vector { handler: TIM14 },
     Vector { reserved: 0 },
+    Vector { handler: TIM16 },
+    Vector { handler: TIM17 },
+    Vector { handler: I2C1 },
     Vector { reserved: 0 },
+    Vector { handler: SPI1 },
+    Vector { handler: SPI2 },
+    Vector { handler: USART1 },
+    Vector { handler: USART2 },
     Vector { reserved: 0 },
-    Vector { handler: SVC_Handler },
-    Vector { reserved: 0 },
-    Vector { reserved: 0 },
-    Vector { handler: PendSV_Handler },
-    Vector { handler: SysTick_Handler },
-    Vector { handler: WWDG_IRQHandler },
-    Vector { handler: PVD_IRQHandler },
-    Vector { handler: RTC_IRQHandler },
-    Vector { handler: FLASH_IRQHandler },
-    Vector { handler: RCC_IRQHandler },
-    Vector { handler: EXTI0_1_IRQHandler },
-    Vector { handler: EXTI2_3_IRQHandler },
-    Vector { handler: EXTI4_15_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: DMA1_Channel1_IRQHandler },
-    Vector { handler: DMA1_Channel2_3_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: ADC_COMP_IRQHandler },
-    Vector { handler: TIM1_BRK_UP_TRG_COM_IRQHandler },
-    Vector { handler: TIM1_CC_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: TIM3_IRQHandler },
-    Vector { handler: LPTIM1_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: TIM14_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: TIM16_IRQHandler },
-    Vector { handler: TIM17_IRQHandler },
-    Vector { handler: I2C1_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: SPI1_IRQHandler },
-    Vector { handler: SPI2_IRQHandler },
-    Vector { handler: USART1_IRQHandler },
-    Vector { handler: USART2_IRQHandler },
-    Vector { reserved: 0 },
-    Vector { handler: LED_IRQHandler },
+    Vector { handler: LED },
     Vector { reserved: 0 },
 ];
+
+#[doc = r"Enumeration of all the interrupts."]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(u16)]
+pub enum Interrupt {
+    #[doc = "0 - WWDG interrupt"]
+    WWDG = 0,
+    #[doc = "1 - PVD interrupt"]
+    PVD = 1,
+    #[doc = "2 - RTC interrupt"]
+    RTC = 2,
+    #[doc = "3 - FLASH interrupt"]
+    FLASH = 3,
+    #[doc = "4 - RCC interrupt"]
+    RCC = 4,
+    #[doc = "5 - EXTI0_1 interrupt"]
+    EXTI0_1 = 5,
+    #[doc = "6 - EXTI2_3 interrupt"]
+    EXTI2_3 = 6,
+    #[doc = "7 - EXTI4_15 interrupt"]
+    EXTI4_15 = 7,
+    #[doc = "9 - DMA1_CHANNEL1 interrupt"]
+    DMA1_CHANNEL1 = 9,
+    #[doc = "10 - DMA1_CHANNEL2_3 interrupt"]
+    DMA1_CHANNEL2_3 = 10,
+    #[doc = "12 - ADC_COMP interrupt"]
+    ADC_COMP = 12,
+    #[doc = "13 - TIM1_BRK_UP_TRG_COM interrupt"]
+    TIM1_BRK_UP_TRG_COM = 13,
+    #[doc = "14 - TIM1_CC interrupt"]
+    TIM1_CC = 14,
+    #[doc = "16 - TIM3 interrupt"]
+    TIM3 = 16,
+    #[doc = "17 - LPTIM1 interrupt"]
+    LPTIM1 = 17,
+    #[doc = "19 - TIM14 interrupt"]
+    TIM14 = 19,
+    #[doc = "21 - TIM16 interrupt"]
+    TIM16 = 21,
+    #[doc = "22 - TIM17 interrupt"]
+    TIM17 = 22,
+    #[doc = "23 - I2C1 interrupt"]
+    I2C1 = 23,
+    #[doc = "25 - SPI1 interrupt"]
+    SPI1 = 25,
+    #[doc = "26 - SPI2 interrupt"]
+    SPI2 = 26,
+    #[doc = "27 - USART1 interrupt"]
+    USART1 = 27,
+    #[doc = "28 - USART2 interrupt"]
+    USART2 = 28,
+    #[doc = "30 - LED interrupt"]
+    LED = 30,
+}
+
+unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
+    #[inline(always)]
+    fn number(self) -> u16 {
+        self as u16
+    }
+}
