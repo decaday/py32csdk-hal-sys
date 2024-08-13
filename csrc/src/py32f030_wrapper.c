@@ -692,3 +692,36 @@ void HAL_RCC_GET_SYSCLK_SOURCE() {
 void HAL_RCC_CLEAR_RESET_FLAGS() {
     __HAL_RCC_CLEAR_RESET_FLAGS();
 }
+
+
+
+
+/*!< 8MHz HSI calibration trimming value */
+uint32_t RCC_GET_HSICALIBRATION_8MHz() {
+    return RCC_HSICALIBRATION_8MHz;
+}
+
+/*!< 16MHz HSI calibration trimming value */
+uint32_t RCC_GET_HSICALIBRATION_16MHz() {
+    return RCC_HSICALIBRATION_16MHz;
+}
+
+/*!< 22.12MHz HSI calibration trimming value */
+uint32_t RCC_GET_HSICALIBRATION_22p12MHz() {
+    return RCC_HSICALIBRATION_22p12MHz;
+}
+
+/*!< 24MHz HSI calibration trimming value */
+uint32_t RCC_GET_HSICALIBRATION_24MHz() {
+    return RCC_HSICALIBRATION_24MHz;
+}
+
+/*!< Temperature Scale1 */
+uint32_t HAL_GET_ADC_TSCAL1() {
+    return HAL_ADC_TSCAL1;
+}
+
+/*!< Temperature Scale2 */
+uint32_t HAL_GET_ADC_TSCAL2() {
+    return HAL_ADC_TSCAL2;
+}

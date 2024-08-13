@@ -10681,3 +10681,24 @@ extern "C" {
 extern "C" {
     pub fn HAL_RCC_CLEAR_RESET_FLAGS();
 }
+extern "C" {
+    pub fn RCC_GET_HSICALIBRATION_4MHz() -> u32;
+}
+extern "C" {
+    pub fn RCC_GET_HSICALIBRATION_8MHz() -> u32;
+}
+extern "C" {
+    pub fn RCC_GET_HSICALIBRATION_16MHz() -> u32;
+}
+extern "C" {
+    pub fn RCC_GET_HSICALIBRATION_22p12MHz() -> u32;
+}
+extern "C" {
+    pub fn RCC_GET_HSICALIBRATION_24MHz() -> u32;
+}
+extern "C" {
+    pub fn HAL_GET_ADC_TSCAL1() -> u32;
+}
+extern "C" {
+    pub fn HAL_GET_ADC_TSCAL2() -> u32;
+}
