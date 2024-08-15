@@ -1,6 +1,20 @@
-# py32-csdk-hal-sys
+# py32csdk-hal-sys
+
+[![Crates.io](https://img.shields.io/crates/v/py32csdk-hal-sys.svg)](https://crates.io/crates/py32csdk-hal-sys)
 
 This is a crate that generates bindings using the C SDK for PY32F0.
+
+
+
+
+
+**This package is used by bind-hal, you can use bind-hal's rust API.**
+
+**[bind-hal - crates.io](https://crates.io/crates/bind-hal)**
+
+
+
+
 
 ## Supported MCU:
 
