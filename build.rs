@@ -14,7 +14,7 @@ fn main() {
     #[cfg(feature = "py32f030")]
     let mcu_series = "py32f030";
 
-    #[cfg(all(feature = "py32f030", feature = "py32xxx6", feature = "recompile"))]
+    #[cfg(all(feature = "py32f030", feature = "py32xxx6"))]
     let mcu_name = "PY32F030x6";
     #[cfg(all(feature = "py32f030", feature = "py32xxx8"))]
     let mcu_name = "PY32F030x8";
@@ -82,7 +82,7 @@ fn compile(out_path: &mut PathBuf, mcu_name: &str){
     }
 
     // Configure Compiler
-    let mut opt_level = "s";
+    let opt_level: &str;
     let mut debug_flag = None;
     match &*env::var("PROFILE").unwrap() {
         "release" => opt_level = "fast",
@@ -93,10 +93,20 @@ fn compile(out_path: &mut PathBuf, mcu_name: &str){
     };
 
     let mut build = Build::new();
-    build.compiler("arm-none-eabi-gcc")
+    // build.compiler("arm-none-eabi-gcc")
+    //     .opt_level_str(opt_level)
+    //     .flag("-mcpu=cortex-m0plus")
+    //     .flag("-mthumb-interwork")
+    //     .flag("-ffunction-sections")
+    //     .flag("-fdata-sections")
+    //     .flag("-fno-common")
+    //     .flag("-fmessage-length=0")
+    //     .flag("-w")
+    build.compiler("clang")
         .opt_level_str(opt_level)
+        .flag("--target=arm-none-eabi")
         .flag("-mcpu=cortex-m0plus")
-        .flag("-mthumb-interwork")
+        .flag("-mthumb")
         .flag("-ffunction-sections")
         .flag("-fdata-sections")
         .flag("-fno-common")
@@ -111,6 +121,7 @@ fn compile(out_path: &mut PathBuf, mcu_name: &str){
         .include("PY32F0_Drivers/CMSIS/Include")
         .include("PY32F0_Drivers/CMSIS/Device/PY32F0xx/Include")
         .include("PY32F0_Drivers/PY32F0xx_HAL_Driver/Inc")
+        .include("csrc/compile_inc")
         .define("DEBUG", None)
         .define(mcu_name, None);
 
@@ -138,6 +149,7 @@ fn generate_bindings(out_path: &mut PathBuf, mcu_name: &str, mcu_series: &str){
     let bindings = bindgen::Builder::default()
         .header("csrc/inc/wrapper.h")
         .clang_arg("--target=arm-none-eabi")
+        //.clang_arg("-fpack-struct")
         .clang_arg("-Icsrc/inc")
         .clang_arg("-Icsrc/binding_inc")
         .clang_arg("-IPY32F0_Drivers/CMSIS/Include")

@@ -7,5 +7,4 @@
 #include "py32f030_wrapper.h"
 #endif
 
-
 #endif //PY32CSDK_HAL_SYS_WRAPPER_H
