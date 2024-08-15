@@ -1,6 +1,6 @@
 [package]
 name = "py32csdk-hal-sys"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2021"
 license-file = "LICENSE"
 description = "PY32 HAL bindings"
@@ -12,8 +12,8 @@ categories = ["no-std"]
 exclude = [
     "PY32F0_Drivers/CMSIS/DSP_Lib", "PY32F0_Drivers/Examples",
     "PY32F0_Drivers/PY32F0xx_LL_Driver", "PY32F0_Drivers/PY32F002B_LL_Driver",
-    "PY32F0_Drivers/LDScripts", "PY32F0_Drivers/BSP",
-    "scripts"
+    "PY32F0_Drivers/PY32F002B_HAL_Driver", 
+    "PY32F0_Drivers/LDScripts", "PY32F0_Drivers/BSP"
 ]
 
 
