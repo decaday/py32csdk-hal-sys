@@ -38,7 +38,13 @@ fn main() {
 
 #[cfg(not(feature = "recompile"))]
 fn copy_lib_file(out_path: &mut PathBuf, mcu_series: &str){
-    let sourse_path = format!("src/prebuild/{mcu_series}/libpy32csdk_hal.a");
+    let profile = match &*env::var("PROFILE").unwrap() {
+        "release" => "release",
+        "debug" => "release",
+        err_profile => panic!("unsupported profile {err_profile}"),
+    };
+
+    let sourse_path = format!("src/prebuild/{mcu_series}/libpy32csdk_hal_{profile}.a");
     let source = PathBuf::from(sourse_path);
     let destination = out_path.join("libpy32csdk_hal.a");
 
