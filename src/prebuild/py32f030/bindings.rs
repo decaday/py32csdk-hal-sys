@@ -80,6 +80,49 @@ where
         }
     }
 }
+#[repr(C)]
+pub struct __BindgenUnionField<T>(::core::marker::PhantomData<T>);
+impl<T> __BindgenUnionField<T> {
+    #[inline]
+    pub const fn new() -> Self {
+        __BindgenUnionField(::core::marker::PhantomData)
+    }
+    #[inline]
+    pub unsafe fn as_ref(&self) -> &T {
+        ::core::mem::transmute(self)
+    }
+    #[inline]
+    pub unsafe fn as_mut(&mut self) -> &mut T {
+        ::core::mem::transmute(self)
+    }
+}
+impl<T> ::core::default::Default for __BindgenUnionField<T> {
+    #[inline]
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl<T> ::core::clone::Clone for __BindgenUnionField<T> {
+    #[inline]
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl<T> ::core::marker::Copy for __BindgenUnionField<T> {}
+impl<T> ::core::fmt::Debug for __BindgenUnionField<T> {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.write_str("__BindgenUnionField")
+    }
+}
+impl<T> ::core::hash::Hash for __BindgenUnionField<T> {
+    fn hash<H: ::core::hash::Hasher>(&self, _state: &mut H) {}
+}
+impl<T> ::core::cmp::PartialEq for __BindgenUnionField<T> {
+    fn eq(&self, _other: &__BindgenUnionField<T>) -> bool {
+        true
+    }
+}
+impl<T> ::core::cmp::Eq for __BindgenUnionField<T> {}
 pub const HSI_VALUE: u32 = 8000000u32 as u32;
 pub const HSE_VALUE: u32 = 24000000u32 as u32;
 pub const HSE_STARTUP_TIMEOUT: u32 = 200u8 as u32;
@@ -188,15 +231,15 @@ pub const __CORTEX_M: u32 = 0;
 pub const __FPU_USED: u32 = 0;
 #[doc = "\\brief  Union type to access the Application Program Status Register (APSR)."]
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union APSR_Type {
+pub struct APSR_Type {
     #[doc = "< Structure used for bit  access"]
-    pub b: APSR_Type__bindgen_ty_1,
+    pub b: __BindgenUnionField<APSR_Type__bindgen_ty_1>,
     #[doc = "< Type      used for word access"]
-    pub w: u32,
+    pub w: __BindgenUnionField<u32>,
+    pub bindgen_union_field: u32,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct APSR_Type__bindgen_ty_1 {
     pub _bitfield_align_1: [u32; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -310,15 +353,15 @@ pub const APSR_V_Pos: u32 = 28;
 pub const APSR_V_Msk: u32 = 268435456;
 #[doc = "\\brief  Union type to access the Interrupt Program Status Register (IPSR)."]
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union IPSR_Type {
+pub struct IPSR_Type {
     #[doc = "< Structure used for bit  access"]
-    pub b: IPSR_Type__bindgen_ty_1,
+    pub b: __BindgenUnionField<IPSR_Type__bindgen_ty_1>,
     #[doc = "< Type      used for word access"]
-    pub w: u32,
+    pub w: __BindgenUnionField<u32>,
+    pub bindgen_union_field: u32,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct IPSR_Type__bindgen_ty_1 {
     pub _bitfield_align_1: [u32; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -375,16 +418,16 @@ pub const IPSR_ISR_Pos: u32 = 0;
 pub const IPSR_ISR_Msk: u32 = 511;
 #[doc = "\\brief  Union type to access the Special-Purpose Program Status Registers (xPSR)."]
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union xPSR_Type {
+pub struct xPSR_Type {
     #[doc = "< Structure used for bit  access"]
-    pub b: xPSR_Type__bindgen_ty_1,
+    pub b: __BindgenUnionField<xPSR_Type__bindgen_ty_1>,
     #[doc = "< Type      used for word access"]
-    pub w: u32,
+    pub w: __BindgenUnionField<u32>,
+    pub bindgen_union_field: u32,
 }
 #[repr(C)]
 #[repr(align(4))]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct xPSR_Type__bindgen_ty_1 {
     pub _bitfield_align_1: [u16; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -550,15 +593,15 @@ pub const xPSR_ISR_Pos: u32 = 0;
 pub const xPSR_ISR_Msk: u32 = 511;
 #[doc = "\\brief  Union type to access the Control Registers (CONTROL)."]
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union CONTROL_Type {
+pub struct CONTROL_Type {
     #[doc = "< Structure used for bit  access"]
-    pub b: CONTROL_Type__bindgen_ty_1,
+    pub b: __BindgenUnionField<CONTROL_Type__bindgen_ty_1>,
     #[doc = "< Type      used for word access"]
-    pub w: u32,
+    pub w: __BindgenUnionField<u32>,
+    pub bindgen_union_field: u32,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct CONTROL_Type__bindgen_ty_1 {
     pub _bitfield_align_1: [u32; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -637,7 +680,7 @@ pub const CONTROL_nPRIV_Pos: u32 = 0;
 pub const CONTROL_nPRIV_Msk: u32 = 1;
 #[doc = "\\brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct NVIC_Type {
     #[doc = "< Offset: 0x000 (R/W)  Interrupt Set Enable Register"]
     pub ISER: [u32; 1usize],
@@ -676,7 +719,7 @@ const _: () = {
 };
 #[doc = "\\brief  Structure type to access the System Control Block (SCB)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct SCB_Type {
     #[doc = "< Offset: 0x000 (R/ )  CPUID Base Register"]
     pub CPUID: u32,
@@ -764,7 +807,7 @@ pub const SCB_SHCSR_SVCALLPENDED_Pos: u32 = 15;
 pub const SCB_SHCSR_SVCALLPENDED_Msk: u32 = 32768;
 #[doc = "\\brief  Structure type to access the System Timer (SysTick)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct SysTick_Type {
     #[doc = "< Offset: 0x000 (R/W)  SysTick Control and Status Register"]
     pub CTRL: u32,
@@ -834,7 +877,7 @@ extern "C" {
 }
 #[doc = " @brief Analog to Digital Converter"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct ADC_TypeDef {
     #[doc = "< ADC interrupt and status register,             Address offset: 0x00"]
     pub ISR: u32,
@@ -885,7 +928,7 @@ const _: () = {
     ["Offset of field: ADC_TypeDef::CCSR"][::core::mem::offset_of!(ADC_TypeDef, CCSR) - 68usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct ADC_Common_TypeDef {
     #[doc = "< ADC common configuration register,             Address offset: ADC1 base address + 0x308"]
     pub CCR: u32,
@@ -898,7 +941,7 @@ const _: () = {
 };
 #[doc = " @brief CRC calculation unit"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct CRC_TypeDef {
     #[doc = "< CRC Data register,                         Address offset: 0x00"]
     pub DR: u32,
@@ -916,7 +959,7 @@ const _: () = {
 };
 #[doc = " @brief Comparator"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct COMP_TypeDef {
     #[doc = "< COMP control and status register,           Address offset: 0x00"]
     pub CSR: u32,
@@ -930,7 +973,7 @@ const _: () = {
     ["Offset of field: COMP_TypeDef::FR"][::core::mem::offset_of!(COMP_TypeDef, FR) - 4usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct COMP_Common_TypeDef {
     #[doc = "< COMP control and status register located in register of comparator instance odd, used for bits common to several COMP instances, Address offset: 0x00"]
     pub CSR_ODD: u32,
@@ -956,7 +999,7 @@ const _: () = {
 };
 #[doc = " @brief Debug MCU"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct DBGMCU_TypeDef {
     #[doc = "< MCU device ID code,              Address offset: 0x00"]
     pub IDCODE: u32,
@@ -980,7 +1023,7 @@ const _: () = {
 };
 #[doc = " @brief DMA Controller"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct DMA_TypeDef {
     #[doc = "< DMA interrupt status register,                 Address offset: 0x00"]
     pub ISR: u32,
@@ -994,7 +1037,7 @@ const _: () = {
     ["Offset of field: DMA_TypeDef::IFCR"][::core::mem::offset_of!(DMA_TypeDef, IFCR) - 4usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct DMA_Channel_TypeDef {
     #[doc = "< DMA channel x configuration register"]
     pub CCR: u32,
@@ -1019,7 +1062,7 @@ const _: () = {
 };
 #[doc = " @brief Asynch Interrupt/Event Controller (EXTI)"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct EXTI_TypeDef {
     #[doc = "< EXTI Rising Trigger Selection Register 1,        Address offset:   0x00"]
     pub RTSR: u32,
@@ -1066,7 +1109,7 @@ const _: () = {
 };
 #[doc = " @brief FLASH Registers"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct FLASH_TypeDef {
     #[doc = "< FLASH Access Control register,                     Address offset: 0x00"]
     pub ACR: u32,
@@ -1158,7 +1201,7 @@ const _: () = {
 };
 #[doc = " @brief Option Bytes"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct OB_TypeDef {
     #[doc = "< FLASH option byte Read protection,             Address offset: 0x00"]
     pub RDP: u8,
@@ -1204,7 +1247,7 @@ const _: () = {
 };
 #[doc = " @brief General Purpose I/O"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct GPIO_TypeDef {
     #[doc = "< GPIO port mode register,               Address offset: 0x00"]
     pub MODER: u32,
@@ -1246,7 +1289,7 @@ const _: () = {
 };
 #[doc = " @brief Inter-integrated Circuit Interface"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct I2C_TypeDef {
     pub CR1: u32,
     pub CR2: u32,
@@ -1273,7 +1316,7 @@ const _: () = {
 };
 #[doc = " @brief Independent WATCHDOG"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct IWDG_TypeDef {
     #[doc = "< IWDG Key register,       Address offset: 0x00"]
     pub KR: u32,
@@ -1294,7 +1337,7 @@ const _: () = {
 };
 #[doc = " @brief LPTIMER"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct LPTIM_TypeDef {
     #[doc = "< LPTIM Interrupt and Status register,                Address offset: 0x00"]
     pub ISR: u32,
@@ -1329,7 +1372,7 @@ const _: () = {
 };
 #[doc = " @brief Power Control"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct PWR_TypeDef {
     #[doc = "< PWR Power Control Register 1,                     Address offset: 0x00"]
     pub CR1: u32,
@@ -1351,7 +1394,7 @@ const _: () = {
 };
 #[doc = " @brief Reset and Clock Control"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct RCC_TypeDef {
     #[doc = "< RCC Clock Sources Control Register,                                     Address offset: 0x00"]
     pub CR: u32,
@@ -1438,7 +1481,7 @@ const _: () = {
 };
 #[doc = " @brief Real-Time Clock"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct RTC_TypeDef {
     pub CRH: u32,
     pub CRL: u32,
@@ -1473,7 +1516,7 @@ const _: () = {
 };
 #[doc = " @brief Serial Peripheral Interface"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct SPI_TypeDef {
     #[doc = "< SPI Control register 1,                              Address offset: 0x00"]
     pub CR1: u32,
@@ -1494,7 +1537,7 @@ const _: () = {
 };
 #[doc = " @brief System configuration controller"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct SYSCFG_TypeDef {
     #[doc = "< SYSCFG configuration register 1,                   Address offset: 0x00"]
     pub CFGR1: u32,
@@ -1519,7 +1562,7 @@ const _: () = {
 };
 #[doc = " @brief TIM"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct TIM_TypeDef {
     #[doc = "< TIM control register 1,                   Address offset: 0x00"]
     pub CR1: u32,
@@ -1591,7 +1634,7 @@ const _: () = {
 };
 #[doc = " @brief Universal Synchronous Asynchronous Receiver Transmitter"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct USART_TypeDef {
     #[doc = "< USART     Status  register ,              Address offset: 0x00"]
     pub SR: u32,
@@ -1622,7 +1665,7 @@ const _: () = {
 };
 #[doc = " @brief Window WATCHDOG"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct WWDG_TypeDef {
     #[doc = "< WWDG Control register,       Address offset: 0x00"]
     pub CR: u32,
@@ -1639,7 +1682,7 @@ const _: () = {
     ["Offset of field: WWDG_TypeDef::SR"][::core::mem::offset_of!(WWDG_TypeDef, SR) - 8usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct LED_TypeDef {
     #[doc = "< LED Control register,        Address offset: 0x00"]
     pub CR: u32,
@@ -5260,7 +5303,7 @@ pub const RCC_FLAG_MASK: u32 = 31;
 pub const RCC_CLOCKTYPE_ALL: u32 = 7;
 #[doc = " @brief  RCC PLL configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RCC_PLLInitTypeDef {
     #[doc = "< The new state of the PLL.\nThis parameter can be a value of @ref RCC_PLL_Config"]
     pub PLLState: u32,
@@ -5277,7 +5320,7 @@ const _: () = {
 };
 #[doc = " @brief  RCC Internal/External Oscillator (HSE, HSI, LSE and LSI) configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RCC_OscInitTypeDef {
     #[doc = "< The oscillators to be configured.\nThis parameter can be a value of @ref RCC_Oscillator_Type"]
     pub OscillatorType: u32,
@@ -5326,7 +5369,7 @@ const _: () = {
 };
 #[doc = " @brief  RCC System, AHB and APB busses clock configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RCC_ClkInitTypeDef {
     #[doc = "< The clock to be configured.\nThis parameter can be a combination of @ref RCC_System_Clock_Type"]
     pub ClockType: u32,
@@ -5461,7 +5504,7 @@ pub const RCC_FLAG_IWDGRST: u32 = 125;
 pub const RCC_FLAG_WWDGRST: u32 = 126;
 #[doc = " @brief  RCC extended clocks structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RCC_PeriphCLKInitTypeDef {
     #[doc = "< The Extended Clock to be configured.\nThis parameter can be a value of @ref RCCEx_Periph_Clock_Selection"]
     pub PeriphClockSelection: u32,
@@ -5583,7 +5626,7 @@ pub const EXTI_CallbackIDTypeDef_HAL_EXTI_COMMON_CB_ID: EXTI_CallbackIDTypeDef =
 pub type EXTI_CallbackIDTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  EXTI Handle structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct EXTI_HandleTypeDef {
     #[doc = "<  Exti line number"]
     pub Line: u32,
@@ -5600,7 +5643,7 @@ const _: () = {
 };
 #[doc = " @brief  EXTI Configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct EXTI_ConfigTypeDef {
     #[doc = "< The Exti line to be configured. This parameter\ncan be a value of @ref EXTI_Line"]
     pub Line: u32,
@@ -5720,7 +5763,7 @@ extern "C" {
 }
 #[doc = " @defgroup GPIO_Exported_Types GPIO Exported Types\n @{\n/\n/**\n @brief   GPIO Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct GPIO_InitTypeDef {
     #[doc = "< Specifies the GPIO pins to be configured.\nThis parameter can be any value of @ref GPIO_pins"]
     pub Pin: u32,
@@ -5903,7 +5946,7 @@ extern "C" {
 }
 #[doc = " @brief  DMA Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct DMA_InitTypeDef {
     #[doc = "< Specifies if the data will be transferred from memory to peripheral,\nfrom memory to memory or from peripheral to memory.\nThis parameter can be a value of @ref DMA_Data_transfer_direction"]
     pub Direction: u32,
@@ -5968,7 +6011,7 @@ pub const HAL_DMA_CallbackIDTypeDef_HAL_DMA_XFER_ALL_CB_ID: HAL_DMA_CallbackIDTy
 pub type HAL_DMA_CallbackIDTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  DMA handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct __DMA_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut DMA_Channel_TypeDef,
@@ -6161,7 +6204,7 @@ extern "C" {
 }
 #[doc = " @brief  Structure definition of ADC initialization and regular group\n @note   The setting of these parameters with function HAL_ADC_Init() is conditioned to ADC state.\n         ADC state can be either:\n          - For all parameters: ADC disabled (this is the only possible ADC state to modify parameter 'ClockPrescaler')\n          - For all parameters except 'ClockPrescaler' and 'resolution': ADC enabled without conversion on going on regular group.\n         If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed\n         without error reporting (as it can be the expected behaviour in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly)."]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct ADC_InitTypeDef {
     #[doc = "< Select ADC clock source (synchronous clock derived from APB clock or asynchronous clock derived from ADC dedicated HSI RC oscillator 14MHz) and clock prescaler.\nThis parameter can be a value of @ref ADC_ClockPrescaler\nNote: In case of usage of the ADC dedicated HSI RC oscillator, it must be preliminarily enabled at RCC top level.\nNote: This parameter can be modified only if the ADC is disabled"]
     pub ClockPrescaler: u32,
@@ -6222,7 +6265,7 @@ const _: () = {
 };
 #[doc = " @brief  Structure definition of ADC channel for regular group\n @note   The setting of these parameters with function HAL_ADC_ConfigChannel() is conditioned to ADC state.\n         ADC state can be either:\n          - For all parameters: ADC disabled or enabled without conversion on going on regular group.\n         If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed\n         without error reporting (as it can be the expected behaviour in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly)."]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct ADC_ChannelConfTypeDef {
     #[doc = "< Specifies the channel to configure into ADC regular group.\nThis parameter can be a value of @ref ADC_channels\nNote: Depending on devices, some channels may not be available on package pins. Refer to device datasheet for channels availability."]
     pub Channel: u32,
@@ -6244,7 +6287,7 @@ const _: () = {
 };
 #[doc = " @brief  Structure definition of ADC analog watchdog\n @note   The setting of these parameters with function HAL_ADC_AnalogWDGConfig() is conditioned to ADC state.\n         ADC state can be either: ADC disabled or ADC enabled without conversion on going on regular group."]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct ADC_AnalogWDGConfTypeDef {
     #[doc = "< Configures the ADC analog watchdog mode: single/all/none channels.\nThis parameter can be a value of @ref ADC_analog_watchdog_mode."]
     pub WatchdogMode: u32,
@@ -6293,7 +6336,7 @@ pub const HAL_ADC_STATE_AWD3: u32 = 262144;
 pub const HAL_ADC_STATE_MULTIMODE_SLAVE: u32 = 1048576;
 #[doc = " @brief  ADC handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct __ADC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut ADC_TypeDef,
@@ -6533,7 +6576,7 @@ pub const HAL_CRC_StateTypeDef_HAL_CRC_STATE_ERROR: HAL_CRC_StateTypeDef = 4;
 pub type HAL_CRC_StateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  CRC Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct CRC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut CRC_TypeDef,
@@ -6586,7 +6629,7 @@ extern "C" {
 }
 #[doc = " @brief  FLASH Erase structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct FLASH_EraseInitTypeDef {
     #[doc = "< Mass erase or page erase.\nThis parameter can be a value of @ref FLASH_Type_Erase"]
     pub TypeErase: u32,
@@ -6616,7 +6659,7 @@ const _: () = {
 };
 #[doc = " @brief  FLASH Option Bytes PROGRAM structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct FLASH_OBProgramInitTypeDef {
     #[doc = "< OptionType: Option byte to be configured.\nThis parameter can be a value of @ref FLASH_Option_Type"]
     pub OptionType: u32,
@@ -6655,7 +6698,7 @@ const _: () = {
 };
 #[doc = " @brief  FLASH handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct FLASH_ProcessTypeDef {
     pub Lock: HAL_LockTypeDef,
     pub ErrorCode: u32,
@@ -6850,7 +6893,7 @@ pub const FLASH_FLAG_SR_ERROR: u32 = 32784;
 pub const FLASH_FLAG_SR_CLEAR: u32 = 32785;
 #[doc = " @defgroup I2C_Configuration_Structure_definition I2C Configuration Structure definition\n @brief  I2C Configuration Structure definition\n @{"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct I2C_InitTypeDef {
     #[doc = "< Specifies the clock frequency.\nThis parameter must be set to a value lower than 400kHz"]
     pub ClockSpeed: u32,
@@ -6922,7 +6965,7 @@ pub const HAL_I2C_ERROR_TIMEOUT: u32 = 32;
 pub const HAL_I2C_ERROR_SIZE: u32 = 64;
 #[doc = " @defgroup I2C_handle_Structure_definition I2C handle Structure definition\n @brief  I2C handle Structure definition\n @{"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct __I2C_HandleTypeDef {
     #[doc = "< I2C registers base address"]
     pub Instance: *mut I2C_TypeDef,
@@ -7352,7 +7395,7 @@ pub const I2C_MIN_PCLK_FREQ_STANDARD: u32 = 2000000;
 pub const I2C_MIN_PCLK_FREQ_FAST: u32 = 4000000;
 #[doc = " @brief  IWDG Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct IWDG_InitTypeDef {
     #[doc = "< Select the prescaler of the IWDG.\nThis parameter can be a value of @ref IWDG_Prescaler"]
     pub Prescaler: u32,
@@ -7369,7 +7412,7 @@ const _: () = {
 };
 #[doc = " @brief  IWDG Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct IWDG_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut IWDG_TypeDef,
@@ -7405,7 +7448,7 @@ pub const IWDG_KEY_WRITE_ACCESS_ENABLE: u32 = 21845;
 pub const IWDG_KEY_WRITE_ACCESS_DISABLE: u32 = 0;
 #[doc = " @brief  PWR PVD configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct PWR_PVDTypeDef {
     #[doc = "< PVDSource: Specifies the PVD detection source.\nThis parameter can be a value of @ref PWR_PVD_Source."]
     pub PVDSource: u32,
@@ -7430,7 +7473,7 @@ const _: () = {
 };
 #[doc = " @brief  PWR Stop configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct PWR_StopModeConfigTypeDef {
     #[doc = "< LPVoltSelection: Set the low power internal regulator output voltage.\nThis parameter can be a value of @ref PWR_STOP_LPR_Voltage."]
     pub LPVoltSelection: u32,
@@ -7461,7 +7504,7 @@ const _: () = {
 };
 #[doc = " @brief  PWR BIAS configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct PWR_BIASConfigTypeDef {
     #[doc = "< BiasCurrentSource: Set the bias currents load source.\nThis parameter can be a value of @ref PWR_MR_BiasCurrent_Source."]
     pub BiasCurrentSource: u32,
@@ -7585,7 +7628,7 @@ pub const RTC_RTOFF_RESET_TIMEOUT_VALUE: u32 = 4;
 pub const RTC_EXTI_LINE_ALARM_EVENT: u32 = 524288u32 as u32;
 #[doc = " @defgroup RTC_Exported_Types RTC Exported Types\n @{\n/\n/**\n @brief  RTC Time structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct RTC_TimeTypeDef {
     #[doc = "< Specifies the RTC Time Hour.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 23"]
     pub Hours: u8,
@@ -7606,7 +7649,7 @@ const _: () = {
 };
 #[doc = " @brief  RTC Alarm structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct RTC_AlarmTypeDef {
     #[doc = "< Specifies the RTC Alarm Time members"]
     pub AlarmTime: RTC_TimeTypeDef,
@@ -7631,7 +7674,7 @@ pub const HAL_RTCStateTypeDef_HAL_RTC_STATE_ERROR: HAL_RTCStateTypeDef = 4;
 pub type HAL_RTCStateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  RTC Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RTC_InitTypeDef {
     #[doc = "< Specifies the RTC Asynchronous Predivider value.\nThis parameter must be a number between Min_Data = 0x00 and Max_Data = 0xFFFFF  or RTC_AUTO_1_SECOND\nIf RTC_AUTO_1_SECOND is selected, AsynchPrediv will be set automatically to get 1sec timebase"]
     pub AsynchPrediv: u32,
@@ -7648,7 +7691,7 @@ const _: () = {
 };
 #[doc = " @brief  RTC Date structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct RTC_DateTypeDef {
     #[doc = "< Specifies the RTC Date WeekDay (not necessary for HAL_RTC_SetDate).\nThis parameter can be a value of @ref RTC_WeekDay_Definitions"]
     pub WeekDay: u8,
@@ -7672,7 +7715,7 @@ const _: () = {
         [::core::mem::offset_of!(RTC_DateTypeDef, Year) - 3usize];
 };
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct RTC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut RTC_TypeDef,
@@ -7848,7 +7891,7 @@ extern "C" {
 }
 #[doc = " @brief  SPI Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct SPI_InitTypeDef {
     #[doc = "< Specifies the SPI operating mode.\nThis parameter can be a value of @ref SPI_Mode"]
     pub Mode: u32,
@@ -7911,7 +7954,7 @@ pub const HAL_SPI_StateTypeDef_HAL_SPI_STATE_ABORT: HAL_SPI_StateTypeDef = 7;
 pub type HAL_SPI_StateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  SPI handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct __SPI_HandleTypeDef {
     #[doc = "< SPI registers base address"]
     pub Instance: *mut SPI_TypeDef,
@@ -8169,7 +8212,7 @@ extern "C" {
 }
 #[doc = " @brief  TIM Time base Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_Base_InitTypeDef {
     #[doc = "< Specifies the prescaler value used to divide the TIM clock.\nThis parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF"]
     pub Prescaler: u32,
@@ -8202,7 +8245,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Output Compare Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_OC_InitTypeDef {
     #[doc = "< Specifies the TIM mode.\nThis parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes"]
     pub OCMode: u32,
@@ -8239,7 +8282,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM One Pulse Mode Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_OnePulse_InitTypeDef {
     #[doc = "< Specifies the TIM mode.\nThis parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes"]
     pub OCMode: u32,
@@ -8286,7 +8329,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Input Capture Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_IC_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Input_Capture_Polarity"]
     pub ICPolarity: u32,
@@ -8311,7 +8354,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Encoder Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_Encoder_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Encoder_Mode"]
     pub EncoderMode: u32,
@@ -8358,7 +8401,7 @@ const _: () = {
 };
 #[doc = " @brief  Clock Configuration Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_ClockConfigTypeDef {
     #[doc = "< TIM clock sources\nThis parameter can be a value of @ref TIM_Clock_Source"]
     pub ClockSource: u32,
@@ -8384,7 +8427,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Clear Input Configuration Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_ClearInputConfigTypeDef {
     #[doc = "< TIM clear Input state\nThis parameter can be ENABLE or DISABLE"]
     pub ClearInputState: u32,
@@ -8415,7 +8458,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Master configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_MasterConfigTypeDef {
     #[doc = "< Trigger output (TRGO) selection\nThis parameter can be a value of @ref TIM_Master_Mode_Selection"]
     pub MasterOutputTrigger: u32,
@@ -8433,7 +8476,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Slave configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_SlaveConfigTypeDef {
     #[doc = "< Slave mode selection\nThis parameter can be a value of @ref TIM_Slave_Mode"]
     pub SlaveMode: u32,
@@ -8463,7 +8506,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Break input(s) and Dead time configuration Structure definition\n @note   2 break inputs can be configured (BKIN and BKIN2) with configurable\n        filter and polarity."]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_BreakDeadTimeConfigTypeDef {
     #[doc = "< TIM off state in run mode\nThis parameter can be a value of @ref TIM_OSSR_Off_State_Selection_for_Run_mode_state"]
     pub OffStateRunMode: u32,
@@ -8529,7 +8572,7 @@ pub const HAL_TIM_ActiveChannel_HAL_TIM_ACTIVE_CHANNEL_CLEARED: HAL_TIM_ActiveCh
 #[doc = " @brief  HAL Active channel structures definition"]
 pub type HAL_TIM_ActiveChannel = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut TIM_TypeDef,
@@ -8791,7 +8834,7 @@ pub const TIM_CCER_CCxE_MASK: u32 = 4369u16 as u32;
 pub const TIM_CCER_CCxNE_MASK: u32 = 1092u16 as u32;
 #[doc = " @brief  TIM Hall sensor Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct TIM_HallSensor_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Input_Capture_Polarity"]
     pub IC1Polarity: u32,
@@ -9437,7 +9480,7 @@ extern "C" {
 }
 #[doc = " @brief  LPTIM Initialization Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct LPTIM_InitTypeDef {
     #[doc = "< Specifies the counter clock Prescaler.\nThis parameter can be a value of @ref LPTIM_Clock_Prescaler"]
     pub Prescaler: u32,
@@ -9465,7 +9508,7 @@ pub const HAL_LPTIM_StateTypeDef_HAL_LPTIM_STATE_ERROR: HAL_LPTIM_StateTypeDef =
 #[doc = " @brief  HAL LPTIM State structure definition"]
 pub type HAL_LPTIM_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct LPTIM_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut LPTIM_TypeDef,
@@ -9548,7 +9591,7 @@ extern "C" {
 }
 #[doc = " @brief UART Init Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct UART_InitTypeDef {
     #[doc = "< This member configures the UART communication baud rate.\nThe baud rate is computed using the following formula:\n- IntegerDivider = ((PCLKx) / (16 * (huart->Init.BaudRate)))\n- FractionalDivider = ((IntegerDivider - ((uint32_t) IntegerDivider)) * 16) + 0.5"]
     pub BaudRate: u32,
@@ -9602,7 +9645,7 @@ pub const HAL_UART_StateTypeDef_HAL_UART_STATE_ERROR: HAL_UART_StateTypeDef = 22
 #[doc = " @brief HAL UART State structures definition\n @note  HAL UART State value is a combination of 2 different substates: gState and RxState.\n        - gState contains UART state information related to global Handle management\n          and also information related to Tx operations.\n          gState value coding follow below described bitmap :\n          b7-b6  Error information\n             00 : No Error\n             01 : (Not Used)\n             10 : Timeout\n             11 : Error\n          b5     Peripheral initialization status\n             0  : Reset (Peripheral not initialized)\n             1  : Init done (Peripheral not initialized. HAL UART Init function already called)\n          b4-b3  (not used)\n             xx : Should be set to 00\n          b2     Intrinsic process state\n             0  : Ready\n             1  : Busy (Peripheral busy with some configuration or internal operations)\n          b1     (not used)\n             x  : Should be set to 0\n          b0     Tx state\n             0  : Ready (no Tx operation ongoing)\n             1  : Busy (Tx operation ongoing)\n        - RxState contains information related to Rx operations.\n          RxState value coding follow below described bitmap :\n          b7-b6  (not used)\n             xx : Should be set to 00\n          b5     Peripheral initialization status\n             0  : Reset (Peripheral not initialized)\n             1  : Init done (Peripheral not initialized)\n          b4-b2  (not used)\n            xxx : Should be set to 000\n          b1     Rx state\n             0  : Ready (no Rx operation ongoing)\n             1  : Busy (Rx operation ongoing)\n          b0     (not used)\n             x  : Should be set to 0."]
 pub type HAL_UART_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct UART_AdvFeatureInitTypeDef {
     #[doc = "< Specifies which advanced UART features is initialized. Several\nAdvanced Features may be initialized at the same time .\nThis parameter can be a value of @ref UART_Advanced_Features_Initialization_Type."]
     pub AdvFeatureInit: u32,
@@ -9625,7 +9668,7 @@ const _: () = {
 };
 #[doc = " @brief  UART handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct __UART_HandleTypeDef {
     #[doc = "< UART registers base address"]
     pub Instance: *mut USART_TypeDef,
@@ -9899,7 +9942,7 @@ pub const UART_CR2_REG_INDEX: u32 = 2;
 pub const UART_CR3_REG_INDEX: u32 = 3;
 #[doc = " @brief  WWDG Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct WWDG_InitTypeDef {
     #[doc = "< Specifies the prescaler value of the WWDG.\nThis parameter can be a value of @ref WWDG_Prescaler"]
     pub Prescaler: u32,
@@ -9923,7 +9966,7 @@ const _: () = {
         [::core::mem::offset_of!(WWDG_InitTypeDef, EWIMode) - 12usize];
 };
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct WWDG_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut WWDG_TypeDef,
@@ -9965,7 +10008,7 @@ extern "C" {
 }
 #[doc = " @brief LED Init Structure definition"]
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct LED_InitTypeDef {
     #[doc = "< Specifies the LED COM drive capability.\nThis parameter can be a value of @ref LED_COMDrive"]
     pub ComDrive: u32,
@@ -10005,7 +10048,7 @@ pub const HAL_LED_StateTypeDef_HAL_LED_STATE_ERROR: HAL_LED_StateTypeDef = 4;
 #[doc = " @brief HAL LED State structures definition"]
 pub type HAL_LED_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct LED_HandleTypeDef {
     pub Instance: *mut LED_TypeDef,
     pub Init: LED_InitTypeDef,
@@ -10073,6 +10116,300 @@ extern "C" {
 extern "C" {
     pub fn HAL_LED_IRQHandler(hled: *mut LED_HandleTypeDef);
 }
+#[doc = " @brief USART Init Structure definition"]
+#[repr(C)]
+#[derive(Debug)]
+pub struct USART_InitTypeDef {
+    #[doc = "< This member configures the Usart communication baud rate.\nThe baud rate is computed using the following formula:\n- IntegerDivider = ((PCLKx) / (16 * (husart->Init.BaudRate)))\n- FractionalDivider = ((IntegerDivider - ((uint32_t) IntegerDivider)) * 16) + 0.5"]
+    pub BaudRate: u32,
+    #[doc = "< Specifies the number of data bits transmitted or received in a frame.\nThis parameter can be a value of @ref USART_Word_Length"]
+    pub WordLength: u32,
+    #[doc = "< Specifies the number of stop bits transmitted.\nThis parameter can be a value of @ref USART_Stop_Bits"]
+    pub StopBits: u32,
+    #[doc = "< Specifies the parity mode.\nThis parameter can be a value of @ref USART_Parity\n@note When parity is enabled, the computed parity is inserted\nat the MSB position of the transmitted data (9th bit when\nthe word length is set to 9 data bits; 8th bit when the\nword length is set to 8 data bits)."]
+    pub Parity: u32,
+    #[doc = "< Specifies whether the Receive or Transmit mode is enabled or disabled.\nThis parameter can be a value of @ref USART_Mode"]
+    pub Mode: u32,
+    #[doc = "< Specifies the steady state of the serial clock.\nThis parameter can be a value of @ref USART_Clock_Polarity"]
+    pub CLKPolarity: u32,
+    #[doc = "< Specifies the clock transition on which the bit capture is made.\nThis parameter can be a value of @ref USART_Clock_Phase"]
+    pub CLKPhase: u32,
+    #[doc = "< Specifies whether the clock pulse corresponding to the last transmitted\ndata bit (MSB) has to be output on the SCLK pin in synchronous mode.\nThis parameter can be a value of @ref USART_Last_Bit"]
+    pub CLKLastBit: u32,
+}
+const _: () = {
+    ["Size of USART_InitTypeDef"][::core::mem::size_of::<USART_InitTypeDef>() - 32usize];
+    ["Alignment of USART_InitTypeDef"][::core::mem::align_of::<USART_InitTypeDef>() - 4usize];
+    ["Offset of field: USART_InitTypeDef::BaudRate"]
+        [::core::mem::offset_of!(USART_InitTypeDef, BaudRate) - 0usize];
+    ["Offset of field: USART_InitTypeDef::WordLength"]
+        [::core::mem::offset_of!(USART_InitTypeDef, WordLength) - 4usize];
+    ["Offset of field: USART_InitTypeDef::StopBits"]
+        [::core::mem::offset_of!(USART_InitTypeDef, StopBits) - 8usize];
+    ["Offset of field: USART_InitTypeDef::Parity"]
+        [::core::mem::offset_of!(USART_InitTypeDef, Parity) - 12usize];
+    ["Offset of field: USART_InitTypeDef::Mode"]
+        [::core::mem::offset_of!(USART_InitTypeDef, Mode) - 16usize];
+    ["Offset of field: USART_InitTypeDef::CLKPolarity"]
+        [::core::mem::offset_of!(USART_InitTypeDef, CLKPolarity) - 20usize];
+    ["Offset of field: USART_InitTypeDef::CLKPhase"]
+        [::core::mem::offset_of!(USART_InitTypeDef, CLKPhase) - 24usize];
+    ["Offset of field: USART_InitTypeDef::CLKLastBit"]
+        [::core::mem::offset_of!(USART_InitTypeDef, CLKLastBit) - 28usize];
+};
+#[doc = "< Peripheral is not yet Initialized"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_RESET: HAL_USART_StateTypeDef = 0;
+#[doc = "< Peripheral Initialized and ready for use"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_READY: HAL_USART_StateTypeDef = 1;
+#[doc = "< an internal process is ongoing"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_BUSY: HAL_USART_StateTypeDef = 2;
+#[doc = "< Data Transmission process is ongoing"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_BUSY_TX: HAL_USART_StateTypeDef = 18;
+#[doc = "< Data Reception process is ongoing"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_BUSY_RX: HAL_USART_StateTypeDef = 34;
+#[doc = "< Data Transmission Reception process is ongoing"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_BUSY_TX_RX: HAL_USART_StateTypeDef = 50;
+#[doc = "< Timeout state"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_TIMEOUT: HAL_USART_StateTypeDef = 3;
+#[doc = "< Error"]
+pub const HAL_USART_StateTypeDef_HAL_USART_STATE_ERROR: HAL_USART_StateTypeDef = 4;
+#[doc = " @brief HAL State structures definition"]
+pub type HAL_USART_StateTypeDef = ::core::ffi::c_uint;
+#[doc = " @brief  USART handle Structure definition"]
+#[repr(C)]
+#[derive(Debug)]
+pub struct __USART_HandleTypeDef {
+    #[doc = "< USART registers base address"]
+    pub Instance: *mut USART_TypeDef,
+    #[doc = "< Usart communication parameters"]
+    pub Init: USART_InitTypeDef,
+    #[doc = "< Pointer to Usart Tx transfer Buffer"]
+    pub pTxBuffPtr: *mut u8,
+    #[doc = "< Usart Tx Transfer size"]
+    pub TxXferSize: u16,
+    #[doc = "< Usart Tx Transfer Counter"]
+    pub TxXferCount: u16,
+    #[doc = "< Pointer to Usart Rx transfer Buffer"]
+    pub pRxBuffPtr: *mut u8,
+    #[doc = "< Usart Rx Transfer size"]
+    pub RxXferSize: u16,
+    #[doc = "< Usart Rx Transfer Counter"]
+    pub RxXferCount: u16,
+    #[doc = "< Usart Tx DMA Handle parameters"]
+    pub hdmatx: *mut DMA_HandleTypeDef,
+    #[doc = "< Usart Rx DMA Handle parameters"]
+    pub hdmarx: *mut DMA_HandleTypeDef,
+    #[doc = "< Locking object"]
+    pub Lock: HAL_LockTypeDef,
+    #[doc = "< Usart communication state"]
+    pub State: HAL_USART_StateTypeDef,
+    #[doc = "< USART Error code"]
+    pub ErrorCode: u32,
+}
+const _: () = {
+    ["Size of __USART_HandleTypeDef"][::core::mem::size_of::<__USART_HandleTypeDef>() - 72usize];
+    ["Alignment of __USART_HandleTypeDef"]
+        [::core::mem::align_of::<__USART_HandleTypeDef>() - 4usize];
+    ["Offset of field: __USART_HandleTypeDef::Instance"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, Instance) - 0usize];
+    ["Offset of field: __USART_HandleTypeDef::Init"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, Init) - 4usize];
+    ["Offset of field: __USART_HandleTypeDef::pTxBuffPtr"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, pTxBuffPtr) - 36usize];
+    ["Offset of field: __USART_HandleTypeDef::TxXferSize"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, TxXferSize) - 40usize];
+    ["Offset of field: __USART_HandleTypeDef::TxXferCount"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, TxXferCount) - 42usize];
+    ["Offset of field: __USART_HandleTypeDef::pRxBuffPtr"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, pRxBuffPtr) - 44usize];
+    ["Offset of field: __USART_HandleTypeDef::RxXferSize"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, RxXferSize) - 48usize];
+    ["Offset of field: __USART_HandleTypeDef::RxXferCount"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, RxXferCount) - 50usize];
+    ["Offset of field: __USART_HandleTypeDef::hdmatx"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, hdmatx) - 52usize];
+    ["Offset of field: __USART_HandleTypeDef::hdmarx"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, hdmarx) - 56usize];
+    ["Offset of field: __USART_HandleTypeDef::Lock"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, Lock) - 60usize];
+    ["Offset of field: __USART_HandleTypeDef::State"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, State) - 64usize];
+    ["Offset of field: __USART_HandleTypeDef::ErrorCode"]
+        [::core::mem::offset_of!(__USART_HandleTypeDef, ErrorCode) - 68usize];
+};
+#[doc = " @brief  USART handle Structure definition"]
+pub type USART_HandleTypeDef = __USART_HandleTypeDef;
+pub const HAL_USART_ERROR_NONE: u32 = 0;
+pub const HAL_USART_ERROR_PE: u32 = 1;
+pub const HAL_USART_ERROR_NE: u32 = 2;
+pub const HAL_USART_ERROR_FE: u32 = 4;
+pub const HAL_USART_ERROR_ORE: u32 = 8;
+pub const HAL_USART_ERROR_DMA: u32 = 16;
+pub const USART_WORDLENGTH_8B: u32 = 0;
+pub const USART_WORDLENGTH_9B: u32 = 4096u16 as u32;
+pub const USART_STOPBITS_1: u32 = 0;
+pub const USART_STOPBITS_2: u32 = 8192u16 as u32;
+pub const USART_PARITY_NONE: u32 = 0;
+pub const USART_PARITY_EVEN: u32 = 1024u16 as u32;
+pub const USART_PARITY_ODD: u32 = 1536u16 as u32;
+pub const USART_MODE_RX: u32 = 4u8 as u32;
+pub const USART_MODE_TX: u32 = 8u8 as u32;
+pub const USART_MODE_TX_RX: u32 = 12u8 as u32;
+pub const USART_CLOCK_DISABLE: u32 = 0;
+pub const USART_CLOCK_ENABLE: u32 = 2048u16 as u32;
+pub const USART_POLARITY_LOW: u32 = 0;
+pub const USART_POLARITY_HIGH: u32 = 1024u16 as u32;
+pub const USART_PHASE_1EDGE: u32 = 0;
+pub const USART_PHASE_2EDGE: u32 = 512u16 as u32;
+pub const USART_LASTBIT_DISABLE: u32 = 0;
+pub const USART_LASTBIT_ENABLE: u32 = 256u16 as u32;
+pub const USART_FLAG_TXE: u32 = 128u8 as u32;
+pub const USART_FLAG_TC: u32 = 64u8 as u32;
+pub const USART_FLAG_RXNE: u32 = 32u8 as u32;
+pub const USART_FLAG_IDLE: u32 = 16u8 as u32;
+pub const USART_FLAG_ORE: u32 = 8u8 as u32;
+pub const USART_FLAG_NE: u32 = 4u8 as u32;
+pub const USART_FLAG_FE: u32 = 2u8 as u32;
+pub const USART_FLAG_PE: u32 = 1u8 as u32;
+pub const USART_IT_PE: u32 = 268435712u32 as u32;
+pub const USART_IT_TXE: u32 = 268435584u32 as u32;
+pub const USART_IT_TC: u32 = 268435520u32 as u32;
+pub const USART_IT_RXNE: u32 = 268435488u32 as u32;
+pub const USART_IT_IDLE: u32 = 268435472u32 as u32;
+pub const USART_IT_ERR: u32 = 805306369u32 as u32;
+extern "C" {
+    #[doc = " @addtogroup USART_Exported_Functions_Group1\n @{"]
+    pub fn HAL_USART_Init(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_DeInit(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_MspInit(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_MspDeInit(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    #[doc = " @addtogroup USART_Exported_Functions_Group2\n @{"]
+    pub fn HAL_USART_Transmit(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        Size: u16,
+        Timeout: u32,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Receive(
+        husart: *mut USART_HandleTypeDef,
+        pRxData: *mut u8,
+        Size: u16,
+        Timeout: u32,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_TransmitReceive(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        pRxData: *mut u8,
+        Size: u16,
+        Timeout: u32,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Transmit_IT(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Receive_IT(
+        husart: *mut USART_HandleTypeDef,
+        pRxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_TransmitReceive_IT(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        pRxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Transmit_DMA(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Receive_DMA(
+        husart: *mut USART_HandleTypeDef,
+        pRxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_TransmitReceive_DMA(
+        husart: *mut USART_HandleTypeDef,
+        pTxData: *mut u8,
+        pRxData: *mut u8,
+        Size: u16,
+    ) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_DMAPause(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_DMAResume(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_DMAStop(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Abort(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_Abort_IT(husart: *mut USART_HandleTypeDef) -> HAL_StatusTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_IRQHandler(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_TxCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_TxHalfCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_RxCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_RxHalfCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_TxRxCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_ErrorCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    pub fn HAL_USART_AbortCpltCallback(husart: *mut USART_HandleTypeDef);
+}
+extern "C" {
+    #[doc = " @addtogroup USART_Exported_Functions_Group3\n @{"]
+    pub fn HAL_USART_GetState(husart: *mut USART_HandleTypeDef) -> HAL_USART_StateTypeDef;
+}
+extern "C" {
+    pub fn HAL_USART_GetError(husart: *mut USART_HandleTypeDef) -> u32;
+}
+pub const USART_IT_MASK: u32 = 256u16 as u32 | 128 | 64 | 32 | 16 | 1024 | 1;
+pub const USART_CR1_REG_INDEX: u32 = 1;
+pub const USART_CR2_REG_INDEX: u32 = 2;
+pub const USART_CR3_REG_INDEX: u32 = 3;
 pub const HAL_TickFreqTypeDef_HAL_TICK_FREQ_10HZ: HAL_TickFreqTypeDef = 100;
 pub const HAL_TickFreqTypeDef_HAL_TICK_FREQ_100HZ: HAL_TickFreqTypeDef = 10;
 pub const HAL_TickFreqTypeDef_HAL_TICK_FREQ_1KHZ: HAL_TickFreqTypeDef = 1;

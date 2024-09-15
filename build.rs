@@ -165,7 +165,7 @@ fn generate_bindings(out_path: &mut PathBuf, mcu_name: &str, mcu_series: &str){
         .clang_arg(format!("-D{mcu_name}"))
         .clang_arg(format!("-D{mcu_series}"))
         .use_core()
-        .no_copy("InitTypeDef$")// ConfTypeDef HandleTypeDef _TypeDef ConfigTypeDef
+        .no_copy(".*")
         .generate()
         .expect("Unable to generate bindings");
 
