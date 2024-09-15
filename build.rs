@@ -115,6 +115,7 @@ fn compile(out_path: &mut PathBuf, mcu_name: &str){
         .flag("-mthumb")
         .flag("-ffunction-sections")
         .flag("-fdata-sections")
+        //.flag("-fpack-struct=4")
         .flag("-fno-common")
         .flag("-fmessage-length=0")
         .flag("-w")
@@ -164,6 +165,7 @@ fn generate_bindings(out_path: &mut PathBuf, mcu_name: &str, mcu_series: &str){
         .clang_arg(format!("-D{mcu_name}"))
         .clang_arg(format!("-D{mcu_series}"))
         .use_core()
+        .no_copy("InitTypeDef$")// ConfTypeDef HandleTypeDef _TypeDef ConfigTypeDef
         .generate()
         .expect("Unable to generate bindings");
 

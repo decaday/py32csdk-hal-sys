@@ -33,16 +33,17 @@ cc = { version = "1.0", optional = true}
 
 [patch.crates-io]
 # not work
-cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
+# cmacro = { git = "https://github.com/reitermarkus/cmacro-rs" }
 
 # bindgen = { git = "https://github.com/rust-lang/rust-bindgen.git", rev = "bcaae59d8e6bb79c40c1785d53a5f8a491a4de11", features = ["experimental"]}
-bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
+# bindgen = { path = "../test/rust-bindgen/bindgen", features = ["experimental"], optional = true}
 
 
 
 [features]
 default = ["py32f030", "py32xxx6", "rt"]
-recompile = ["regenerate-bindings", "cc"]
+# recompile = ["regenerate-bindings", "cc"]
+recompile = [ "cc"]
 regenerate-bindings = ["bindgen"]
 rt = ["cortex-m-rt/device"]
 py32f030 = []

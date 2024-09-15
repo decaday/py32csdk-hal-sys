@@ -50,11 +50,13 @@
 #define HAL_PWR_MODULE_ENABLED
 #define HAL_I2C_MODULE_ENABLED
 #define HAL_UART_MODULE_ENABLED
+#define HAL_USART_MODULE_ENABLED
 #define HAL_SPI_MODULE_ENABLED
 #define HAL_RTC_MODULE_ENABLED
 #define HAL_LED_MODULE_ENABLED
 #define HAL_EXTI_MODULE_ENABLED
 #define HAL_CORTEX_MODULE_ENABLED
+
   
 /* ########################## Oscillator Values adaptation ####################*/
 

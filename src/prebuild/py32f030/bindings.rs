@@ -5260,7 +5260,7 @@ pub const RCC_FLAG_MASK: u32 = 31;
 pub const RCC_CLOCKTYPE_ALL: u32 = 7;
 #[doc = " @brief  RCC PLL configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RCC_PLLInitTypeDef {
     #[doc = "< The new state of the PLL.\nThis parameter can be a value of @ref RCC_PLL_Config"]
     pub PLLState: u32,
@@ -5277,7 +5277,7 @@ const _: () = {
 };
 #[doc = " @brief  RCC Internal/External Oscillator (HSE, HSI, LSE and LSI) configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RCC_OscInitTypeDef {
     #[doc = "< The oscillators to be configured.\nThis parameter can be a value of @ref RCC_Oscillator_Type"]
     pub OscillatorType: u32,
@@ -5326,7 +5326,7 @@ const _: () = {
 };
 #[doc = " @brief  RCC System, AHB and APB busses clock configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RCC_ClkInitTypeDef {
     #[doc = "< The clock to be configured.\nThis parameter can be a combination of @ref RCC_System_Clock_Type"]
     pub ClockType: u32,
@@ -5461,7 +5461,7 @@ pub const RCC_FLAG_IWDGRST: u32 = 125;
 pub const RCC_FLAG_WWDGRST: u32 = 126;
 #[doc = " @brief  RCC extended clocks structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RCC_PeriphCLKInitTypeDef {
     #[doc = "< The Extended Clock to be configured.\nThis parameter can be a value of @ref RCCEx_Periph_Clock_Selection"]
     pub PeriphClockSelection: u32,
@@ -5583,7 +5583,7 @@ pub const EXTI_CallbackIDTypeDef_HAL_EXTI_COMMON_CB_ID: EXTI_CallbackIDTypeDef =
 pub type EXTI_CallbackIDTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  EXTI Handle structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct EXTI_HandleTypeDef {
     #[doc = "<  Exti line number"]
     pub Line: u32,
@@ -5600,7 +5600,7 @@ const _: () = {
 };
 #[doc = " @brief  EXTI Configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct EXTI_ConfigTypeDef {
     #[doc = "< The Exti line to be configured. This parameter\ncan be a value of @ref EXTI_Line"]
     pub Line: u32,
@@ -5720,7 +5720,7 @@ extern "C" {
 }
 #[doc = " @defgroup GPIO_Exported_Types GPIO Exported Types\n @{\n/\n/**\n @brief   GPIO Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct GPIO_InitTypeDef {
     #[doc = "< Specifies the GPIO pins to be configured.\nThis parameter can be any value of @ref GPIO_pins"]
     pub Pin: u32,
@@ -5903,7 +5903,7 @@ extern "C" {
 }
 #[doc = " @brief  DMA Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct DMA_InitTypeDef {
     #[doc = "< Specifies if the data will be transferred from memory to peripheral,\nfrom memory to memory or from peripheral to memory.\nThis parameter can be a value of @ref DMA_Data_transfer_direction"]
     pub Direction: u32,
@@ -5968,7 +5968,7 @@ pub const HAL_DMA_CallbackIDTypeDef_HAL_DMA_XFER_ALL_CB_ID: HAL_DMA_CallbackIDTy
 pub type HAL_DMA_CallbackIDTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  DMA handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct __DMA_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut DMA_Channel_TypeDef,
@@ -6161,7 +6161,7 @@ extern "C" {
 }
 #[doc = " @brief  Structure definition of ADC initialization and regular group\n @note   The setting of these parameters with function HAL_ADC_Init() is conditioned to ADC state.\n         ADC state can be either:\n          - For all parameters: ADC disabled (this is the only possible ADC state to modify parameter 'ClockPrescaler')\n          - For all parameters except 'ClockPrescaler' and 'resolution': ADC enabled without conversion on going on regular group.\n         If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed\n         without error reporting (as it can be the expected behaviour in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct ADC_InitTypeDef {
     #[doc = "< Select ADC clock source (synchronous clock derived from APB clock or asynchronous clock derived from ADC dedicated HSI RC oscillator 14MHz) and clock prescaler.\nThis parameter can be a value of @ref ADC_ClockPrescaler\nNote: In case of usage of the ADC dedicated HSI RC oscillator, it must be preliminarily enabled at RCC top level.\nNote: This parameter can be modified only if the ADC is disabled"]
     pub ClockPrescaler: u32,
@@ -6222,7 +6222,7 @@ const _: () = {
 };
 #[doc = " @brief  Structure definition of ADC channel for regular group\n @note   The setting of these parameters with function HAL_ADC_ConfigChannel() is conditioned to ADC state.\n         ADC state can be either:\n          - For all parameters: ADC disabled or enabled without conversion on going on regular group.\n         If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed\n         without error reporting (as it can be the expected behaviour in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct ADC_ChannelConfTypeDef {
     #[doc = "< Specifies the channel to configure into ADC regular group.\nThis parameter can be a value of @ref ADC_channels\nNote: Depending on devices, some channels may not be available on package pins. Refer to device datasheet for channels availability."]
     pub Channel: u32,
@@ -6244,7 +6244,7 @@ const _: () = {
 };
 #[doc = " @brief  Structure definition of ADC analog watchdog\n @note   The setting of these parameters with function HAL_ADC_AnalogWDGConfig() is conditioned to ADC state.\n         ADC state can be either: ADC disabled or ADC enabled without conversion on going on regular group."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct ADC_AnalogWDGConfTypeDef {
     #[doc = "< Configures the ADC analog watchdog mode: single/all/none channels.\nThis parameter can be a value of @ref ADC_analog_watchdog_mode."]
     pub WatchdogMode: u32,
@@ -6293,7 +6293,7 @@ pub const HAL_ADC_STATE_AWD3: u32 = 262144;
 pub const HAL_ADC_STATE_MULTIMODE_SLAVE: u32 = 1048576;
 #[doc = " @brief  ADC handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct __ADC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut ADC_TypeDef,
@@ -6533,7 +6533,7 @@ pub const HAL_CRC_StateTypeDef_HAL_CRC_STATE_ERROR: HAL_CRC_StateTypeDef = 4;
 pub type HAL_CRC_StateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  CRC Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct CRC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut CRC_TypeDef,
@@ -6586,7 +6586,7 @@ extern "C" {
 }
 #[doc = " @brief  FLASH Erase structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct FLASH_EraseInitTypeDef {
     #[doc = "< Mass erase or page erase.\nThis parameter can be a value of @ref FLASH_Type_Erase"]
     pub TypeErase: u32,
@@ -6616,7 +6616,7 @@ const _: () = {
 };
 #[doc = " @brief  FLASH Option Bytes PROGRAM structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct FLASH_OBProgramInitTypeDef {
     #[doc = "< OptionType: Option byte to be configured.\nThis parameter can be a value of @ref FLASH_Option_Type"]
     pub OptionType: u32,
@@ -6850,7 +6850,7 @@ pub const FLASH_FLAG_SR_ERROR: u32 = 32784;
 pub const FLASH_FLAG_SR_CLEAR: u32 = 32785;
 #[doc = " @defgroup I2C_Configuration_Structure_definition I2C Configuration Structure definition\n @brief  I2C Configuration Structure definition\n @{"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct I2C_InitTypeDef {
     #[doc = "< Specifies the clock frequency.\nThis parameter must be set to a value lower than 400kHz"]
     pub ClockSpeed: u32,
@@ -6922,7 +6922,7 @@ pub const HAL_I2C_ERROR_TIMEOUT: u32 = 32;
 pub const HAL_I2C_ERROR_SIZE: u32 = 64;
 #[doc = " @defgroup I2C_handle_Structure_definition I2C handle Structure definition\n @brief  I2C handle Structure definition\n @{"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct __I2C_HandleTypeDef {
     #[doc = "< I2C registers base address"]
     pub Instance: *mut I2C_TypeDef,
@@ -7352,7 +7352,7 @@ pub const I2C_MIN_PCLK_FREQ_STANDARD: u32 = 2000000;
 pub const I2C_MIN_PCLK_FREQ_FAST: u32 = 4000000;
 #[doc = " @brief  IWDG Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct IWDG_InitTypeDef {
     #[doc = "< Select the prescaler of the IWDG.\nThis parameter can be a value of @ref IWDG_Prescaler"]
     pub Prescaler: u32,
@@ -7369,7 +7369,7 @@ const _: () = {
 };
 #[doc = " @brief  IWDG Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct IWDG_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut IWDG_TypeDef,
@@ -7430,7 +7430,7 @@ const _: () = {
 };
 #[doc = " @brief  PWR Stop configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct PWR_StopModeConfigTypeDef {
     #[doc = "< LPVoltSelection: Set the low power internal regulator output voltage.\nThis parameter can be a value of @ref PWR_STOP_LPR_Voltage."]
     pub LPVoltSelection: u32,
@@ -7461,7 +7461,7 @@ const _: () = {
 };
 #[doc = " @brief  PWR BIAS configuration structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct PWR_BIASConfigTypeDef {
     #[doc = "< BiasCurrentSource: Set the bias currents load source.\nThis parameter can be a value of @ref PWR_MR_BiasCurrent_Source."]
     pub BiasCurrentSource: u32,
@@ -7631,7 +7631,7 @@ pub const HAL_RTCStateTypeDef_HAL_RTC_STATE_ERROR: HAL_RTCStateTypeDef = 4;
 pub type HAL_RTCStateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  RTC Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RTC_InitTypeDef {
     #[doc = "< Specifies the RTC Asynchronous Predivider value.\nThis parameter must be a number between Min_Data = 0x00 and Max_Data = 0xFFFFF  or RTC_AUTO_1_SECOND\nIf RTC_AUTO_1_SECOND is selected, AsynchPrediv will be set automatically to get 1sec timebase"]
     pub AsynchPrediv: u32,
@@ -7672,7 +7672,7 @@ const _: () = {
         [::core::mem::offset_of!(RTC_DateTypeDef, Year) - 3usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct RTC_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut RTC_TypeDef,
@@ -7848,7 +7848,7 @@ extern "C" {
 }
 #[doc = " @brief  SPI Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct SPI_InitTypeDef {
     #[doc = "< Specifies the SPI operating mode.\nThis parameter can be a value of @ref SPI_Mode"]
     pub Mode: u32,
@@ -7911,7 +7911,7 @@ pub const HAL_SPI_StateTypeDef_HAL_SPI_STATE_ABORT: HAL_SPI_StateTypeDef = 7;
 pub type HAL_SPI_StateTypeDef = ::core::ffi::c_uint;
 #[doc = " @brief  SPI handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct __SPI_HandleTypeDef {
     #[doc = "< SPI registers base address"]
     pub Instance: *mut SPI_TypeDef,
@@ -8169,7 +8169,7 @@ extern "C" {
 }
 #[doc = " @brief  TIM Time base Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_Base_InitTypeDef {
     #[doc = "< Specifies the prescaler value used to divide the TIM clock.\nThis parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF"]
     pub Prescaler: u32,
@@ -8202,7 +8202,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Output Compare Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_OC_InitTypeDef {
     #[doc = "< Specifies the TIM mode.\nThis parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes"]
     pub OCMode: u32,
@@ -8239,7 +8239,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM One Pulse Mode Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_OnePulse_InitTypeDef {
     #[doc = "< Specifies the TIM mode.\nThis parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes"]
     pub OCMode: u32,
@@ -8286,7 +8286,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Input Capture Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_IC_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Input_Capture_Polarity"]
     pub ICPolarity: u32,
@@ -8311,7 +8311,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Encoder Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_Encoder_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Encoder_Mode"]
     pub EncoderMode: u32,
@@ -8358,7 +8358,7 @@ const _: () = {
 };
 #[doc = " @brief  Clock Configuration Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_ClockConfigTypeDef {
     #[doc = "< TIM clock sources\nThis parameter can be a value of @ref TIM_Clock_Source"]
     pub ClockSource: u32,
@@ -8384,7 +8384,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Clear Input Configuration Handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_ClearInputConfigTypeDef {
     #[doc = "< TIM clear Input state\nThis parameter can be ENABLE or DISABLE"]
     pub ClearInputState: u32,
@@ -8415,7 +8415,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Master configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_MasterConfigTypeDef {
     #[doc = "< Trigger output (TRGO) selection\nThis parameter can be a value of @ref TIM_Master_Mode_Selection"]
     pub MasterOutputTrigger: u32,
@@ -8433,7 +8433,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Slave configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_SlaveConfigTypeDef {
     #[doc = "< Slave mode selection\nThis parameter can be a value of @ref TIM_Slave_Mode"]
     pub SlaveMode: u32,
@@ -8463,7 +8463,7 @@ const _: () = {
 };
 #[doc = " @brief  TIM Break input(s) and Dead time configuration Structure definition\n @note   2 break inputs can be configured (BKIN and BKIN2) with configurable\n        filter and polarity."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_BreakDeadTimeConfigTypeDef {
     #[doc = "< TIM off state in run mode\nThis parameter can be a value of @ref TIM_OSSR_Off_State_Selection_for_Run_mode_state"]
     pub OffStateRunMode: u32,
@@ -8529,7 +8529,7 @@ pub const HAL_TIM_ActiveChannel_HAL_TIM_ACTIVE_CHANNEL_CLEARED: HAL_TIM_ActiveCh
 #[doc = " @brief  HAL Active channel structures definition"]
 pub type HAL_TIM_ActiveChannel = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut TIM_TypeDef,
@@ -8791,7 +8791,7 @@ pub const TIM_CCER_CCxE_MASK: u32 = 4369u16 as u32;
 pub const TIM_CCER_CCxNE_MASK: u32 = 1092u16 as u32;
 #[doc = " @brief  TIM Hall sensor Configuration Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct TIM_HallSensor_InitTypeDef {
     #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Input_Capture_Polarity"]
     pub IC1Polarity: u32,
@@ -9437,7 +9437,7 @@ extern "C" {
 }
 #[doc = " @brief  LPTIM Initialization Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct LPTIM_InitTypeDef {
     #[doc = "< Specifies the counter clock Prescaler.\nThis parameter can be a value of @ref LPTIM_Clock_Prescaler"]
     pub Prescaler: u32,
@@ -9465,7 +9465,7 @@ pub const HAL_LPTIM_StateTypeDef_HAL_LPTIM_STATE_ERROR: HAL_LPTIM_StateTypeDef =
 #[doc = " @brief  HAL LPTIM State structure definition"]
 pub type HAL_LPTIM_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct LPTIM_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut LPTIM_TypeDef,
@@ -9548,7 +9548,7 @@ extern "C" {
 }
 #[doc = " @brief UART Init Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct UART_InitTypeDef {
     #[doc = "< This member configures the UART communication baud rate.\nThe baud rate is computed using the following formula:\n- IntegerDivider = ((PCLKx) / (16 * (huart->Init.BaudRate)))\n- FractionalDivider = ((IntegerDivider - ((uint32_t) IntegerDivider)) * 16) + 0.5"]
     pub BaudRate: u32,
@@ -9602,7 +9602,7 @@ pub const HAL_UART_StateTypeDef_HAL_UART_STATE_ERROR: HAL_UART_StateTypeDef = 22
 #[doc = " @brief HAL UART State structures definition\n @note  HAL UART State value is a combination of 2 different substates: gState and RxState.\n        - gState contains UART state information related to global Handle management\n          and also information related to Tx operations.\n          gState value coding follow below described bitmap :\n          b7-b6  Error information\n             00 : No Error\n             01 : (Not Used)\n             10 : Timeout\n             11 : Error\n          b5     Peripheral initialization status\n             0  : Reset (Peripheral not initialized)\n             1  : Init done (Peripheral not initialized. HAL UART Init function already called)\n          b4-b3  (not used)\n             xx : Should be set to 00\n          b2     Intrinsic process state\n             0  : Ready\n             1  : Busy (Peripheral busy with some configuration or internal operations)\n          b1     (not used)\n             x  : Should be set to 0\n          b0     Tx state\n             0  : Ready (no Tx operation ongoing)\n             1  : Busy (Tx operation ongoing)\n        - RxState contains information related to Rx operations.\n          RxState value coding follow below described bitmap :\n          b7-b6  (not used)\n             xx : Should be set to 00\n          b5     Peripheral initialization status\n             0  : Reset (Peripheral not initialized)\n             1  : Init done (Peripheral not initialized)\n          b4-b2  (not used)\n            xxx : Should be set to 000\n          b1     Rx state\n             0  : Ready (no Rx operation ongoing)\n             1  : Busy (Rx operation ongoing)\n          b0     (not used)\n             x  : Should be set to 0."]
 pub type HAL_UART_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct UART_AdvFeatureInitTypeDef {
     #[doc = "< Specifies which advanced UART features is initialized. Several\nAdvanced Features may be initialized at the same time .\nThis parameter can be a value of @ref UART_Advanced_Features_Initialization_Type."]
     pub AdvFeatureInit: u32,
@@ -9625,7 +9625,7 @@ const _: () = {
 };
 #[doc = " @brief  UART handle Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct __UART_HandleTypeDef {
     #[doc = "< UART registers base address"]
     pub Instance: *mut USART_TypeDef,
@@ -9899,7 +9899,7 @@ pub const UART_CR2_REG_INDEX: u32 = 2;
 pub const UART_CR3_REG_INDEX: u32 = 3;
 #[doc = " @brief  WWDG Init structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct WWDG_InitTypeDef {
     #[doc = "< Specifies the prescaler value of the WWDG.\nThis parameter can be a value of @ref WWDG_Prescaler"]
     pub Prescaler: u32,
@@ -9923,7 +9923,7 @@ const _: () = {
         [::core::mem::offset_of!(WWDG_InitTypeDef, EWIMode) - 12usize];
 };
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct WWDG_HandleTypeDef {
     #[doc = "< Register base address"]
     pub Instance: *mut WWDG_TypeDef,
@@ -9965,7 +9965,7 @@ extern "C" {
 }
 #[doc = " @brief LED Init Structure definition"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct LED_InitTypeDef {
     #[doc = "< Specifies the LED COM drive capability.\nThis parameter can be a value of @ref LED_COMDrive"]
     pub ComDrive: u32,
@@ -10005,7 +10005,7 @@ pub const HAL_LED_StateTypeDef_HAL_LED_STATE_ERROR: HAL_LED_StateTypeDef = 4;
 #[doc = " @brief HAL LED State structures definition"]
 pub type HAL_LED_StateTypeDef = ::core::ffi::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct LED_HandleTypeDef {
     pub Instance: *mut LED_TypeDef,
     pub Init: LED_InitTypeDef,
