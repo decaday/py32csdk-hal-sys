@@ -8,9 +8,9 @@ This is a crate that generates bindings using the C SDK for PY32F0.
 
 
 
-**This package is used by bind-hal, you can use bind-hal's rust API.**
+**This package is used by py32-bind-hal, you can use py32-bind-hal's rust API.**
 
-**[bind-hal - crates.io](https://crates.io/crates/bind-hal)**
+**[py32-bind-hal - crates.io](https://crates.io/crates/py32-bind-hal)**
 
 
 
